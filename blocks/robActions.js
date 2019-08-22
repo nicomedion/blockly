@@ -871,14 +871,14 @@ Blockly.Blocks['robActions_brickLight_on'] = {
                 [ Blockly.Msg.BRICKLIGHT_RED, 'RED' ] ]);
         var dropdownLightState;
         if (this.workspace.device === 'botnroll' || this.workspace.device === 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'calliope'
-                || this.workspace.device === 'sensebox' || this.workspace.device === 'festobionic') {
+                || this.workspace.device === 'sensebox' || this.workspace.device === 'festobionic' || this.workspace.device === 'raspberrypi') {
             dropdownLightState = new Blockly.FieldDropdown([ [ Blockly.Msg.BRICKLIGHT_ON, 'ON' ], [ Blockly.Msg.OFF, 'OFF' ] ]);
         } else {
             dropdownLightState = new Blockly.FieldDropdown([ [ Blockly.Msg.BRICKLIGHT_ON, 'ON' ], [ Blockly.Msg.BRICKLIGHT_FLASH, 'FLASH' ],
                     [ Blockly.Msg.BRICKLIGHT_DOUBLE_FLASH, 'DOUBLE_FLASH' ] ]);
             this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.BRICKLIGHT_COLOR).appendField(dropdownColor, 'SWITCH_COLOR');
         }
-        if (this.workspace.device === 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'calliope' || this.workspace.device === 'sensebox' || this.workspace.device === 'festobionic') {
+        if (this.workspace.device === 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'calliope' || this.workspace.device === 'sensebox' || this.workspace.device === 'festobionic' || this.workspace.device === 'raspberrypi') {
             var dropDownPorts;
             dropDownPorts = getConfigPorts('led');
             this.dependConfig = {

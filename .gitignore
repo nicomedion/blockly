@@ -3,6 +3,8 @@ npm-debug.log
 .DS_Store
 .settings
 .project
+.idea
+*.iml
 *.pyc
 *.komodoproject
 /nbproject/private/

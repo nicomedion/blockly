@@ -120,6 +120,8 @@ Blockly.CAT_COMMUNICATION_RGB = "#FF69B4";
  */
 Blockly.CAT_IMAGE_RGB = "#DF01D7";
 
+Blockly.CAT_DIALOG_RGB = "#216C91";
+
 /**
  * Opacity used to calculate flyout background color.
  */
@@ -157,6 +159,7 @@ Blockly.CAT_ICON['TOOLBOX_VARIABLE'] = 'variable';
 Blockly.CAT_ICON['TOOLBOX_PROCEDURE'] = 'plus-outline';
 Blockly.CAT_ICON['TOOLBOX_COMMUNICATION'] = 'messages';
 Blockly.CAT_ICON['TOOLBOX_IMAGE'] = 'image';
+Blockly.CAT_ICON['TOOLBOX_DIALOG'] = 'messages';
 
 /**
  * Sprited icons and images.
@@ -334,6 +337,7 @@ Blockly.TYPE_DROPDOWN = function(device, opt_handler) {
         });
     case 'festobionic':
     case 'vorwerk':
+    case 'raspberrypi':
         return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
                 [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ],
                 [ Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String' ] ], function(option) {
@@ -378,11 +382,8 @@ Blockly.TYPE_DROPDOWN = function(device, opt_handler) {
             }
         });
     case 'edison':
-        return new Blockly.FieldDropdown([
-            [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ],
-            [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-            [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ]
-        ], function(option) {
+        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
+                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ] ], function(option) {
             if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
                 this.sourceBlock_.updateType_(option);
                 if (this.sourceBlock_[handler])
@@ -426,6 +427,7 @@ Blockly.LIST_TYPE_DROPDOWN = function(device) {
             this.sourceBlock_.updateType_(option);
         });
     case 'vorwerk':
+    case 'raspberrypi':
         return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
                 [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ] ], function(option) {
             this.sourceBlock_.updateType_(option);

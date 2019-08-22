@@ -31,7 +31,6 @@ goog.require('Blockly.Blocks');
  */
 
 var confBlocks = {};
-
 function createPins(startNumber, endNumber, opt_prefix_ext, opt_prefix_int) {
     if (!opt_prefix_ext) {
         opt_prefix_ext = "";
@@ -642,12 +641,17 @@ confBlocks.key.calliope = {
 };
 confBlocks.key.microbit = confBlocks.key.calliope;
 confBlocks.key.sensebox = confBlocks.key.arduino;
+confBlocks.key.raspberrypi = {
+    title : 'KEY',
+    ports : [ [ 'intern', 'INTERNAL' ] ],
+    sensor : true
+};
 confBlocks.key.wedo = {
     title: 'KEY',
     bricks: true,
     sensor: true
 };
-confBlocks.key.raspberrypi = {
+/*confBlocks.key.raspberrypi = {
     title: 'KEY',
     ports: [
         ['pin', 'PIN1']
@@ -658,7 +662,7 @@ confBlocks.key.raspberrypi = {
     fixedPorts: [
         ['GND', 'GND']
     ]
-};
+};*/
 
 confBlocks.drop = {};
 confBlocks.drop.arduino = {
@@ -853,16 +857,8 @@ confBlocks.led.wedo = {
     action: true
 };
 confBlocks.led.raspberrypi = {
-    title: 'LED',
-    ports: [
-        ['input', 'INPUT']
-    ],
-    pins: Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
-    sensor: false,
-    standardPins: ['17'],
-    fixedPorts: [
-        ['GND', 'GND']
-    ]
+    title : 'LED',
+    sensor: false
 };
 
 confBlocks.buzzer = {};

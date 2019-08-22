@@ -767,6 +767,16 @@ sensors.key.arduino = {
     ports : 'CONFIGURATION'
 };
 
+sensors.key.raspberrypi = {
+    title : 'KEY',
+    modes : [ {
+        name : 'PRESSED',
+        type : 'Boolean',
+        question : true
+    } ],
+    ports : 'CONFIGURATION'
+};
+
 sensors.key.mbot = {
     title : 'KEY',
     modes : [ {
@@ -1199,6 +1209,9 @@ sensors.timer.calliope = sensors.timer.botnroll;
 sensors.timer.nxt = sensors.timer.botnroll;
 sensors.timer.microbit = sensors.timer.botnroll;
 sensors.timer.wedo = sensors.timer.botnroll;
+sensors.timer.sensebox = sensors.timer.botnroll;
+sensors.timer.festobionic = sensors.timer.botnroll;
+sensors.timer.raspberrypi = sensors.timer.botnroll;
 
 sensors.timer.ev3 = {
     title : 'TIMER',
@@ -1500,6 +1513,8 @@ sensorsAll.nano33ble = [ sensors.out.nano33ble, sensors.key.nano33ble, sensors.t
     sensors.light.nano33ble, sensors.moisture.nano33ble, sensors.potentiometer.nano33ble, sensors.infrared.nano33ble, sensors.humidity.nano33ble,
     sensors.motion.nano33ble, sensors.pulse.nano33ble, sensors.drop.nano33ble, sensors.rfid.nano33ble, sensors.gyro.nano33ble,
     sensors.accelerometer.arduino ];
+sensorsAll.raspberrypi = [ sensors.key.raspberrypi, sensors.timer.raspberrypi];
+
 
 function initSensors() {
     for ( var sensor in sensors) {

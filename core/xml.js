@@ -114,12 +114,6 @@ Blockly.Xml.blockToDom = function(block, statement_list) {
         var mutation = block.mutationToDom();
         if (mutation && (mutation.hasChildNodes() || mutation.hasAttributes())) {
             element.appendChild(mutation);
-            if (mutation !== undefined && mutation != null) {
-                if ((block.type.indexOf('Controls_if') !== -1 || block.type.indexOf('Controls_wait') !== -1 || block.type.indexOf('Procedures_defreturn') !== -1)) {
-                    element.appendChild(repetitions);
-                    repe = true;
-                }
-            }
         }
     }
 
@@ -134,21 +128,20 @@ Blockly.Xml.blockToDom = function(block, statement_list) {
 
     for (var i = 0, input; input = block.inputList[i]; i++) {
         for (var j = 0, field; field = input.fieldRow[j]; j++) {
-            if (block.hide && block.hide.name === field.name) {
-
-            } else {
+            if (!(block.hide && block.hide.name === field.name)) {
                 fieldToDom(field);
             }
         }
     }
 
     if (block.mutationToDom) {
-        // Custom data for an advanced block.
         var mutation = block.mutationToDom();
         if (mutation) {
-            if (mutation !== undefined && mutation != null && block.type.indexOf('Procedures_defreturn') !== -1) {
-                element.appendChild(repetitions);
-                repe = true;
+            if (mutation !== undefined && mutation != null) {
+                if ((block.type.indexOf('Controls_if') !== -1 || block.type.indexOf('Controls_wait') !== -1 || block.type.indexOf('Procedures_defreturn') !== -1 || block.type.indexOf('Dialog_intent') !== -1)) {
+                    element.appendChild(repetitions);
+                    repe = true;
+                }
             }
         }
     }
