@@ -90,7 +90,7 @@ Blockly.CAT_PROCEDURE_RGB = "#179C7D";
 /**
  * The rgb value for block colours in actions category.
  */
-Blockly.CAT_ACTION_RGB = "#F29400";
+Blockly.CAT_ACTION_RGB = "#97d700";
 /**
  * The rgb value for block colours in activity category.
  */
@@ -162,9 +162,9 @@ Blockly.CAT_ICON['TOOLBOX_IMAGE'] = 'image';
  * Sprited icons and images.
  */
 Blockly.SPRITE = {
-    width : 96,
-    height : 124,
-    url : 'sprites.png'
+    width: 96,
+    height: 124,
+    url: 'sprites.png'
 };
 
 // Constants below this point are not intended to be changed.
@@ -295,155 +295,217 @@ Blockly.DATA_TYPE['Array_Image'] = "#39378B";
 Blockly.TYPE_DROPDOWN = function(device, opt_handler) {
     var handler = opt_handler || 'updateShape_';
     switch (device) {
-    case 'mbot':
-    case 'calliope':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ],
-                [ Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_IMAGE, 'Array_Image' ] ], function(option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    case 'bob3':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ] ], function(option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    case 'botnroll':
-    case 'sensebox':
-    case 'arduino':
-    case 'nao':
-	case 'nano33ble':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour' ] ], function(option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    case 'festobionic':
-    case 'vorwerk':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String' ] ], function(option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    case 'microbit':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_IMAGE, 'Array_Image' ] ], function(option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    case 'ev3':
-    case 'nxt':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ],
-                [ Blockly.Msg.VARIABLES_TYPE_CONNECTION, 'Connection' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String' ],
-                [ Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour' ], [ Blockly.Msg.VARIABLES_TYPE_ARRAY_CONNECTION, 'Array_Connection' ] ], function(
+        case 'mbot':
+        case 'calliope':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
+                [Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_IMAGE, 'Array_Image']
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        case 'bob3':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour']
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        case 'botnroll':
+        case 'sensebox':
+        case 'arduino':
+        case 'nao':
+        case 'nano33ble':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour']
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        case 'festobionic':
+        case 'vorwerk':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String']
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        case 'microbit':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_IMAGE, 'Array_Image']
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        case 'ev3':
+        case 'nxt':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
+                [Blockly.Msg.VARIABLES_TYPE_CONNECTION, 'Connection'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_CONNECTION, 'Array_Connection']
+            ], function(
                 option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        case 'wedo':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        case 'edison':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number']
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
+        default:
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number']
+            ], function(option) {
                 this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    case 'wedo':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ], ], function(option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    case 'edison':
-        return new Blockly.FieldDropdown([
-            [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ],
-            [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-            [ Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number' ]
-        ], function(option) {
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
-    default:
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ] ], function(option) {
-            this.sourceBlock_.updateType_(option);
-            if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
-                this.sourceBlock_.updateType_(option);
-                if (this.sourceBlock_[handler])
-                    this.sourceBlock_[handler](0, option);
-            }
-        });
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
     }
 }
 
 Blockly.LIST_TYPE_DROPDOWN = function(device) {
     switch (device) {
-    case 'mbot':
-    case 'calliope':
-        return new Blockly.FieldDropdown(
-                [ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                        [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ],
-                        [ Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image' ] ], function(option) {
+        case 'mbot':
+        case 'calliope':
+            return new Blockly.FieldDropdown(
+                [
+                    [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                    [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                    [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                    [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
+                    [Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image']
+                ],
+                function(option) {
                     this.sourceBlock_.updateType_(option);
                 });
-    case 'microbit':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image' ] ], function(option) {
-            this.sourceBlock_.updateType_(option);
-        });
-    case 'botnroll':
-    case 'sensebox':
-    case 'arduino':
-    case 'nao':
-	case 'nano33ble':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ] ], function(option) {
-            this.sourceBlock_.updateType_(option);
-        });
-    case 'vorwerk':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ] ], function(option) {
-            this.sourceBlock_.updateType_(option);
-        });
-    case 'ev3':
-    case 'nxt':
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ], [ Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean' ],
-                [ Blockly.Msg.VARIABLES_TYPE_STRING, 'String' ], [ Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour' ],
-                [ Blockly.Msg.VARIABLES_TYPE_CONNECTION, 'Connection' ] ], function(option) {
-            this.sourceBlock_.updateType_(option);
-        });
-    case 'wedo':
-        throw "no lists supported for wedo!";
-    case 'edison':
-    default:
-        return new Blockly.FieldDropdown([ [ Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number' ] ], function(option) {
-            this.sourceBlock_.updateType_(option);
-        });
+        case 'microbit':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image']
+            ], function(option) {
+                this.sourceBlock_.updateType_(option);
+            });
+        case 'botnroll':
+        case 'sensebox':
+        case 'arduino':
+        case 'nao':
+        case 'nano33ble':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour']
+            ], function(option) {
+                this.sourceBlock_.updateType_(option);
+            });
+        case 'vorwerk':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String']
+            ], function(option) {
+                this.sourceBlock_.updateType_(option);
+            });
+        case 'ev3':
+        case 'nxt':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
+                [Blockly.Msg.VARIABLES_TYPE_CONNECTION, 'Connection']
+            ], function(option) {
+                this.sourceBlock_.updateType_(option);
+            });
+        case 'wedo':
+            throw "no lists supported for wedo!";
+        case 'edison':
+        default:
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number']
+            ], function(option) {
+                this.sourceBlock_.updateType_(option);
+            });
     }
 }
 
