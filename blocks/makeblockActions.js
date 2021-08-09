@@ -45,6 +45,14 @@ Blockly.Blocks['makeblockActions_leds_on'] = {
                 .appendField(Blockly.Msg.ON)
                 .appendField(Blockly.Msg.BRICKLIGHT_COLOR)
                 .setCheck('Colour');
+        } else if (this.workspace.device === 'festobionicflower') {
+            var ports = getConfigPorts('rgbled');
+            this.dependConfig = {
+                'type' : 'rgbled',
+                'dropDown' : ports
+            };
+            ledSide.setVisible(false);
+            this.appendValueInput('COLOR').appendField(Blockly.Msg.SET_LED).appendField(ledSide, 'LEDSIDE').appendField(ports).appendField(Blockly.Msg.ON).appendField(Blockly.Msg.BRICKLIGHT_COLOR).setCheck('Colour');
         } else {
             this.appendValueInput('COLOR')
                 .appendField(Blockly.Msg.SET_LED)
@@ -86,7 +94,11 @@ Blockly.Blocks['makeblockActions_leds_off'] = {
                 .appendField(Blockly.Msg.NAO_LED_HEAD)
                 .appendField(ledSide, 'LEDSIDE')
                 .appendField(Blockly.Msg.OFF);
-        } else {
+        } else if (this.workspace.device === 'festobionicflower') {
+            var ports = getConfigPorts('rgbled');
+            ledSide.setVisible(false);
+            this.appendDummyInput().appendField(Blockly.Msg.SET_LED).appendField(ledSide, 'LEDSIDE').appendField(ports).appendField(Blockly.Msg.OFF);
+        }else {
             this.appendDummyInput().appendField(Blockly.Msg.SET_LED).appendField(ledSide, 'LEDSIDE').appendField(Blockly.Msg.OFF);
         }
         this.setPreviousStatement(true);

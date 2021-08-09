@@ -73,6 +73,9 @@ Blockly.Blocks.robConfigDefinitions['pinsDigital'].sensebox = function() {
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].festobionic = function() {
     return createPins(1, 4);
 };
+Blockly.Blocks.robConfigDefinitions['pinsDigital'].festobionicflower = function() {
+    return createPins(1, 4);
+};
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].calliope = function() {
     var array = [
         ['P0', '0'],
@@ -321,6 +324,13 @@ confBlocks.light.calliope = {
     inbuilt: true
 };
 confBlocks.light.microbit = confBlocks.light.calliope;
+confBlocks.light.festobionicflower = {
+    title: 'LIGHT',
+    ports: [
+        ['pin', 'PIN1']
+    ],
+    sensor: true,
+};
 confBlocks.light.sensebox = {
     title: 'LIGHT',
     ports: [
@@ -642,6 +652,7 @@ confBlocks.key.calliope = {
 };
 confBlocks.key.microbit = confBlocks.key.calliope;
 confBlocks.key.sensebox = confBlocks.key.arduino;
+
 confBlocks.key.wedo = {
     title: 'KEY',
     bricks: true,
@@ -658,6 +669,22 @@ confBlocks.key.raspberrypi = {
     fixedPorts: [
         ['GND', 'GND']
     ]
+};
+
+confBlocks.touch = {};
+confBlocks.touch.festobionicflower = {
+    title: 'TOUCH',
+    ports: [
+        ['touch', 'TOUCHED']
+    ],
+    pins: function() {
+        return [
+            ['PAD1', 'PAD1'],
+            ['PAD2', 'PAD2']
+        ];
+    },
+    sensor: true,
+    standardPins: ['PAD1'],
 };
 
 confBlocks.drop = {};
@@ -993,6 +1020,14 @@ confBlocks.rgbled.arduino = {
         ['GND', 'GND']
     ]
 };
+confBlocks.rgbled.festobionicflower = {
+    title: 'RGBLED',
+    ports: [
+        ['pin', 'PIN1']
+    ],
+    sensor: false,
+};
+
 confBlocks.rgbled.calliope = {
     title: 'RGBLED',
     ports: [
@@ -1049,6 +1084,14 @@ confBlocks.stepmotor.arduino = {
         ['VCC', '5V']
     ]
 };
+confBlocks.stepmotor.festobionicflower = {
+    title: 'STEPMOTOR',
+    ports: [
+        ['step', 'STEP1']
+    ],
+    sensor: false,
+};
+
 
 confBlocks.servo = {};
 confBlocks.servo.arduino = {

@@ -92,6 +92,7 @@ goog.require('Blockly.Blocks.texts');
 goog.require('Blockly.Blocks.variables'); 
 goog.require('Blockly.Blocks.vorwerkActions'); 
 
+goog.require('Blockly.Blocks.festobionicActions'); 
 
 // Turn off debugging when compiled.
 var CLOSURE_DEFINES = {'goog.DEBUG': false};

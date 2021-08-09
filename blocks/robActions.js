@@ -930,7 +930,7 @@ Blockly.Blocks['robActions_led_on'] = {
             portList.push([ Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT'),
                     (Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT')).toUpperCase() ]);
         }
-        if (this.workspace.device === 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'sensebox') {
+        if (this.workspace.device === 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'sensebox' || this.workspace.device === 'festobionicflower') {
             var ports = getConfigPorts('rgbled');
             this.dependConfig = {
                 'type' : 'rgbled',

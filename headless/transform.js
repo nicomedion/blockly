@@ -44,6 +44,8 @@ require('../blocks/vorwerkActions.js');
 require('../blocks/robActions.js');
 require('../blocks/robConfig.js');
 
+require('../blocks/festobionicActions.js');
+
 require('../msg/js/en.js');
 
 // Process arguments
