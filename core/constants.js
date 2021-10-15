@@ -90,7 +90,7 @@ Blockly.CAT_PROCEDURE_RGB = "#179C7D";
 /**
  * The rgb value for block colours in actions category.
  */
-Blockly.CAT_ACTION_RGB = "#97d700";
+Blockly.CAT_ACTION_RGB = "#ff8200";
 /**
  * The rgb value for block colours in activity category.
  */

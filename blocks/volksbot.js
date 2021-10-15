@@ -132,3 +132,30 @@ Blockly.Blocks['rotate_left'] = {
         })
     }
 };
+
+Blockly.Blocks['step_dummy'] = {
+    init: function() {
+        this.jsonInit({
+            "message0": "%1",
+            "args0": [{
+                "type": "field_image",
+                "src": Blockly.Css.mediaPath_ + "/svgs/solid/step-dummy.svg",
+                "width": 30,
+                "height": 30,
+                "alt": "*",
+                "flipRtl": false
+            }],
+            "previousStatement": null,
+            "movable": false,
+            "colour": "#97d700",
+            "tooltip": "",
+            "helpUrl": ""
+        });
+    },
+    onchange: function() {
+        this.unselect();
+        if (!Blockly.hasClass_(this.svgPath_, 'dummyBlock')) {
+            Blockly.addClass_(this.svgPath_, 'dummyBlock');
+        }
+    }
+};
