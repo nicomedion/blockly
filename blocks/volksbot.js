@@ -31,125 +31,122 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['start'] = {
     init: function() {
         this.jsonInit({
-            "message0": "%1",
-            "args0": [{
-                "type": "field_image",
-                "src": Blockly.Css.mediaPath_ + "/svgs/solid/circle.svg",
-                "width": 30,
-                "height": 30,
-                "alt": "*",
-                "flipRtl": false
+            'message0': '%1',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/circle.svg',
+                'width': 30,
+                'height': 30,
+                'alt': '*',
+                'flipRtl': false
             }],
-            "nextStatement": null,
-            "colour": "#44b59d",
-            "tooltip": "",
-            "helpUrl": ""
-        })
+            'nextStatement': null,
+            'colour': '#44b59d',
+            'tooltip': '',
+            'helpUrl': ''
+        });
     }
 };
-/**
- * Common HSV hue for all blocks in this category.
- */
 Blockly.Blocks['step_forward'] = {
     init: function() {
         this.jsonInit({
-            "message0": "%1",
-            "args0": [{
-                "type": "field_image",
-                "src": Blockly.Css.mediaPath_ + "/svgs/solid/arrow-up.svg",
-                "width": 30,
-                "height": 30,
-                "alt": "*",
-                "flipRtl": false
+            'message0': '%1',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/arrow-up.svg',
+                'width': 30,
+                'height': 30,
+                'alt': '*',
+                'flipRtl': false
             }],
-            "previousStatement": null,
-            "nextStatement": null,
-            "colour": Blockly.CAT_ACTION_RGB,
-            "tooltip": "",
-            "helpUrl": ""
-        })
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
     }
 };
 Blockly.Blocks['step_backward'] = {
     init: function() {
         this.jsonInit({
-            "message0": "%1",
-            "args0": [{
-                "type": "field_image",
-                "src": Blockly.Css.mediaPath_ + "/svgs/solid/arrow-down.svg",
-                "width": 30,
-                "height": 30,
-                "alt": "*",
-                "flipRtl": false
+            'message0': '%1',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/arrow-down.svg',
+                'width': 30,
+                'height': 30,
+                'alt': '*',
+                'flipRtl': false
             }],
-            "previousStatement": null,
-            "nextStatement": null,
-            "colour": Blockly.CAT_ACTION_RGB,
-            "tooltip": "",
-            "helpUrl": ""
-        })
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
     }
 };
 
 Blockly.Blocks['rotate_right'] = {
     init: function() {
         this.jsonInit({
-            "message0": "%1",
-            "args0": [{
-                "type": "field_image",
-                "src": Blockly.Css.mediaPath_ + "/svgs/solid/rotate-right.svg",
-                "width": 30,
-                "height": 30,
-                "alt": "*",
-                "flipRtl": false
+            'message0': '%1',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/rotate-right.svg',
+                'width': 30,
+                'height': 30,
+                'alt': '*',
+                'flipRtl': false
             }],
-            "previousStatement": null,
-            "nextStatement": null,
-            "colour": Blockly.CAT_ACTION_RGB,
-            "tooltip": "",
-            "helpUrl": ""
-        })
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
     }
 };
 
 Blockly.Blocks['rotate_left'] = {
     init: function() {
         this.jsonInit({
-            "message0": "%1",
-            "args0": [{
-                "type": "field_image",
-                "src": Blockly.Css.mediaPath_ + "/svgs/solid/rotate-left.svg",
-                "width": 30,
-                "height": 30,
-                "alt": "*",
-                "flipRtl": false
+            'message0': '%1',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/rotate-left.svg',
+                'width': 30,
+                'height': 30,
+                'alt': '*',
+                'flipRtl': false
             }],
-            "previousStatement": null,
-            "nextStatement": null,
-            "colour": Blockly.CAT_ACTION_RGB,
-            "tooltip": "",
-            "helpUrl": ""
-        })
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
     }
 };
 
 Blockly.Blocks['step_dummy'] = {
     init: function() {
         this.jsonInit({
-            "message0": "%1",
-            "args0": [{
-                "type": "field_image",
-                "src": Blockly.Css.mediaPath_ + "/svgs/solid/step-dummy.svg",
-                "width": 30,
-                "height": 30,
-                "alt": "*",
-                "flipRtl": false
+            'message0': '%1',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/step-dummy.svg',
+                'width': 30,
+                'height': 30,
+                'alt': '*',
+                'flipRtl': false
             }],
-            "previousStatement": null,
-            "movable": false,
-            "colour": "#97d700",
-            "tooltip": "",
-            "helpUrl": ""
+            'previousStatement': null,
+            'movable': false,
+            'colour': '#97d700',
+            'tooltip': '',
+            'helpUrl': ''
         });
     },
     onchange: function() {
@@ -157,5 +154,160 @@ Blockly.Blocks['step_dummy'] = {
         if (!Blockly.hasClass_(this.svgPath_, 'dummyBlock')) {
             Blockly.addClass_(this.svgPath_, 'dummyBlock');
         }
+    }
+};
+
+Blockly.Blocks['t_start'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': '%1 Start',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/circle.svg',
+                'width': 15,
+                'height': 15,
+                'alt': '*',
+                'flipRtl': false
+            }],
+            'nextStatement': null,
+            'colour': '#44b59d',
+            'tooltip': '',
+            'helpUrl': ''
+        });
+    }
+};
+
+Blockly.Blocks['t_step_forward'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': '%1 Fahre %2 Schritt vorwärts',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/arrow-up.svg',
+                'width': 15,
+                'height': 15,
+                'alt': '*',
+                'flipRtl': false
+            }, {
+                'type': 'field_dropdown',
+                'name': 'NUMBER',
+                'options': [['1', '1'], ['2', '2'], ['3', '3']]
+            }],
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
+        this.getField('NUMBER').validator_ = this.validateDropdown;
+    },
+    onchange: function(event) {
+        if (event.type == Blockly.Events.CHANGE || event.type == Blockly.Events.CREATE) {
+            if (this.getField('NUMBER').getValue() > 1) {
+                this.inputList[0].fieldRow[3].setText('Schritte vorwärts');
+            } else {
+                this.inputList[0].fieldRow[3].setText('Schritt vorwärts');
+            }
+        }
+    }
+};
+Blockly.Blocks['t_step_backward'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': '%1 Fahre %2 Schritt zurück',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/arrow-down.svg',
+                'width': 15,
+                'height': 15,
+                'alt': '*',
+                'flipRtl': false
+            }, {
+                'type': 'field_dropdown',
+                'name': 'NUMBER',
+                'options': [['1', '1'], ['2', '2'], ['3', '3']]
+            }],
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
+    },
+    onchange: function(event) {
+        if (event.type == Blockly.Events.CHANGE || event.type == Blockly.Events.CREATE) {
+            if (this.getField('NUMBER').getValue() > 1) {
+                this.inputList[0].fieldRow[3].setText('Schritte rückwärts');
+            } else {
+                this.inputList[0].fieldRow[3].setText('Schritt rückwärts');
+            }
+        }
+    }
+};
+
+Blockly.Blocks['t_rotate_right'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': '%1 Drehe rechts',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/rotate-right.svg',
+                'width': 15,
+                'height': 15,
+                'alt': '*',
+                'flipRtl': false
+            }],
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
+    }
+};
+
+Blockly.Blocks['t_rotate_left'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': '%1 Drehe links',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/rotate-left.svg',
+                'width': 15,
+                'height': 15,
+                'alt': '*',
+                'flipRtl': false
+            }],
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
+    }
+};
+
+Blockly.Blocks['t_collect_color'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': '%1 Sammle %2',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/download.svg',
+                'width': 15,
+                'height': 15,
+                'alt': '*',
+                'flipRtl': false
+            }, {
+                'type': 'field_dropdown',
+                'name': 'COLOR',
+                'options': [['Grün', 'green']]
+            }],
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'tooltip': '',
+            'helpUrl': ''
+        });
     }
 };

@@ -92,7 +92,7 @@
                 zoom: {
                     controls: true,
                     wheel: true,
-                    startScale: 1.0,
+                    startScale: 1,
                     maxScale: 4,
                     minScale: .25,
                     scaleSpeed: 1.1
@@ -287,7 +287,12 @@
             <block type="step_backward"></block>
             <block type="rotate_right"></block>
             <block type="rotate_left"></block>
-            <block type="robActions_eval_expr"></block>
+            <block type="t_start"></block>
+            <block type="t_step_forward"></block>
+            <block type="t_step_backward"></block>
+            <block type="t_rotate_right"></block>
+            <block type="t_rotate_left"></block>
+            <block type="t_collect_color"></block>
             <block type="mbedActions_display_text">
                 <value name="OUT">
                     <block type="text">
