@@ -157,6 +157,34 @@ Blockly.Blocks['step_dummy'] = {
     }
 };
 
+Blockly.Blocks['t_step_dummy'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': '%1',
+            'args0': [{
+                'type': 'field_image',
+                'src': Blockly.Css.mediaPath_ + '/svgs/solid/step-dummy.svg',
+                'width': 56,
+                'height': 15,
+                'alt': '*',
+                'flipRtl': false
+            }],
+            'nextStatement': null,
+            'previousStatement': null,
+            'movable': false,
+            'colour': '#97d700',
+            'tooltip': '',
+            'helpUrl': ''
+        });
+    },
+    onchange: function() {
+        this.unselect();
+        if (!Blockly.hasClass_(this.svgPath_, 'dummyBlock')) {
+            Blockly.addClass_(this.svgPath_, 'dummyBlock');
+        }
+    }
+};
+
 Blockly.Blocks['t_start'] = {
     init: function() {
         this.jsonInit({
@@ -180,7 +208,7 @@ Blockly.Blocks['t_start'] = {
 Blockly.Blocks['t_step_forward'] = {
     init: function() {
         this.jsonInit({
-            'message0': '%1 Fahre %2 Schritt vorwärts',
+            'message0': '%1 Fahre %2 Feld vorwärts',
             'args0': [{
                 'type': 'field_image',
                 'src': Blockly.Css.mediaPath_ + '/svgs/solid/arrow-up.svg',
@@ -202,11 +230,14 @@ Blockly.Blocks['t_step_forward'] = {
         this.getField('NUMBER').validator_ = this.validateDropdown;
     },
     onchange: function(event) {
+        if (!this.workspace || this.workspace.isFlyout || (event.type !== Blockly.Events.UI && event.type !== Blockly.Events.CREATE)) {
+            return;
+        }
         if (event.type == Blockly.Events.CHANGE || event.type == Blockly.Events.CREATE) {
             if (this.getField('NUMBER').getValue() > 1) {
-                this.inputList[0].fieldRow[3].setText('Schritte vorwärts');
+                this.inputList[0].fieldRow[3].setText('Felder vorwärts');
             } else {
-                this.inputList[0].fieldRow[3].setText('Schritt vorwärts');
+                this.inputList[0].fieldRow[3].setText('Feld vorwärts');
             }
         }
     }
