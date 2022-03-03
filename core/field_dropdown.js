@@ -110,7 +110,7 @@ Blockly.FieldDropdown.prototype.init = function() {
  */
 Blockly.FieldDropdown.prototype.showEditor_ = function() {
   // Beate: we have sometimes dropdowns with only one option, no need to show the editor. 
-  if (this.getOptions_().length < 2) { //|| !this.sourceBlock_.isMovable()) {
+  if (this.getOptions_().length < 2 || this.sourceBlock_.markNotChangeable) {
 	return;
   }
   Blockly.WidgetDiv.show(this, this.sourceBlock_.RTL, null);
