@@ -10,7 +10,7 @@ goog.provide('Blockly.Blocks.robDialog');
 goog.require('Blockly.Blocks');
 
 Blockly.Blocks['robConf_intent'] = {
-    init: function() {
+    init: function () {
         var name = Blockly.RobConfig.findLegalName('intentName', this);
         this.nameOld = name;
         this.validateName(name);
@@ -23,28 +23,26 @@ Blockly.Blocks['robConf_intent'] = {
         this.sampleCount_ = 1;
         this.confBlock = 'intent';
         var that = this;
-        this.getConfigDecl = function() {
+        this.getConfigDecl = function () {
             return {
-                'type': 'intent',
-                'name': that.getFieldValue('NAME')
+                type: 'intent',
+                name: that.getFieldValue('NAME'),
             };
         };
     },
-    validateName: function(name) {
+    validateName: function (name) {
         var block = this.sourceBlock_ || this;
         name = name.replace(/[\s\xa0]+/g, '').replace(/^ | $/g, '');
         // no name set -> invalid
-        if (name === '')
-            return null;
-        if (!name.match(/^[a-zA-Z][a-zA-Z_$0-9]*$/))
-            return null;
+        if (name === '') return null;
+        if (!name.match(/^[a-zA-Z][a-zA-Z_$0-9]*$/)) return null;
         // Ensure two identically-named variables don't exist.
         name = Blockly.RobConfig.findLegalName(name, block);
         Blockly.RobConfig.renameConfig(block, block.nameOld, name, Blockly.Workspace.getByContainer('blocklyDiv'));
         block.nameOld = name;
         return name;
     },
-    mutationToDom: function() {
+    mutationToDom: function () {
         if (!this.sampleCount_) {
             return null;
         }
@@ -54,25 +52,27 @@ Blockly.Blocks['robConf_intent'] = {
         }
         return container;
     },
-    domToMutation: function(xmlElement) {
+    domToMutation: function (xmlElement) {
         var sampleCount = parseInt(xmlElement.getAttribute('items'), 10);
         if (sampleCount !== undefined) {
             this.sampleCount_ = sampleCount;
         }
         for (var x = 2; x <= this.sampleCount_; x++) {
-            this.appendDummyInput('SAMPLE_NR' + x).appendField(new Blockly.FieldLabel('Beispiel ' + x)).appendField(new Blockly.FieldTextInput(
-                'noch ein Beispiel'), 'SAMPLE' + x);
+            this.appendDummyInput('SAMPLE_NR' + x)
+                .appendField(new Blockly.FieldLabel('Beispiel ' + x))
+                .appendField(new Blockly.FieldTextInput('noch ein Beispiel'), 'SAMPLE' + x);
         }
         if (this.sampleCount_ >= 2) {
             this.setMutatorMinus(new Blockly.MutatorMinus(this));
         }
     },
-    updateShape_: function(num) {
+    updateShape_: function (num) {
         Blockly.dragMode_ = Blockly.DRAG_NONE;
         if (num == 1) {
             this.sampleCount_++;
-            this.appendDummyInput('SAMPLE_NR' + this.sampleCount_).appendField(new Blockly.FieldLabel('Beispiel ' + this.sampleCount_)).appendField(new Blockly.FieldTextInput(
-                'noch ein Beispiel'), 'SAMPLE' + this.sampleCount_);
+            this.appendDummyInput('SAMPLE_NR' + this.sampleCount_)
+                .appendField(new Blockly.FieldLabel('Beispiel ' + this.sampleCount_))
+                .appendField(new Blockly.FieldTextInput('noch ein Beispiel'), 'SAMPLE' + this.sampleCount_);
         } else if (num == -1 && this.sampleCount_ >= 2) {
             this.removeInput('SAMPLE_NR' + this.sampleCount_);
             this.sampleCount_--;
@@ -89,13 +89,13 @@ Blockly.Blocks['robConf_intent'] = {
             this.render();
         }
     },
-    onDispose: function() {
+    onDispose: function () {
         Blockly.RobConfig.disposeConfig(this);
-    }
+    },
 };
 
 Blockly.Blocks['robConf_slot'] = {
-    init: function() {
+    init: function () {
         var name = Blockly.RobConfig.findLegalName('slotName', this);
         this.nameOld = name;
         this.validateName(name);
@@ -108,10 +108,10 @@ Blockly.Blocks['robConf_slot'] = {
         this.sampleCount_ = 1;
         this.confBlock = 'slot';
         var that = this;
-        this.getConfigDecl = function() {
+        this.getConfigDecl = function () {
             return {
-                'type': 'slot',
-                'name': that.getFieldValue('NAME')
+                type: 'slot',
+                name: that.getFieldValue('NAME'),
             };
         };
     },
@@ -119,37 +119,39 @@ Blockly.Blocks['robConf_slot'] = {
     domToMutation: Blockly.Blocks['robConf_intent'].domToMutation,
     mutationToDom: Blockly.Blocks['robConf_intent'].mutationToDom,
     updateShape_: Blockly.Blocks['robConf_intent'].updateShape_,
-    onDispose: function() {
+    onDispose: function () {
         Blockly.RobConfig.disposeConfig(this);
-    }
+    },
 };
 
 //***********************************
 
 Blockly.Blocks['robDialog_intent'] = {
-    init: function() {
+    init: function () {
         this.confIntents = getConfigIntents('intent');
         this.setColour(Blockly.CAT_DIALOG_RGB);
         this.setInputsInline(false);
         this.setMutatorPlus(new Blockly.MutatorPlus(this));
+        this.setPreviousStatement(true, 'intent');
+        this.setNextStatement(true, 'intent');
         this.appendDummyInput().appendField(new Blockly.FieldLabel('intent')).setAlign(Blockly.ALIGN_RIGHT).appendField(this.confIntents, 'NAME');
         this.appendStatementInput('ELSE').appendField(Blockly.Msg.CONTROLS_IF_MSG_THEN);
         this.slotCount_ = 0;
     },
-    dependConfig: function() {
+    dependConfig: function () {
         return {
-            'type': 'intent',
-            'dropDown': this.confIntents
+            type: 'intent',
+            dropDown: this.confIntents,
         };
     },
-    mutationToDom: function() {
+    mutationToDom: function () {
         var container = document.createElement('mutation');
         if (this.slotCount_ !== undefined) {
             container.setAttribute('elseif', this.slotCount_);
         }
         return container;
     },
-    domToMutation: function(xmlElement) {
+    domToMutation: function (xmlElement) {
         var slotCount = parseInt(xmlElement.getAttribute('elseif'), 10);
         if (slotCount !== undefined) {
             this.slotCount_ = slotCount;
@@ -157,20 +159,24 @@ Blockly.Blocks['robDialog_intent'] = {
         if (this.slotCount_ !== 0) {
             this.removeInput('ELSE');
             for (var x = 1; x <= this.slotCount_; x++) {
-                this.appendValueInput('SLOT_NR' + x).setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldLabel('slot'));
+                this.appendValueInput('SLOT_NR' + x)
+                    .setAlign(Blockly.ALIGN_RIGHT)
+                    .appendField(new Blockly.FieldLabel('slot'));
                 this.appendStatementInput('DO' + x).appendField(Blockly.Msg.CONTROLS_IF_MSG_THEN);
             }
             this.appendStatementInput('ELSE').appendField(Blockly.Msg.CONTROLS_IF_MSG_ELSE);
             this.setMutatorMinus(new Blockly.MutatorMinus(this));
         }
     },
-    updateShape_: function(num) {
+    updateShape_: function (num) {
         Blockly.dragMode_ = Blockly.DRAG_NONE;
         if (num == 1) {
             this.slotCount_++;
             var elseConnectionTarget = this.getInput('ELSE') && this.getInput('ELSE').connection.targetConnection;
             this.removeInput('ELSE');
-            this.appendValueInput('SLOT_NR' + this.slotCount_).setAlign(Blockly.ALIGN_RIGHT).appendField(new Blockly.FieldLabel('slot'));
+            this.appendValueInput('SLOT_NR' + this.slotCount_)
+                .setAlign(Blockly.ALIGN_RIGHT)
+                .appendField(new Blockly.FieldLabel('slot'));
             this.appendStatementInput('DO' + this.slotCount_).appendField(Blockly.Msg.CONTROLS_IF_MSG_THEN);
             this.appendStatementInput('ELSE').appendField(Blockly.Msg.CONTROLS_IF_MSG_ELSE);
             if (elseConnectionTarget) {
@@ -199,22 +205,76 @@ Blockly.Blocks['robDialog_intent'] = {
             this.mutatorMinus = null;
             this.render();
         }
-    }
+    },
+    onchange: function (event) {
+        if (
+            event.blockId === this.id &&
+            this.previousConnection &&
+            this.previousConnection.targetConnection &&
+            (!this.previousConnection.targetConnection.check_ || this.previousConnection.targetConnection.check_.indexOf('intent') < 0)
+        ) {
+            var block = this;
+            this.unplug(true);
+            this.bumpNeighbours_();
+        }
+        if (
+            this.nextConnection &&
+            this.nextConnection.targetConnection &&
+            (!this.nextConnection.targetConnection.check_ || this.nextConnection.targetConnection.check_.indexOf('intent') < 0)
+        ) {
+            var block = this.nextConnection.targetConnection.getSourceBlock();
+            block.unplug(true);
+            block.bumpNeighbours_();
+        }
+    },
 };
 
 Blockly.Blocks['robDialog_slot'] = {
-    init: function() {
+    init: function () {
         this.confSlots = getConfigIntents('slot');
         this.setColour('#2682AD');
         this.setOutput(true, 'String');
         this.appendDummyInput().appendField(this.confSlots, 'SLOT');
     },
-    dependConfig: function() {
+    dependConfig: function () {
         return {
-            'type': 'slot',
-            'dropDown': this.confSlots
+            type: 'slot',
+            dropDown: this.confSlots,
         };
-    }
+    },
+};
+
+Blockly.Blocks['robDialog_listen_step'] = {
+    init: function () {
+        this.setBlocking(true);
+        this.jsonInit({
+            message0: 'höre zu %1 %2',
+            args0: [
+                {
+                    type: 'input_dummy',
+                },
+                {
+                    type: 'input_statement',
+                    name: 'LISTEN_STEP',
+                    check: 'intent',
+                },
+            ],
+            previousStatement: null,
+            nextStatement: null,
+            colour: Blockly.CAT_DIALOG_RGB,
+        });
+    },
+    onchange: function (event) {
+        if (event.blockId === this.id) {
+            return;
+        }
+        var targetConnection = this.getInput('LISTEN_STEP').connection.targetConnection;
+        if (targetConnection && (!targetConnection.check_ || targetConnection.check_.indexOf('intent') < 0)) {
+            var sourceBlock = targetConnection.getSourceBlock();
+            sourceBlock.unplug(true);
+            sourceBlock.bumpNeighbours_();
+        }
+    },
 };
 
 function getConfigIntents(actorName) {
@@ -234,10 +294,10 @@ function getConfigIntents(actorName) {
     }
 
     if (ports.length === 0) {
-        ports.push([Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT'),
-            (Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT')).toUpperCase()]);
+        ports.push([
+            Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT'),
+            (Blockly.Msg.CONFIGURATION_NO_PORT || Blockly.checkMsgKey('CONFIGURATION_NO_PORT')).toUpperCase(),
+        ]);
     }
     return new Blockly.FieldDropdown(ports);
-};
-
-
+}
