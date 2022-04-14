@@ -223,7 +223,7 @@
     "MESSAGE_USER_NEW": "Hallo »$«, herzlich willkommen!",
     "MODE": "Modus",
     "MODE_AMBIENTLIGHT": "Umgebungslicht",
-    "MODE_REFLEXION": "Reflektiertes licht",
+    "MODE_REFLEXION": "reflektiertes Licht",
     "MODE_ANGLE": "Winkel",
     "MODE_COLOUR": "Farbe",
     "MODE_DEGREE": "Grad",
