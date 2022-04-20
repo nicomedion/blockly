@@ -254,6 +254,25 @@ Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'] = function() {
     return array;
 };
 
+Blockly.Blocks.robConfigDefinitions['pinsOrbMotor'] = function() {
+    var array = createPins(1, 4, 'M');
+    return array;
+};
+
+Blockly.Blocks.robConfigDefinitions['pinsOrbSensor'] = function() {
+    var array = createPins(1, 4, 'S');
+    return array;
+};
+
+confBlocks.colour = {};
+confBlocks.colour.orb = {
+    title: 'COLOUR',
+    ports: [['CONNECTOR', 'CONNECTOR']],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsOrbSensor'],
+    action: false,
+    sensor: true,
+    standardPins: ['S4']
+};
 
 confBlocks.ultrasonic = {};
 confBlocks.ultrasonic.arduino = {
@@ -284,6 +303,15 @@ confBlocks.ultrasonic.calliope = {
     },
     sensor: true
 };
+
+confBlocks.ultrasonic.orb = {
+    title: 'ULTRASONIC',
+    ports: [['CONNECTOR', 'CONNECTOR']],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsOrbSensor'],
+    sensor: true,
+    standardPins: ['S3']
+};
+
 confBlocks.ultrasonic.sensebox = {
     title: 'ULTRASONIC',
     ports: [
@@ -512,6 +540,15 @@ confBlocks.infrared.wedo = {
     pins: Blockly.Blocks.robConfigDefinitions['pins_wedo'],
     sensor: true
 };
+
+confBlocks.infrared.orb = {
+    title: 'INFRARED',
+    ports: [['CONNECTOR', 'CONNECTOR']],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsOrbSensor'],
+    sensor: true,
+    standardPins: ['S1']
+};
+
 confBlocks.infrared.arduino = {
     title: 'INFRARED',
     ports: [
@@ -727,6 +764,13 @@ confBlocks.touch.robotino = {
     sensor: true
 };
 
+
+confBlocks.touch.orb = {
+    title: 'TOUCH',
+    ports: [['CONNECTOR', 'CONNECTOR']],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsOrbSensor'],
+    sensor: true
+};
 
 confBlocks.drop = {};
 confBlocks.drop.arduino = {
@@ -1278,6 +1322,15 @@ confBlocks.gyro.calliope = {
     sensor: true,
     inbuilt: true
 };
+
+confBlocks.gyro.orb = {
+    title: 'GYRO',
+    ports: [['CONNECTOR', 'CONNECTOR']],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsOrbSensor'],
+    sensor: true,
+    standardPins: ['S2']
+};
+
 confBlocks.gyro.sensebox = {
     title: 'GYRO',
     sensor: true
@@ -1350,6 +1403,31 @@ confBlocks.motor.raspberrypi = {
     ]
 };
 
+confBlocks.motor.orb = {
+    title: 'MOTOR',
+    ports: [['MOTOR', 'MOTOR']],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsOrbMotor'],
+    action: true
+};
+
+confBlocks.differentialdrive = {};
+confBlocks.differentialdrive.orb = {
+    title: 'DIFFERENTIALDRIVE',
+    inputs: [
+        ['BRICK_WHEEL_DIAMETER', '5.6'],
+        ['BRICK_TRACK_WIDTH', '22.8']
+    ],
+    ports: [
+        ['MOTOR_LEFT', 'MOTOR_L'],
+        ['MOTOR_RIGHT', 'MOTOR_R']
+    ],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsOrbMotor'],
+    sensor: false,
+    inbuilt: true,
+    action: true,
+    standardPins: ['M2', 'M3']
+};
+
 confBlocks.encoder = {};
 confBlocks.encoder.mbot2 = {
     title: 'ENCODER',
@@ -1397,6 +1475,7 @@ confBlocks.digitalout.sensebox = {
     sensor: true
 };
 confBlocks.digitalout.robotino = confBlocks.digitalout.sensebox;
+confBlocks.digitalout.sensebox = confBlocks.digitalout.arduino;
 confBlocks.digitalout.calliope = {
     title: 'DIGITALOUT',
     ports: [

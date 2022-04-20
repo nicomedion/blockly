@@ -45,6 +45,7 @@ Blockly.Blocks['robColour_picker'] = {
         case 'botnroll':
         case 'ev3':
         case 'xNN':
+        case 'orb':
             colorField.setColours([ '#000000', '#0057A6', '#00642E', '#532115', '#585858', '#B30006', '#F7D117', '#FFFFFF' ]).setColumns(8);
             break;
         case 'wedo':

@@ -148,6 +148,34 @@ sensors.colour.nxt = {
     }], standardPort: '3'
 };
 
+sensors.colour.orb = {
+    title: 'COLOUR',
+    ports: 'CONFIGURATION',
+    modes: [
+        {
+            name: 'COLOUR',
+            type: 'Colour',
+            value: '#b30006'
+        },
+        {
+            name: 'LIGHT',
+            type: 'Number',
+            unit: 'PERCENT',
+            value: 50
+        },
+        {
+            name: 'AMBIENTLIGHT',
+            type: 'Number',
+            unit: 'PERCENT',
+            value: 50
+        },
+        {
+            name: 'RGB',
+            type: 'Array_Number'
+        }
+    ]
+};
+
 sensors.compass = {};
 sensors.compass.botnroll = {
     title: 'COMPASS', modes: [{
@@ -268,6 +296,32 @@ sensors.encoder.nxt = {
     }], ports: [['A', 'A'], ['B', 'B'], ['C', 'C']], standardPort: 'B'
 };
 
+sensors.encoder.orb = {
+    title: 'MOTOR', //soll "ENCODER"
+    modes: [
+        {
+            name: 'DEGREE',
+            type: 'Number',
+            unit: 'DEGREE',
+            op: 'NUM_REV',
+            value: 180
+        },
+        {
+            name: 'ROTATION',
+            type: 'Number',
+            unit: '',
+            op: 'NUM_REV',
+            value: 2
+        },
+        {
+            name: 'DISTANCE',
+            type: 'Number',
+            unit: 'CM'
+        }
+    ],
+    ports: 'CONFIGURATION'
+};
+
 sensors.electriccurrent = {};
 sensors.electriccurrent.nao = {
     title: 'ELECTRICCURRENT', modes: [{
@@ -367,6 +421,26 @@ sensors.gyro.wedo = {
     ports: 'CONFIGURATION'
 };
 
+sensors.gyro.orb = {
+    title: 'GYRO',
+    ports: 'CONFIGURATION',
+    modes: [
+        {
+            name: 'ANGLE',
+            type: 'Number',
+            unit: 'DEGREE',
+            op: 'NUM_REV',
+            value: 90
+        },
+        {
+            name: 'RATE',
+            type: 'Number',
+            unit: 'OMEGA',
+            op: 'NUM_REV',
+            value: 90
+        }
+    ]
+};
 sensors.gyro.sensebox = {
     title: 'GYRO', modes: [{
         name: 'X', type: 'Number', unit: 'DEGREE'
@@ -491,6 +565,22 @@ sensors.infrared.edison = {
     }]
 };
 
+sensors.infrared.orb = {
+    title: 'INFRARED',
+    ports: 'CONFIGURATION',
+    modes: [
+        {
+            name: 'DISTANCE',
+            type: 'Number',
+            unit: 'CM'
+        },
+        {
+            name: 'PRESENCE',
+            type: 'Array_Number'
+        }
+    ]
+};
+
 sensors.infrared.thymio = {
     title: 'INFRARED', modes: [{
         name: 'LINE', type: 'Number', op: 'NUM_EQ', value: 1
@@ -602,7 +692,7 @@ sensors.key.wedo = {
         name: 'PRESSED', type: 'Boolean', question: true
     }], ports: 'CONFIGURATION'
 };
-
+sensors.key.orb = sensors.key.wedo;
 sensors.key.edison = {
     title: 'KEY', modes: [{
         name: 'PRESSED', type: 'Boolean', question: true
@@ -902,6 +992,7 @@ sensors.timer.festobionic = sensors.timer.ev3;
 sensors.timer.festobionicflower = sensors.timer.ev3;
 sensors.timer.mbot = sensors.timer.ev3;
 sensors.timer.mbot2 = sensors.timer.ev3;
+sensors.timer.orb = sensors.timer.ev3;
 sensors.timer.sensebox = sensors.timer.ev3;
 sensors.timer.robotino = sensors.timer.ev3;
 
@@ -926,6 +1017,17 @@ sensors.touch.nao = {
     }]
 };
 
+sensors.touch.orb = {
+    title: 'TOUCH',
+    ports: 'CONFIGURATION',
+    modes: [
+        {
+            name: 'PRESSED',
+            type: 'Boolean',
+            question: true
+        }
+    ]
+};
 sensors.touch.vorwerk = {
     title: 'TOUCH', modes: [{
         name: 'PRESSED', type: 'Boolean', question: true
@@ -984,6 +1086,22 @@ sensors.ultrasonic.nxt = {
     title: 'ULTRASONIC', ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']], modes: [{
         name: 'DISTANCE', type: 'Number', unit: 'CM'
     }], standardPort: '4'
+};
+
+sensors.ultrasonic.orb = {
+    title: 'ULTRASONIC',
+    ports: 'CONFIGURATION',
+    modes: [
+        {
+            name: 'DISTANCE',
+            type: 'Number',
+            unit: 'CM'
+        },
+        {
+            name: 'PRESENCE',
+            type: 'Boolean'
+        }
+    ]
 };
 sensors.ultrasonic.vorwerk = {
     title: 'ULTRASONIC',
@@ -1092,6 +1210,7 @@ sensorsAll.nano33ble = [sensors.out.nano33ble, sensors.key.nano33ble, sensors.ti
 sensorsAll.rob3rta = [sensors.pintouch.rob3rta, sensors.infrared.rob3rta, sensors.temperature.rob3rta, sensors.timer.rob3rta];
 sensorsAll.thymio = [sensors.key.thymio, sensors.infrared.thymio, sensors.irhorizontal.thymio, sensors.tap.thymio, sensors.sound.thymio, sensors.timer.thymio, sensors.accelerometer.thymio, sensors.temperature.thymio];
 sensorsAll.robotino = [sensors.touch.robotino, sensors.infrared.robotino, sensors.odometry.robotino, sensors.timer.robotino, sensors.detectmark.robotino, sensors.out.robotino, sensors.camera.robotino];
+sensorsAll.orb = [sensors.touch.orb, sensors.ultrasonic.orb, sensors.colour.orb, sensors.infrared.orb, sensors.encoder.orb, sensors.key.orb, sensors.gyro.orb, sensors.timer.orb];
 
 function initSensors() {
     for (var sensor in sensors) {

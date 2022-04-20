@@ -256,6 +256,7 @@ Blockly.Msg.SENSOR_INFRARED = 'infrared sensor';
 Blockly.Msg.SENSOR_IRHORIZONTAL = 'horizontal infrared sensor';
 Blockly.Msg.SENSOR_IRSEEKER = 'HT infrared sensor';
 Blockly.Msg.SENSOR_ENCODER = 'encoder';
+Blockly.Msg.SENSOR_MOTOR = Blockly.Msg.SENSOR_ENCODER;
 Blockly.Msg.SENSOR_GYRO = 'gyroscope';
 Blockly.Msg.SENSOR_GYRO_WEDO = 'tilt sensor';
 Blockly.Msg.SENSOR_ODOMETRY = 'odometry';
