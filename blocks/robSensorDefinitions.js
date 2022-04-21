@@ -1055,7 +1055,8 @@ sensors.pintouch.microbit = {
 };
 
 sensors.pintouch.rob3rta = {
-    title: '',
+    title: 'PINTOUCH',
+    titleNotVisible: true,
     modes: [{
         name: 'PRESSED',
         type: 'Boolean',

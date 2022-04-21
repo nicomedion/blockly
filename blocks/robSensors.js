@@ -240,16 +240,17 @@ Blockly.Blocks['robSensors_generic'] = {
 
         var firstMode = sensor.modes[0];
         // question or not?
-        if (firstMode.question && sensor.title != '') {
-            this.appendDummyInput('ROW').appendField(Blockly.Msg['SENSOR_' + sensor.title + '_' + this.workspace.device.toUpperCase()]
-                || Blockly.Msg['SENSOR_' + sensor.title] || Blockly.checkMsgKey('SENSOR_' + sensor.title), 'SENSORTITLE').appendField(modes, 'MODE').appendField(ports, 'SENSORPORT').appendField(slots, 'SLOT').appendField(Blockly.Msg['SENSOR_IS_'
-                + firstMode.name]
-
-                || firstMode.name);
-        } else if (firstMode.question) {
-            this.appendDummyInput('ROW').appendField(modes, 'MODE').appendField(ports, 'SENSORPORT').appendField(slots, 'SLOT').appendField(Blockly.Msg['SENSOR_IS_'
-                + firstMode.name]
-                || firstMode.name);
+        if (firstMode.question) {
+            if (!sensor.titleNotVisible) {
+                this.appendDummyInput('ROW').appendField(Blockly.Msg['SENSOR_' + sensor.title + '_' + this.workspace.device.toUpperCase()]
+                    || Blockly.Msg['SENSOR_' + sensor.title] || Blockly.checkMsgKey('SENSOR_' + sensor.title), 'SENSORTITLE').appendField(modes, 'MODE').appendField(ports, 'SENSORPORT').appendField(slots, 'SLOT').appendField(Blockly.Msg['SENSOR_IS_'
+                    + firstMode.name]
+                    || firstMode.name);
+            } else {
+                this.appendDummyInput('ROW').appendField(modes, 'MODE').appendField(ports, 'SENSORPORT').appendField(slots, 'SLOT').appendField(Blockly.Msg['SENSOR_IS_'
+                    + firstMode.name]
+                    || firstMode.name);
+            }
         } else {
             this.appendDummyInput('ROW').appendField(Blockly.Msg.GET).appendField(modes, 'MODE').appendField(Blockly.Msg['SENSOR_UNIT_' + firstMode.unit]
                 || Blockly.checkMsgKey(firstMode.unit), 'UNIT').appendField(Blockly.Msg['SENSOR_' + sensor.title + '_'
@@ -404,7 +405,7 @@ Blockly.Blocks['robSensors_generic_all'] = {
                 if (sensors[i].modes[j].type.indexOf('Array') > -1) {
                     continue;
                 }
-                if (sensors[i].title != '' && sensors[i].modes[j].unit != '') {
+                if (!sensors[i].titleNotVisible) {
                     modeSensor.push([
                         (Blockly.Msg['MODE_' + sensors[i].modes[j].name] || Blockly.checkMsgKey(sensors[i].modes[j].name))
                         + ' '
@@ -413,17 +414,10 @@ Blockly.Blocks['robSensors_generic_all'] = {
                         + (Blockly.Msg['SENSOR_' + sensors[i].title + '_' + this.workspace.device.toUpperCase()]
                             || Blockly.Msg['SENSOR_' + sensors[i].title] || Blockly.checkMsgKey(sensors[i].title)),
                         sensors[i].title + '_' + sensors[i].modes[j].name]);
-                } else if (sensors[i].title != '') {
-                    modeSensor.push([
-                        (Blockly.Msg['MODE_' + sensors[i].modes[j].name] || Blockly.checkMsgKey(sensors[i].modes[j].name))
-                        + ' '
-                        + (Blockly.Msg['SENSOR_' + sensors[i].title + '_' + this.workspace.device.toUpperCase()]
-                            || Blockly.Msg['SENSOR_' + sensors[i].title] || Blockly.checkMsgKey(sensors[i].title)),
-                        sensors[i].title + '_' + sensors[i].modes[j].name]);
                 } else {
                     modeSensor.push([
                         (Blockly.Msg['MODE_' + sensors[i].modes[j].name] || Blockly.checkMsgKey(sensors[i].modes[j].name)),
-                        sensors[i].modes[j].name]);
+                        sensors[i].title + '_' + sensors[i].modes[j].name]);
                 }
                 if (sensors[i].ports) {
                     var portsList = [];
