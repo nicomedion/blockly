@@ -663,11 +663,9 @@ sensors.infrared.bob3 = {
     modes: [{
         name: 'AMBIENTLIGHT',
         type: 'Number',
-        unit: 'PERCENT'
     }, {
         name: 'REFLEXION',
         type: 'Number',
-        unit: 'PERCENT'
     }]
 };
 sensors.infrared.rob3rta = sensors.infrared.bob3;
