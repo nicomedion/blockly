@@ -361,7 +361,13 @@ Blockly.Field.prototype.updateTextNode_ = function() {
     return;
   }
   var text = this.text_;
-  if (text.length > this.maxDisplayLength) {
+  if (this.stretch) {
+    // Beate: special flag to stretch editable field width
+    var stretchNum = this.stretch - text.length;
+    for (var i = 0; i < stretchNum; i++) {
+      text = Blockly.Field.NBSP + text + Blockly.Field.NBSP;
+    }
+  } else if (text.length > this.maxDisplayLength) {
     // Truncate displayed string and add an ellipsis ('...').
     text = text.substring(0, this.maxDisplayLength - 2) + '\u2026';
   }

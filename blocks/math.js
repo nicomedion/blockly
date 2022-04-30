@@ -101,6 +101,128 @@ Blockly.Blocks['rob_math_number'] = {
         }
       };
 
+Blockly.Blocks['rob_math_u999'] = {
+  /**
+   * Block for numeric value.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 %2 %3 %4 %5 %6",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "NUM",
+          "text": "0",
+          "check": "number"
+        },
+        {
+          "type": "input_dummy",
+          "align": "CENTRE",
+        },
+        {
+          "type": "field_dropdown",
+          "name": "SIGN",
+          "options": [
+            ['+', 'POS'], ['-', 'NEG'],
+          ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "2",
+          "options": [
+            ['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'],
+          ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "1",
+          "options": [
+            ['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'],
+          ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "0",
+          "options": [
+            ['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'],
+          ]
+        }
+      ],
+      "output": null,
+      "colour": Blockly.CAT_MATH_RGB,
+      "helpUrl": ""
+    });
+    var thisBlock = this;
+    var validator = function(newValue) {
+      var value = Blockly.FieldTextInput.integerValidator(newValue);
+      if (value && value > -1000 && value < 1000) {
+        var validValue = value;
+        var sign = validValue < 0 ? -1 : 1;
+        value = Math.abs(validValue);
+        var digit = Math.floor(value / 100);
+        // setValue() will trigger another change event (which is already triggered by this input), to avoid this we have to set value_ by hand
+        thisBlock.getField("2").setText(digit.toString());
+        thisBlock.getField("2").value_ = digit.toString();
+        value -= digit * 100;
+        digit = Math.floor(value / 10);
+        thisBlock.getField("1").setText(digit.toString());
+        thisBlock.getField("1").value_ = digit.toString();
+        value -= digit * 10;
+        thisBlock.getField("0").setText(Math.floor(value).toString());
+        thisBlock.getField("0").value_ = Math.floor(value).toString();
+        thisBlock.getField("SIGN").setText(sign < 0 ? "-" : "+");
+        thisBlock.getField("SIGN").value_ = sign < 0 ? "NEG" : "POS";
+        return validValue;
+      } else {
+        return null;
+      }
+    };
+
+    var validatorDropdown = function(newValue) {
+      var newNumber = parseInt(newValue);
+      var sign = thisBlock.getField("NUM").getValue() < 0 ? -1 : 1;
+      var hundreds = parseInt(thisBlock.getField("2").getValue()) * 100;
+      var tens = parseInt(thisBlock.getField("1").getValue()) * 10;
+      var one = parseInt(thisBlock.getField("0").getValue());
+      switch (this.name) {
+          case "0":
+              one = newNumber;
+              break;
+          case "1":
+              tens = newNumber * 10;
+              break;
+          case "2":
+              hundreds = newNumber * 100;
+              break;
+      }
+      thisBlock.getField("NUM").setText(sign * (hundreds + tens + one));
+      return newValue;
+    };
+    var validatorSign = function(newValue) {
+      var num = parseInt(thisBlock.getField("NUM").getValue());
+      if ((num > 0 && newValue === "NEG") || (num < 0 && newValue === "POS")) {
+        num *=-1;
+      }
+      thisBlock.getField("NUM").setText(num);
+      thisBlock.getField("NUM").value_ = num;
+      return newValue;
+    }
+    this.getField("0").setValidator(validatorDropdown);
+    this.getField("1").setValidator(validatorDropdown);
+    this.getField("2").setValidator(validatorDropdown);
+    this.getField("SIGN").setValidator(validatorSign);
+    this.getField("NUM").setValidator(validator);
+    this.getField("NUM").stretch = 16;
+
+    this.setTooltip(function() {
+      var parent = thisBlock.getParent();
+      return (parent && parent.getInputsInline() && parent.tooltip) ||
+          Blockly.Msg.MATH_NUMBER_TOOLTIP;
+    });
+  }
+}
+
 Blockly.Blocks['math_arithmetic'] = {
   /**
    * Block for basic arithmetic operator.
@@ -379,7 +501,7 @@ Blockly.Blocks['math_number_property'] = {
     return container;
   },
   /**
-   * Parse XML to restore the 'divisorInput'.
+   * Parse XML to digitore the 'divisorInput'.
    * @param {!Element} xmlElement XML storage element.
    * @this Blockly.Block
    */
@@ -547,7 +669,7 @@ Blockly.Blocks['math_on_list'] = {
     return container;
   },
   /**
-   * Parse XML to restore the output type.
+   * Parse XML to digitore the output type.
    * @param {!Element} xmlElement XML storage element.
    * @this Blockly.Block
    */
