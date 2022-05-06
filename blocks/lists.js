@@ -906,15 +906,13 @@ Blockly.Blocks['robLists_create_with'] = {
         }
     },
     onchange : function(e) {
-        if (!this.workspace || Blockly.Block.dragMode_ == 2 || this.workspace.device !== 'nxt') {
-            // Block has been deleted or is in move or the device is not an NXT
+        if (!this.workspace || Blockly.Block.dragMode_ == 2) {
+            // Block has been deleted or is in move
             return;
         }
         var block = this.getSurroundParent();
         if (!block || block.type.indexOf('Variables_declare') == -1) {
             this.setErrorText(Blockly.Msg.ORA_LIST_CREATE_WITH_ERROR);
-        } else {
-            this.setErrorText(null);
         }
     }
 };
