@@ -1601,30 +1601,26 @@ Blockly.Msg.SENSOR_COLOURTCS3472_LIGHT_GETSAMPLE_TOOLTIP = Blockly.Msg.COLOUR_LI
 Blockly.Msg.SENSOR_COLOURTCS3472_RGB_GETSAMPLE_TOOLTIP = Blockly.Msg.COLOUR_RGB_GETSAMPLE_TOOLTIP;
 Blockly.Msg.SENSOR_DATA_READY = 'ready?';
 
-Blockly.Msg.NN_SETUP = 'setup the neural network';
-Blockly.Msg.NN_SETUP_TOOLTIP = 'define properties of a neural network, which can classify data';
-Blockly.Msg.NN_NUMBER_OF_CLASSES = '# classes';
-Blockly.Msg.NN_NUMBER_INPUT_NEURONS = '# input neurons';
-Blockly.Msg.NN_MAX_NUMBER_OF_NEURONS = 'max neurons';
+Blockly.Msg.AIFES_SETUP = 'setup the neural network';
+Blockly.Msg.AIFES_SETUP_TOOLTIP = 'define properties of a neural network, which can classify data';
+Blockly.Msg.AIFES_NUMBER_OF_CLASSES = '# classes';
+Blockly.Msg.AIFES_NUMBER_INPUT_NEURONS = '# input neurons';
+Blockly.Msg.AIFES_MAX_NUMBER_OF_NEURONS = 'max neurons';
+Blockly.Msg.AIFES_INIT_RAW_DATA = 'initialize raw data';
+Blockly.Msg.AIFES_INIT_RAW_DATA_TOOLTIP = 'clear raw data memory. Then add raw data multiple times, extract the input features from it and add that to the trainings data';
+Blockly.Msg.AIFES_ADD_RAW_DATA = 'add raw data for later feature extraction';
+Blockly.Msg.AIFES_ADD_RAW_DATA_TOOLTIP = 'add raw data (multiple times). Then extract the input features from it and add that to the trainings data';
+Blockly.Msg.AIFES_RAW_DATA = 'raw value';
+Blockly.Msg.AIFES_ADD_TRAININGS_DATA = 'add to trainings data';
+Blockly.Msg.AIFES_ADD_TRAININGS_DATA_TOOLTIP = 'take raw data, execute feature extraction and add the data from feature extraction to the collection of training data for a class';
+Blockly.Msg.AIFES_CLASS_NUMBER = 'class #';
+Blockly.Msg.AIFES_TRAIN = 'train';
+Blockly.Msg.AIFES_TRAIN_TOOLTIP = 'train the neural network with the trainings data assembled';
+Blockly.Msg.AIFES_CLASSIFY = 'classifiy';
+Blockly.Msg.AIFES_CLASSIFY_TOOLTIP = 'use the trained neural network and data from feature extraction to classify and return the probabiliy for each class';
+Blockly.Msg.AIFES_CLASS_PROBABILITIES = 'probabilities';
 
-Blockly.Msg.NN_INIT_RAW_DATA = 'initialize raw data';
-Blockly.Msg.NN_INIT_RAW_DATA_TOOLTIP = 'clear raw data memory. Then add raw data multiple times, extract the input features from it and add that to the trainings data';
-
-Blockly.Msg.NN_ADD_RAW_DATA = 'add raw data for later feature extraction';
-Blockly.Msg.NN_ADD_RAW_DATA_TOOLTIP = 'add raw data (multiple times). Then extract the input features from it and add that to the trainings data';
-Blockly.Msg.NN_RAW_DATA = 'raw value';
-
-Blockly.Msg.NN_ADD_TRAININGS_DATA = 'add to trainings data';
-Blockly.Msg.NN_ADD_TRAININGS_DATA_TOOLTIP = 'take raw data, execute feature extraction and add the data from feature extraction to the collection of training data for a class';
-Blockly.Msg.NN_CLASS_NUMBER = 'class #';
-
-Blockly.Msg.NN_TRAIN = 'train';
-Blockly.Msg.NN_TRAIN_TOOLTIP = 'train the neural network with the trainings data assembled';
-
-Blockly.Msg.NN_CLASSIFY = 'classifiy';
-Blockly.Msg.NN_CLASSIFY_TOOLTIP = 'use the trained neural network and data from feature extraction to classify and return the probabiliy for each class';
-Blockly.Msg.NN_CLASS_PROBABILITIES = 'probabilities';
-
+Blockly.Msg.TAB_NN = 'neural network';
 Blockly.Msg.NN_STEP = 'make one NN step';
 Blockly.Msg.NN_STEP_TOOLTIP = 'retrieve inputs values, execute one step in a neural network, generate values of the output neurons';
 Blockly.Msg.NN_CHANGE_WEIGHT = 'change weight from';
@@ -1635,11 +1631,25 @@ Blockly.Msg.NN_INPUT_NEURON = 'input neuron';
 Blockly.Msg.NN_OUTPUT_NEURON = 'output neuron';
 Blockly.Msg.NN_GET_OUTPUT_NEURON_VALUE = 'get value of output neuron';
 Blockly.Msg.NN_GET_OUTPUT_NEURON_VALUE_TOOLTIP = 'return the value of an output neuron from the last step of the neural network.';
-Blockly.Msg.NN_IO_NEURON_NAMES_INVALID = 'names of input/output neurons must be all different and valid (start with letter, no spaces, ...)';
 Blockly.Msg.NN_VALUE = 'value:';
 Blockly.Msg.NN_TO = 'to';
 Blockly.Msg.NN_BY = 'by';
 Blockly.Msg.NN_TARGET = 'to';
+Blockly.Msg.NN_WEIGHT = 'weight';
+Blockly.Msg.NN_BIAS = 'bias';
+Blockly.Msg.NN_HIDDEN_LAYER = 'hidden layer';
+Blockly.Msg.NN_HIDDEN_LAYERS = 'hidden layers';
+Blockly.Msg.NN_ACTIVATION = 'activation';
+Blockly.Msg.NN_REGULARIZATION = 'regularization';
+Blockly.Msg.NN_FOCUS_OPTION = 'show/change the weight/bias';
+Blockly.Msg.NN_CLICK_WEIGHT_BIAS = 'change by clicking on weight or bias';
+Blockly.Msg.NN_CLICK_NODE = 'select node by clicking, then change';
+Blockly.Msg.NN_SHOW_ALL = 'show all, change by clicking';
+Blockly.Msg.NN_STEPS_INCONSISTENT = 'if you use many NNStep-blocks, names and order of neurons must match';
+Blockly.Msg.NN_STEP_INCONSISTENT = 'names of neurons must be nonempty, different and valid';
+Blockly.Msg.NN_OUTPUT_NEURON_MISSING = 'unknown name of output neuron in get value of output neuron block';
+Blockly.Msg.NN_SHOW_MATH = 'computation of neuron';
+Blockly.Msg.NN_SHOW_PRECISION = 'decimal places';
 
 Blockly.Msg.MIN_ANGLE = 'Minimum angle';
 Blockly.Msg.MAX_ANGLE = 'Maximum angle';
