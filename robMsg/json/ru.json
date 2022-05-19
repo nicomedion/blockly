@@ -350,7 +350,7 @@
 	"NAO_ACCELEROMETER": "акселерометр",
 	"NAO_ANSWER": "ответ",
 	"NAO_AUTONOMOUS": "автономная жизнь",
-	"NAO_CAMERA": "камера",
+	"SENSOR_CAMERA": "камера",
 	"NAO_FILENAME": "имя файла",
 	"NAO_FORGETFACEOF": "забыть лицо",
 	"NAO_FRAME": "каркас",

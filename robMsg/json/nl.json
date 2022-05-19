@@ -296,7 +296,7 @@
 	"NAO_APPLYPOSTURE": "postuur aannemen",
 	"NAO_APPLYPOSTURE_TOOLTIP": "Robot neemt het geselecteerde postuur aan.",
 	"NAO_BLINK": "knipper",
-	"NAO_CAMERA": "camera",
+	"SENSOR_CAMERA": "camera",
 	"NAO_CAMERA_BOTTOM": "bodem",
 	"NAO_CAMERA_TOP": "bovenkant",
 	"NAO_FILENAME": "bestandsnaam",

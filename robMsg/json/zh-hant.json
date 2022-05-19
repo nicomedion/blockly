@@ -466,7 +466,7 @@
 	"NAO_AUTONOMOUS": "開關自主行爲",
 	"NAO_AUTONOMOUS_TOOLTIP": "打開或關閉機器人的自主行為。當 \"打開\" 時, 機器人會對聲音做出反應, 從一側到另一側微微移動, 並嘗試跟蹤臉部。如果這種行為中斷了您的程式, 請關閉它。",
 	"NAO_BLINK": "閃燈",
-	"NAO_CAMERA": "相機",
+	"SENSOR_CAMERA": "相機",
 	"NAO_CAMERA_BOTTOM": "底部",
 	"NAO_CAMERA_TOP": "頂部",
 	"NAO_FACE_GET_INFORMATION_TOOLTIP": "返回有關在具有以下值的陣列中檢測到的附加資訊: [XAngle、YAngle、XSize、YSize、標題], 請注意, 所有值都以相機角度提供。",

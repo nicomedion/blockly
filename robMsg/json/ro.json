@@ -466,7 +466,7 @@
 	"NAO_AUTONOMOUS": "Porneste/opreste comportamentul autonom",
 	"NAO_AUTONOMOUS_TOOLTIP": "Activează sau dezactivează comportamentul autonom al roboților. Cât timp este pornit robotul reactionează la sunete, se deplasează încet dintr-o parte în alta și încearcă să urmărească fețele. Dezactivați-l dacă acest comportament întrerupe programul.",
 	"NAO_BLINK": "clipeste",
-	"NAO_CAMERA": "camera",
+	"SENSOR_CAMERA": "camera",
 	"NAO_CAMERA_BOTTOM": "jos",
 	"NAO_CAMERA_TOP": "sus",
 	"NAO_FACE_GET_INFORMATION_TOOLTIP": "Întoarce informații suplimentare despre datele detectate într-un tablou cu următoarele valori: [XAngle, YAngle, XSize, YSize, Heading], vă rugăm să rețineți că toate valorile sunt date în unghiurile camerei.",

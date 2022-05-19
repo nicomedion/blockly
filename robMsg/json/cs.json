@@ -357,7 +357,7 @@
 	"NAO_AUTONOMOUS": "autonomní chování",
 	"NAO_AUTONOMOUS_TOOLTIP": "Zapne/vypne autonomní chování robota. Když je zapnuto, robot reaguje na zvuky a snaží se rozpoznávat tváře. Vypněte tuto možnost, pokud narušuje běh vašeho programu.",
 	"NAO_BLINK": "blikat",
-	"NAO_CAMERA": "kamera",
+	"SENSOR_CAMERA": "kamera",
 	"NAO_CAMERA_BOTTOM": "spodní",
 	"NAO_CAMERA_TOP": "vrchní",
 	"NAO_FACE_GET_INFORMATION_TOOLTIP": "Tento blok vrátí dodatečné informace o rozpoznané tváři ve formátu jednorozměrného pole s následujícími hodnotami: [XAngle, YAngle, XSize, YSize, Heading], pamatujte, že všechny hodnoty jsou uváděné v úhlu kamery.",

@@ -1384,16 +1384,27 @@ Blockly.Blocks['robActions_write_pin'] = {
                 that.updatePins_(option);
             }
         });
+        if (this.workspace.device === 'robotino') {
+            valueType = new Blockly.FieldDropdown([[Blockly.Msg.MODE_DIGITAL, 'DIGITAL']], function (option) {
+                if (option && this.sourceBlock_.getFieldValue('MODE') !== option) {
+                    that.updatePins_(option);
+                }
+            });
+        }
         this.protocol_ = 'DIGITAL';
         this.dependConfig = {
             type: this.protocol_, dropDown: this.dropDownPorts
         };
-        this.appendValueInput('VALUE')
+        if (this.workspace.device === 'robotino') {
+            this.appendValueInput('VALUE').appendField(Blockly.Msg.PIN_WRITE).appendField(valueType, 'MODE').appendField(Blockly.Msg.ACTION_IN).appendField(this.dropDownPorts, 'ACTORPORT').setCheck('Boolean');
+        } else {
+            this.appendValueInput('VALUE')
             .appendField(Blockly.Msg.PIN_WRITE)
             .appendField(valueType, 'MODE')
             .appendField(Blockly.Msg.ACTION_IN)
             .appendField(this.dropDownPorts, 'ACTORPORT')
             .setCheck('Number');
+        }
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip(function() {

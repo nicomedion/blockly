@@ -463,7 +463,7 @@
 	"NAO_AUTONOMOUS": "passa al comportamento autonomo",
 	"NAO_AUTONOMOUS_TOOLTIP": "Attiva o disattiva il comportamento autonomo dei robot. Mentre \"acceso\" il robot reagisce ai suoni, si sposta leggermente da un lato all'altro e prova a rintracciare i volti. Disattivalo se questo comportamento interrompe il programma.",
 	"NAO_BLINK": "spiraglio di luce",
-	"NAO_CAMERA": "fotocamera",
+	"SENSOR_CAMERA": "fotocamera",
 	"NAO_CAMERA_BOTTOM": "parte inferiore",
 	"NAO_CAMERA_TOP": "parte superiore",
 	"NAO_FACE_GET_INFORMATION_TOOLTIP": "restituisce informazioni aggiuntive sul dato rilevato in un vettore con i seguenti valori: [XAngle, YAngle, XSize, YSize, Heading],nota che tutti i valori sono indicati negli angoli della telecamera.",

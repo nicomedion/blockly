@@ -102,6 +102,12 @@ sensors.battery.botnroll = {
     }]
 };
 
+sensors.camera = {};
+sensors.camera.robotino = {
+    title: 'CAMERA', modes: [{
+        name: 'LINE', type: 'Number', op: 'NUM_REV', value: '-0.5'
+    }, { name: 'BLOB', type: 'Number' }], ports: 'CONFIGURATION', portsHidden: true
+};
 sensors.code = {};
 sensors.code.bob3 = {
     title: 'CODE', modes: [{
@@ -212,6 +218,12 @@ sensors.detectmark.nao = {
     title: 'DETECTMARK', modes: [{
         name: 'IDONE', type: 'Number', value: '84', op: 'NUM_EQ'
     }, {
+        name: 'IDALL', type: 'Array_Number'
+    }]
+};
+
+sensors.detectmark.robotino = {
+    title: 'DETECTMARK', modes: [{
         name: 'IDALL', type: 'Array_Number'
     }]
 };
@@ -498,6 +510,14 @@ sensors.irhorizontal.thymio = {
     }]
 };
 
+sensors.infrared.robotino = {
+    title: 'INFRARED',
+    ports: [['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9']],
+    modes: [{
+        name: 'DISTANCE', type: 'Number', unit: 'CM'
+    }]
+};
+
 sensors.irseeker = {};
 sensors.irseeker.ev3 = {
     title: 'IRSEEKER', ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']], modes: [{
@@ -682,6 +702,8 @@ sensors.out.arduino = {
     }], ports: 'CONFIGURATION'
 };
 sensors.out.sensebox = sensors.out.arduino;
+sensors.out.robotino = sensors.out.arduino;
+
 sensors.pin = {};
 sensors.pin.calliope = {
     title: 'PIN', modes: [{
@@ -765,6 +787,13 @@ sensors.line.mbot2 = {
     title: 'QUADRGB', modes: [{
         name: 'LINE', type: 'Number'
     }], ports: 'CONFIGURATION'
+};
+
+sensors.odometry = {};
+sensors.odometry.robotino = {
+    title: 'ODOMETRY', modes: [{
+        name: 'VALUE', type: 'Number'
+    }], slots: [['x', 'X'], ['y', 'Y'], ['θ', 'THETA']], ports: 'CONFIGURATION', portsHidden: true
 };
 
 sensors.rssi = {};
@@ -874,6 +903,7 @@ sensors.timer.festobionicflower = sensors.timer.ev3;
 sensors.timer.mbot = sensors.timer.ev3;
 sensors.timer.mbot2 = sensors.timer.ev3;
 sensors.timer.sensebox = sensors.timer.ev3;
+sensors.timer.robotino = sensors.timer.ev3;
 
 sensors.touch = {};
 sensors.touch.ev3 = {
@@ -906,6 +936,12 @@ sensors.touch.festobionicflower = {
     title: 'TOUCH', modes: [{
         name: 'PRESSED', type: 'Boolean', question: true
     }], ports: 'CONFIGURATION'
+};
+
+sensors.touch.robotino = {
+    title: 'TOUCH', modes: [{
+        name: 'PRESSED', type: 'Boolean', question: true
+    }], ports: 'CONFIGURATION', portsHidden: true
 };
 sensors.ultrasonic = {};
 sensors.ultrasonic.arduino = {
@@ -1055,6 +1091,7 @@ sensorsAll.edison = [sensors.key.edison, sensors.infrared.edison, sensors.irseek
 sensorsAll.nano33ble = [sensors.out.nano33ble, sensors.key.nano33ble, sensors.timer.nano33ble, sensors.temperature.nano33ble, sensors.ultrasonic.nano33ble, sensors.light.nano33ble, sensors.moisture.nano33ble, sensors.potentiometer.nano33ble, sensors.infrared.nano33ble, sensors.humidity.nano33ble, sensors.motion.nano33ble, sensors.pulse.nano33ble, sensors.drop.nano33ble, sensors.rfid.nano33ble, sensors.gyro.nano33ble, sensors.accelerometer.arduino];
 sensorsAll.rob3rta = [sensors.pintouch.rob3rta, sensors.infrared.rob3rta, sensors.temperature.rob3rta, sensors.timer.rob3rta];
 sensorsAll.thymio = [sensors.key.thymio, sensors.infrared.thymio, sensors.irhorizontal.thymio, sensors.tap.thymio, sensors.sound.thymio, sensors.timer.thymio, sensors.accelerometer.thymio, sensors.temperature.thymio];
+sensorsAll.robotino = [sensors.touch.robotino, sensors.infrared.robotino, sensors.odometry.robotino, sensors.timer.robotino, sensors.detectmark.robotino, sensors.out.robotino, sensors.camera.robotino];
 
 function initSensors() {
     for (var sensor in sensors) {

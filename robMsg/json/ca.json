@@ -314,7 +314,7 @@
 	"NAO_APPLYPOSTURE": "aplicar postura",
 	"NAO_APPLYPOSTURE_TOOLTIP": "El robot asume la postura seleccionada.",
 	"NAO_BLINK": "parpadear",
-	"NAO_CAMERA": "cámera",
+	"SENSOR_CAMERA": "cámera",
 	"NAO_CAMERA_BOTTOM": "abajo",
 	"NAO_CAMERA_TOP": "arriba",
 	"NAO_FILENAME": "nombre de archivo",

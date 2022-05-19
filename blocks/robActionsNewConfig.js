@@ -171,3 +171,199 @@ Blockly.Blocks['robActions_led_on_new_config'] = {
         this.setTooltip(Blockly.Msg.LED_ON_TOOLTIP);
     }
 };
+
+Blockly.Blocks['robActions_motorOmni_curve'] = {
+    init: function () {
+        this.action = 'OMNIDRIVE';
+        var ports = getConfigPorts('omnidrive');
+        this.dependConfig = {
+            'type': 'omnidrive',
+            'dropDown': [ports]
+        };
+        this.jsonInit({
+            "message0": Blockly.Msg.MOTOR_DRIVE + "%1",
+            "message1": Blockly.Msg.X + " " + Blockly.Msg.MOTOR_SPEED + " %1" + Blockly.Msg.Y + " " + Blockly.Msg.MOTOR_SPEED + " %2" + Blockly.Msg.MOTOR_TURN + " " + Blockly.Msg.MOTOR_SPEED + " %3",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ACTORPORT",
+                    "options": ports.menuGenerator_
+                },
+            ],
+            "args1": [
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "THETA",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": Blockly.CAT_ACTION_RGB,
+            "helpUrl": ""
+        });
+        hidePortIfOnlyInbuilt(this);
+    }
+}
+
+Blockly.Blocks['robActions_motorOmni_curve_for'] = {
+    init: function () {
+        this.action = 'OMNIDRIVE';
+        var ports = getConfigPorts('omnidrive');
+        this.dependConfig = {
+            'type': 'omnidrive',
+            'dropDown': [ports]
+        };
+        this.jsonInit({
+            "message0": Blockly.Msg.MOTOR_DRIVE + "%1",
+            "message1": Blockly.Msg.X + " " + Blockly.Msg.MOTOR_SPEED + " %1" + Blockly.Msg.Y + " " + Blockly.Msg.MOTOR_SPEED + " %2" + Blockly.Msg.MOTOR_DISTANCE + " %3",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ACTORPORT",
+                    "options": ports.menuGenerator_
+                },
+            ],
+            "args1": [
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DISTANCE",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": Blockly.CAT_ACTION_RGB,
+            "helpUrl": ""
+        });
+        this.setBlocking(true);
+        hidePortIfOnlyInbuilt(this);
+    }
+}
+
+Blockly.Blocks['robActions_motorOmni_position'] = {
+    init: function () {
+        this.action = 'OMNIDRIVE';
+        var ports = getConfigPorts('omnidrive');
+        this.dependConfig = {
+            'type': 'omnidrive',
+            'dropDown': [ports]
+        };
+        this.jsonInit({
+            "message0": Blockly.Msg.MOTOR_DRIVE_TO + "%1",
+            "message1": Blockly.Msg.X + " %1" + Blockly.Msg.Y + " %2" + Blockly.Msg.MOTOR_SPEED + " %3",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ACTORPORT",
+                    "options": ports.menuGenerator_
+                },
+            ],
+            "args1": [
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "POWER",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": Blockly.CAT_ACTION_RGB,
+            "setBlocking": true,
+            "hidePortIfOnlyInbuilt": this
+        });
+        this.setBlocking(true);
+        hidePortIfOnlyInbuilt(this);
+    }
+
+}
+
+Blockly.Blocks['robActions_motorOmni_position_orientation'] = {
+    init: function () {
+        this.action = 'OMNIDRIVE';
+        var ports = getConfigPorts('omnidrive');
+        this.dependConfig = {
+            'type': 'omnidrive',
+            'dropDown': [ports]
+        };
+        this.jsonInit({
+            "message0": Blockly.Msg.MOTOR_DRIVE_TO + "%1",
+            "message1": Blockly.Msg.X + " %1" + Blockly.Msg.Y + " %2" + Blockly.Msg.MODE_ORIENTATION + " %3",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ACTORPORT",
+                    "options": ports.menuGenerator_
+                },
+            ],
+            "args1": [
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+                {
+                    "type": "input_value",
+                    "name": "THETA",
+                    "check": "Number",
+                    "align": "RIGHT"
+                },
+
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "colour": Blockly.CAT_ACTION_RGB,
+            "setBlocking": true,
+            "hidePortIfOnlyInbuilt": this
+        });
+        this.setBlocking(true);
+        hidePortIfOnlyInbuilt(this);
+    }
+
+}

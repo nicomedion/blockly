@@ -355,7 +355,7 @@
 	"NAO_AUTONOMOUS": "autonomous life",
 	"NAO_AUTONOMOUS_TOOLTIP": "Turn the robots autonomous life on or off. When it is turned on the robot will react to sounds and try to detect faces. Turn it off if this behaviour interrupts your programm.",
 	"NAO_BLINK": "blink",
-	"NAO_CAMERA": "camera",
+	"SENSOR_CAMERA": "camera",
 	"NAO_CAMERA_BOTTOM": "bottom",
 	"NAO_CAMERA_TOP": "top",
 	"NAO_CURRENT": "electric current of",

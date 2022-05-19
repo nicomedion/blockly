@@ -76,6 +76,43 @@ Blockly.Blocks['robSensors_gyro_reset_axis'] = {
     }
 };
 
+Blockly.Blocks['robSensors_odometry_reset'] = {
+    init: function() {
+        this.dependConfig = {
+            type: 'odometry',
+            dropDown: getConfigPorts('odometry')
+        };
+        this.jsonInit({
+            'message0': Blockly.Msg.SENSOR_RESET + ' ' + Blockly.Msg.SENSOR_ODOMETRY + '%1 %2' + Blockly.Msg.SENSOR_RESET_II,
+            'args0': [
+                {
+                    'type': 'field_dropdown',
+                    'name': 'SLOT',
+                    'options': [
+                        ['x', 'X'],
+                        ['y', 'Y'],
+                        ['θ', 'THETA'],
+                        [Blockly.Msg.NAO_LED_ALL, 'ALL']
+                    ]
+                },
+                {
+                    //TODO this is a method to add the list of available configuration components to the
+                    // block in the json format, this is particular useful in this case as the alternative would be
+                    // writing the whole block in javascript since it only consists of one line
+                    'type': 'field_dropdown',
+                    'name': 'SENSORPORT',
+                    'options': getConfigPorts('odometry').menuGenerator_
+                }
+            ],
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'helpUrl': ''
+        });
+        hidePortIfOnlyInbuilt(this);
+    }
+};
+
 Blockly.Blocks['robSensors_sound_record'] = {
     init: function() {
         this.setColour(Blockly.CAT_SENSOR_RGB);
@@ -233,6 +270,63 @@ Blockly.Blocks['robSensors_record_stop'] = {
             'nextStatement': true,
             'colour': Blockly.CAT_SENSOR_RGB,
             'tooltip': Blockly.Msg.SOUND_RECORD_STOP_TOOLTIP
+        });
+    }
+};
+
+Blockly.Blocks['robSensors_markerinf_getSample'] = {
+    /**
+     * Get the information about given marker.
+     */
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.GET + '%1' + Blockly.Msg.SENSOR_DETECTMARK + ' ' + Blockly.Msg.ABOUT + '%2',
+            'args0': [
+                {
+                    'type': 'field_dropdown',
+                    'name': 'MODE',
+                    'options': [
+                        [Blockly.Msg.MODE_INFO, 'INFO']
+                    ]
+                },
+                {
+                    'type': 'input_value',
+                    'name': 'VALUE',
+                    'check': 'Number'
+                }
+            ],
+            'output': 'Array_Number',
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SENSOR_MARKERINF_TOOLTIP
+        });
+    }
+};
+
+Blockly.Blocks['robSensors_record_begin'] = {
+    /**
+     * Start recording audio for Thymio.
+     *
+     * @constructs robSensors_record_begin
+     * @this.Blockly.Block
+     * @param {Number}
+     *            FILENAME
+     * @returns immediately
+     * @memberof Block
+     */
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.START + ' ' + Blockly.Msg.SENSOR_SOUND_RECORD + ' ' + Blockly.Msg.SENSOR_SOUND_THYMIO + ' ' + Blockly.Msg.PLAY_FILE + '%1',
+            'args0': [
+                {
+                    'type': 'input_value',
+                    'name': 'FILENAME',
+                    'check': 'Number'
+                }
+            ],
+            'previousStatement': true,
+            'nextStatement': true,
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SOUND_RECORD_THYMIO_TOOLTIP
         });
     }
 };
