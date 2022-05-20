@@ -885,7 +885,7 @@ Blockly.Blocks['robActions_brickLight_on'] = {
                 'type' : 'led',
                 'dropDown' : dropDownPorts
             };
-            this.appendDummyInput().appendField(Blockly.Msg.LED_ON).setAlign(Blockly.ALIGN_RIGHT).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdownLightState, 'SWITCH_BLINK');
+            this.appendDummyInput().appendField(Blockly.Msg.SET_LED).setAlign(Blockly.ALIGN_RIGHT).appendField(dropDownPorts, 'ACTORPORT').appendField(dropdownLightState, 'SWITCH_BLINK');
         } else if (this.workspace.device === 'botnroll') {
             this.appendDummyInput().appendField(Blockly.Msg.BRICKLIGHT).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.MOD).appendField(dropdownLightState, 'SWITCH_BLINK');
         } else {
