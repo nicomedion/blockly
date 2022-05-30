@@ -762,6 +762,7 @@ Blockly.Blocks['robActions_display_text'] = {
                 type: 'lcd', dropDown: dropDownPorts
             };
             this.appendDummyInput().appendField(Blockly.Msg.ACTION_LCD, 'ACTORTITEL').appendField(dropDownPorts, 'ACTORPORT');
+            this.appendValueInput('OUT').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.DISPLAY_SHOW + ' ' + Blockly.Msg.DISPLAY_TEXT);
         } else if (this.workspace.device === 'mbot2') {
             dropDownPorts = getConfigPorts('lcd');
             this.dependConfig = {
