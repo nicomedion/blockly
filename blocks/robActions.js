@@ -41,7 +41,7 @@ Blockly.Blocks['robActions_setLanguage'] = {
                 [Blockly.Msg.LANGUAGE_CZECH, 'CZECH'], [Blockly.Msg.LANGUAGE_PORTUGUESE, 'PORTUGUESE'],
                 [Blockly.Msg.LANGUAGE_BRAZILIAN, 'BRAZILIAN'], [Blockly.Msg.LANGUAGE_SWEDISH, 'SWEDISH'], [Blockly.Msg.LANGUAGE_DANISH, 'DANISH'],
                 [Blockly.Msg.LANGUAGE_NORWEGIAN, 'NORWEGIAN'], [Blockly.Msg.LANGUAGE_GREEK, 'GREEK']]);
-        } else if (this.workspace.device === 'ev3') {
+        } else if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             dropdown = new Blockly.FieldDropdown([[Blockly.Msg.LANGUAGE_GERMAN, 'GERMAN'], [Blockly.Msg.LANGUAGE_ENGLISH, 'ENGLISH'],
                 [Blockly.Msg.LANGUAGE_FRENCH, 'FRENCH'], [Blockly.Msg.LANGUAGE_SPANISH, 'SPANISH'], [Blockly.Msg.LANGUAGE_ITALIAN, 'ITALIAN'],
                 [Blockly.Msg.LANGUAGE_DUTCH, 'DUTCH'], [Blockly.Msg.LANGUAGE_FINNISH, 'FINNISH'], [Blockly.Msg.LANGUAGE_POLISH, 'POLISH'],
@@ -54,7 +54,7 @@ Blockly.Blocks['robActions_setLanguage'] = {
         this.setTooltip(Blockly.Msg.SETLANGUAGE_TOOLTIP);
         if (this.workspace.device === 'nao') {
             this.setTooltip(Blockly.Msg.NAO_SETLANGUAGE_TOOLTIP);
-        } else if (this.workspace.device === 'ev3') {
+        } else if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             this.setTooltip(Blockly.Msg.SETLANGUAGE_TOOLTIP);
         }
     }
@@ -121,6 +121,7 @@ Blockly.Blocks['robActions_motor_on'] = {
         var ports = [];
         switch (this.workspace.device) {
             case 'ev3':
+            case 'xNN':
                 ports = [[Blockly.Msg.MOTOR_PORT + ' A', 'A'], [Blockly.Msg.MOTOR_PORT + ' B', 'B'], [Blockly.Msg.MOTOR_PORT + ' C', 'C'],
                     [Blockly.Msg.MOTOR_PORT + ' D', 'D']];
                 break;
@@ -207,7 +208,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
     init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
         var ports = [[Blockly.Msg.MOTOR_PORT + ' A', 'A'], [Blockly.Msg.MOTOR_PORT + ' B', 'B'], [Blockly.Msg.MOTOR_PORT + ' C', 'C']];
-        if (this.workspace.device === 'ev3') {
+        if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             ports.push([Blockly.Msg.MOTOR_PORT + ' D', 'D']);
         } else if (this.workspace.device === 'botnroll') {
             ports = [[Blockly.Msg.MOTOR + ' ' + Blockly.Msg.MOTOR_LEFT, 'B'], [Blockly.Msg.MOTOR + ' ' + Blockly.Msg.MOTOR_RIGHT, 'C']];
@@ -321,7 +322,7 @@ Blockly.Blocks['robActions_motor_getPower'] = {
      */
     init: function() {
         var ports = [[Blockly.Msg.MOTOR_PORT + ' A', 'A'], [Blockly.Msg.MOTOR_PORT + ' B', 'B'], [Blockly.Msg.MOTOR_PORT + ' C', 'C']];
-        if (this.workspace.device === 'ev3') {
+        if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             ports.push([Blockly.Msg.MOTOR_PORT + ' D', 'D']);
         }
         this.setColour(Blockly.CAT_ACTION_RGB);
@@ -349,7 +350,7 @@ Blockly.Blocks['robActions_motor_setPower'] = {
     init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
         var ports = [[Blockly.Msg.MOTOR_PORT + ' A', 'A'], [Blockly.Msg.MOTOR_PORT + ' B', 'B'], [Blockly.Msg.MOTOR_PORT + ' C', 'C']];
-        if (this.workspace.device === 'ev3') {
+        if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             ports.push([Blockly.Msg.MOTOR_PORT + ' D', 'D']);
         }
         var motorPort = new Blockly.FieldDropdown(ports);
@@ -376,7 +377,7 @@ Blockly.Blocks['robActions_motor_stop'] = {
     init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
         var ports = [[Blockly.Msg.MOTOR_PORT + ' A', 'A'], [Blockly.Msg.MOTOR_PORT + ' B', 'B'], [Blockly.Msg.MOTOR_PORT + ' C', 'C']];
-        if (this.workspace.device === 'ev3') {
+        if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             ports.push([Blockly.Msg.MOTOR_PORT + ' D', 'D']);
         }
         if (this.workspace.device === 'mbot') {
@@ -1790,6 +1791,7 @@ Blockly.Blocks['robSensors_get_weight'] = {
             .appendField(from, 'FROM')
             .appendField(Blockly.Msg.NN_TARGET)
             .appendField(to, 'TO');
+        this.setOutput(true, 'Number');
         this.setTooltip(Blockly.Msg.NN_GET_WEIGHT_TOOLTIP);
     }
 };
@@ -1801,8 +1803,8 @@ Blockly.Blocks['robSensors_get_bias'] = {
         this.setColour(Blockly.CAT_NN);
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_GET_BIAS)
-            .appendField(name, 'NAME')
-            .appendField(Blockly.Msg.NN_TARGET);
+            .appendField(name, 'NAME');
+        this.setOutput(true, 'Number');
         this.setTooltip(Blockly.Msg.NN_GET_BIAS_TOOLTIP);
     }
 };

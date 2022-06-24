@@ -36,7 +36,7 @@ Blockly.Blocks['robBrick_EV3-Brick'] = {
         this.appendValueInput('MA').appendField('Motor A').setAlign(Blockly.ALIGN_RIGHT).setCheck('Actor');
         this.appendValueInput('MB').appendField('Motor B').setAlign(Blockly.ALIGN_RIGHT).setCheck('Actor');
         this.appendValueInput('MC').appendField('Motor C').setAlign(Blockly.ALIGN_RIGHT).setCheck('Actor');
-        if (this.workspace.device === 'ev3') {
+        if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             this.appendValueInput('MD').appendField('Motor D').setAlign(Blockly.ALIGN_RIGHT).setCheck('Actor');
             this.setTooltip(Blockly.Msg.EV3BRICK_TOOLTIP);
         } else {
@@ -506,13 +506,13 @@ Blockly.Blocks['robBrick_compass'] = {
 
     init : function() {
         this.setColour(Blockly.CAT_SENSOR_RGB);
-        if (this.workspace.device === 'ev3') {
+        if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             this.appendDummyInput().appendField(Blockly.Msg.SENSOR_COMPASS_EV3);
         } else {
             this.appendDummyInput().appendField(Blockly.Msg.SENSOR_COMPASS);
         }
         this.setOutput(true, 'Sensor');
-        if (this.workspace.device === 'ev3') {
+        if (this.workspace.device === 'ev3' || this.workspace.device === 'xNN') {
             this.setTooltip(Blockly.Msg.COMPASS_TOOLTIP_EV3);
         } else {
             this.setTooltip(Blockly.Msg.COMPASS_TOOLTIP);
