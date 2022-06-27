@@ -181,6 +181,7 @@ sensors.colour.ev3 = {
     }],
     standardPort: '3'
 };
+sensors.colour.xNN = sensors.colour.ev3;
 sensors.colour.nxt = {
     title: 'COLOUR',
     ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']],
@@ -236,6 +237,7 @@ sensors.compass.ev3 = {
     ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']],
     standardPort: '1'
 };
+sensors.compass.xNN = sensors.compass.ev3;
 
 sensors.compass.sensebox = {
     title: 'COMPASS',
@@ -362,6 +364,7 @@ sensors.encoder.ev3 = {
     ports: [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D']],
     standardPort: 'B'
 };
+sensors.encoder.xNN = sensors.encoder.ev3;
 
 sensors.encoder.mbot2 = {
     title : 'ENCODER',
@@ -558,6 +561,7 @@ sensors.gyro.ev3 = {
     ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']],
     standardPort: '2'
 };
+sensors.gyro.xNN = sensors.gyro.ev3;
 
 sensors.gyro.wedo = {
     title: 'GYRO',
@@ -631,6 +635,7 @@ sensors.htcolour.ev3 = {
     }],
     standardPort: '3'
 };
+sensors.htcolour.xNN = sensors.htcolour.ev3;
 sensors.htcolour.nxt = sensors.htcolour.ev3;
 
 sensors.humidity = {};
@@ -745,6 +750,7 @@ sensors.infrared.ev3 = {
         type: 'Array_Number'
     }]
 };
+sensors.infrared.xNN = sensors.infrared.ev3;
 
 sensors.infrared.wedo = {
     title: 'INFRARED',
@@ -780,6 +786,7 @@ sensors.irseeker.ev3 = {
         unit: 'DEGREE'
     }]
 };
+sensors.irseeker.xNN = sensors.irseeker.ev3;
 
 sensors.irseeker.edison = {
     title: 'IRSEEKER',
@@ -869,6 +876,7 @@ sensors.key.ev3 = {
     ports: [['SENSOR_KEY_ENTER', 'ENTER'], ['SENSOR_KEY_UP', 'UP'], ['SENSOR_KEY_DOWN', 'DOWN'], ['SENSOR_KEY_LEFT', 'LEFT'],
         ['SENSOR_KEY_RIGHT', 'RIGHT'], ['SENSOR_KEY_ESCAPE', 'ESCAPE'], ['SENSOR_KEY_ANY', 'ANY']]
 };
+sensors.key.xNN = sensors.key.ev3;
 sensors.key.nxt = {
     title: 'KEY',
     modes: [{
@@ -1229,6 +1237,9 @@ sensors.sound.ev3 = {
     ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']],
     standardPort: '2'
 };
+sensors.sound.xNN = sensors.sound.ev3;
+sensors.sound.nxt = sensors.sound.ev3;
+sensors.sound.mbot = sensors.sound.ev3;
 
 sensors.sound.sensebox = {
     title: 'SOUND',
@@ -1241,8 +1252,6 @@ sensors.sound.sensebox = {
     }],
     ports: 'CONFIGURATION'
 };
-sensors.sound.nxt = sensors.sound.ev3;
-sensors.sound.mbot = sensors.sound.ev3;
 sensors.sound.mbot2 = sensors.sound.calliope;
 sensors.sound.edison = {
     title: 'SOUND',
@@ -1344,6 +1353,7 @@ sensors.timer.ev3 = {
     ports: [[' 1', '1'], [' 2', '2'], [' 3', '3'], [' 4', '4'], [' 5', '5']]
 };
 sensors.timer.arduino = sensors.timer.ev3;
+sensors.timer.xNN = sensors.timer.ev3;
 sensors.timer.festobionic = sensors.timer.ev3;
 sensors.timer.festobionicflower = sensors.timer.ev3;
 sensors.timer.mbot = sensors.timer.ev3;
@@ -1361,6 +1371,7 @@ sensors.touch.ev3 = {
     }],
     standardPort: '1'
 };
+sensors.touch.xNN = sensors.touch.ev3;
 sensors.touch.nxt = sensors.touch.ev3;
 sensors.touch.mbot = sensors.touch.ev3;
 sensors.touch.nao = {
@@ -1445,6 +1456,8 @@ sensors.ultrasonic.ev3 = {
     }],
     standardPort: '4'
 };
+sensors.ultrasonic.xNN = sensors.ultrasonic.ev3;
+
 sensors.ultrasonic.mbot = {
     title: 'ULTRASONIC',
     ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']],
@@ -1606,6 +1619,8 @@ sensorsAll.mbot2 = [sensors.key.mbot2, sensors.ultrasonic.mbot2, sensors.sound.m
         sensors.timer.mbot2, sensors.quadrgb.mbot2, sensors.line.mbot2, sensors.encoder.mbot2];
 sensorsAll.ev3 = [sensors.touch.ev3, sensors.ultrasonic.ev3, sensors.colour.ev3, sensors.infrared.ev3, sensors.encoder.ev3, sensors.key.ev3, sensors.gyro.ev3,
     sensors.timer.ev3, sensors.compass.ev3, sensors.irseeker.ev3, sensors.htcolour.ev3, sensors.sound.ev3];
+sensorsAll.xNN = [sensors.touch.xNN, sensors.ultrasonic.xNN, sensors.colour.xNN, sensors.infrared.xNN, sensors.encoder.xNN, sensors.key.xNN, sensors.gyro.xNN,
+    sensors.timer.xNN, sensors.compass.xNN, sensors.irseeker.xNN, sensors.htcolour.xNN, sensors.sound.xNN];
 sensorsAll.nxt = [sensors.touch.nxt, sensors.sound.nxt, sensors.light.nxt, sensors.ultrasonic.nxt, sensors.encoder.nxt, sensors.key.nxt, sensors.colour.nxt,
     sensors.timer.nxt, sensors.htcolour.nxt];
 sensorsAll.bob3 = [sensors.pintouch.bob3, sensors.infrared.bob3, sensors.temperature.bob3, sensors.timer.bob3];
