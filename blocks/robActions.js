@@ -1703,14 +1703,17 @@ Blockly.Blocks['robActions_change_bias'] = {
     }
 };
 
+let inputNeuronCounter = 1;
+let outputNeuronCounter = 1;
+
 Blockly.Blocks['robActions_inputneuron'] = {
     init: function() {
         this.setColour(Blockly.CAT_NN);
-        var name = new Blockly.FieldTextInput('', this.validate);
-        name.maxDisplayLength = 75;
+        var nameField = new Blockly.FieldTextInput('', this.generateName);
+        nameField.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_INPUT_NEURON)
-            .appendField(name, 'NAME');
+            .appendField(nameField, 'NAME');
         this.appendValueInput('VALUE')
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField(Blockly.Msg.NN_VALUE)
@@ -1722,13 +1725,16 @@ Blockly.Blocks['robActions_inputneuron'] = {
     onchange: function(evt) {
         bumpIfNotNeuron(this.nextConnection.targetConnection);
         bumpIfNotNeuron(this.previousConnection.targetConnection);
+    },
+    generateName: function(oldName) {
+        return 'in' + inputNeuronCounter++;
     }
 };
 
 Blockly.Blocks['robActions_outputneuron'] = {
     init: function() {
         this.setColour(Blockly.CAT_NN);
-        var name = new Blockly.FieldTextInput('', this.validate);
+        var name = new Blockly.FieldTextInput('', this.generateName);
         name.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_OUTPUT_NEURON)
@@ -1745,13 +1751,16 @@ Blockly.Blocks['robActions_outputneuron'] = {
         bumpIfNotNeuron(this.nextConnection.targetConnection);
         bumpIfNotNeuron(this.previousConnection.targetConnection);
         mustBeVariable(this, ['VALUE']);
+    },
+    generateName: function(oldName) {
+        return 'out' + inputNeuronCounter++;
     }
 };
 
 Blockly.Blocks['robActions_outputneuron_wo_var'] = {
     init: function() {
         this.setColour(Blockly.CAT_NN);
-        var name = new Blockly.FieldTextInput('', this.validate);
+        var name = new Blockly.FieldTextInput('', this.generateName);
         name.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_OUTPUT_NEURON)
@@ -1763,6 +1772,9 @@ Blockly.Blocks['robActions_outputneuron_wo_var'] = {
     onchange: function(evt) {
         bumpIfNotNeuron(this.nextConnection.targetConnection);
         bumpIfNotNeuron(this.previousConnection.targetConnection);
+    },
+    generateName: function(oldName) {
+        return 'out' + inputNeuronCounter++;
     }
 };
 
