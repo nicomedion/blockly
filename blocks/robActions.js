@@ -1703,13 +1703,45 @@ Blockly.Blocks['robActions_change_bias'] = {
     }
 };
 
-let inputNeuronCounter = 1;
-let outputNeuronCounter = 1;
+var neuronNameGenerator = {
+    isLegalName: function(newName, block) {
+        var blocks = Blockly.mainWorkspace.getAllBlocks();
+        for (var x = 0; x < blocks.length; x++) {
+            if (blocks[x] == block) {
+                continue;
+            }
+            if (blocks[x].neuron) {
+                let name = blocks[x].getFieldValue('NAME');
+                if (newName === name) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    },
+
+    findLegalName: function(name, block, prefix) {
+        if (name.match(/^[a-zA-ZüöäÜÄÖß$][a-zA-Z0-9_üöäÜÄÖß$]*$/) === null) {
+            name = prefix;
+        }
+        while (!neuronNameGenerator.isLegalName(name, block)) {
+            // Collision with another variable.
+            var r = name.match(/^(.*?)(\d+)$/);
+            if (!r) {
+                name += '2';
+            } else {
+                name = r[1] + (parseInt(r[2], 10) + 1);
+            }
+        }
+        return name;
+    }
+}
 
 Blockly.Blocks['robActions_inputneuron'] = {
+    neuron: true,
     init: function() {
         this.setColour(Blockly.CAT_NN);
-        var nameField = new Blockly.FieldTextInput('', this.generateName);
+        var nameField = new Blockly.FieldTextInput('in', this.validateName);
         nameField.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_INPUT_NEURON)
@@ -1726,15 +1758,19 @@ Blockly.Blocks['robActions_inputneuron'] = {
         bumpIfNotNeuron(this.nextConnection.targetConnection);
         bumpIfNotNeuron(this.previousConnection.targetConnection);
     },
-    generateName: function(oldName) {
-        return 'in' + inputNeuronCounter++;
+    validate: function() {
+        this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, 'in'), 'NAME');
+    },
+    validateName: function (name) {
+        return neuronNameGenerator.findLegalName(name, this.sourceBlock_, 'in');
     }
 };
 
 Blockly.Blocks['robActions_outputneuron'] = {
+    neuron: true,
     init: function() {
         this.setColour(Blockly.CAT_NN);
-        var name = new Blockly.FieldTextInput('', this.generateName);
+        var name = new Blockly.FieldTextInput('out', this.validateName);
         name.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_OUTPUT_NEURON)
@@ -1752,15 +1788,22 @@ Blockly.Blocks['robActions_outputneuron'] = {
         bumpIfNotNeuron(this.previousConnection.targetConnection);
         mustBeVariable(this, ['VALUE']);
     },
-    generateName: function(oldName) {
-        return 'out' + inputNeuronCounter++;
+    validate: function() {
+        if (this.isInFlyout) {
+            return;
+        }
+        this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
+    },
+    validateName: function (name) {
+        return neuronNameGenerator.findLegalName(name, this.sourceBlock_, 'out');
     }
 };
 
 Blockly.Blocks['robActions_outputneuron_wo_var'] = {
+    neuron: true,
     init: function() {
         this.setColour(Blockly.CAT_NN);
-        var name = new Blockly.FieldTextInput('', this.generateName);
+        var name = new Blockly.FieldTextInput('out', this.validateName);
         name.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_OUTPUT_NEURON)
@@ -1773,8 +1816,14 @@ Blockly.Blocks['robActions_outputneuron_wo_var'] = {
         bumpIfNotNeuron(this.nextConnection.targetConnection);
         bumpIfNotNeuron(this.previousConnection.targetConnection);
     },
-    generateName: function(oldName) {
-        return 'out' + inputNeuronCounter++;
+    validate: function() {
+        if (this.isInFlyout) {
+            return;
+        }
+        this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
+    },
+    validateName: function (name) {
+        return neuronNameGenerator.findLegalName(name, this.sourceBlock_, 'out');
     }
 };
 
