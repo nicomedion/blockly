@@ -84,9 +84,9 @@ Blockly.CAT_LIST_RGB = '#39378B';
  */
 Blockly.CAT_MATH_RGB = '#005A94';
 /**
- * The rgb value for block colours in math category.
+ * The rgb value for block colours in XNN category.
  */
-Blockly.CAT_NN = '#00B6AC';
+Blockly.CAT_NN_RGB = '#00B6AC';
 /**
  * The rgb value for block colours in procedures category.
  */

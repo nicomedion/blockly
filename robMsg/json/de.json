@@ -514,6 +514,7 @@
     "TOOLBOX_LOOP": "Schleifen",
     "TOOLBOX_LOOP_VARIABLE": "Schleifenvariablen",
     "TOOLBOX_MATH": "Mathematik",
+    "TOOLBOX_NN": "Neuronales Netz",
     "TOOLBOX_MOVE": "Bewegen",
     "TOOLBOX_PROCEDURE": "Funktionen",
     "TOOLBOX_SENSOR": "Sensoren",
@@ -1447,6 +1448,7 @@
     "NN_GET_OUTPUT_NEURON_VALUE": "gib den Wert des Ausgabe-Neurons",
     "NN_GET_OUTPUT_NEURON_VALUE_TOOLTIP": "liefere den Wert eines Ausgabe-Neurons vom letzten Schritt des neuronalen Netzwerks zurück.",
     "NN_VALUE": "Wert:",
+    "NN_STORE": "speichere in:",
     "NN_TO": "auf",
     "NN_BY": "um",
     "NN_TARGET": "nach",
@@ -1461,8 +1463,19 @@
     "NN_CLICK_NODE": "erst Klick auf ein Neuron",
     "NN_SHOW_ALL": "alle zeigen, durch Klick ändern",
     "NN_STEPS_INCONSISTENT": "in mehreren NNStep-Blöcken müssen (Namen der) Neuronen übereinstimmen",
-    "NN_STEP_INCONSISTENT": "Namen der Neuronen müssen nicht leer und unterschiedlich sein und aus gültigen Zeichen bestehen",
-    "NN_OUTPUT_NEURON_MISSING": "Namen des Output-Neurons unbekannt",
+    "NN_STEP_INCONSISTENT": "Namen aller Neuronen müssen unterschiedlich sein und aus gültigen Zeichen bestehen",
     "NN_SHOW_MATH": "Berechnung des Neurons",
     "NN_SHOW_PRECISION": "Nachkomma-Stellen"
 }
+
+
+
+
+
+
+
+
+
+
+
+

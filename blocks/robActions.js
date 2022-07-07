@@ -1602,6 +1602,7 @@ function mustBeVariable(thisRef, keys) {
 
 Blockly.Blocks['robActions_aifes_setupneuralnet'] = {
     init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
         appendHeader(this, 'NN_SETUP');
         appendFields(this, ['NN_NUMBER_OF_CLASSES', 'NN_NUMBER_INPUT_NEURONS', 'NN_MAX_NUMBER_OF_NEURONS']);
     }
@@ -1609,12 +1610,14 @@ Blockly.Blocks['robActions_aifes_setupneuralnet'] = {
 
 Blockly.Blocks['robActions_aifes_initrawdata'] = {
     init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
         appendHeader(this, 'NN_INIT_RAW_DATA');
     }
 };
 
 Blockly.Blocks['robActions_aifes_addrawdata'] = {
     init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
         appendHeader(this, 'NN_ADD_RAW_DATA');
         appendFields(this, ['NN_RAW_DATA']);
     }
@@ -1622,6 +1625,7 @@ Blockly.Blocks['robActions_aifes_addrawdata'] = {
 
 Blockly.Blocks['robActions_aifes_addtrainingsdata'] = {
     init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
         appendHeader(this, 'NN_ADD_TRAININGS_DATA');
         appendFields(this, ['NN_CLASS_NUMBER']);
     }
@@ -1629,12 +1633,14 @@ Blockly.Blocks['robActions_aifes_addtrainingsdata'] = {
 
 Blockly.Blocks['robActions_aifes_train'] = {
     init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
         appendHeader(this, 'NN_TRAIN');
     }
 };
 
 Blockly.Blocks['robActions_aifes_classify'] = {
     init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
         appendHeader(this, 'NN_CLASSIFY');
         appendFields(this, ['NN_CLASS_PROBABILITIES']);
     },
@@ -1646,7 +1652,7 @@ Blockly.Blocks['robActions_aifes_classify'] = {
 Blockly.Blocks['robActions_NNstep'] = {
     init: function() {
         appendHeader(this, 'NN_STEP');
-        this.setColour(Blockly.CAT_NN);
+        this.setColour(Blockly.CAT_NN_RGB);
         this.appendStatementInput('IONEURON');
         this.getInput('IONEURON').connection.setCheck('neuron');
     },
@@ -1657,7 +1663,7 @@ Blockly.Blocks['robActions_NNstep'] = {
 
 Blockly.Blocks['robActions_change_weight'] = {
     init: function() {
-        this.setColour(Blockly.CAT_NN);
+        this.setColour(Blockly.CAT_NN_RGB);
         var from = new Blockly.FieldTextInput('', this.validate);
         from.maxDisplayLength = 75;
         var to = new Blockly.FieldTextInput('', this.validate);
@@ -1683,7 +1689,7 @@ Blockly.Blocks['robActions_change_weight'] = {
 
 Blockly.Blocks['robActions_change_bias'] = {
     init: function() {
-        this.setColour(Blockly.CAT_NN);
+        this.setColour(Blockly.CAT_NN_RGB);
         var name = new Blockly.FieldTextInput('', this.validate);
         name.maxDisplayLength = 75;
         var change = [[Blockly.Msg.NN_TO, 'SET'], [Blockly.Msg.NN_BY, 'INCR']];
@@ -1740,8 +1746,8 @@ var neuronNameGenerator = {
 Blockly.Blocks['robActions_inputneuron'] = {
     neuron: true,
     init: function() {
-        this.setColour(Blockly.CAT_NN);
-        var nameField = new Blockly.FieldTextInput('in', this.validateName);
+        this.setColour(Blockly.CAT_NN_RGB);
+        var nameField = new Blockly.FieldTextInput('in');
         nameField.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_INPUT_NEURON)
@@ -1759,25 +1765,24 @@ Blockly.Blocks['robActions_inputneuron'] = {
         bumpIfNotNeuron(this.previousConnection.targetConnection);
     },
     validate: function() {
-        this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, 'in'), 'NAME');
-    },
-    validateName: function (name) {
-        return neuronNameGenerator.findLegalName(name, this.sourceBlock_, 'in');
+        if (this.isInFlyout) {
+            this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, 'in'), 'NAME');
+        }
     }
 };
 
 Blockly.Blocks['robActions_outputneuron'] = {
     neuron: true,
     init: function() {
-        this.setColour(Blockly.CAT_NN);
-        var name = new Blockly.FieldTextInput('out', this.validateName);
+        this.setColour(Blockly.CAT_NN_RGB);
+        var name = new Blockly.FieldTextInput('out');
         name.maxDisplayLength = 75;
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_OUTPUT_NEURON)
             .appendField(name, 'NAME');
         this.appendValueInput('VALUE')
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.NN_VALUE)
+            .appendField(Blockly.Msg.NN_STORE)
             .setCheck('Number');
         this.setPreviousStatement(true, 'neuron');
         this.setNextStatement(true, 'neuron');
@@ -1790,19 +1795,15 @@ Blockly.Blocks['robActions_outputneuron'] = {
     },
     validate: function() {
         if (this.isInFlyout) {
-            return;
+            this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
         }
-        this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
-    },
-    validateName: function (name) {
-        return neuronNameGenerator.findLegalName(name, this.sourceBlock_, 'out');
     }
 };
 
 Blockly.Blocks['robActions_outputneuron_wo_var'] = {
     neuron: true,
     init: function() {
-        this.setColour(Blockly.CAT_NN);
+        this.setColour(Blockly.CAT_NN_RGB);
         var name = new Blockly.FieldTextInput('out', this.validateName);
         name.maxDisplayLength = 75;
         this.appendDummyInput()
@@ -1829,7 +1830,7 @@ Blockly.Blocks['robActions_outputneuron_wo_var'] = {
 
 Blockly.Blocks['robSensors_get_outputneuron_val'] = {
     init: function() {
-        this.setColour(Blockly.CAT_NN);
+        this.setColour(Blockly.CAT_NN_RGB);
         var name = new Blockly.FieldTextInput('', this.validate);
         name.maxDisplayLength = 75;
         this.appendDummyInput()
@@ -1846,7 +1847,7 @@ Blockly.Blocks['robSensors_get_weight'] = {
         from.maxDisplayLength = 75;
         var to = new Blockly.FieldTextInput('', this.validate);
         to.maxDisplayLength = 75;
-        this.setColour(Blockly.CAT_NN);
+        this.setColour(Blockly.CAT_NN_RGB);
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_GET_WEIGHT)
             .appendField(from, 'FROM')
@@ -1861,7 +1862,7 @@ Blockly.Blocks['robSensors_get_bias'] = {
     init: function() {
         var name = new Blockly.FieldTextInput('', this.validate);
         name.maxDisplayLength = 75;
-        this.setColour(Blockly.CAT_NN);
+        this.setColour(Blockly.CAT_NN_RGB);
         this.appendDummyInput()
             .appendField(Blockly.Msg.NN_GET_BIAS)
             .appendField(name, 'NAME');
