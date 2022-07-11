@@ -10,7 +10,7 @@ See the README of the `blockly` git repo how to use the generated image
 ### Generating the docker image
 
 - `cd :your-git-clone-of the-blockly-git:/z-Docker`
-- `docker build -t openroberta/blocklybuilder:1.0.0 .`
+- `docker build -t openroberta/blocklybuilder:20.04.1 .`
 
 Have a look at the `Dockerfile` to see what happens during the build. Notes about internals of the generated image:
 
@@ -24,6 +24,6 @@ Have a look at the `Dockerfile` to see what happens during the build. Notes abou
 ### Short Remark: How To Run the docker image (by creating a container)
 
    - make your changes in blockly, then
-   - `docker run --mount type=bind,source=:your-git-clone-of the-blockly-git:,destination=/opt/blockly/blockly openroberta/blocklybuilder:1.0.0`
+   - `docker run --mount type=bind,source=:your-git-clone-of the-blockly-git:,destination=/opt/blockly/blockly openroberta/blocklybuilder:20.04.1`
    - from :your-git-clone-of the-blockly-git: get the file `blockly_compressed.js` and the directory `msg` and put them into the
      directory `:your-git-clone-of the-openroberta-git:OpenrobertaServer/staticResources/blockly`
