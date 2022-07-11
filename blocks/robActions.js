@@ -1709,7 +1709,7 @@ Blockly.Blocks['robActions_change_bias'] = {
     }
 };
 
-var neuronNameGenerator = {
+var neuronNameHelper = {
     isLegalName: function(newName, block) {
         var blocks = Blockly.mainWorkspace.getAllBlocks();
         for (var x = 0; x < blocks.length; x++) {
@@ -1730,7 +1730,7 @@ var neuronNameGenerator = {
         if (name.match(/^[a-zA-ZüöäÜÄÖß$][a-zA-Z0-9_üöäÜÄÖß$]*$/) === null) {
             name = prefix;
         }
-        while (!neuronNameGenerator.isLegalName(name, block)) {
+        while (!neuronNameHelper.isLegalName(name, block)) {
             // Collision with another variable.
             var r = name.match(/^(.*?)(\d+)$/);
             if (!r) {
@@ -1766,7 +1766,7 @@ Blockly.Blocks['robActions_inputneuron'] = {
     },
     validate: function() {
         if (this.isInFlyout) {
-            this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, 'in'), 'NAME');
+            this.setFieldValue(neuronNameHelper.findLegalName(this.getFieldValue('NAME'), this, 'in'), 'NAME');
         }
     }
 };
@@ -1795,7 +1795,7 @@ Blockly.Blocks['robActions_outputneuron'] = {
     },
     validate: function() {
         if (this.isInFlyout) {
-            this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
+            this.setFieldValue(neuronNameHelper.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
         }
     }
 };
@@ -1821,10 +1821,10 @@ Blockly.Blocks['robActions_outputneuron_wo_var'] = {
         if (this.isInFlyout) {
             return;
         }
-        this.setFieldValue(neuronNameGenerator.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
+        this.setFieldValue(neuronNameHelper.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
     },
     validateName: function (name) {
-        return neuronNameGenerator.findLegalName(name, this.sourceBlock_, 'out');
+        return neuronNameHelper.findLegalName(name, this.sourceBlock_, 'out');
     }
 };
 
