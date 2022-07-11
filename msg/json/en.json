@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-07-07 14:04:52.563688",
+		"lastupdated": "2022-07-11 11:30:44.573478",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1224,6 +1224,7 @@
 	"MENU_SIM_CHANGE_COLOR_TOOLTIP": "Choose a color for the selected obstacle / color area.",
 	"MENU_SIM_CONFIG_EXPORT": "Download simulation settings.",
 	"MENU_SIM_CONFIG_IMPORT": "Upload simulation settings.",
+	"MENU_SIM_TRAIL_TOOLTIP": "Enable/Disable robot draw trail.",
 	"MENU_DEBUG_STEP_BREAKPOINT_TOOLTIP": "Step forward to the next breakpoint in the program.",
 	"MENU_DEBUG_STEP_OVER_TOOLTIP": "Step Over to the next block in the program.",
 	"MENU_DEBUG_STEP_INTO_TOOLTIP": "Step Into to the next block in the program.",

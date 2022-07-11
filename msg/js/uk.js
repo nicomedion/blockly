@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "відкрити/закрити вигля
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "змінити оточення";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "Запуск вашої програми в симуляції.";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "Зупинити вашу програму в симуляції.";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "Відкрити/закрити вигляд даних сенсорів.";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "виконати на »$«";

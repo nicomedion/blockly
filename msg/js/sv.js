@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "öppna/stäng robotvyn";
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "byt miljö";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "Starta ditt program i simulatorn.";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "Stoppa ditt program i simulatorn.";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "Öppna/stäng sensorns datavy.";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "kör på  »$«";

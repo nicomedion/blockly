@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "închide/deschide vizualizarea robotului";
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "schimbă scena";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "Pornește simularea.";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "Oprește rularea programului.";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "Deschide/închide fereastra de vizualizare a senzorilor";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "rulează pe »$«";

@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "Robot'un gorunumunu ac/kapat";
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "Alani degistir";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "Start your program in the simulation.";  // untranslated
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "Stop your program in the simulation.";  // untranslated
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "Open/close the sensors' data view.";  // untranslated
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "Robot uzerinde calistir";

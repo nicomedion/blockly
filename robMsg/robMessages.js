@@ -969,6 +969,7 @@ Blockly.Msg.MENU_SIM_ADD_OBSTACLE_TOOLTIP = 'Add an obstacle.';
 Blockly.Msg.MENU_SIM_CHANGE_COLOR_TOOLTIP = 'Choose a color for the selected obstacle / color area.';
 Blockly.Msg.MENU_SIM_CONFIG_EXPORT = 'Download simulation settings.';
 Blockly.Msg.MENU_SIM_CONFIG_IMPORT = 'Upload simulation settings.';
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = 'Enable/Disable robot draw trail.'
 Blockly.Msg.MENU_DEBUG_STEP_BREAKPOINT_TOOLTIP = 'Step forward to the next breakpoint in the program.';
 Blockly.Msg.MENU_DEBUG_STEP_OVER_TOOLTIP = 'Step Over to the next block in the program.';
 Blockly.Msg.MENU_DEBUG_STEP_INTO_TOOLTIP = 'Step Into to the next block in the program.';

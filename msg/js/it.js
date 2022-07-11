@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "apri/chiudi la finestra del robot";
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "cambia scenario";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "avvia il programma nella simulazione.";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "interrompi il programma nella simulazione.";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "apri / chiudi la finestra dei dati dei sensori.";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "esegui su »$«";

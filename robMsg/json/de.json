@@ -854,6 +854,7 @@
     "MENU_SIM_CONFIG_EXPORT": "Simulationseinstellungen herunterladen.",
     "MENU_SIM_CONFIG_IMPORT": "Simulationseinstellungen hochladen.",
     "MENU_SIM_DELETE_OBJECT_TOOLTIP": "Lösche das ausgewählte Hindernis / Farbfläche.",
+    "MENU_SIM_TRAIL_TOOLTIP": "Aktiviere / Deaktivieren die Roboter-Spur.",
     "MENU_RIGHT_HELP_TOOLTIP": "Öffne/schließe die Hilfeansicht.",
     "MENU_RIGHT_SIM_TOOLTIP": "Öffne/schließe die Simulationssansicht deines Programmes.",
     "MENU_RIGHT_SIM_DEBUG_TOOLTIP": "Öffne/schließe die Simulationssansicht im Debugging-Modus.",

@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "打開/關閉機器人的視圖";
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "更改場景";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "在類比中啟動程式。";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "在類比中停止程式。";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "打開/關閉感應器的資料檢視。";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "運行»$«";

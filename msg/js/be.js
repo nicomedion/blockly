@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "Адкрыць/закрыць від ад 
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "змяніць асяпродак";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "Запусціць праграму ў сімуляцыі.";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "Спыніць праграму ў сімуляцыі.";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "Адкрыць/закрыць акно з паказнікамі датчыкаў.";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "запусціць на праграмным блоку";

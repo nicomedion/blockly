@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "Öffne/schließe die Ansicht deines System
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "Wechsle das Hintergrundbild.";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "Starte dein Programm in der Simulation.";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "Stoppe das Programm in der Simulation.";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Aktiviere / Deaktivieren die Roboter-Spur.";
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "Öffne/schließe die Ansicht der Sensordaten.";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "öffne Quellcodeeditor";
 Blockly.Msg.MENU_START_BRICK = "starte auf »$«";

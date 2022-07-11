@@ -750,6 +750,7 @@ Blockly.Msg.MENU_SIM_ROBOT_TOOLTIP = "打开/关闭机器人的视图";
 Blockly.Msg.MENU_SIM_SCENE_TOOLTIP = "更改场景";
 Blockly.Msg.MENU_SIM_START_TOOLTIP = "在模拟中启动程序。";
 Blockly.Msg.MENU_SIM_STOP_TOOLTIP = "在模拟中停止程序。";
+Blockly.Msg.MENU_SIM_TRAIL_TOOLTIP = "Enable/Disable robot draw trail.";  // untranslated
 Blockly.Msg.MENU_SIM_VALUES_TOOLTIP = "打开/关闭传感器的数据视图。";
 Blockly.Msg.MENU_SOURCE_CODE_EDITOR = "open source code editor";  // untranslated
 Blockly.Msg.MENU_START_BRICK = "运行在 »$«";
