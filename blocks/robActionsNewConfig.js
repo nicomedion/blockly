@@ -14,7 +14,7 @@ goog.require('Blockly.Blocks.robConfigDefinitions');
  * @lends Block
  */
 Blockly.Blocks['robActions_ultrasonic2_led'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
 
         var sensorPorts = getConfigPorts('ultrasonic');
@@ -24,7 +24,7 @@ Blockly.Blocks['robActions_ultrasonic2_led'] = {
         };
         var ports = new Blockly.FieldDropdown([['1', 'LED1'], ['2', 'LED2'], ['3', 'LED3'], ['4', 'LED4'], ['5', 'LED5'], ['6', 'LED6'], ['7', 'LED7'], ['8', 'LED8'], [Blockly.Msg.NAO_LED_ALL, 'LEDALL']]);
 
-        this.appendDummyInput().appendField(Blockly.Msg.SET).appendField(Blockly.Msg.ACTION_LED).appendField().appendField(ports, 'LED').appendField(Blockly.Msg.SENSOR_ULTRASONIC + " 2 ").setAlign(Blockly.ALIGN_RIGHT).appendField(sensorPorts, 'ACTORPORT');
+        this.appendDummyInput().appendField(Blockly.Msg.SET).appendField(Blockly.Msg.ACTION_LED).appendField().appendField(ports, 'LED').appendField(Blockly.Msg.SENSOR_ULTRASONIC + ' 2 ').setAlign(Blockly.ALIGN_RIGHT).appendField(sensorPorts, 'ACTORPORT');
         this.appendValueInput('BRIGHTNESS').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.DISPLAY_PIXEL_BRIGHTNESS);
 
         this.setPreviousStatement(true);
@@ -34,7 +34,7 @@ Blockly.Blocks['robActions_ultrasonic2_led'] = {
 };
 
 Blockly.Blocks['robActions_quadRGB_led_on'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
 
         var sensorPorts = getConfigPorts('quadrgb');
@@ -52,7 +52,7 @@ Blockly.Blocks['robActions_quadRGB_led_on'] = {
 };
 
 Blockly.Blocks['robActions_quadRGB_led_off'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
 
         var sensorPorts = getConfigPorts('quadrgb');
@@ -70,7 +70,7 @@ Blockly.Blocks['robActions_quadRGB_led_off'] = {
 };
 
 Blockly.Blocks['robActions_led_setBrightness'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
 
         var dropDownPorts = getConfigPorts('rgbled');
@@ -89,14 +89,14 @@ Blockly.Blocks['robActions_led_setBrightness'] = {
 };
 
 Blockly.Blocks['robActions_display_set_colour'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
 
         var sensorPorts = getConfigPorts('lcd');
         this.dependConfig = {
             'type': 'lcd',
             'dropDown': sensorPorts
-        };       
+        };
         this.appendValueInput('COLOR').appendField(Blockly.Msg.ACTION_LCD_MBOT2_BRUSH).appendField(sensorPorts, 'ACTORPORT').appendField(Blockly.Msg.BRICKLIGHT_COLOR).setCheck('Colour');
         hidePortIfOnlyInbuilt(this);
 
@@ -107,14 +107,14 @@ Blockly.Blocks['robActions_display_set_colour'] = {
 };
 
 Blockly.Blocks['robActions_println'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
 
         var sensorPorts = getConfigPorts('lcd');
         this.dependConfig = {
             'type': 'lcd',
             'dropDown': sensorPorts
-        }; 
+        };
 
         this.appendValueInput('OUT').setAlign(Blockly.ALIGN_RIGHT).appendField(sensorPorts, 'ACTORPORT').appendField(Blockly.Msg.DISPLAY_SHOW + ' ' + Blockly.Msg.DISPLAY_TEXT + ' ' + Blockly.Msg.DISPLAY_NEW_ROW);
         hidePortIfOnlyInbuilt(this);
@@ -126,16 +126,16 @@ Blockly.Blocks['robActions_println'] = {
 };
 
 Blockly.Blocks['robActions_play_recording'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
 
         var sensorPorts = getConfigPorts('buzzer');
         this.dependConfig = {
             'type': 'buzzer',
             'dropDown': sensorPorts
-        }; 
+        };
 
-        this.appendDummyInput('OUT').appendField(sensorPorts, 'ACTORPORT').appendField(Blockly.Msg.PLAY + " " + Blockly.Msg.SENSOR_KEY_REC);
+        this.appendDummyInput('OUT').appendField(sensorPorts, 'ACTORPORT').appendField(Blockly.Msg.PLAY + ' ' + Blockly.Msg.SENSOR_KEY_REC);
         hidePortIfOnlyInbuilt(this);
 
         this.setPreviousStatement(true);
@@ -154,15 +154,15 @@ Blockly.Blocks['robActions_led_on_new_config'] = {
      * @returns immediately
      * @memberof Block
      */
-    init : function() {
+    init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
         this.action = 'LED';
         var slots = new Blockly.FieldDropdown([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], [Blockly.Msg.NAO_LED_ALL, 'ALL']]);
         var ports = getConfigPorts('rgbled');
         this.dependConfig = {
-                'type': 'rgbled',
-                'dropDown': ports
-            };
+            'type': 'rgbled',
+            'dropDown': ports
+        };
         this.appendValueInput('COLOR').appendField(Blockly.Msg.RGBLED_ON).appendField(ports, 'ACTORPORT').appendField(slots, 'LED').appendField(Blockly.Msg.BRICKLIGHT_COLOR).setCheck('Colour');
         hidePortIfOnlyInbuilt(this);
 

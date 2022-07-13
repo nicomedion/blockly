@@ -425,7 +425,7 @@ Blockly.Blocks['mbedActions_play_tone'] = {
         // this.setHelpUrl(Blockly.Msg.PLAY_TONE_HELPURL);
         this.setColour(Blockly.CAT_ACTION_RGB);
         // for some reason non mbed robots use mbedActions_play_tone
-        if (this.workspace.device === 'calliope' || this.workspace.device === 'microbit' || this.workspace.device === 'mbot2') {
+        if (this.workspace.device === 'calliope' || this.workspace.device === 'microbit' || this.workspace.device === 'mbot2' || this.workspace.device === 'thymio') {
             this.dropDownPorts = getConfigPorts('buzzer');
             this.dependConfig = {
                 'type' : 'buzzer',
@@ -435,7 +435,7 @@ Blockly.Blocks['mbedActions_play_tone'] = {
         } else {
             this.appendValueInput('FREQUENCE').appendField(Blockly.Msg.PLAY).appendField(Blockly.Msg.PLAY_FREQUENZ).setCheck('Number');
         }
-        if (this.workspace.device === 'calliope' || this.workspace.device === 'mbot2'){
+        if (this.workspace.device === 'calliope' || this.workspace.device === 'mbot2' || this.workspace.device === 'thymio'){
              hidePortIfOnlyInbuilt(this);
         }
         this.appendValueInput('DURATION').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.PLAY_DURATION);

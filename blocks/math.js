@@ -229,6 +229,7 @@ Blockly.Blocks['math_arithmetic'] = {
    * @this Blockly.Block
    */
   init: function() {
+  if (this.workspace.device === 'thymio') {
     this.jsonInit({
       "message0": "%1 %2 %3",
       "args0": [
@@ -241,11 +242,10 @@ Blockly.Blocks['math_arithmetic'] = {
           "type": "field_dropdown",
           "name": "OP",
           "options":
-            [[Blockly.Msg.MATH_ADDITION_SYMBOL, 'ADD'],
-             [Blockly.Msg.MATH_SUBTRACTION_SYMBOL, 'MINUS'],
-             [Blockly.Msg.MATH_MULTIPLICATION_SYMBOL, 'MULTIPLY'],
-             [Blockly.Msg.MATH_DIVISION_SYMBOL, 'DIVIDE'],
-             [Blockly.Msg.MATH_POWER_SYMBOL, 'POWER']]
+              [[Blockly.Msg.MATH_ADDITION_SYMBOL, 'ADD'],
+                [Blockly.Msg.MATH_SUBTRACTION_SYMBOL, 'MINUS'],
+                [Blockly.Msg.MATH_MULTIPLICATION_SYMBOL, 'MULTIPLY'],
+                [Blockly.Msg.MATH_DIVISION_SYMBOL, 'DIVIDE']]
         },
         {
           "type": "input_value",
@@ -258,6 +258,37 @@ Blockly.Blocks['math_arithmetic'] = {
       "colour": Blockly.CAT_MATH_RGB,
       "helpUrl": Blockly.Msg.MATH_ARITHMETIC_HELPURL
     });
+  } else {
+    this.jsonInit({
+      "message0": "%1 %2 %3",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "A",
+          "check": "Number"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OP",
+          "options":
+              [[Blockly.Msg.MATH_ADDITION_SYMBOL, 'ADD'],
+                [Blockly.Msg.MATH_SUBTRACTION_SYMBOL, 'MINUS'],
+                [Blockly.Msg.MATH_MULTIPLICATION_SYMBOL, 'MULTIPLY'],
+                [Blockly.Msg.MATH_DIVISION_SYMBOL, 'DIVIDE'],
+                [Blockly.Msg.MATH_POWER_SYMBOL, 'POWER']]
+        },
+        {
+          "type": "input_value",
+          "name": "B",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": Blockly.CAT_MATH_RGB,
+      "helpUrl": Blockly.Msg.MATH_ARITHMETIC_HELPURL
+    });
+  }
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
@@ -291,6 +322,30 @@ Blockly.Blocks['math_single'] = {
               [Blockly.Msg.MATH_SINGLE_OP_ABSOLUTE, 'ABS'],
               ['-', 'NEG'],
               ['10^', 'POW10']
+            ]
+          },
+          {
+            "type": "input_value",
+            "name": "NUM",
+            "check": "Number"
+          }
+        ],
+        "output": "Number",
+        "colour": Blockly.CAT_MATH_RGB,
+        "helpUrl": Blockly.Msg.MATH_SINGLE_HELPURL
+      });
+    } else if (this.workspace.device === 'thymio') {
+      this.jsonInit({
+        "message0": "%1 %2",
+        "args0": [
+          {
+            "type": "field_dropdown",
+            "name": "OP",
+            "options": [
+              [Blockly.Msg.MATH_SINGLE_OP_ROOT, 'ROOT'],
+              [Blockly.Msg.MATH_SINGLE_OP_SQUARE, 'SQUARE'],
+              [Blockly.Msg.MATH_SINGLE_OP_ABSOLUTE, 'ABS'],
+              ['-', 'NEG'],
             ]
           },
           {
@@ -356,31 +411,57 @@ Blockly.Blocks['math_trig'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.jsonInit({
-      "message0": "%1 %2",
-      "args0": [
-        {
-          "type": "field_dropdown",
-          "name": "OP",
-          "options": [
-            [Blockly.Msg.MATH_TRIG_SIN, 'SIN'],
-            [Blockly.Msg.MATH_TRIG_COS, 'COS'],
-            [Blockly.Msg.MATH_TRIG_TAN, 'TAN'],
-            [Blockly.Msg.MATH_TRIG_ASIN, 'ASIN'],
-            [Blockly.Msg.MATH_TRIG_ACOS, 'ACOS'],
-            [Blockly.Msg.MATH_TRIG_ATAN, 'ATAN']
-          ]
-        },
-        {
-          "type": "input_value",
-          "name": "NUM",
-          "check": "Number"
-        }
-      ],
-      "output": "Number",
-      "colour": Blockly.CAT_MATH_RGB,
-      "helpUrl": Blockly.Msg.MATH_TRIG_HELPURL
-    });
+    if (this.workspace.device === 'thymio') {
+      this.jsonInit({
+        "message0": "%1 %2",
+        "args0": [
+          {
+            "type": "field_dropdown",
+            "name": "OP",
+            "options": [
+              [Blockly.Msg.MATH_TRIG_SIN, 'SIN'],
+              [Blockly.Msg.MATH_TRIG_COS, 'COS'],
+              [Blockly.Msg.MATH_TRIG_TAN, 'TAN'],
+              [Blockly.Msg.MATH_TRIG_ATAN, 'ATAN']
+            ]
+          },
+          {
+            "type": "input_value",
+            "name": "NUM",
+            "check": "Number"
+          }
+        ],
+        "output": "Number",
+        "colour": Blockly.CAT_MATH_RGB,
+        "helpUrl": Blockly.Msg.MATH_TRIG_HELPURL
+      });
+    } else {
+      this.jsonInit({
+        "message0": "%1 %2",
+        "args0": [
+          {
+            "type": "field_dropdown",
+            "name": "OP",
+            "options": [
+              [Blockly.Msg.MATH_TRIG_SIN, 'SIN'],
+              [Blockly.Msg.MATH_TRIG_COS, 'COS'],
+              [Blockly.Msg.MATH_TRIG_TAN, 'TAN'],
+              [Blockly.Msg.MATH_TRIG_ASIN, 'ASIN'],
+              [Blockly.Msg.MATH_TRIG_ACOS, 'ACOS'],
+              [Blockly.Msg.MATH_TRIG_ATAN, 'ATAN']
+            ]
+          },
+          {
+            "type": "input_value",
+            "name": "NUM",
+            "check": "Number"
+          }
+        ],
+        "output": "Number",
+        "colour": Blockly.CAT_MATH_RGB,
+        "helpUrl": Blockly.Msg.MATH_TRIG_HELPURL
+      });
+    }
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {

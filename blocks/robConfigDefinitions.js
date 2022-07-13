@@ -34,10 +34,10 @@ var confBlocks = {};
 
 function createPins(startNumber, endNumber, opt_prefix_ext, opt_prefix_int) {
     if (!opt_prefix_ext) {
-        opt_prefix_ext = "";
+        opt_prefix_ext = '';
     }
     if (!opt_prefix_int) {
-        opt_prefix_int = "";
+        opt_prefix_int = '';
     }
     var array = [];
     for (var i = startNumber; i <= endNumber; i++) {
@@ -56,18 +56,18 @@ Blockly.Blocks.robConfigDefinitions['pinsDigital'].unowifirev2 = function() {
     return createPins(0, 13);
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].nano = function() {
-    return createPins(0, 13, "D");
+    return createPins(0, 13, 'D');
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].nano33ble = function() {
-    return createPins(0, 13, "D");
+    return createPins(0, 13, 'D');
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].mega = function() {
     return createPins(0, 53);
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].sensebox = function() {
-    var array = createPins(1, 2, "A");
-    array = array.concat(createPins(3, 4, "B"));
-    array = array.concat(createPins(5, 6, "C"));
+    var array = createPins(1, 2, 'A');
+    array = array.concat(createPins(3, 4, 'B'));
+    array = array.concat(createPins(5, 6, 'C'));
     return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].festobionic = function() {
@@ -97,7 +97,7 @@ Blockly.Blocks.robConfigDefinitions['pinsDigital'].calliope = function() {
         ['C17', 'C17'],
         ['C18', 'C18'],
         ['C19', 'C19']
-    ]
+    ];
     return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].microbit = function() {
@@ -108,24 +108,24 @@ Blockly.Blocks.robConfigDefinitions['pinsDigital'].microbit = function() {
 
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'] = {};
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].uno = function() {
-    return createPins(0, 5, "A", "A");
+    return createPins(0, 5, 'A', 'A');
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].unowifirev2 = function() {
-    return createPins(0, 5, "A", "A");
+    return createPins(0, 5, 'A', 'A');
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].nano = function() {
-    return createPins(0, 7, "A", "A");
+    return createPins(0, 7, 'A', 'A');
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].nano33ble = function() {
-    return createPins(0, 7, "A", "A");
+    return createPins(0, 7, 'A', 'A');
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].mega = function() {
-    return createPins(0, 15, "A", "A");
+    return createPins(0, 15, 'A', 'A');
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].sensebox = function() {
-    var array = createPins(1, 2, "A");
-    array = array.concat(createPins(3, 4, "B"));
-    array = array.concat(createPins(5, 6, "C"));
+    var array = createPins(1, 2, 'A');
+    array = array.concat(createPins(3, 4, 'B'));
+    array = array.concat(createPins(5, 6, 'C'));
     return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].calliope = function() {
@@ -161,15 +161,15 @@ Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].unowifirev2 = function() 
     return part1.concat(part2).concat(part3);
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].nano = function() {
-    var part1 = createPins(3, 3, "D");
-    var part2 = createPins(5, 6, "D");
-    var part3 = createPins(9, 11, "D");
+    var part1 = createPins(3, 3, 'D');
+    var part2 = createPins(5, 6, 'D');
+    var part3 = createPins(9, 11, 'D');
     return part1.concat(part2).concat(part3);
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].nano33ble = function() {
-    var part1 = createPins(3, 3, "D");
-    var part2 = createPins(5, 6, "D");
-    var part3 = createPins(9, 11, "D");
+    var part1 = createPins(3, 3, 'D');
+    var part2 = createPins(5, 6, 'D');
+    var part3 = createPins(9, 11, 'D');
     return part1.concat(part2).concat(part3);
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].mega = function() {
@@ -178,9 +178,9 @@ Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].mega = function() {
     return part1.concat(part2);
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].sensebox = function() {
-    var array = createPins(1, 2, "A");
-    array = array.concat(createPins(3, 4, "B"));
-    array = array.concat(createPins(5, 6, "C"));
+    var array = createPins(1, 2, 'A');
+    array = array.concat(createPins(3, 4, 'B'));
+    array = array.concat(createPins(5, 6, 'C'));
     return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].calliope = function() {
@@ -330,7 +330,7 @@ confBlocks.light.festobionicflower = {
     ports: [
         ['pin', 'PIN1']
     ],
-    sensor: true,
+    sensor: true
 };
 confBlocks.light.sensebox = {
     title: 'LIGHT',
@@ -406,12 +406,12 @@ confBlocks.colourtcs3472.calliope = {
             ['60x', '60X']
         ]],
         ['I_TIME', [
-            ["2.4ms", "2_4MS"],
-            ["24ms", "24MS"],
-            ["50ms", "50MS"],
-            ["101ms", "101MS"],
-            ["154ms", "154MS"],
-            ["700ms", "700MS"]
+            ['2.4ms', '2_4MS'],
+            ['24ms', '24MS'],
+            ['50ms', '50MS'],
+            ['101ms', '101MS'],
+            ['154ms', '154MS'],
+            ['700ms', '700MS']
         ]]
     ],
     pins: function(a) {
@@ -655,7 +655,7 @@ confBlocks.key.calliope = {
         ];
     },
     sensor: true,
-    standardPins: ['A'],
+    standardPins: ['A']
 };
 confBlocks.key.microbit = confBlocks.key.calliope;
 confBlocks.key.sensebox = confBlocks.key.arduino;
@@ -692,7 +692,7 @@ confBlocks.touch.festobionicflower = {
         ];
     },
     sensor: true,
-    standardPins: ['PAD1'],
+    standardPins: ['PAD1']
 };
 
 confBlocks.drop = {};
@@ -773,11 +773,11 @@ confBlocks.lcd.arduino = {
         ['RW', 'GND']
     ]
 };
-confBlocks.lcd.mbot2= {
-    title:'LCD',
+confBlocks.lcd.mbot2 = {
+    title: 'LCD',
     inbuilt: true,
     sensor: false
-}
+};
 
 confBlocks.oledssd1306i2c = {};
 confBlocks.oledssd1306i2c.arduino = {
@@ -836,8 +836,8 @@ confBlocks.differentialdrive = {};
 confBlocks.differentialdrive.mbot2 = {
     title: 'DIFFERENTIALDRIVE',
     inputs: [
-        ['BRICK_WHEEL_DIAMETER','6.5'],
-        ['BRICK_TRACK_WIDTH','11.5']
+        ['BRICK_WHEEL_DIAMETER', '6.5'],
+        ['BRICK_TRACK_WIDTH', '11.5']
     ],
     ports: [
         ['MOTOR_LEFT', 'MOTOR_L'],
@@ -897,9 +897,9 @@ confBlocks.led.sensebox = {
         ['input', 'INPUT']
     ],
     pins: function(a) {
-        var array = createPins(1, 2, "A");
-        array = array.concat(createPins(3, 4, "B"));
-        array = array.concat(createPins(5, 6, "C"));
+        var array = createPins(1, 2, 'A');
+        array = array.concat(createPins(3, 4, 'B'));
+        array = array.concat(createPins(5, 6, 'C'));
         array = array.concat(createPins(7, 8));
         return array;
     },
@@ -1066,7 +1066,7 @@ confBlocks.rgbled.festobionicflower = {
     ports: [
         ['pin', 'PIN1']
     ],
-    sensor: false,
+    sensor: false
 };
 
 confBlocks.rgbled.calliope = {
@@ -1138,7 +1138,7 @@ confBlocks.stepmotor.festobionicflower = {
     ports: [
         ['step', 'STEP1']
     ],
-    sensor: false,
+    sensor: false
 };
 
 
@@ -1235,25 +1235,25 @@ confBlocks.gyro.sensebox = {
 };
 confBlocks.gyro.mbot2 = confBlocks.gyro.calliope;
 
-confBlocks.lsm9ds1 = {}
+confBlocks.lsm9ds1 = {};
 confBlocks.lsm9ds1.nano33ble = {
     title: 'LSM9DS1',
     sensor: true,
     inbuilt: true
 };
-confBlocks.apds9960 = {}
+confBlocks.apds9960 = {};
 confBlocks.apds9960.nano33ble = {
     title: 'APDS9960',
     sensor: true,
     inbuilt: true
 };
-confBlocks.lps22hb = {}
+confBlocks.lps22hb = {};
 confBlocks.lps22hb.nano33ble = {
     title: 'LPS22HB',
     sensor: true,
     inbuilt: true
 };
-confBlocks.hts221 = {}
+confBlocks.hts221 = {};
 confBlocks.hts221.nano33ble = {
     title: 'HTS221',
     sensor: true,
@@ -1312,7 +1312,8 @@ confBlocks.encoder.mbot2 = {
         return [
             ['EM1', 'EM1'],
             ['EM2', 'EM2']
-        ];    },
+        ];
+    }
 };
 
 confBlocks.digitalout = {};
@@ -1324,13 +1325,13 @@ confBlocks.digitalout.arduino = {
     dropdowns: [
         ['PIN_PULL', [
             ['PIN_PULL_NONE', 'PIN_PULL_NONE'],
-            ['PIN_PULL_UP', 'PIN_PULL_UP'],
+            ['PIN_PULL_UP', 'PIN_PULL_UP']
         ]]
     ],
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsDigital'][a];
     },
-    sensor: true,
+    sensor: true
 };
 confBlocks.digitalout.sensebox = {
     title: 'DIGITALOUT',
@@ -1340,7 +1341,7 @@ confBlocks.digitalout.sensebox = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsDigital'][a];
     },
-    sensor: true,
+    sensor: true
 };
 confBlocks.digitalout.calliope = {
     title: 'DIGITALOUT',
@@ -1357,7 +1358,7 @@ confBlocks.digitalout.calliope = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsDigital'][a];
     },
-    sensor: true,
+    sensor: true
 };
 confBlocks.digitalout.microbit = {
     title: 'DIGITALOUT',
@@ -1367,7 +1368,7 @@ confBlocks.digitalout.microbit = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsDigital'][a];
     },
-    sensor: true,
+    sensor: true
 };
 confBlocks.digitalout.raspberrypi = {
     title: 'DIGITALOUT',
@@ -1387,7 +1388,7 @@ confBlocks.analogout.arduino = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsAnalog'][a];
     },
-    sensor: true,
+    sensor: true
 };
 confBlocks.analogout.sensebox = confBlocks.analogout.arduino;
 confBlocks.analogout.calliope = {
@@ -1398,7 +1399,7 @@ confBlocks.analogout.calliope = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsAnalog'][a];
     },
-    sensor: true,
+    sensor: true
 };
 confBlocks.analogout.microbit = confBlocks.analogout.calliope;
 
@@ -1411,7 +1412,7 @@ confBlocks.digitalin.arduino = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsDigital'][a];
     },
-    sensor: false,
+    sensor: false
 };
 confBlocks.digitalin.sensebox = confBlocks.digitalin.arduino;
 confBlocks.digitalin.calliope = {
@@ -1422,7 +1423,7 @@ confBlocks.digitalin.calliope = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsDigital'][a];
     },
-    sensor: false,
+    sensor: false
 };
 confBlocks.digitalin.microbit = confBlocks.digitalin.calliope;
 confBlocks.digitalin.raspberrypi = {
@@ -1431,7 +1432,7 @@ confBlocks.digitalin.raspberrypi = {
         ['SENSOR_PIN', 'INPUT']
     ],
     pins: Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'],
-    sensor: false,
+    sensor: false
 };
 
 confBlocks.analogin = {};
@@ -1443,7 +1444,7 @@ confBlocks.analogin.arduino = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'][a];
     },
-    sensor: false,
+    sensor: false
 };
 confBlocks.analogin.sensebox = confBlocks.analogin.arduino;
 confBlocks.analogin.calliope = {
@@ -1454,11 +1455,11 @@ confBlocks.analogin.calliope = {
     pins: function(a) {
         return Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'][a];
     },
-    sensor: false,
+    sensor: false
 };
 confBlocks.analogin.microbit = confBlocks.analogin.calliope;
 
-confBlocks.wireless = {}
+confBlocks.wireless = {};
 confBlocks.wireless.sensebox = {
     title: 'WIRELESS',
     dropdowns: [
@@ -1469,7 +1470,7 @@ confBlocks.wireless.sensebox = {
     sensor: false
 };
 
-confBlocks.sdcard = {}
+confBlocks.sdcard = {};
 confBlocks.sdcard.sensebox = {
     title: 'SDCARD',
     inputs: [
@@ -1483,7 +1484,7 @@ confBlocks.sdcard.sensebox = {
     sensor: false
 };
 
-confBlocks.plotting = {}
+confBlocks.plotting = {};
 confBlocks.plotting.sensebox = {
     title: 'PLOTTING',
     inputs: [
@@ -1500,7 +1501,7 @@ confBlocks.plotting.sensebox = {
     sensor: false
 };
 
-confBlocks.particle = {}
+confBlocks.particle = {};
 confBlocks.particle.sensebox = {
     title: 'PARTICLE',
     ports: [
@@ -1515,7 +1516,7 @@ confBlocks.particle.sensebox = {
     sensor: true
 };
 
-confBlocks.gps = {}
+confBlocks.gps = {};
 confBlocks.gps.sensebox = {
     title: 'GPS',
     ports: [
@@ -1529,7 +1530,7 @@ confBlocks.gps.sensebox = {
     sensor: true
 };
 
-confBlocks.fourdigitdisplay = {}
+confBlocks.fourdigitdisplay = {};
 confBlocks.fourdigitdisplay.calliope = {
     title: 'FOURDIGITDISPLAY',
     ports: [
@@ -1543,7 +1544,7 @@ confBlocks.fourdigitdisplay.calliope = {
     sensor: false
 };
 
-confBlocks.ledbar = {}
+confBlocks.ledbar = {};
 confBlocks.ledbar.calliope = {
     title: 'LEDBAR',
     ports: [
@@ -1557,7 +1558,7 @@ confBlocks.ledbar.calliope = {
     sensor: false
 };
 
-confBlocks.callibot = {}
+confBlocks.callibot = {};
 confBlocks.callibot.calliope = {
     title: 'CALLIBOT',
     super: true,
@@ -1580,7 +1581,7 @@ confBlocks.callibot.calliope = {
     ]
 };
 
-confBlocks.environmental = {}
+confBlocks.environmental = {};
 confBlocks.environmental.sensebox = {
     title: 'ENVIRONMENTAL',
     ports: [

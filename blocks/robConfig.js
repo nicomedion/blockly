@@ -25,10 +25,10 @@ Blockly.Blocks['robConf_generic'] = {
     /**
      * @param {Object
      *            sensor}
-     * 
+     *
      * @memberof Block
      */
-    init : function(confBlock) {
+    init: function(confBlock) {
         this.setColour(confBlock.sensor ? Blockly.CAT_SENSOR_RGB : Blockly.CAT_ACTION_RGB);
 
         var validateName = function(name) {
@@ -39,7 +39,7 @@ Blockly.Blocks['robConf_generic'] = {
                 return null;
             if (!name.match(/^[a-zA-Z][a-zA-Z_$0-9]*$/))
                 return null;
-            
+
             var subComp = block.inputList.filter(function(item) {
                 return (item.nameOld) ? item.nameOld === name : item.fieldRow[1].getText() === name;
             })[0];
@@ -48,16 +48,16 @@ Blockly.Blocks['robConf_generic'] = {
                 subComp.nameOld = name;
                 nameOld = name;
             }
-            
+
             // Ensure two identically-named variables don't exist.
             name = Blockly.RobConfig.findLegalName(name, block, nameOld);
-            Blockly.RobConfig.renameConfig(this.sourceBlock_, nameOld, name, Blockly.Workspace.getByContainer("blocklyDiv"));
+            Blockly.RobConfig.renameConfig(this.sourceBlock_, nameOld, name, Blockly.Workspace.getByContainer('blocklyDiv'));
             block.nameOld = name;
             return name;
         };
 
         var type = confBlock.sensor ? 'SENSOR_' : 'ACTION_';
-        var msg = Blockly.Msg[type + confBlock.title + "_" + this.workspace.device.toUpperCase()] || Blockly.Msg[type + confBlock.title];
+        var msg = Blockly.Msg[type + confBlock.title + '_' + this.workspace.device.toUpperCase()] || Blockly.Msg[type + confBlock.title];
 
         var nameBase = msg.charAt(0).toUpperCase() || Blockly.Msg[type + confBlock.title] || Blockly.checkMsgKey('CONFIGURATION_PORT');
         if (confBlock.inbuilt) {
@@ -69,14 +69,14 @@ Blockly.Blocks['robConf_generic'] = {
         if (confBlock.inbuilt) {
             nameField.setVisible(false);
         }
-        this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg[type + confBlock.title + "_" + this.workspace.device.toUpperCase()]
-                || Blockly.Msg[type + confBlock.title] || type + confBlock.title, 'SENSORTITLE').appendField(nameField, 'NAME');
+        this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg[type + confBlock.title + '_' + this.workspace.device.toUpperCase()]
+            || Blockly.Msg[type + confBlock.title] || type + confBlock.title, 'SENSORTITLE').appendField(nameField, 'NAME');
 
         if (confBlock.super) {
             this.super = true;
         }
         if (confBlock.bricks) {
-            var container = Blockly.Workspace.getByContainer("bricklyDiv");
+            var container = Blockly.Workspace.getByContainer('bricklyDiv');
             if (container) {
                 var topBlocks = Blockly.getMainWorkspace().getTopBlocks(true);
                 var variableList = [];
@@ -84,18 +84,18 @@ Blockly.Blocks['robConf_generic'] = {
                     var block = topBlocks[i];
                     if (block.type.indexOf('robBrick_') !== -1) {
                         if (block.getVarDecl) {
-                            variableList.push([ block.getVarDecl()[0], block.getVarDecl()[0] ]);
+                            variableList.push([block.getVarDecl()[0], block.getVarDecl()[0]]);
                         }
                     }
                 }
             }
             if (variableList.length == 0) {
-                variableList.push([ [ 'INVALID_NAME', 'INVALID_NAME' ] ]);
+                variableList.push([['INVALID_NAME', 'INVALID_NAME']]);
             }
             var brickName = new Blockly.FieldDropdown(variableList);
             this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg['BRICKNAME_' + this.workspace.device.toUpperCase()]).appendField(brickName, 'VAR');
             this.getVars = function() {
-                return [ this.getFieldValue('VAR') ];
+                return [this.getFieldValue('VAR')];
             };
             this.renameVar = function(oldName, newName) {
                 if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
@@ -131,7 +131,7 @@ Blockly.Blocks['robConf_generic'] = {
         var portList = [];
         if (confBlock.ports) {
             for (var i = 0; i < confBlock.ports.length; i++) {
-                portList.push([ Blockly.Msg[confBlock.ports[i][0]] || confBlock.ports[i][0], confBlock.ports[i][1] ]);
+                portList.push([Blockly.Msg[confBlock.ports[i][0]] || confBlock.ports[i][0], confBlock.ports[i][1]]);
             }
             ports = new Blockly.FieldDropdown(portList);
         } else {
@@ -155,7 +155,7 @@ Blockly.Blocks['robConf_generic'] = {
 
         if (confBlock.fixedPorts) {
             for (var i = 0; i < confBlock.fixedPorts.length; i++) {
-                var dropDown = new Blockly.FieldDropdown([ [ confBlock.fixedPorts[i][1], confBlock.fixedPorts[i][1] ] ]);
+                var dropDown = new Blockly.FieldDropdown([[confBlock.fixedPorts[i][1], confBlock.fixedPorts[i][1]]]);
                 this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(confBlock.fixedPorts[i][0]).appendField(dropDown);
             }
         }
@@ -169,7 +169,7 @@ Blockly.Blocks['robConf_generic'] = {
         var that = this;
         this.setTooltip(function() {
             return Blockly.Msg[confBlock.title + '_TOOLTIP_' + that.workspace.device.toUpperCase()] || Blockly.Msg[confBlock.title + '_TOOLTIP']
-                    || confBlock.title + '_TOOLTIP';
+                || confBlock.title + '_TOOLTIP';
         });
         this.type = 'robConf_' + confBlock.title.toLowerCase();
         this.getConfigDecl = function() {
@@ -178,14 +178,14 @@ Blockly.Blocks['robConf_generic'] = {
                 for (var i = 0; i < confBlock.subcomponents.length; i++) {
                     configDecl.push({
                         // subcomponents may have an additional underscore in the name, to give it a unique name
-                        'type' : confBlock.subcomponents[i][1].toLowerCase().split('_')[0],
-                        'name' : that.inputList[i + 1].fieldRow[1].getText()
+                        'type': confBlock.subcomponents[i][1].toLowerCase().split('_')[0],
+                        'name': that.inputList[i + 1].fieldRow[1].getText()
                     });
                 }
             }
             configDecl.push({
-                'type' : confBlock.title.toLowerCase(),
-                'name' : that.getFieldValue('NAME')
+                'type': confBlock.title.toLowerCase(),
+                'name': that.getFieldValue('NAME')
             });
             return configDecl;
         };

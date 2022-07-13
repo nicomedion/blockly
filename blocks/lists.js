@@ -863,6 +863,7 @@ Blockly.Blocks['robLists_create_with'] = {
         case 'Number':
             switch (this.workspace.device) {
             case 'edison':
+            case 'thymio':
                 block = this.workspace.newBlock('math_integer');
                 return block;
             default:

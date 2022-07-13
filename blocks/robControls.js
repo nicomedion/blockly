@@ -126,6 +126,7 @@ Blockly.Blocks['robControls_start'] = {
             var value = vd.getInput('VALUE');
             switch (this.workspace.device) {
             case 'edison':
+            case 'thymio':
                 var block = this.workspace.newBlock('math_integer');
                 break;
             default:

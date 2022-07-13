@@ -219,19 +219,21 @@ Blockly.Procedures.flyoutCategory = function(workspace) {
       block.setAttribute('gap', 16);
       xmlList.push(block);
     }
-    if (Blockly.Blocks['robProcedures_defreturn']) {
-      // <block type="procedures_defreturn" gap="16"></block>
-      var block = goog.dom.createDom('block');
-      block.setAttribute('type', 'robProcedures_defreturn');
-      block.setAttribute('gap', 16);
-      xmlList.push(block);
-    }
-    if (Blockly.Blocks['robProcedures_ifreturn']) {
-      // <block type="procedures_ifreturn" gap="16"></block>
-      var block = goog.dom.createDom('block');
-      block.setAttribute('type', 'robProcedures_ifreturn');
-      block.setAttribute('gap', 16);
-      xmlList.push(block);
+    if (workspace.device !== "thymio") {
+      if (Blockly.Blocks['robProcedures_defreturn']) {
+        // <block type="procedures_defreturn" gap="16"></block>
+        var block = goog.dom.createDom('block');
+        block.setAttribute('type', 'robProcedures_defreturn');
+        block.setAttribute('gap', 16);
+        xmlList.push(block);
+      }
+      if (Blockly.Blocks['robProcedures_ifreturn']) {
+        // <block type="procedures_ifreturn" gap="16"></block>
+        var block = goog.dom.createDom('block');
+        block.setAttribute('type', 'robProcedures_ifreturn');
+        block.setAttribute('gap', 16);
+        xmlList.push(block);
+      }
     }
   }
   if (xmlList.length) {

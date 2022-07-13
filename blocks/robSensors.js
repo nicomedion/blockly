@@ -47,7 +47,7 @@ Blockly.Blocks['robSensors_encoder_reset'] = {
 };
 
 Blockly.Blocks['robSensors_gyro_reset'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_SENSOR_RGB);
         // this.setInputsInline(true);
         var sensorPort = new Blockly.FieldDropdown([['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']]);
@@ -60,15 +60,15 @@ Blockly.Blocks['robSensors_gyro_reset'] = {
 };
 
 Blockly.Blocks['robSensors_gyro_reset_axis'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_SENSOR_RGB);
-        var sensorPort = getConfigPorts("gyro");
+        var sensorPort = getConfigPorts('gyro');
         this.dependConfig = {
-            type: "gyro",
-            dropDown: sensorPort,
+            type: 'gyro',
+            dropDown: sensorPort
         };
         var axis = new Blockly.FieldDropdown([['x', 'X'], ['y', 'Y'], ['z', 'Z'], [Blockly.Msg.NAO_LED_ALL, 'ALL']]);
-        this.appendDummyInput().appendField(Blockly.Msg.SENSOR_RESET).appendField(Blockly.Msg.SENSOR_GYRO).appendField(axis,'SLOT').appendField(sensorPort, 'SENSORPORT').appendField(Blockly.Msg.SENSOR_RESET_II);
+        this.appendDummyInput().appendField(Blockly.Msg.SENSOR_RESET).appendField(Blockly.Msg.SENSOR_GYRO).appendField(axis, 'SLOT').appendField(sensorPort, 'SENSORPORT').appendField(Blockly.Msg.SENSOR_RESET_II);
         hidePortIfOnlyInbuilt(this);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
@@ -77,9 +77,9 @@ Blockly.Blocks['robSensors_gyro_reset_axis'] = {
 };
 
 Blockly.Blocks['robSensors_sound_record'] = {
-    init: function () {
+    init: function() {
         this.setColour(Blockly.CAT_SENSOR_RGB);
-        var mode = new Blockly.FieldDropdown([[Blockly.Msg.START, 'START'], [Blockly.Msg.MOTOR_STOP, 'STOP']])
+        var mode = new Blockly.FieldDropdown([[Blockly.Msg.START, 'START'], [Blockly.Msg.MOTOR_STOP, 'STOP']]);
         var dropDownPorts = getConfigPorts('sound');
 
         this.dependConfig = {
@@ -92,7 +92,7 @@ Blockly.Blocks['robSensors_sound_record'] = {
         this.setNextStatement(true);
         this.setTooltip(Blockly.Msg.SOUND_RECORD_TOOLTIP);
     }
-}
+};
 
 Blockly.Blocks['robSensors_timer_reset'] = {
     /**
@@ -108,7 +108,7 @@ Blockly.Blocks['robSensors_timer_reset'] = {
     init: function() {
         this.setColour(Blockly.CAT_SENSOR_RGB);
         var sensorNum;
-        if (this.workspace.device === 'nxt' || this.workspace.device === 'botnroll' || this.workspace.device === 'bob3' || this.workspace.device === 'wedo' || this.workspace.device === 'rob3rta') {
+        if (this.workspace.device === 'nxt' || this.workspace.device === 'botnroll' || this.workspace.device === 'bob3' || this.workspace.device === 'wedo' || this.workspace.device === 'rob3rta' || this.workspace.device === 'thymio') {
             sensorNum = new Blockly.FieldDropdown([[Blockly.Msg.SENSOR_TIMER + ' 1', '1']]);
         } else {
             sensorNum = new Blockly.FieldDropdown([[Blockly.Msg.SENSOR_TIMER + ' 1', '1'], [Blockly.Msg.SENSOR_TIMER + ' 2', '2'],
@@ -185,6 +185,55 @@ Blockly.Blocks['edisonSensors_sensor_reset'] = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip(Blockly.Msg.SENSOR_RESET_TOOLTIP_EDISON);
+    }
+};
+
+Blockly.Blocks['robSensors_record_begin'] = {
+    /**
+     * Start recording audio for Thymio.
+     *
+     * @constructs robSensors_record_begin
+     * @this.Blockly.Block
+     * @param {Number}
+     *            FILENAME
+     * @returns immediately
+     * @memberof Block
+     */
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.START + ' ' + Blockly.Msg.SENSOR_SOUND_RECORD + ' ' + Blockly.Msg.SENSOR_SOUND_THYMIO + ' ' + Blockly.Msg.PLAY_FILE + '%1',
+            'args0': [
+                {
+                    'type': 'input_value',
+                    'name': 'FILENAME',
+                    'check': 'Number'
+                }
+            ],
+            'previousStatement': true,
+            'nextStatement': true,
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SOUND_RECORD_THYMIO_TOOLTIP
+        });
+    }
+};
+
+Blockly.Blocks['robSensors_record_stop'] = {
+    /**
+     * Stop recording audio for Thymio.
+     *
+     * @constructs robSensors_record_stop
+     * @this.Blockly.Block
+     * @returns immediately
+     * @memberof Block
+     */
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.MOTOR_STOP + ' ' + Blockly.Msg.SENSOR_SOUND_RECORD + ' ' + Blockly.Msg.SENSOR_SOUND_THYMIO,
+            'previousStatement': true,
+            'nextStatement': true,
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SOUND_RECORD_STOP_TOOLTIP
+        });
     }
 };
 

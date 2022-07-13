@@ -388,6 +388,19 @@ Blockly.TYPE_DROPDOWN = function(device, opt_handler) {
                         this.sourceBlock_[handler](0, option);
                 }
             });
+        case 'thymio':
+            return new Blockly.FieldDropdown([
+                [Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'],
+                [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
+                 [Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour']
+            ], function(option) {
+                if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
+                    this.sourceBlock_.updateType_(option);
+                    if (this.sourceBlock_[handler])
+                        this.sourceBlock_[handler](0, option);
+                }
+            });
         default:
             return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number']], function(option) {
                 this.sourceBlock_.updateType_(option);
@@ -437,6 +450,10 @@ Blockly.LIST_TYPE_DROPDOWN = function(device) {
             });
         case 'wedo':
             throw 'no lists supported for wedo!';
+        case 'thymio':
+            return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour']], function(option) {
+                this.sourceBlock_.updateType_(option);
+            });
         case 'edison':
         default:
             return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number']], function(option) {

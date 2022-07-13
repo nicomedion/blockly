@@ -815,7 +815,9 @@ Blockly.Blocks['robProcedures_defnoreturn'] = {
         .appendField(nameField, 'NAME')
         .appendField('', 'WITH');
     this.appendStatementInput('STACK').appendField(Blockly.Msg.PROCEDURES_DEFNORETURN_DO);
-    this.setMutator(new Blockly.MutatorPlus(['robProcedures_defnoreturn']));
+    if (this.workspace.device !== "thymio") {
+      this.setMutator(new Blockly.MutatorPlus(['robProcedures_defnoreturn']));
+    }
     this.setTooltip(Blockly.Msg.PROCEDURES_DEFNORETURN_TOOLTIP);
     this.declare_ = false;
   },
@@ -1070,7 +1072,7 @@ Blockly.Blocks['robProcedures_defreturn'] = {
       this.getInput('STACK').connection.connect(stackConnectionTarget);
     }
   },
-  
+
   updateType_: function(option) {
     if (option && this.getFieldValue('TYPE') !== option) {
       this.returnType_ = option;
@@ -1319,7 +1321,7 @@ Blockly.Blocks['robProcedures_callnoreturn'] = {
         Blockly.Events.setGroup(false);
       }
     }
-  }  
+  }
 };
 
 
