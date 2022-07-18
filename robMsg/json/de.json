@@ -1449,6 +1449,7 @@
     "NN_GET_OUTPUT_NEURON_VALUE": "gib den Wert des Ausgabe-Neurons",
     "NN_GET_OUTPUT_NEURON_VALUE_TOOLTIP": "liefere den Wert eines Ausgabe-Neurons vom letzten Schritt des neuronalen Netzwerks zurück.",
 	"NN_STEP_INPUTOUTPUT_MISSING": "es muss mindestens ein Eingabe- und ein Ausgabe-Neuron geben",
+	"NN_INVALID_NEURONNAME": "Name des Neurons ist ungültig",
 	"NN_INSPECT_NN": "betrachte und passe das Netz an, wenn Eingabe- oder Ausgabe-Neuronen hinzugefügt oder entfernt werden",
     "NN_VALUE": "Wert:",
     "NN_STORE": "speichere in:",

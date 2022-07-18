@@ -1654,6 +1654,7 @@ Blockly.Msg.NN_SHOW_ALL = 'show all, change by clicking';
 Blockly.Msg.NN_STEPS_INCONSISTENT = 'if you use many NNStep-blocks, names and order of neurons must match';
 Blockly.Msg.NN_STEP_INCONSISTENT = 'names of all neurons must be nonempty, different and valid';
 Blockly.Msg.NN_STEP_INPUTOUTPUT_MISSING = 'at least one input and one output neurons are required';
+Blockly.Msg.NN_INVALID_NEURONNAME = 'invalid neuron name';
 Blockly.Msg.NN_INSPECT_NN = 'after adding or removing input or output neurons, inspect the net';
 Blockly.Msg.NN_SHOW_MATH = 'computation of neuron';
 Blockly.Msg.NN_SHOW_PRECISION = 'decimal places';
