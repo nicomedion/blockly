@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-07-18 16:33:46.197525",
+		"lastupdated": "2022-07-21 13:22:30.344215",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -726,6 +726,7 @@
 	"POPUP_ABOUT_TEXT": "The Open Roberta Lab is a cloud-based integrated programming environment that enables children and adolescents to program easily different robot/microcontroller systems. This platform is completely open source so taking part is desirable! Both the software and the open source developer tools are available via Fraunhofer servers.",
 	"POPUP_ABOUT_TEXT_DEV": "The Open Roberta Lab is an open-source programming platform developed by Fraunhofer IAIS within the initiative <a href='http://www.roberta-home.de/' target='_blank'>»Roberta – Learning with Robots«</a>",
 	"POPUP_ABOUT_TEXT_GOOG": "Open Roberta was initiated in collaboration with Google Germany to reduce the hurdles for students, teachers and schools programming educational robots.</a>",
+	"POPUP_ABOUT_TEXT_NRW": "As part of the project »AI Algorithms in Computer Science Education«, the Ministry for Schools and Education of the State of North Rhine-Westphalia is funding the integration of Artificial Neural Networks into the Open Roberta Lab as well as the development of suitable learning content and materials on Artificial Intelligence.",
 	"POPUP_STARTUP_START": "Choose your system!",
 	"POPUP_ABOUT_JOIN": "I want to help",
 	"POPUP_USERNAME": "Username",
@@ -807,7 +808,7 @@
 	"ORA_CONFIGURATION_DELETE_ERROR": "An error has occurred while deleting the robot configuration, please try it again!",
 	"ORA_PROGRAM_CONFIGURATION_NOT_COMPATIBLE": "Program is not compatible with the configuration",
 	"ORA_PROGRAM_ERROR_ID_INVALID": "The name of your  program is already used by the system. Please choose another name and try it again!",
-	"ORA_PROGRAM_GET_ONE_ERROR_NOT_FOUND": "Program not found.",
+	"ORA_PROGRAM_GET_ONE_ERROR_NOT_FOUND": "The program »$« could not be found in the database.",
 	"ORA_PROGRAM_GET_ONE_ERROR_NOT_LOGGED_IN": "You are not logged in, please log in with your username and password or create a new user.",
 	"ORA_PROGRAM_GET_ONE_SUCCESS": "Program loaded",
 	"ORA_PROGRAM_SAVE_SUCCESS": "Program saved",
@@ -827,7 +828,7 @@
 	"ORA_USER_DELETE_ERROR_NOT_DELETED_IN_DB": "Error while deleting user in database.",
 	"ORA_USER_DELETE_ERROR_ID_NOT_FOUND": "Error while deleting user.",
 	"ORA_USER_GET_ALL_SUCCESS": "Users loaded",
-	"ORA_COMPILERWORKFLOW_ERROR_PROGRAM_NOT_FOUND": "The program could not be transformed into the robots programming language.",
+	"ORA_COMPILERWORKFLOW_ERROR_PROGRAM_NOT_FOUND": "The program »$« could not be found in the database.",
 	"ORA_COMPILERWORKFLOW_ERROR_CONFIGURATION_NOT_FOUND": "The robot configuration could not be found on the server.",
 	"ORA_COMPILERWORKFLOW_ERROR_PROGRAM_TRANSFORM_FAILED": "The program could not be transformed into the robots programming language.",
 	"ORA_COMPILERWORKFLOW_ERROR_CONFIGURATION_TRANSFORM_FAILED": "The robot configuration could not be transformed into the robots programming language.",

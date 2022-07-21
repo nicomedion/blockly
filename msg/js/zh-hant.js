@@ -1222,6 +1222,7 @@ Blockly.Msg.POPUP_ABOUT_JOIN = "我想幫忙";
 Blockly.Msg.POPUP_ABOUT_TEXT = "Open Roberta實驗室是一個基於雲的集成程式設計環境, 使兒童和青少年能夠輕鬆地程式設計不同的機器人/微控制器系統。這個平臺是完全開源的, 所以參與是可取的!軟體和開源開發者工具都可以通過Fraunhofer伺服器提供。";
 Blockly.Msg.POPUP_ABOUT_TEXT_DEV = "Open Roberta實驗室是一個開放源碼程式設計平臺, 由Fraunhofer IAIS 在倡議中開發<a href=\"http://www.roberta-home.de/\" target=\"_blank\">»Roberta-學習機器人«</a>";
 Blockly.Msg.POPUP_ABOUT_TEXT_GOOG = "Open Roberta是與谷歌德國合作發起的, 以減少學生、教師和學校程式設計教育機器人的障礙。";
+Blockly.Msg.POPUP_ABOUT_TEXT_NRW = "As part of the project »AI Algorithms in Computer Science Education«, the Ministry for Schools and Education of the State of North Rhine-Westphalia is funding the integration of Artificial Neural Networks into the Open Roberta Lab as well as the development of suitable learning content and materials on Artificial Intelligence.";  // untranslated
 Blockly.Msg.POPUP_AGE = "年齡";
 Blockly.Msg.POPUP_ATTENTION = "注意";
 Blockly.Msg.POPUP_BACKGROUND_REPLACE = "A program with the same name already exists. <br> Would you like to replace it?";  // untranslated

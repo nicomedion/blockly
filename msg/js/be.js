@@ -1222,6 +1222,7 @@ Blockly.Msg.POPUP_ABOUT_JOIN = "Мне патрэбна дапамога";
 Blockly.Msg.POPUP_ABOUT_TEXT = "Roberta Lab Open уяўляе сабой воблачны інтэграваны асяродак праграмавання, які дазваляе дзецям і падлеткам з лёгкасцю праграмаваць розныя сістэмы робата. Зыходны код гэтай платформы поўнасцю адкрыты, таму вітаецца любы ўдзел! І праграмнае забеспячэнне і інструменты для распрацоўшчыкаў з адкрытым зыходным кодам даступны праз серверы Фраўнхофера.";
 Blockly.Msg.POPUP_ABOUT_TEXT_DEV = "Roberta Lab Open з'яўляецца платформай з адкрытым зыходным кодам, распрацаваным Fraubhofer IAIS у межах ініцыятывы http://www.roberta-home.de »Раберта - Навучанне з робатамі«";
 Blockly.Msg.POPUP_ABOUT_TEXT_GOOG = "Open Roberta была арганізавана ў супрацоўніцтве з Google Германіі, каб спрасціць праграмаванне навучальных робатаў для студэнтаў, настаўнікаў і школ. Open Roberta была прафінансавана Google.org (2014-2015) на 1 мільён еўра.";
+Blockly.Msg.POPUP_ABOUT_TEXT_NRW = "As part of the project »AI Algorithms in Computer Science Education«, the Ministry for Schools and Education of the State of North Rhine-Westphalia is funding the integration of Artificial Neural Networks into the Open Roberta Lab as well as the development of suitable learning content and materials on Artificial Intelligence.";  // untranslated
 Blockly.Msg.POPUP_AGE = "Узрост";
 Blockly.Msg.POPUP_ATTENTION = "Увага";
 Blockly.Msg.POPUP_BACKGROUND_REPLACE = "A program with the same name already exists. <br> Would you like to replace it?";  // untranslated

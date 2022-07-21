@@ -1072,7 +1072,7 @@ Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_CONFIGURATION_TRANSFORM_FAILED = "Die Rob
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_COMPILE_FAILED = "Das Programm kann nicht auf dem Roboter oder in der Simulation ausgeführt werden. Das Program kann nicht übersetzt werden. Die Fehlermeldung ist: <span style='background-color:#ddd;font-family:courier;'>{MESSAGE}</span>";
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_GENERATION_FAILED = "Das Programm konnte nicht generiert werden.";
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_GENERATION_FAILED_WITH_PARAMETERS = "Das Programm konnte nicht generiert werden. Es gibt Fehler in den block {BLOCK} mit dem pin {PIN}";
-Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_NOT_FOUND = "Das Programm konnte in der Datenbank nicht gefunden werden.";
+Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_NOT_FOUND = "Das Programm »$« konnte in der Datenbank nicht gefunden werden.";
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_STORE_FAILED = "Ein Fehler ist beim internen Speichern des Programmes aufgetreten.";
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_TRANSFORM_FAILED = "Das Programm konnte nicht in die entsprechende Programmiersprache übertragen werden.";
 Blockly.Msg.ORA_COMPILERWORKFLOW_SUCCESS = "Das Bauen des Programms war erfolgreich";
@@ -1123,7 +1123,7 @@ Blockly.Msg.ORA_PROGRAM_DELETE_SUCCESS = "Du hast das Programm »$« gelöscht."
 Blockly.Msg.ORA_PROGRAM_ERROR_ID_INVALID = "Dein Programmname ist vom System reserviert. Wähle bitte einen anderen Namen und versuche es noch einmal!";
 Blockly.Msg.ORA_PROGRAM_GET_ALL_ERROR_USER_NOT_FOUND = "Die Programme des ausgewählten Benutzers konnten nicht geladen werden. Bitte lade das Open Roberta Lab neu und versuche es dann erneut.";
 Blockly.Msg.ORA_PROGRAM_GET_ALL_SUCCESS = "Du hast deine Programme geladen.";
-Blockly.Msg.ORA_PROGRAM_GET_ONE_ERROR_NOT_FOUND = "Das Programm konnte nicht in der Datenbank gefunden werden.";
+Blockly.Msg.ORA_PROGRAM_GET_ONE_ERROR_NOT_FOUND = "Das Programm »$« konnte nicht in der Datenbank gefunden werden.";
 Blockly.Msg.ORA_PROGRAM_GET_ONE_ERROR_NOT_LOGGED_IN = "Du bist nicht angemeldet, bitte melde dich mit deinem Benutzernamen und dem Passwort an oder erstelle dir ein neues Benutzerkonto.";
 Blockly.Msg.ORA_PROGRAM_GET_ONE_SUCCESS = "Du hast das Programm »$« geladen.";
 Blockly.Msg.ORA_PROGRAM_IMPORT_ERROR = "»$.xml« ist kein gültiges NEPO Programm und kann nicht hochgeladen werden!";
@@ -1222,6 +1222,7 @@ Blockly.Msg.POPUP_ABOUT_JOIN = "Ich möchte mithelfen";
 Blockly.Msg.POPUP_ABOUT_TEXT = "Open Roberta Lab ist eine cloudbasierte grafische Programmierumgebung, die es Kindern und Jugendlichen ermöglicht ohne technische Hürden einen Roboter/Mikrocontroller zu programmieren. <br /> Die Programmierplattform ist komplett »open source«, Mitmachen und Anregungen erwünscht! Alle benötigte Software und Open-Source-Entwicklertools stehen über Fraunhofer-Server bereit.";
 Blockly.Msg.POPUP_ABOUT_TEXT_DEV = "Das Open Roberta Lab ist eine Open-Source-Entwicklung des Fraunhofer-Instituts IAIS im Kontext der Initiative  <a href='http://www.roberta-home.de/' target='_blank'>»Roberta – Lernen mit Robotern«</a>";
 Blockly.Msg.POPUP_ABOUT_TEXT_GOOG = "Open Roberta wurde gemeinsam mit Google Deutschland initiiert, um die Hürden zur Programmierung von Robotern für Schülerinnen, Schüler und Lehrkräfte​ abzubauen.";
+Blockly.Msg.POPUP_ABOUT_TEXT_NRW = "Im Rahmen des Projekts »KI-Algorithmen im Informatikunterricht« fördert das Ministerium für Schule und Bildung des Landes Nordrhein-Westfalen die Integration Künstlicher Neuronaler Netze ins Open Roberta Lab sowie die Entwicklung passender Lerninhalte und Materialien zu Künstlicher Intelligenz.";
 Blockly.Msg.POPUP_AGE = "Alter";
 Blockly.Msg.POPUP_ATTENTION = "Achtung";
 Blockly.Msg.POPUP_BACKGROUND_REPLACE = "Ein Programm mit demselben Namen existiert bereits. <br> Möchtest du es ersetzen?";

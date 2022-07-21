@@ -1222,6 +1222,7 @@ Blockly.Msg.POPUP_ABOUT_JOIN = "lagundu nahi dut";
 Blockly.Msg.POPUP_ABOUT_TEXT = "Open Roberta Lab, hodeian oinarritutako programazio ingurune integratu bat da. Honen bitartez haurrak eta gazteak Lego Mindstorms EV3 robotak era errazean programatzeko aukera daukate. Plataforma hau gustiz kode irekikoa da, beraz edozein partehartze ongietorria da. Bai softwarea baita kode irekiko garapen erremintak eskuragarri daude Fraunhofer zerbitzarietan. ";
 Blockly.Msg.POPUP_ABOUT_TEXT_DEV = "Open Roberta Lab kode askeko programazio plataforma bat da Fraunhofer IAIS-ek garatutakoa, <a href='http://www.roberta-home.de/'>»Roberta – Learning with Robots«</a> -en ekimenez.";
 Blockly.Msg.POPUP_ABOUT_TEXT_GOOG = "Open Roberta Google Germany-ren elkarlanarekin hasi zen robotak erabiltzen dituzten eskola, irakasle eta ikasleen oztopoak murrizteko asmoz. Open Roberta Google.org-en finantziazioa jasotzen du (2 14 - 2.15) 1M Euroko laguntza.</a>";
+Blockly.Msg.POPUP_ABOUT_TEXT_NRW = "As part of the project »AI Algorithms in Computer Science Education«, the Ministry for Schools and Education of the State of North Rhine-Westphalia is funding the integration of Artificial Neural Networks into the Open Roberta Lab as well as the development of suitable learning content and materials on Artificial Intelligence.";  // untranslated
 Blockly.Msg.POPUP_AGE = "Age";  // untranslated
 Blockly.Msg.POPUP_ATTENTION = "Arreta";
 Blockly.Msg.POPUP_BACKGROUND_REPLACE = "A program with the same name already exists. <br> Would you like to replace it?";  // untranslated

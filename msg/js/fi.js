@@ -1072,7 +1072,7 @@ Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_CONFIGURATION_TRANSFORM_FAILED = "The rob
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_COMPILE_FAILED = "Your program has errors so it cannot be compiled. The compiler messages are: <span style='background-color:#ddd;font-family:courier;'>{MESSAGE}</span>";  // untranslated
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_GENERATION_FAILED = "The program could not be generated.";  // untranslated
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_GENERATION_FAILED_WITH_PARAMETERS = "The program could not be generated. Pin {PIN} is incorrect in block {BLOCK}";  // untranslated
-Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_NOT_FOUND = "The program could not be transformed into the robots programming language.";  // untranslated
+Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_NOT_FOUND = "The program »$« could not be found in the database.";  // untranslated
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_STORE_FAILED = "The program could not be saved because of an internal error.";  // untranslated
 Blockly.Msg.ORA_COMPILERWORKFLOW_ERROR_PROGRAM_TRANSFORM_FAILED = "The program could not be transformed into the robots programming language.";  // untranslated
 Blockly.Msg.ORA_COMPILERWORKFLOW_SUCCESS = "The program build succeeded";  // untranslated
@@ -1123,7 +1123,7 @@ Blockly.Msg.ORA_PROGRAM_DELETE_SUCCESS = "Program deleted";  // untranslated
 Blockly.Msg.ORA_PROGRAM_ERROR_ID_INVALID = "The name of your  program is already used by the system. Please choose another name and try it again!";  // untranslated
 Blockly.Msg.ORA_PROGRAM_GET_ALL_ERROR_USER_NOT_FOUND = "Can not load the programs of the specified user. Please reload the lab and try again.";  // untranslated
 Blockly.Msg.ORA_PROGRAM_GET_ALL_SUCCESS = "Programs loaded";  // untranslated
-Blockly.Msg.ORA_PROGRAM_GET_ONE_ERROR_NOT_FOUND = "Program not found.";  // untranslated
+Blockly.Msg.ORA_PROGRAM_GET_ONE_ERROR_NOT_FOUND = "The program »$« could not be found in the database.";  // untranslated
 Blockly.Msg.ORA_PROGRAM_GET_ONE_ERROR_NOT_LOGGED_IN = ".";
 Blockly.Msg.ORA_PROGRAM_GET_ONE_SUCCESS = "Program loaded";  // untranslated
 Blockly.Msg.ORA_PROGRAM_IMPORT_ERROR = "»$.xml« is not a valid NEPO program and cannot be uploaded!";  // untranslated
@@ -1222,6 +1222,7 @@ Blockly.Msg.POPUP_ABOUT_JOIN = "Haluan auttaa";
 Blockly.Msg.POPUP_ABOUT_TEXT = "The Open Roberta Lab is a cloud-based integrated programming environment that enables children and adolescents to program easily different robot/microcontroller systems. This platform is completely open source so taking part is desirable! Both the software and the open source developer tools are available via Fraunhofer servers.";  // untranslated
 Blockly.Msg.POPUP_ABOUT_TEXT_DEV = "The Open Roberta Lab is an open-source programming platform developed by Fraunhofer IAIS within the initiative <a href='http://www.roberta-home.de/' target='_blank'>»Roberta – Learning with Robots«</a>";  // untranslated
 Blockly.Msg.POPUP_ABOUT_TEXT_GOOG = "Open Roberta was initiated in collaboration with Google Germany to reduce the hurdles for students, teachers and schools programming educational robots.</a>";  // untranslated
+Blockly.Msg.POPUP_ABOUT_TEXT_NRW = "As part of the project »AI Algorithms in Computer Science Education«, the Ministry for Schools and Education of the State of North Rhine-Westphalia is funding the integration of Artificial Neural Networks into the Open Roberta Lab as well as the development of suitable learning content and materials on Artificial Intelligence.";  // untranslated
 Blockly.Msg.POPUP_AGE = "Age";  // untranslated
 Blockly.Msg.POPUP_ATTENTION = "Huomio";
 Blockly.Msg.POPUP_BACKGROUND_REPLACE = "A program with the same name already exists. <br> Would you like to replace it?";  // untranslated
