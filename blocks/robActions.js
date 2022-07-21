@@ -1649,6 +1649,373 @@ Blockly.Blocks['robActions_aifes_classify'] = {
     }
 };
 
+/**
+ * @return the (unique) start block from the program. Must exist.
+ */
+function getTheStartBlock() {
+    var startBlock = null;
+    for (const block of Blockly.Workspace.getByContainer('blocklyDiv').getTopBlocks()) {
+        if (!block.isDeletable()) {
+            return block;
+        }
+    }
+    throw 'start block not found. That is impossible.';
+}
+
+/**
+ * @return an array of arrays of
+ * - input neurons
+ * - output neurons
+ * read from the start block's data. If that doesn't exist, return the default values
+ */
+function getInputOutputNeurons() {
+    var data = getTheStartBlock().data;
+    if (data === undefined || data === null) {
+        return [['n1'], ['n2']];
+    } else {
+        try {
+            var json = JSON.parse((data));
+            return [json.inputs, json.outputs];
+        } catch (e) {
+            throw 'start block has invalid nn data.';
+        }
+    }
+}
+
+/**
+ * @return an array all input, hidden and output neurons, generated from the net structure read
+ * from the start block's data. If that doesn't exist, return an empty array
+ */
+function getAllNeurons(withInputs) {
+    var data = getTheStartBlock().data;
+    if (data === undefined || data === null) {
+        return [];
+    } else {
+        try {
+            var json = JSON.parse((data));
+            var shape = json.networkShape;
+            var hidden = [];
+            for (let h = 0; h < shape.length; h++) {
+                for (let n = 0; n < shape[h]; n++) {
+                    hidden.push('h' + (h + 1) + 'n' + (n + 1));
+                }
+            }
+            if (withInputs) {
+                return [].concat(json.inputs, hidden, json.outputs);
+            } else {
+                return [].concat(hidden, json.outputs);
+            }
+        } catch (e) {
+            throw 'start block has invalid nn data.';
+        }
+    }
+}
+
+/**
+ * @return an array built from the the input 'names' to be used in a dropdown
+ */
+function createNeuronsForDropdown(names) {
+    var neuronNames = [];
+    for (let i = 0; i < names.length; i++) {
+        neuronNames.push([names[i], names[i]]);
+    }
+    return neuronNames;
+}
+
+/**
+ * @return true, if two arrays have equal values (uses JSON.stringify)
+ */
+function isValueEqual(a1, a2) {
+    return JSON.stringify(a1) === JSON.stringify(a2);
+}
+
+Blockly.Blocks['robActions_NN_step'] = {
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.NN_STEP,
+            'args0': [
+                {
+                    'type': 'input_dummy'
+                }
+            ],
+            'colour': Blockly.CAT_NN_RGB,
+            'previousStatement': null,
+            'nextStatement': null,
+            'helpUrl': '',
+            'inputsInline': false
+        });
+
+        this.inputNeurons = [];
+        this.outputNeurons = [];
+
+    },
+    mutationToDom: function() {
+        var container = document.createElement('mutation');
+        container.setAttribute('inputneurons', this.inputNeurons);
+        container.setAttribute('outputneurons', this.outputNeurons);
+        return container;
+    },
+    domToMutation: function(xmlElement) {
+        var that = this;
+        this.inputNeurons = xmlElement.getAttribute('inputneurons');
+        this.outputNeurons = xmlElement.getAttribute('outputneurons');
+        for (var i = 0; i < this.inputNeurons.length; i++) {
+            that.appendValueInput('i' + i).appendField(Blockly.Msg.NN_INPUT_NEURON).appendField(this.inputNeurons[i]).setCheck('Number');
+        }
+        for (var i = 0; i < this.outputNeurons.length; i++) {
+            that.appendDummyInput('o' + i).appendField(Blockly.Msg.NN_OUTPUT_NEURON).appendField(this.outputNeurons[i]);
+        }
+        this.render();
+    },
+    onchange: function(evt) {
+        if (!this.workspace || this.isInFlyout || evt.type == Blockly.Events.MOVE) {
+            return;
+        }
+        let inputOutputNeurons = getInputOutputNeurons();
+        let inputNames = inputOutputNeurons[0];
+        let outputNames = inputOutputNeurons[1];
+        let inputNamesAreEqual = isValueEqual(this.inputNeurons, inputNames);
+        let outputNamesAreEqual = isValueEqual(this.outputNeurons, outputNames);
+
+        if (inputNamesAreEqual && outputNamesAreEqual) {
+            return;
+        }
+
+        var that = this;
+        var connectedList = {};
+        if (!inputNamesAreEqual) {
+            for (let i = 0; i < this.inputNeurons.length; i++) {
+                connectedList['i' + i] = that.getInputTargetBlock('i' + i);
+                if (connectedList['i' + i]) {
+                    connectedList['i' + i].dispose();
+                }
+                that.removeInput('i' + i);
+            };
+        }
+        for (let i = 0; i < this.outputNeurons.length; i++) {
+            that.removeInput('o' + i);
+        }
+        this.inputNeurons = inputNames;
+        this.outputNeurons = outputNames;
+        if (!inputNamesAreEqual) {
+            for (let i = 0; i < inputNames.length; i++) {
+                that.appendValueInput('i' + i).appendField(Blockly.Msg.NN_INPUT_NEURON).appendField(inputNames[i]).setCheck('Number');
+                if (connectedList['i' + i]) {
+                    that.getInput('i' + i).connection.connect(connectedList['i' + i].outputConnection);
+                }
+            }
+        }
+        for (let i = 0; i < outputNames.length; i++) {
+            that.appendDummyInput('o' + i).appendField(Blockly.Msg.NN_OUTPUT_NEURON).appendField(outputNames[i]);
+        }
+        this.render();
+    }
+};
+
+Blockly.Blocks['robSensors_get_outputneuron_val'] = {
+    init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
+        this.allNeurons = ['n1', 'n2'];
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.NN_GET_OUTPUT_NEURON_VALUE)
+            .appendField(new Blockly.FieldDropdown(createNeuronsForDropdown(this.allNeurons)), 'NAME');
+        this.setOutput(true, 'Number');
+        this.setTooltip(Blockly.Msg.NN_GET_OUTPUT_NEURON_VALUE_TOOLTIP);
+    },
+    onchange: function(evt) {
+        if (!this.workspace || this.isInFlyout || evt.type == Blockly.Events.MOVE) {
+            return;
+        }
+        let outputNeurons = getInputOutputNeurons()[1];
+        if (isValueEqual(this.allNeurons, outputNeurons)) {
+            return;
+        }
+
+        this.allNeurons = outputNeurons;
+        let newNeuronNames = createNeuronsForDropdown(outputNeurons);
+        let oldValue = this.getFieldValue('NAME');
+        let newDropDown = new Blockly.FieldDropdown(newNeuronNames);
+        let dropDown = this.getField('NAME');
+        dropDown.menuGenerator_ = newDropDown.menuGenerator_;
+        if (!outputNeurons.find(function(field) {
+            field === oldValue;
+        })) {
+            dropDown.setValue(outputNeurons[0]);
+        }
+    }
+};
+
+Blockly.Blocks['robActions_change_weight'] = {
+    init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
+        this.allNeurons = ['n1', 'n2'];
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.NN_CHANGE_WEIGHT)
+            .appendField(new Blockly.FieldDropdown(createNeuronsForDropdown(this.allNeurons)), 'FROM')
+            .appendField(Blockly.Msg.NN_TARGET)
+            .appendField(new Blockly.FieldDropdown(createNeuronsForDropdown(this.allNeurons)), 'TO')
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.NN_TO, 'SET'], [Blockly.Msg.NN_BY, 'INCR']]), 'CHANGE');
+        this.appendValueInput('VALUE')
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(Blockly.Msg.NN_VALUE)
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.NN_CHANGE_WEIGHT_TOOLTIP);
+    },
+    onchange: function(evt) {
+        if (!this.workspace || this.isInFlyout || evt.type == Blockly.Events.MOVE) {
+            return;
+        }
+        var allNeurons = getAllNeurons(true);
+        if (isValueEqual(this.allNeurons, allNeurons)) {
+            return;
+        }
+
+        this.allNeurons = allNeurons;
+        var newNeuronNames = createNeuronsForDropdown(allNeurons);
+        var fromValue = this.getFieldValue('FROM');
+        var toValue = this.getFieldValue('TO');
+        var newFromDropDown = new Blockly.FieldDropdown(newNeuronNames);
+        var newToDropDown = new Blockly.FieldDropdown(newNeuronNames);
+        var fromDropDown = this.getField('FROM');
+        var toDropDown = this.getField('TO');
+        fromDropDown.menuGenerator_ = newFromDropDown.menuGenerator_;
+        toDropDown.menuGenerator_ = newToDropDown.menuGenerator_;
+        if (!allNeurons.find(function(field) {
+            field === fromValue;
+        })) {
+            fromDropDown.setValue(allNeurons[0]);
+        }
+        if (!allNeurons.find(function(field) {
+            field === toValue;
+        })) {
+            toDropDown.setValue(allNeurons[0]);
+        }
+    }
+};
+
+Blockly.Blocks['robActions_change_bias'] = {
+    init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
+        this.allNeurons = ['n1', 'n2'];
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.NN_CHANGE_BIAS)
+            .appendField(new Blockly.FieldDropdown(createNeuronsForDropdown(this.allNeurons)), 'NAME')
+            .appendField(new Blockly.FieldDropdown([[Blockly.Msg.NN_TO, 'SET'], [Blockly.Msg.NN_BY, 'INCR']]), 'CHANGE');
+        this.appendValueInput('VALUE')
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField(Blockly.Msg.NN_VALUE)
+            .setCheck('Number');
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.NN_CHANGE_BIAS_TOOLTIP);
+    },
+    onchange: function(evt) {
+        if (!this.workspace || this.isInFlyout || evt.type == Blockly.Events.MOVE) {
+            return;
+        }
+        var allNeurons = getAllNeurons(false);
+        if (isValueEqual(this.allNeurons, allNeurons)) {
+            return;
+        }
+
+        this.allNeurons = allNeurons;
+        var newNeuronNames = createNeuronsForDropdown(allNeurons);
+        var oldValue = this.getFieldValue('NAME');
+        var newDropDown = new Blockly.FieldDropdown(newNeuronNames);
+        var dropDown = this.getField('NAME');
+        dropDown.menuGenerator_ = newDropDown.menuGenerator_;
+        if (!allNeurons.find(function(field) {
+            field === oldValue;
+        })) {
+            dropDown.setValue(allNeurons[0]);
+        }
+    }
+};
+
+Blockly.Blocks['robSensors_get_weight'] = {
+    init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
+        this.allNeurons = ['n1', 'n2'];
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.NN_GET_WEIGHT)
+            .appendField(new Blockly.FieldDropdown(createNeuronsForDropdown(this.allNeurons)), 'FROM')
+            .appendField(Blockly.Msg.NN_TARGET)
+            .appendField(new Blockly.FieldDropdown(createNeuronsForDropdown(this.allNeurons)), 'TO');
+        this.setInputsInline(true);
+        this.setOutput(true, 'Number');
+        this.setTooltip(Blockly.Msg.NN_GET_WEIGHT_TOOLTIP);
+    },
+    onchange: function(evt) {
+        if (!this.workspace || this.isInFlyout || evt.type == Blockly.Events.MOVE) {
+            return;
+        }
+        var allNeurons = getAllNeurons(true);
+        if (isValueEqual(this.allNeurons, allNeurons)) {
+            return;
+        }
+
+        this.allNeurons = allNeurons;
+        var newNeuronNames = createNeuronsForDropdown(allNeurons);
+        var fromValue = this.getFieldValue('FROM');
+        var toValue = this.getFieldValue('TO');
+        var newFromDropDown = new Blockly.FieldDropdown(newNeuronNames);
+        var newToDropDown = new Blockly.FieldDropdown(newNeuronNames);
+        var fromDropDown = this.getField('FROM');
+        var toDropDown = this.getField('TO');
+        fromDropDown.menuGenerator_ = newFromDropDown.menuGenerator_;
+        toDropDown.menuGenerator_ = newToDropDown.menuGenerator_;
+        if (!allNeurons.find(function(field) {
+            field === fromValue;
+        })) {
+            fromDropDown.setValue(allNeurons[0]);
+        }
+        if (!allNeurons.find(function(field) {
+            field === toValue;
+        })) {
+            toDropDown.setValue(allNeurons[0]);
+        }
+    }
+};
+
+Blockly.Blocks['robSensors_get_bias'] = {
+    init: function() {
+        this.setColour(Blockly.CAT_NN_RGB);
+        this.allNeurons = ['n1', 'n2'];
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.NN_GET_BIAS)
+            .appendField(new Blockly.FieldDropdown(createNeuronsForDropdown(this.allNeurons)), 'NAME');
+        this.setOutput(true, 'Number');
+        this.setTooltip(Blockly.Msg.NN_GET_BIAS_TOOLTIP);
+    },
+    onchange: function(evt) {
+        if (!this.workspace || this.isInFlyout || evt.type == Blockly.Events.MOVE) {
+            return;
+        }
+        var allNeurons = getAllNeurons(false);
+        if (isValueEqual(this.allNeurons, allNeurons)) {
+            return;
+        }
+
+        this.allNeurons = allNeurons;
+        var newNeuronNames = createNeuronsForDropdown(allNeurons);
+        var oldValue = this.getFieldValue('NAME');
+        var newDropDown = new Blockly.FieldDropdown(newNeuronNames);
+        var dropDown = this.getField('NAME');
+        dropDown.menuGenerator_ = newDropDown.menuGenerator_;
+        if (!allNeurons.find(function(field) {
+            field === oldValue;
+        })) {
+            dropDown.setValue(allNeurons[0]);
+        }
+    }
+};
+
+// DEPRECATED: will be removed soon
+
 Blockly.Blocks['robActions_NNstep'] = {
     init: function() {
         appendHeader(this, 'NN_STEP');
@@ -1658,54 +2025,6 @@ Blockly.Blocks['robActions_NNstep'] = {
     },
     onchange: function(evt) {
         bumpIfNotNeuron(this.getInput('IONEURON').connection.targetConnection);
-    }
-};
-
-Blockly.Blocks['robActions_change_weight'] = {
-    init: function() {
-        this.setColour(Blockly.CAT_NN_RGB);
-        var from = new Blockly.FieldTextInput('', this.validate);
-        from.maxDisplayLength = 75;
-        var to = new Blockly.FieldTextInput('', this.validate);
-        to.maxDisplayLength = 75;
-        var change = [[Blockly.Msg.NN_TO, 'SET'], [Blockly.Msg.NN_BY, 'INCR']];
-        var dropDown = new Blockly.FieldDropdown(change);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.NN_CHANGE_WEIGHT)
-            .appendField(from, 'FROM')
-            .appendField(Blockly.Msg.NN_TARGET)
-            .appendField(to, 'TO')
-            .appendField(dropDown, 'CHANGE');
-        this.appendValueInput('VALUE')
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.NN_VALUE)
-            .setCheck('Number');
-        this.setInputsInline(true);
-        this.setPreviousStatement(true);
-        this.setNextStatement(true);
-        this.setTooltip(Blockly.Msg.NN_CHANGE_WEIGHT_TOOLTIP);
-    }
-};
-
-Blockly.Blocks['robActions_change_bias'] = {
-    init: function() {
-        this.setColour(Blockly.CAT_NN_RGB);
-        var name = new Blockly.FieldTextInput('', this.validate);
-        name.maxDisplayLength = 75;
-        var change = [[Blockly.Msg.NN_TO, 'SET'], [Blockly.Msg.NN_BY, 'INCR']];
-        var dropDown = new Blockly.FieldDropdown(change);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.NN_CHANGE_BIAS)
-            .appendField(name, 'NAME')
-            .appendField(dropDown, 'CHANGE');
-        this.appendValueInput('VALUE')
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField(Blockly.Msg.NN_VALUE)
-            .setCheck('Number');
-        this.setInputsInline(true);
-        this.setPreviousStatement(true);
-        this.setNextStatement(true);
-        this.setTooltip(Blockly.Msg.NN_CHANGE_BIAS_TOOLTIP);
     }
 };
 
@@ -1741,7 +2060,7 @@ var neuronNameHelper = {
         }
         return name;
     }
-}
+};
 
 Blockly.Blocks['robActions_inputneuron'] = {
     neuron: true,
@@ -1795,7 +2114,7 @@ Blockly.Blocks['robActions_outputneuron'] = {
     },
     validate: function() {
         if (this.isInFlyout) {
-            this.setFieldValue(neuronNameHelper.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
+            this.setFieldValue(neuronNameHelper.findLegalName(this.getFieldValue('NAME'), this, 'out'), 'NAME');
         }
     }
 };
@@ -1821,52 +2140,10 @@ Blockly.Blocks['robActions_outputneuron_wo_var'] = {
         if (this.isInFlyout) {
             return;
         }
-        this.setFieldValue(neuronNameHelper.findLegalName(this.getFieldValue('NAME'), this, "out"), 'NAME');
+        this.setFieldValue(neuronNameHelper.findLegalName(this.getFieldValue('NAME'), this, 'out'), 'NAME');
     },
-    validateName: function (name) {
+    validateName: function(name) {
         return neuronNameHelper.findLegalName(name, this.sourceBlock_, 'out');
     }
 };
 
-Blockly.Blocks['robSensors_get_outputneuron_val'] = {
-    init: function() {
-        this.setColour(Blockly.CAT_NN_RGB);
-        var name = new Blockly.FieldTextInput('', this.validate);
-        name.maxDisplayLength = 75;
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.NN_GET_OUTPUT_NEURON_VALUE)
-            .appendField(name, 'NAME');
-        this.setOutput(true, 'Number');
-        this.setTooltip(Blockly.Msg.NN_GET_OUTPUT_NEURON_VALUE_TOOLTIP);
-    }
-};
-
-Blockly.Blocks['robSensors_get_weight'] = {
-    init: function() {
-        var from = new Blockly.FieldTextInput('', this.validate);
-        from.maxDisplayLength = 75;
-        var to = new Blockly.FieldTextInput('', this.validate);
-        to.maxDisplayLength = 75;
-        this.setColour(Blockly.CAT_NN_RGB);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.NN_GET_WEIGHT)
-            .appendField(from, 'FROM')
-            .appendField(Blockly.Msg.NN_TARGET)
-            .appendField(to, 'TO');
-        this.setOutput(true, 'Number');
-        this.setTooltip(Blockly.Msg.NN_GET_WEIGHT_TOOLTIP);
-    }
-};
-
-Blockly.Blocks['robSensors_get_bias'] = {
-    init: function() {
-        var name = new Blockly.FieldTextInput('', this.validate);
-        name.maxDisplayLength = 75;
-        this.setColour(Blockly.CAT_NN_RGB);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.NN_GET_BIAS)
-            .appendField(name, 'NAME');
-        this.setOutput(true, 'Number');
-        this.setTooltip(Blockly.Msg.NN_GET_BIAS_TOOLTIP);
-    }
-};
