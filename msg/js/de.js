@@ -1277,6 +1277,7 @@ Blockly.Msg.POPUP_ROBOT_STATE_DISCONNECTED = "Keine Verbindung zum Roboter";
 Blockly.Msg.POPUP_ROBOT_STATE_WAIT = "Roboter wartet";
 Blockly.Msg.POPUP_ROBOT_SYSTEM = "System";
 Blockly.Msg.POPUP_ROBOT_WAIT = "Wartezeit";
+Blockly.Msg.POPUP_RUN_NOTIFICATION = "Damit du dein Programm auf deinen Roboter / Mikrocontroller übertragen kannst, verbinde diesen mit dem Open Roberta Lab. Wie das geht zeigt dir unsere Anleitung im <a href=\"https://wiki.open-roberta.org\" target=\"_blank\">Open Roberta Wiki</a> unter »Vorbereitung«.";
 Blockly.Msg.POPUP_SCANNED_ROBOTS = "Gefundene Roboter";
 Blockly.Msg.POPUP_STARTUP_COOKIES = "Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und die Zugriffe auf unsere Website zu analysieren.";
 Blockly.Msg.POPUP_STARTUP_HELP = "Brauchst du Hilfe?";

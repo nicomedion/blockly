@@ -1277,6 +1277,7 @@ Blockly.Msg.POPUP_ROBOT_STATE_DISCONNECTED = "disconnesso";
 Blockly.Msg.POPUP_ROBOT_STATE_WAIT = "aspetta";
 Blockly.Msg.POPUP_ROBOT_SYSTEM = "sistema";
 Blockly.Msg.POPUP_ROBOT_WAIT = "tempo di attesa";
+Blockly.Msg.POPUP_RUN_NOTIFICATION = "To be able to transfer your program to your robot / microcontroller, connect it to the Open Roberta Lab. How to do this is explained in our <a href='https://wiki.open-roberta' target='_blank'>Open Roberta Wiki</a> under »Set Up«.";  // untranslated
 Blockly.Msg.POPUP_SCANNED_ROBOTS = "found robots";  // untranslated
 Blockly.Msg.POPUP_STARTUP_COOKIES = "utilizziamo i cookie per personalizzare i contenuti e per analizzare il nostro traffico.";
 Blockly.Msg.POPUP_STARTUP_HELP = "hai bisogno di aiuto?";

@@ -405,11 +405,26 @@ Blockly.Css.CONTENT = [
   
   'g .robButton.disabled {',
     'pointer-events: none;',
-  '}', 
-  
+    'cursor: default;',
+  '}',
+
+  'g #runOnBrick.disabled {',
+    'pointer-events: all;',
+    'cursor: default;',
+  '}',
+
   'g .robButton.disabled path[class="blocklyButtonPath"] {',
     'fill: #bbb',
-  '}', 
+  '}',
+
+  'g #runOnBrick.disabled:hover rect[class="blocklyButtonBack"] {',
+    'fill: #ffffff;',
+    'cursor: default;',
+  '}',
+
+  'g #runOnBrick.disabled:hover path[class="blocklyButtonPath"] {',
+    'cursor: default;',
+  '}',
   
 
   /* Darken flyout scrollbars due to being on a grey background. */

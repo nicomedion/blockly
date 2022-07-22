@@ -1277,6 +1277,7 @@ Blockly.Msg.POPUP_ROBOT_STATE_DISCONNECTED = "斷開";
 Blockly.Msg.POPUP_ROBOT_STATE_WAIT = "等";
 Blockly.Msg.POPUP_ROBOT_SYSTEM = "系統";
 Blockly.Msg.POPUP_ROBOT_WAIT = "等待時間";
+Blockly.Msg.POPUP_RUN_NOTIFICATION = "To be able to transfer your program to your robot / microcontroller, connect it to the Open Roberta Lab. How to do this is explained in our <a href='https://wiki.open-roberta' target='_blank'>Open Roberta Wiki</a> under »Set Up«.";  // untranslated
 Blockly.Msg.POPUP_SCANNED_ROBOTS = "found robots";  // untranslated
 Blockly.Msg.POPUP_STARTUP_COOKIES = "我們使用 cookie 來個人化內容和分析我們的流量。";
 Blockly.Msg.POPUP_STARTUP_HELP = "你需要幫助嗎？";

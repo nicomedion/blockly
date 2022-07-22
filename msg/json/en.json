@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-07-21 13:22:30.344215",
+		"lastupdated": "2022-07-22 14:55:29.726441",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -763,6 +763,7 @@
 	"POPUP_CHANGE_PASSWORD": "change password ...",
 	"POPUP_CONTINUE": "continue anyway",
 	"POPUP_ROBOT_SYSTEM": "System",
+	"POPUP_RUN_NOTIFICATION": "To be able to transfer your program to your robot / microcontroller, connect it to the Open Roberta Lab. How to do this is explained in our <a href='https://wiki.open-roberta' target='_blank'>Open Roberta Wiki</a> under »Set Up«.",
 	"BUTTON_DO_SHARE": "Share",
 	"BUTTON_DO_UPLOAD_GALLERY": "Upload »$« to the gallery",
 	"BUTTON_EMPTY_LIST": "Empty list",
