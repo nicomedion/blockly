@@ -1729,6 +1729,20 @@ function isValueEqual(a1, a2) {
     return JSON.stringify(a1) === JSON.stringify(a2);
 }
 
+/**
+ * set the value of an dropdown
+ * @param dropdown dropdown whose value should be set
+ * @param nameList list of all legal dropdown values
+ * @param nameMaybeMissing name to be set, if it exists, otherwise take first value of the legal list as default
+ */
+function setDropdownVal(dropDown, nameList, nameMaybeMissing) {
+    if (nameList.indexOf(nameMaybeMissing) > -1) {
+        dropDown.setValue(nameMaybeMissing);
+    } else if (nameList.length > 0) {
+        dropDown.setValue(nameList[0]);
+    }
+}
+
 Blockly.Blocks['robActions_NNstep'] = {
     init: function() {
         this.setColour(Blockly.CAT_NN_RGB);
@@ -1768,11 +1782,7 @@ Blockly.Blocks['robActions_set_inputneuron_val'] = {
         var newDropDown = new Blockly.FieldDropdown(newNeuronNames);
         var dropDown = this.getField('NAME');
         dropDown.menuGenerator_ = newDropDown.menuGenerator_;
-        if (!allNeurons.find(function(field) {
-            field === oldValue;
-        })) {
-            dropDown.setValue(allNeurons[0]);
-        }
+        setDropdownVal(dropDown, allNeurons, oldValue);
     }
 };
 
@@ -1802,11 +1812,7 @@ Blockly.Blocks['robSensors_get_outputneuron_val'] = {
         let newDropDown = new Blockly.FieldDropdown(newNeuronNames);
         let dropDown = this.getField('NAME');
         dropDown.menuGenerator_ = newDropDown.menuGenerator_;
-        if (!outputNeurons.find(function(field) {
-            field === oldValue;
-        })) {
-            dropDown.setValue(outputNeurons[0]);
-        }
+        setDropdownVal(dropDown, outputNeurons, oldValue);
     }
 };
 
@@ -1844,16 +1850,8 @@ Blockly.Blocks['robActions_set_weight'] = {
         var toDropDown = this.getField('TO');
         fromDropDown.menuGenerator_ = newFromDropDown.menuGenerator_;
         toDropDown.menuGenerator_ = newToDropDown.menuGenerator_;
-        if (!allNeurons.find(function(field) {
-            field === fromValue;
-        })) {
-            fromDropDown.setValue(allNeurons[0]);
-        }
-        if (!allNeurons.find(function(field) {
-            field === toValue;
-        })) {
-            toDropDown.setValue(allNeurons[0]);
-        }
+        setDropdownVal(fromDropDown, allNeurons, fromValue);
+        setDropdownVal(toDropDown, allNeurons, toValue);
     }
 };
 
@@ -1885,11 +1883,7 @@ Blockly.Blocks['robActions_set_bias'] = {
         var newDropDown = new Blockly.FieldDropdown(newNeuronNames);
         var dropDown = this.getField('NAME');
         dropDown.menuGenerator_ = newDropDown.menuGenerator_;
-        if (!allNeurons.find(function(field) {
-            field === oldValue;
-        })) {
-            dropDown.setValue(allNeurons[0]);
-        }
+        setDropdownVal(dropDown, allNeurons, oldValue);
     }
 };
 
@@ -1924,16 +1918,8 @@ Blockly.Blocks['robSensors_get_weight'] = {
         var toDropDown = this.getField('TO');
         fromDropDown.menuGenerator_ = newFromDropDown.menuGenerator_;
         toDropDown.menuGenerator_ = newToDropDown.menuGenerator_;
-        if (!allNeurons.find(function(field) {
-            field === fromValue;
-        })) {
-            fromDropDown.setValue(allNeurons[0]);
-        }
-        if (!allNeurons.find(function(field) {
-            field === toValue;
-        })) {
-            toDropDown.setValue(allNeurons[0]);
-        }
+        setDropdownVal(fromDropDown, allNeurons, fromValue);
+        setDropdownVal(toDropDown, allNeurons, toValue);
     }
 };
 
@@ -1962,11 +1948,7 @@ Blockly.Blocks['robSensors_get_bias'] = {
         var newDropDown = new Blockly.FieldDropdown(newNeuronNames);
         var dropDown = this.getField('NAME');
         dropDown.menuGenerator_ = newDropDown.menuGenerator_;
-        if (!allNeurons.find(function(field) {
-            field === oldValue;
-        })) {
-            dropDown.setValue(allNeurons[0]);
-        }
+        setDropdownVal(dropDown, allNeurons, oldValue);
     }
 };
 

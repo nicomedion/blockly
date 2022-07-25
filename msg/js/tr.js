@@ -1275,7 +1275,7 @@ Blockly.Msg.POPUP_ROBOT_STATE_DISCONNECTED = "Baglanti koptu";
 Blockly.Msg.POPUP_ROBOT_STATE_WAIT = "Bekle";
 Blockly.Msg.POPUP_ROBOT_SYSTEM = "Sistem";
 Blockly.Msg.POPUP_ROBOT_WAIT = "Bekleme zamani";
-Blockly.Msg.POPUP_RUN_NOTIFICATION = "To be able to transfer your program to your robot / microcontroller, connect it to the Open Roberta Lab. How to do this is explained in our <a href='https://wiki.open-roberta' target='_blank'>Open Roberta Wiki</a> under »Set Up«.";  // untranslated
+Blockly.Msg.POPUP_RUN_NOTIFICATION = "To be able to transfer your program to your robot / microcontroller, connect it to the Open Roberta Lab. How to do this is explained in our <a href='https://wiki.open-roberta.org' target='_blank'>Open Roberta Wiki</a> under »Set Up«.";  // untranslated
 Blockly.Msg.POPUP_SCANNED_ROBOTS = "found robots";  // untranslated
 Blockly.Msg.POPUP_STARTUP_COOKIES = "Icerik kisisellestirilmesi ve trafik analizimiz icin cerezleri kullaniyoruz.";
 Blockly.Msg.POPUP_STARTUP_HELP = "Yardima ihtiyaciniz var mi?";

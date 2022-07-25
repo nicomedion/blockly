@@ -1275,7 +1275,7 @@ Blockly.Msg.POPUP_ROBOT_STATE_DISCONNECTED = "deconectat";
 Blockly.Msg.POPUP_ROBOT_STATE_WAIT = "asteapa";
 Blockly.Msg.POPUP_ROBOT_SYSTEM = "Sistem";
 Blockly.Msg.POPUP_ROBOT_WAIT = "Timp de asteptare";
-Blockly.Msg.POPUP_RUN_NOTIFICATION = "To be able to transfer your program to your robot / microcontroller, connect it to the Open Roberta Lab. How to do this is explained in our <a href='https://wiki.open-roberta' target='_blank'>Open Roberta Wiki</a> under »Set Up«.";  // untranslated
+Blockly.Msg.POPUP_RUN_NOTIFICATION = "To be able to transfer your program to your robot / microcontroller, connect it to the Open Roberta Lab. How to do this is explained in our <a href='https://wiki.open-roberta.org' target='_blank'>Open Roberta Wiki</a> under »Set Up«.";  // untranslated
 Blockly.Msg.POPUP_SCANNED_ROBOTS = "found robots";  // untranslated
 Blockly.Msg.POPUP_STARTUP_COOKIES = "Folosim cookies pentru a ne personaliza continutul si pentru a ne analiza traficul.";
 Blockly.Msg.POPUP_STARTUP_HELP = "Ai nevoie de ajutor?";
