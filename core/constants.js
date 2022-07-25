@@ -154,6 +154,7 @@ Blockly.CAT_ICON['TOOLBOX_LOOP'] = 'loop';
 Blockly.CAT_ICON['TOOLBOX_LOGIC'] = 'logic';
 Blockly.CAT_ICON['TOOLBOX_NEURAL_NETWORK'] = 'logic';
 Blockly.CAT_ICON['TOOLBOX_MATH'] = 'math';
+Blockly.CAT_ICON['TOOLBOX_NN'] = 'xnn';
 Blockly.CAT_ICON['TOOLBOX_TEXT'] = 'sort-alphabetically-outline';
 Blockly.CAT_ICON['TOOLBOX_LIST'] = 'th-small-outline';
 Blockly.CAT_ICON['TOOLBOX_COLOUR'] = 'brush';
