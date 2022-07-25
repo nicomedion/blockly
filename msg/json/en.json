@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-07-25 15:21:38.280957",
+		"lastupdated": "2022-07-25 16:59:41.083063",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1833,10 +1833,8 @@
 	"NN_CLICK_WEIGHT_BIAS": "change by clicking on weight or bias",
 	"NN_CLICK_NODE": "select node by clicking, then change",
 	"NN_SHOW_ALL": "show all, change by clicking",
-	"NN_STEPS_INCONSISTENT": "if you use many NNStep-blocks, names and order of neurons must match",
-	"NN_STEP_INCONSISTENT": "names of all neurons must be nonempty, different and valid",
-	"NN_STEP_INPUTOUTPUT_MISSING": "at least one input and one output neurons are required",
 	"NN_INVALID_NEURONNAME": "invalid neuron name",
+	"NN_INVALID_NEURONNAMES": "neurons are not connected or name invalid",
 	"NN_INSPECT_NN": "after adding or removing input or output neurons, inspect the net",
 	"NN_SHOW_MATH": "computation of neuron",
 	"NN_SHOW_PRECISION": "decimal places",

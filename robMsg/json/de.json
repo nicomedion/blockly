@@ -1452,9 +1452,8 @@
     "NN_SET_INPUT_NEURON_VALUE_TOOLTIP": "setze den Wert eines Eingabe-Neurons für den nächsten Schritt des neuronalen Netzwerks.",
     "NN_GET_OUTPUT_NEURON_VALUE": "gib Wert Ausgabe-Neuron",
     "NN_GET_OUTPUT_NEURON_VALUE_TOOLTIP": "liefere den Wert eines Ausgabe-Neurons vom letzten Schritt des neuronalen Netzwerks zurück.",
-	"NN_STEP_INPUTOUTPUT_MISSING": "es muss mindestens ein Eingabe- und ein Ausgabe-Neuron geben",
 	"NN_INVALID_NEURONNAME": "Name des Neurons ist ungültig",
-	"NN_INSPECT_NN": "betrachte und passe das Netz an, wenn Eingabe- oder Ausgabe-Neuronen hinzugefügt oder entfernt werden",
+	"NN_INVALID_NEURONNAMES": "Neuronen sind nicht verbunden oder Name ist ungültig",
     "NN_TARGET": "nach",
     "NN_WEIGHT": "Gewicht",
     "NN_BIAS": "Bias",
@@ -1466,8 +1465,6 @@
     "NN_CLICK_WEIGHT_BIAS": "durch Klick auf Gewichte und Bias",
     "NN_CLICK_NODE": "erst Klick auf ein Neuron",
     "NN_SHOW_ALL": "alle zeigen, durch Klick ändern",
-    "NN_STEPS_INCONSISTENT": "in mehreren NNStep-Blöcken müssen (Namen der) Neuronen übereinstimmen",
-    "NN_STEP_INCONSISTENT": "Namen aller Neuronen müssen unterschiedlich sein und aus gültigen Zeichen bestehen",
     "NN_SHOW_MATH": "Berechnung des Neurons",
     "NN_SHOW_PRECISION": "Nachkomma-Stellen"
 }
