@@ -1653,11 +1653,10 @@ Blockly.Msg.NN_CLICK_NODE = 'select node by clicking, then change';
 Blockly.Msg.NN_SHOW_ALL = 'show all, change by clicking';
 Blockly.Msg.NN_SHOW_MATH = 'computation of neuron';
 Blockly.Msg.NN_SHOW_PRECISION = 'decimal places';
-Blockly.Msg.NN_CHANGE_NEURONNAME = 'type new neuron name',
+Blockly.Msg.NN_CHANGE_NEURONNAME = 'type new neuron name';
 Blockly.Msg.NN_INVALID_NEURONNAME = 'invalid neuron name';
-Blockly.Msg.NN_USED_NEURONNAME = 'neuron name in use',
+Blockly.Msg.NN_USED_NEURONNAME = 'neuron name in use';
 Blockly.Msg.NN_INVALID_NEURONNAMES = 'neurons are not connected';
-
 
 Blockly.Msg.MIN_ANGLE = 'Minimum angle';
 Blockly.Msg.MAX_ANGLE = 'Maximum angle';

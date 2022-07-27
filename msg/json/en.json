@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-07-27 11:07:37.509303",
+		"lastupdated": "2022-07-27 12:06:05.343774",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1835,7 +1835,9 @@
 	"NN_SHOW_ALL": "show all, change by clicking",
 	"NN_SHOW_MATH": "computation of neuron",
 	"NN_SHOW_PRECISION": "decimal places",
+	"NN_CHANGE_NEURONNAME": "type new neuron name",
 	"NN_INVALID_NEURONNAME": "invalid neuron name",
+	"NN_USED_NEURONNAME": "neuron name in use",
 	"NN_INVALID_NEURONNAMES": "neurons are not connected",
 	"MIN_ANGLE": "Minimum angle",
 	"MAX_ANGLE": "Maximum angle",

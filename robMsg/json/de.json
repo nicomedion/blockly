@@ -1448,7 +1448,7 @@
     "NN_GET_BIAS_TOOLTIP": "liefere den Bias eines Neurons zurück.",
     "NN_INPUT_NEURON": "Eingabe-Neuron",
     "NN_OUTPUT_NEURON": "Ausgabe-Neuron",
-	"NN_SET_INPUT_NEURON_VALUE": "schreibe Wert Eingabe-Neuron",
+	"NN_SET_INPUT_NEURON_VALUE": "Schreibe Wert Eingabe-Neuron",
     "NN_SET_INPUT_NEURON_VALUE_TOOLTIP": "setze den Wert eines Eingabe-Neurons für den nächsten Schritt des neuronalen Netzwerks.",
     "NN_GET_OUTPUT_NEURON_VALUE": "gib Wert Ausgabe-Neuron",
     "NN_GET_OUTPUT_NEURON_VALUE_TOOLTIP": "liefere den Wert eines Ausgabe-Neurons vom letzten Schritt des neuronalen Netzwerks zurück.",
