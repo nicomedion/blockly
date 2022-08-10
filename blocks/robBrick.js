@@ -788,6 +788,7 @@ Blockly.Blocks['robConf_mbuild_port'] = {
         this.appendStatementInput('MBUILDSENSOR');
         this.setDeletable(false);
         this.setTooltip(Blockly.Msg.MBUILD_PORT_TOOLTIP);
+        this.confBlock = 'mbuild_port';
     },
     getConfigDecl: function () {
         return getConfigDecl(this);
