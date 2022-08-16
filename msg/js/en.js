@@ -1484,7 +1484,6 @@ Blockly.Msg.SENSOR_LIGHT_LIGHT_GETSAMPLE_TOOLTIP_EDISON = "Gets the current read
 Blockly.Msg.SENSOR_LIGHT_LINETRACKER = "line tracker";
 Blockly.Msg.SENSOR_LPS22HB = "LPS22HB";
 Blockly.Msg.SENSOR_LSM9DS1 = "LSM9DS1";
-Blockly.Msg.SENSOR_MIC = "microphone";
 Blockly.Msg.SENSOR_MOISTURE = "moisture sensor";
 Blockly.Msg.SENSOR_MOISTURE_GETSAMPLE_TOOLTIP = "Gets the current reading from the moisture sensor in percent.";
 Blockly.Msg.SENSOR_MOTION = "motion sensor";

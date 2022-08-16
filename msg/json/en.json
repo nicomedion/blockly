@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-08-08 15:22:37.816974",
+		"lastupdated": "2022-08-16 12:25:02.265348",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -537,7 +537,6 @@
 	"SENSOR_TIMER": "timer",
 	"SENSOR_PIN": "pin",
 	"SENSOR_GROVE": "Grove",
-	"SENSOR_MIC": "microphone",
 	"SENSOR_COLOUR": "colour sensor",
 	"SENSOR_COLOUR_EDISON": "line tracker",
 	"SENSOR_QUADRGB": "quad rgb sensor",

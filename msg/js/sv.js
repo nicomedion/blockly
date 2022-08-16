@@ -1484,7 +1484,6 @@ Blockly.Msg.SENSOR_LIGHT_LIGHT_GETSAMPLE_TOOLTIP_EDISON = "Gets the current read
 Blockly.Msg.SENSOR_LIGHT_LINETRACKER = "line tracker";  // untranslated
 Blockly.Msg.SENSOR_LPS22HB = "LPS22HB";  // untranslated
 Blockly.Msg.SENSOR_LSM9DS1 = "LSM9DS1";  // untranslated
-Blockly.Msg.SENSOR_MIC = "mikrofon";
 Blockly.Msg.SENSOR_MOISTURE = "fuktsensor";
 Blockly.Msg.SENSOR_MOISTURE_GETSAMPLE_TOOLTIP = "Får aktuellt värde från fuktsensorn";
 Blockly.Msg.SENSOR_MOTION = "rörelsesensor";

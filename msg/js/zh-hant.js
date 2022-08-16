@@ -1484,7 +1484,6 @@ Blockly.Msg.SENSOR_LIGHT_LIGHT_GETSAMPLE_TOOLTIP_EDISON = "Gets the current read
 Blockly.Msg.SENSOR_LIGHT_LINETRACKER = "line tracker";  // untranslated
 Blockly.Msg.SENSOR_LPS22HB = "LPS22HB";  // untranslated
 Blockly.Msg.SENSOR_LSM9DS1 = "LSM9DS1";  // untranslated
-Blockly.Msg.SENSOR_MIC = "麥克風";
 Blockly.Msg.SENSOR_MOISTURE = "濕度感應器";
 Blockly.Msg.SENSOR_MOISTURE_GETSAMPLE_TOOLTIP = "從濕度感應器獲取當前讀數。";
 Blockly.Msg.SENSOR_MOTION = "動作感應器";

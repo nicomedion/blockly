@@ -239,7 +239,6 @@ Blockly.Msg.SENSOR_MS_TIMER = 'in ms';
 Blockly.Msg.SENSOR_TIMER = 'timer';
 Blockly.Msg.SENSOR_PIN = 'pin';
 Blockly.Msg.SENSOR_GROVE = 'Grove';
-Blockly.Msg.SENSOR_MIC = 'microphone';
 Blockly.Msg.SENSOR_COLOUR = 'colour sensor';
 Blockly.Msg.SENSOR_COLOUR_EDISON = 'line tracker';
 Blockly.Msg.SENSOR_QUADRGB = 'quad rgb sensor';

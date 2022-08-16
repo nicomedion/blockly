@@ -1484,7 +1484,6 @@ Blockly.Msg.SENSOR_LIGHT_LIGHT_GETSAMPLE_TOOLTIP_EDISON = "Gets the current read
 Blockly.Msg.SENSOR_LIGHT_LINETRACKER = "line tracker";  // untranslated
 Blockly.Msg.SENSOR_LPS22HB = "LPS22HB";  // untranslated
 Blockly.Msg.SENSOR_LSM9DS1 = "LSM9DS1";  // untranslated
-Blockly.Msg.SENSOR_MIC = "мікрафон";
 Blockly.Msg.SENSOR_MOISTURE = "датчык вільгаці";
 Blockly.Msg.SENSOR_MOISTURE_GETSAMPLE_TOOLTIP = "Вяртае бягучае значэнне з датчыка вільгаці";
 Blockly.Msg.SENSOR_MOTION = "датчык вільгаці";
