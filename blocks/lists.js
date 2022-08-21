@@ -775,9 +775,9 @@ Blockly.Blocks['robLists_create_with'] = {
         for (var x = 0; x < this.itemCount_; x++) {
             if (x == 0) {
                 this.appendValueInput('ADD0').appendField(Blockly.Msg.LISTS_CREATE_TITLE).appendField(':').appendField(listDeclType, 'LIST_TYPE').appendField(Blockly.RTL ? '\u2192'
-                        : '\u2190').setCheck(this.listType_);
+                        : '\u2190').appendField('0').setCheck(this.listType_);
             } else {
-                this.appendValueInput('ADD' + x).setCheck(this.listType_);
+                this.appendValueInput('ADD' + x).appendField(x.toString()).setAlign(Blockly.ALIGN_RIGHT).setCheck(this.listType_);
             }
         }
         if (this.itemCount_ == 0) {
@@ -803,11 +803,11 @@ Blockly.Blocks['robLists_create_with'] = {
             if (this.itemCount_ == 0) {
                 this.removeInput('EMPTY');
                 this.appendValueInput('ADD0').appendField(Blockly.Msg.LISTS_CREATE_TITLE).appendField(':').appendField(listDeclType, 'LIST_TYPE').appendField(Blockly.RTL ? '\u2192'
-                        : '\u2190').setCheck(this.listType_);
+                        : '\u2190').appendField('0').setCheck(this.listType_);
                 this.setInputsInline(false);
                 this.setMutatorMinus(new Blockly.MutatorMinus(this));
             } else {
-                this.appendValueInput('ADD' + this.itemCount_).setCheck(this.listType_);
+                this.appendValueInput('ADD' + this.itemCount_).appendField(this.itemCount_.toString()).setAlign(Blockly.ALIGN_RIGHT).setCheck(this.listType_);
             }
             var block = this.getNewValue();
             block.initSvg();
