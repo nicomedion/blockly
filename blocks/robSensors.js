@@ -79,7 +79,7 @@ Blockly.Blocks['robSensors_gyro_reset_axis'] = {
 Blockly.Blocks['robSensors_sound_record'] = {
     init: function () {
         this.setColour(Blockly.CAT_SENSOR_RGB);
-        var mode = new Blockly.FieldDropdown([[Blockly.Msg.START, 'start'], [Blockly.Msg.MOTOR_STOP, 'stop']])
+        var mode = new Blockly.FieldDropdown([[Blockly.Msg.START, 'START'], [Blockly.Msg.MOTOR_STOP, 'STOP']])
         var dropDownPorts = getConfigPorts('sound');
 
         this.dependConfig = {
