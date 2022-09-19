@@ -89,7 +89,7 @@ Blockly.Procedures.findLegalName = function(name, block) {
     // Flyouts can have multiple procedures called 'do something'.
     return name;
   }
-  while (!Blockly.Procedures.isLegalName(name, block.workspace, block) || Blockly.Variables.isReservedName(name, block)) {
+  while (!Blockly.Procedures.isNameAvailable(name, block.workspace, block)) {
     // Collision with another procedure.
     var r = name.match(/^(.*?)(\d+)$/);
     if (!r) {
@@ -102,15 +102,15 @@ Blockly.Procedures.findLegalName = function(name, block) {
 };
 
 /**
- * Does this procedure have a legal name?  Illegal names include names of
- * procedures already defined.
+ * Does this procedure have a legal name, meaning no other procedure has been
+ * assigned this name yet?  Illegal names include names of procedures already defined.
  * @param {string} name The questionable name.
  * @param {!Blockly.Workspace} workspace The workspace to scan for collisions.
  * @param {Blockly.Block=} opt_exclude Optional block to exclude from
  *     comparisons (one doesn't want to collide with oneself).
- * @return {boolean} True if the name is legal.
+ * @return {boolean} True if the name is available.
  */
-Blockly.Procedures.isLegalName = function(name, workspace, opt_exclude) {
+Blockly.Procedures.isNameAvailable = function(name, workspace, opt_exclude) {
   var blocks = workspace.getAllBlocks();
   // Iterate through every block and check the name.
   for (var i = 0; i < blocks.length; i++) {

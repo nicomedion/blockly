@@ -203,7 +203,7 @@ Blockly.RobConfig.disposeConfig = function(thisBlock) {
  * @return {string} Non-colliding name.
  */
 Blockly.RobConfig.findLegalName = function(name, block, opt_oldName) {
-    while (!Blockly.RobConfig.isLegalName(name, block, opt_oldName) || Blockly.Variables.isReservedName(name, block)) {
+    while (!Blockly.RobConfig.isNameAvailable(name, block, opt_oldName)) {
         // Collision with another variable.
         var r = name.match(/^(.*?)(\d+)$/);
         if (!r) {
@@ -215,7 +215,7 @@ Blockly.RobConfig.findLegalName = function(name, block, opt_oldName) {
     return name;
 };
 
-Blockly.RobConfig.isLegalName = function(name, block, opt_oldName) {
+Blockly.RobConfig.isNameAvailable = function(name, block, opt_oldName) {
     var blocks = Blockly.mainWorkspace.getAllBlocks();
 
     var names = [];

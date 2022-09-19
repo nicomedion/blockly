@@ -345,7 +345,7 @@ Blockly.Blocks['robControls_for'] = {
    */
   validate: function () {
     var thisBlock = this;
-    if (Blockly.Variables.isLegalName(thisBlock.getFieldValue('VAR'), thisBlock)) {
+    if (Blockly.Variables.isNameAvailable(thisBlock.getFieldValue('VAR'), thisBlock)) {
       return;
     } else {
       var name = Blockly.Variables.generateUniqueName(Blockly.getMainWorkspace());
@@ -370,7 +370,7 @@ Blockly.Blocks['robControls_for'] = {
     if (!name.match(/^[a-zA-Z][a-zA-Z_$0-9]*$/))
       return null;
     // Ensure two identically-named variables don't exist.
-    if (Blockly.Variables.isLegalName(name, block)) {
+    if (Blockly.Variables.isNameAvailable(name, block)) {
       if (block.nameOld) {
           Blockly.Variables.renameVariable(block.nameOld, name, Blockly.getMainWorkspace());               
       }

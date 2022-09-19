@@ -232,7 +232,7 @@ Blockly.Variables.generateUniqueName = function(workspace) {
  * @return {string} Non-colliding name.
  */
 Blockly.Variables.findLegalName = function(name, block) {
-    while (!Blockly.Variables.isLegalName(name, block) || Blockly.Variables.isReservedName(name, block)) {
+    while (!Blockly.Variables.isNameAvailable(name, block)) {
         // Collision with another variable.
         var r = name.match(/^(.*?)(\d+)$/);
         if (!r) {
@@ -245,17 +245,17 @@ Blockly.Variables.findLegalName = function(name, block) {
 };
 
 /**
- * Does this variable have a legal name? Illegal names include names of
- * variables already defined.
+ * Does this variable have a legal name, meaning no other variable has been
+ * assigned this name yet? Illegal names include names of variables already defined.
  * 
  * @param {string}
  *            name The questionable name.
  * @param {Blockly.Block}
  *            opt_exclude Optional block to exclude from comparisons (one
  *            doesn't want to collide with oneself).
- * @return {boolean} True if the name is legal.
+ * @return {boolean} True if the name is available.
  */
-Blockly.Variables.isLegalName = function(name, block) {
+Blockly.Variables.isNameAvailable = function(name, block) {
     var blocks = Blockly.mainWorkspace.getAllBlocks();
     // Iterate through every block.
     for (var x = 0; x < blocks.length; x++) {
@@ -271,22 +271,6 @@ Blockly.Variables.isLegalName = function(name, block) {
         }
     }
     return true;
-};
-
-/**
- * Does this variable name is a reserved word in the specific programming language?
- * 
- * @param {string}
- *            name The questionable name.
- * @return {boolean} True if the name is a reserved word.
- */
-
-Blockly.Variables.isReservedName = function(name, block) {
-    if (Blockly[block.workspace.device]) {
-        return Blockly[block.workspace.device].indexOf(name) >= 0;
-    } else {
-        return false;
-    }
 };
 
 /**
