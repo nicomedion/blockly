@@ -868,6 +868,7 @@
   "ACCELEROMETER_ROTATION": "Drehung °",
   "STRENGTH": "Stärke",
   "ACCELEROMETER_ROTATION_TOOLTIP": "Gibt den Wert für Neigung und Drehung zurück.",
+  "SENSOR_ACCELEROMETER_VALUE_GETSAMPLE_TOOLTIP": "Gibt den Wert des Beschleunigungssensors für die angegebene Achse im Bereich [-32, 32] zurück.",
   "ACCELERATION_TOOLTIP": "Gibt die aktuelle Beschleunigung zurück.",
   "PITCH": "Neigung",
   "ROLL": "Drehung",
@@ -1507,5 +1508,7 @@
   "SOUND_TARGET_DETECTED": "erkannte Zielmelodie",
   "SENSOR_IRHORIZONTAL": "Infrarotsensor",
   "SOUND_RECORD_THYMIO_TOOLTIP": "Starte eine Aufnahme auf einer SD-Karte, die mit deinem Thymio verbunden ist. Die Aufnahme wird als Rx.wav auf der SD-Karte gespeichert, wobei >>x<< ist der angegebene Name des Stückes. Eine SD-Karte ist erforderlich!",
-  "SOUND_RECORD_STOP_TOOLTIP": "Stoppe die Aufnahme auf der SD-Karte."
+  "SOUND_RECORD_STOP_TOOLTIP": "Stoppe die Aufnahme auf der SD-Karte.",
+  "FORWARD": "vorwärts",
+  "BACKWARD": "rückwärts"
 }

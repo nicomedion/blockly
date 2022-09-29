@@ -723,8 +723,6 @@ Blockly.Msg.SENSOR_TEMPERATURE_SENSEBOX = 'temperature/pressure sensor BMP280';
 
 Blockly.Msg.TOOLBOX_IMAGE = 'Images';
 Blockly.Msg.STRENGTH = 'strength';
-//Blockly.Msg.ACCELERATION = 'acceleration mg';
-//Blockly.Msg.ACCELEROMETER_ROTATION = 'rotation °';
 
 Blockly.Msg.TEMPERATURE_GETSAMPLE_TOOLTIP = 'Gets the current reading from the temperature sensor in °C.';
 Blockly.Msg.COMPASS_GETSAMPLE_TOOLTIP = 'Gets the current reading from the compass sensor.';
@@ -1222,7 +1220,7 @@ Blockly.Msg.SENSOR_RSSI = 'signal strength';
 Blockly.Msg.SENSOR_RSSI_VALUE_GETSAMPLE_TOOLTIP = 'Gets the signal strength from the last received message.';
 Blockly.Msg.SENSOR_PINTOUCH_PRESSED_GETSAMPLE_TOOLTIP = Blockly.Msg.PIN_ISTOUCHED_TOOLTIP;
 Blockly.Msg.SENSOR_ACCELEROMETER_GETSAMPLE_TOOLTIP = 'Returns the acceleration value on the given axis in g';
-Blockly.Msg.SENSOR_ACCELEROMETER_VALUE_GETSAMPLE_TOOLTIP = Blockly.Msg.ACCELEROMETER_ROTATION_TOOLTIP;
+Blockly.Msg.SENSOR_ACCELEROMETER_VALUE_GETSAMPLE_TOOLTIP = 'Returns the acceleration value on the given axis in the range from [-32, 32]';
 Blockly.Msg.SENSOR_ACCELEROMETER_X_GETSAMPLE_TOOLTIP_ARDUINO = 'Returns the acceleration value on the X axis in g. Can be in range from -4 g to 4 g.';
 Blockly.Msg.SENSOR_ACCELEROMETER_Y_GETSAMPLE_TOOLTIP_ARDUINO = 'Returns the acceleration value on the Y axis in g. Can be in range from -4 g to 4 g.';
 Blockly.Msg.SENSOR_ACCELEROMETER_Z_GETSAMPLE_TOOLTIP_ARDUINO = 'Returns the acceleration value on the Z axis in g. Can be in range from -4 g to 4 g.';
@@ -1717,3 +1715,5 @@ Blockly.Msg.SOUND_TARGET_FRIENDLY = 'target friendly';
 Blockly.Msg.SOUND_TARGET_DETECTED = 'target detected';
 Blockly.Msg.CIRCLE = 'circle';
 Blockly.Msg.SENSOR_IRHORIZONTAL_GETSAMPLE_TOOLTIP = 'Gets the current reading from the infrared sensor.';
+Blockly.Msg.FORWARD = 'forward';
+Blockly.Msg.BACKWARD = 'backward';

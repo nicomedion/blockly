@@ -80,7 +80,7 @@ sensors.accelerometer.sensebox = {
 
 sensors.accelerometer.thymio = {
     title: 'ACCELEROMETER', modes: [{
-        name: 'VALUE', type: 'Number', unit: 'MILLIG'
+        name: 'VALUE', type: 'Number'
     }], slots: [['x', '0'], ['y', '1'], ['z', '2']]
 };
 
@@ -594,7 +594,7 @@ sensors.key.thymio = {
     modes: [{
         name: 'PRESSED', type: 'Number', op: 'NUM_EQ', value: 1
     }],
-    ports: [['SENSOR_TOP', 'FORWARD'], ['RIGHT', 'RIGHT'], ['SENSOR_BOTTOM', 'BACKWARD'], ['LEFT', 'LEFT'], ['CENTER', 'CENTER']]
+    ports: [['FORWARD', 'FORWARD'], ['RIGHT', 'RIGHT'], ['BACKWARD', 'BACKWARD'], ['LEFT', 'LEFT'], ['CENTER', 'CENTER']]
 };
 
 sensors.light = {};
