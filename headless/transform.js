@@ -45,6 +45,8 @@ require('../blocks/robActions.js');
 require('../blocks/robActionsNewConfig.js');
 require('../blocks/robConfig.js');
 
+require('../blocks/actions.js');
+
 require('../blocks/festobionicActions.js');
 
 require('../msg/js/en.js');

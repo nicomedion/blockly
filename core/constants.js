@@ -286,6 +286,7 @@ Blockly.DATA_TYPE['Number'] = '#005A94';
 Blockly.DATA_TYPE['String'] = '#BACC1E';
 Blockly.DATA_TYPE['Boolean'] = '#33B8CA';
 Blockly.DATA_TYPE['Colour'] = '#EBC300';
+Blockly.DATA_TYPE['ColourLight'] = '#EBC300';
 Blockly.DATA_TYPE['Connection'] = '#FF69B4';
 Blockly.DATA_TYPE['Sensor'] = '#8FA402';
 Blockly.DATA_TYPE['Image'] = '#DF01D7';
@@ -302,6 +303,7 @@ Blockly.TYPE_DROPDOWN = function(device, opt_handler) {
     switch (device) {
         case 'mbot':
         case 'calliope':
+        case 'spike':
             return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
                 [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'], [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
                 [Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image'], [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
@@ -370,7 +372,9 @@ Blockly.TYPE_DROPDOWN = function(device, opt_handler) {
             });
         case 'wedo':
             return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
-                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'], [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour']], function(option) {
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'], [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],[Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean'], [Blockly.Msg.VARIABLES_TYPE_ARRAY_STRING, 'Array_String'],
+                [Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR, 'Array_Colour']], function(option) {
                 if (option && this.sourceBlock_.getFieldValue('TYPE') !== option) {
                     this.sourceBlock_.updateType_(option);
                     if (this.sourceBlock_[handler])
@@ -418,6 +422,7 @@ Blockly.LIST_TYPE_DROPDOWN = function(device) {
     switch (device) {
         case 'mbot':
         case 'calliope':
+        case 'spike':
             return new Blockly.FieldDropdown(
                 [[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
                     [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'], [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour'],
@@ -452,6 +457,11 @@ Blockly.LIST_TYPE_DROPDOWN = function(device) {
             });
         case 'wedo':
             throw 'no lists supported for wedo!';
+        case 'xNN':
+            return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
+                [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'], [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour']], function(option) {
+                this.sourceBlock_.updateType_(option);
+            });
         case 'thymio':
             return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_COLOUR, 'Colour']], function(option) {
                 this.sourceBlock_.updateType_(option);

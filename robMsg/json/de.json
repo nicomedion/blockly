@@ -390,7 +390,7 @@
   "PLAY_GETVOLUME_TOOLTIP": "Liefert aktuelle Lautstärke.",
   "PLAY_SETVOLUME_TOOLTIP": "Setzt Lautstärke.",
   "PLAY_TONE": "Ton",
-  "PLAY_TONE_TOOLTIP": "Spielt einen Ton. Mit der Frequenz kannst du die Höhe des Tones bestimmen, die Dauer wird in Millisekunden angebeben.",
+  "PLAY_TONE_TOOLTIP": "Spielt einen Ton. Mit der Frequenz kannst du die Höhe des Tones bestimmen, die Dauer wird in Millisekunden angegeben.",
   "PLAY_VOLUME": "Lautstärke",
   "POPUP_ABOUT_JOIN": "Ich möchte mithelfen",
   "POPUP_ABOUT_TEXT": "Open Roberta Lab ist eine cloudbasierte grafische Programmierumgebung, die es Kindern und Jugendlichen ermöglicht ohne technische Hürden einen Roboter/Mikrocontroller zu programmieren. <br /> Die Programmierplattform ist komplett »open source«, Mitmachen und Anregungen erwünscht! Alle benötigte Software und Open-Source-Entwicklertools stehen über Fraunhofer-Server bereit.",
@@ -1545,5 +1545,11 @@
   "MATH_THYMIO_TRIG_TOOLTIP": "In allen trigonomischen Funktionen werden die Winkel [-pi, pi] in radiant auf [-32768, 32767] abgebildet. Die Ergebnisse werden entsprechend von [-1.0, 1.0] auf [-32768, 32767] abgebildet.",
   "SENSOR_OPTICAL": "Optischer Sensor",
   "MODE_OPENING": "hell",
-  "MODE_CLOSING": "dunkel"
+  "MODE_CLOSING": "dunkel",
+  "MOTOR_TOOLTIP_SPIKE": "Repräsentiert einen mittleren oder großen Winkelmotor.",
+  "MODE_TAPPED" : "angetippt",
+  "ACTION_DISPLAY" : "Bildschirm",
+  "DISPLAY_TOOLTIP": "Repräsentiert einen Bildschirm",
+  "DISPLAY_TOOLTIP_SPIKE": "Repräsentiert einen Bildschirm mit einer 5 x 5 LED Matrix",
+  "MODE_FORCE": "Kraft"
 }

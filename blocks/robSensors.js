@@ -146,11 +146,19 @@ Blockly.Blocks['robSensors_timer_reset'] = {
     init: function() {
         this.setColour(Blockly.CAT_SENSOR_RGB);
         var sensorNum;
-        if (this.workspace.device === 'nxt' || this.workspace.device === 'botnroll' || this.workspace.device === 'bob3' || this.workspace.device === 'wedo' || this.workspace.device === 'rob3rta' || this.workspace.device === 'thymio') {
-            sensorNum = new Blockly.FieldDropdown([[Blockly.Msg.SENSOR_TIMER + ' 1', '1']]);
-        } else {
-            sensorNum = new Blockly.FieldDropdown([[Blockly.Msg.SENSOR_TIMER + ' 1', '1'], [Blockly.Msg.SENSOR_TIMER + ' 2', '2'],
-                [Blockly.Msg.SENSOR_TIMER + ' 3', '3'], [Blockly.Msg.SENSOR_TIMER + ' 4', '4'], [Blockly.Msg.SENSOR_TIMER + ' 5', '5']]);
+        switch (this.workspace.device) {
+            case 'nxt':
+            case 'botnroll':
+            case 'bob3':
+            case 'wedo':
+            case 'rob3rta':
+            case 'wedo':
+            case 'spike':
+                sensorNum = new Blockly.FieldDropdown([[Blockly.Msg.SENSOR_TIMER + ' 1', '1']]);
+                break;
+            default:
+                sensorNum = new Blockly.FieldDropdown([[Blockly.Msg.SENSOR_TIMER + ' 1', '1'], [Blockly.Msg.SENSOR_TIMER + ' 2', '2'],
+                    [Blockly.Msg.SENSOR_TIMER + ' 3', '3'], [Blockly.Msg.SENSOR_TIMER + ' 4', '4'], [Blockly.Msg.SENSOR_TIMER + ' 5', '5']]);
         }
         this.appendDummyInput().appendField(Blockly.Msg.SENSOR_RESET).appendField(sensorNum, 'SENSORPORT').appendField(Blockly.Msg.SENSOR_RESET_II);
         this.setPreviousStatement(true);
@@ -1108,7 +1116,20 @@ Blockly.Blocks['robSensors_generic_all'] = {
                     block.setFieldValue(value.toString(), 'TEXT');
                 } else if (this.sensors[index].type == 'Colour') {
                     logComp.updateShape('COLOUR');
-                    block = this.workspace.newBlock('robColour_picker');
+                    switch (this.workspace.device) {
+                        case 'microbit':
+                        case 'calliope':
+                            block = this.workspace.newBlock('mbedColour_picker');
+                            break;
+                        case 'nao':
+                            block = this.workspace.newBlock('naoColour_picker');
+                            break;
+                        case 'spike':
+                            block = this.workspace.newBlock('colour_picker_spike');
+                            break;
+                        default:
+                            block = this.workspace.newBlock('robColour_picker');
+                    }
                     block.setFieldValue(this.sensors[index].value, 'COLOUR');
                 } else {
                     logComp.updateShape('BOOL');

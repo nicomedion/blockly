@@ -59,15 +59,17 @@ Blockly.Blocks['mbedImage_image'] = {
             return '';
         } else if (p.substring(0, 1) == '9') {
             return '#';
-        } else if (p.match(/^[1-8#]$/) && this.sourceBlock_.workspace.device === 'calliope') {
+        } else if (p.match(/^[1-8#]$/) && (this.sourceBlock_.workspace.device === 'calliope' ||this.sourceBlock_.workspace.device === 'spike')) {
             return p;
-        } else if (p.substring(0, 1).match(/^[1-8#]/) && this.sourceBlock_.workspace.device === 'calliope') {
+        } else if (p.substring(0, 1).match(/^[1-8#]/) && (this.sourceBlock_.workspace.device === 'calliope' ||this.sourceBlock_.workspace.device === 'spike')) {
             return p.substring(0, 1);
         } else {
             return null;
         }
     }
 };
+
+Blockly.Blocks['image_image'] = Blockly.Blocks['mbedImage_image'];
 
 Blockly.Blocks['mbedImage_shift'] = {
     init : function() {
@@ -139,50 +141,9 @@ Blockly.Blocks['mbedImage_get_image'] = {
         var thisBlock = this;
         this.setTooltip(function() {
             var mode = thisBlock.getFieldValue('IMAGE');
-            var TOOLTIPS = {
-                'HEART' : Blockly.Msg.IMAGE_GET_TOOLTIP_HEART,
-                'HEART_SMALL' : Blockly.Msg.IMAGE_GET_TOOLTIP_HEART_SMALL,
-                'SMILE' : Blockly.Msg.IMAGE_GET_TOOLTIP_SMILE,
-                'CONFUSED' : Blockly.Msg.IMAGE_GET_TOOLTIP_CONFUSED,
-                'ANGRY' : Blockly.Msg.IMAGE_GET_TOOLTIP_ANGRY,
-                'ASLEEP' : Blockly.Msg.IMAGE_GET_TOOLTIP_ASLEEP,
-                'SILLY' : Blockly.Msg.IMAGE_GET_TOOLTIP_SILLY,
-                'FABULOUS' : Blockly.Msg.IMAGE_GET_TOOLTIP_FABULOUS,
-                'MEH' : Blockly.Msg.IMAGE_GET_TOOLTIP_MEH,
-                'YES' : Blockly.Msg.IMAGE_GET_TOOLTIP_YES,
-                'NO' : Blockly.Msg.IMAGE_GET_TOOLTIP_NO,
-                'TRIANGLE' : Blockly.Msg.IMAGE_GET_TOOLTIP_TRIANGLE,
-                'TRIANGLE_LEFT' : Blockly.Msg.IMAGE_GET_TOOLTIP_TRIANGLE_LEFT,
-                'CHESSBOARD' : Blockly.Msg.IMAGE_GET_TOOLTIP_CHESSBOARD,
-                'DIAMOND' : Blockly.Msg.IMAGE_GET_TOOLTIP_DIAMOND,
-                'DIAMOND_SMALL' : Blockly.Msg.IMAGE_GET_TOOLTIP_DIAMOND_SMALL,
-                'SQUARE' : Blockly.Msg.IMAGE_GET_TOOLTIP_SQUARE,
-                'SQUARE_SMALL' : Blockly.Msg.IMAGE_GET_TOOLTIP_SQUARE_SMALL,
-                'RABBIT' : Blockly.Msg.IMAGE_GET_TOOLTIP_RABBIT,
-                'COW' : Blockly.Msg.IMAGE_GET_TOOLTIP_COW,
-                'MUSIC_CROTCHET' : Blockly.Msg.IMAGE_GET_TOOLTIP_MUSIC_CROTCHET,
-                'MUSIC_QUAVER' : Blockly.Msg.IMAGE_GET_TOOLTIP_MUSIC_QUAVER,
-                'MUSIC_QUAVERS' : Blockly.Msg.IMAGE_GET_TOOLTIP_MUSIC_QUAVERS,
-                'PITCHFORK' : Blockly.Msg.IMAGE_GET_TOOLTIP_PITCHFORK,
-                'XMAS' : Blockly.Msg.IMAGE_GET_TOOLTIP_XMAS,
-                'PACMAN' : Blockly.Msg.IMAGE_GET_TOOLTIP_PACMAN,
-                'TARGET' : Blockly.Msg.IMAGE_GET_TOOLTIP_TARGET,
-                'TSHIRT' : Blockly.Msg.IMAGE_GET_TOOLTIP_TSHIRT,
-                'ROLLERSKATE' : Blockly.Msg.IMAGE_GET_TOOLTIP_ROLLERSKATE,
-                'DUCK' : Blockly.Msg.IMAGE_GET_TOOLTIP_DUCK,
-                'HOUSE' : Blockly.Msg.IMAGE_GET_TOOLTIP_HOUSE,
-                'TORTOISE' : Blockly.Msg.IMAGE_GET_TOOLTIP_TORTOISE,
-                'BUTTERFLY' : Blockly.Msg.IMAGE_GET_TOOLTIP_BUTTERFLY,
-                'STICKFIGURE' : Blockly.Msg.IMAGE_GET_TOOLTIP_STICKFIGURE,
-                'GHOST' : Blockly.Msg.IMAGE_GET_TOOLTIP_GHOST,
-                'SWORD' : Blockly.Msg.IMAGE_GET_TOOLTIP_SWORD,
-                'GIRAFFE' : Blockly.Msg.IMAGE_GET_TOOLTIP_GIRAFFE,
-                'SKULL' : Blockly.Msg.IMAGE_GET_TOOLTIP_SKULL,
-                'UMBRELLA' : Blockly.Msg.IMAGE_GET_TOOLTIP_UMBRELLA,
-                'SNAKE' : Blockly.Msg.IMAGE_GET_TOOLTIP_SNAKE,
-                'SAD' : Blockly.Msg.IMAGE_GET_TOOLTIP_SAD
-            };
-            return TOOLTIPS[mode];
+            return Blockly.Msg["IMAGE_GET_TOOLTIP_" + mode];
         });
     }
 };
+
+Blockly.Blocks['image_get_image'] = Blockly.Blocks['mbedImage_get_image'];

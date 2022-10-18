@@ -284,6 +284,17 @@ Blockly.Blocks.robConfigDefinitions['pinsRaspberrypi'] = function() {
     return array;
 };
 
+Blockly.Blocks.robConfigDefinitions['spikePorts'] = function() {
+    var array = [
+        ['A', 'A'],
+        ['B', 'B'],
+        ['C', 'C'],
+        ['D', 'D'],
+        ['E', 'E'],
+        ['F', 'F'],
+    ];
+    return array;
+};
 
 confBlocks.ultrasonic = {};
 confBlocks.ultrasonic.arduino = {
@@ -343,6 +354,14 @@ confBlocks.ultrasonic.raspberrypi = {
         ['GND', 'GND'],
         ['VCC', '5V']
     ]
+};
+
+confBlocks.ultrasonic.spike = {
+    title: 'ULTRASONIC',
+    ports: [['BRICK_PORT', 'PORT']],
+    pins: Blockly.Blocks.robConfigDefinitions['spikePorts'],
+    standardPins: ['D'],
+    sensor: true
 };
 
 confBlocks.light = {};
@@ -436,7 +455,6 @@ confBlocks.accelerometer.sensebox = {
 };
 confBlocks.accelerometer.arduino = confBlocks.accelerometer.sensebox;
 
-
 confBlocks.colourtcs3472 = {};
 confBlocks.colourtcs3472.calliope = {
     title: 'COLOURTCS3472',
@@ -480,6 +498,13 @@ confBlocks.compass.microbit = confBlocks.compass.calliope;
 confBlocks.compass.sensebox = {
     title: 'COMPASS',
     sensor: true
+};
+
+confBlocks.display = {};
+confBlocks.display.spike = {
+    title: 'DISPLAY',
+    sensor: false,
+    inbuilt: true
 };
 
 confBlocks.moisture = {};
@@ -567,6 +592,15 @@ confBlocks.camera.robotino = {
     title: 'CAMERA',
     sensor: true,
     inbuilt: true
+};
+
+confBlocks.colour = {};
+confBlocks.colour.spike = {
+    title: 'COLOUR',
+    ports: [['BRICK_PORT', 'PORT']],
+    pins: Blockly.Blocks.robConfigDefinitions['spikePorts'],
+    sensor: true,
+    standardPins: ['C']
 };
 
 confBlocks.temperature = {};
@@ -735,6 +769,19 @@ confBlocks.key.raspberrypi = {
         ['GND', 'GND']
     ]
 };
+confBlocks.key.spike = {
+    title: 'KEY',
+    ports: [
+        [' ', 'PIN1']
+    ],
+    pins: function() {
+        return [
+            ['LEFT', 'LEFT'],
+            ['RIGHT', 'RIGHT']
+        ];
+    },
+    sensor: true
+};
 
 confBlocks.touch = {};
 confBlocks.touch.festobionicflower = {
@@ -755,6 +802,14 @@ confBlocks.touch.robotino = {
     title: 'TOUCH',
     inbuilt: true,
     sensor: true
+};
+
+confBlocks.touch.spike = {
+    title: 'TOUCH',
+    ports: [['BRICK_PORT', 'PORT']],
+    pins: Blockly.Blocks.robConfigDefinitions['spikePorts'],
+    sensor: true,
+    standardPins: ['F']
 };
 
 
@@ -953,6 +1008,22 @@ confBlocks.omnidrive.robotino = {
     inbuilt: true
 };
 
+confBlocks.differentialdrive.spike = {
+    title: 'DIFFERENTIALDRIVE',
+    inputs: [
+        ['BRICK_WHEEL_DIAMETER', '5.6'],
+        ['BRICK_TRACK_WIDTH', '11.5']
+    ],
+    ports: [
+        ['MOTOR_LEFT', 'MOTOR_L'],
+        ['MOTOR_RIGHT', 'MOTOR_R']
+    ],
+    pins: Blockly.Blocks.robConfigDefinitions['spikePorts'],
+    sensor: false,
+    standardPins: ['A', 'B'],
+    inbuilt: true
+};
+
 confBlocks.led = {};
 confBlocks.led.arduino = {
     title: 'LED',
@@ -1093,6 +1164,11 @@ confBlocks.buzzer.raspberrypi = {
         ['GND', 'GND']
     ]
 };
+confBlocks.buzzer.spike = {
+    title: 'BUZZER',
+    sensor: false,
+    inbuilt: true
+};
 
 confBlocks.sound = {};
 confBlocks.sound.calliope = {
@@ -1212,6 +1288,7 @@ confBlocks.rgbled.raspberrypi = {
         ['GND', 'GND']
     ]
 };
+confBlocks.rgbled.spike = confBlocks.rgbled.calliope;
 
 confBlocks.stepmotor = {};
 confBlocks.stepmotor.arduino = {
@@ -1333,6 +1410,7 @@ confBlocks.gyro.sensebox = {
     sensor: true
 };
 confBlocks.gyro.mbot2 = confBlocks.gyro.calliope;
+confBlocks.gyro.spike = confBlocks.gyro.calliope;
 
 confBlocks.lsm9ds1 = {};
 confBlocks.lsm9ds1.nano33ble = {
@@ -1398,6 +1476,13 @@ confBlocks.motor.raspberrypi = {
         ['GND', 'GND'],
         ['VCC', '5V']
     ]
+};
+
+confBlocks.motor.spike = {
+    title: 'MOTOR',
+    ports: [['BRICK_PORT', 'PORT']],
+    pins: Blockly.Blocks.robConfigDefinitions['spikePorts'],
+    sensor: false
 };
 
 confBlocks.encoder = {};

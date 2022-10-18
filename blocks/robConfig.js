@@ -37,7 +37,7 @@ Blockly.Blocks['robConf_generic'] = {
             // no name set -> invalid
             if (name === '')
                 return null;
-            if (!name.match(/^[a-zA-Z][a-zA-Z_$0-9]*$/))
+            if (!name.match(/^[_a-zA-Z][a-zA-Z_$0-9]*$/))
                 return null;
 
             var subComp = block.inputList.filter(function(item) {

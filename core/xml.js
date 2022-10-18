@@ -46,7 +46,7 @@ Blockly.Xml.ARMPAIR = 'SLOT';
 
 /**
  * Encode a block tree as XML.
- * 
+ *
  * @param {!Blockly.Workspace}
  *            workspace The workspace containing blocks.
  * @return {!Element} XML document.
@@ -60,7 +60,7 @@ Blockly.Xml.workspaceToDom = function(workspace) {
         var xy = block.getRelativeToSurfaceXY();
         var width; // Not used in LTR.
         if (block.workspace.RTL) {
-          width = block.workspace.getWidth();
+            width = block.workspace.getWidth();
         }
         top.setAttribute('x', Math.round(workspace.RTL ? width - xy.x : xy.x));
         top.setAttribute('y', Math.round(xy.y));
@@ -75,7 +75,7 @@ Blockly.Xml.workspaceToDom = function(workspace) {
 
 /**
  * Encode a block subtree as XML with XY coordinates.
- * 
+ *
  * @param {!Blockly.Block}
  *            block The root block to encode.
  * @return {!Element} Tree of XML elements.
@@ -94,7 +94,7 @@ Blockly.Xml.blockToDomWithXY = function(block, statement_list) {
 
 /**
  * Encode a block subtree as XML.
- * 
+ *
  * @param {!Blockly.Block}
  *            block The root block to encode.
  * @return {!Element} Tree of XML elements.
@@ -174,13 +174,15 @@ Blockly.Xml.blockToDom = function(block, statement_list) {
         var f = {};
         f.getValue = function() {
             return block.hide.value;
-        }
+        };
         f.name = block.hide.name;
         f.EDITABLE = true;
-        fieldToDom(f);
+        if (!block.hide.port) {
+            fieldToDom(f);
+        }
         var hideElement = goog.dom.createDom('hide');
-        hideElement.setAttribute("name", block.hide.name);
-        hideElement.setAttribute("value", block.hide.value);
+        hideElement.setAttribute('name', block.hide.name);
+        hideElement.setAttribute('value', block.hide.value);
         element.appendChild(hideElement);
     }
 
@@ -252,7 +254,7 @@ Blockly.Xml.blockToDom = function(block, statement_list) {
 
 /**
  * Appends list of XML DOM to a parent XML DOM element.
- * 
+ *
  * @param {!Element}
  *            parentDom a XML DOM element.
  * @param {!Object}
@@ -268,7 +270,7 @@ Blockly.Xml.appendlistToDom = function(parentDom, block) {
 
 /**
  * Deeply clone the shadow's DOM so that changes don't back-wash to the block.
- * 
+ *
  * @param {!Element}
  *            shadow A tree of XML elements.
  * @return {!Element} A tree of XML elements.
@@ -307,7 +309,7 @@ Blockly.Xml.cloneShadow_ = function(shadow) {
 /**
  * Converts a DOM structure into plain text. Currently the text format is fairly
  * ugly: all one line with no whitespace.
- * 
+ *
  * @param {!Element}
  *            dom A tree of XML elements.
  * @return {string} Text representation.
@@ -316,12 +318,12 @@ Blockly.Xml.domToText = function(dom) {
     var oSerializer = new XMLSerializer();
     var text = oSerializer.serializeToString(dom);
     text = text.replace('http://www.w3.org/1999/xhtml', 'http://de.fhg.iais.roberta.blockly');
-    return text
+    return text;
 };
 
 /**
  * Converts a DOM structure into properly indented text.
- * 
+ *
  * @param {!Element}
  *            dom A tree of XML elements.
  * @return {string} Text representation.
@@ -356,7 +358,7 @@ Blockly.Xml.domToPrettyText = function(dom) {
 /**
  * Converts plain text into a DOM structure. Throws an error if XML doesn't
  * parse.
- * 
+ *
  * @param {string}
  *            text Text representation.
  * @return {!Element} A tree of XML elements.
@@ -366,7 +368,7 @@ Blockly.Xml.textToDom = function(text) {
     var dom = oParser.parseFromString(text, 'text/xml');
     // The DOM should have one and only one top-level node, an XML tag.
     if (!dom || !dom.firstChild || (dom.firstChild.nodeName.toLowerCase() != 'block_set' && dom.firstChild.nodeName.toLowerCase() != 'toolbox_set')
-            || dom.firstChild !== dom.lastChild) {
+        || dom.firstChild !== dom.lastChild) {
         // Whatever we got back from the parser is not XML.
         throw 'Blockly.Xml.textToDom did not obtain a valid XML tree.';
     }
@@ -375,7 +377,7 @@ Blockly.Xml.textToDom = function(text) {
 
 /**
  * Decode an XML DOM and create blocks on the workspace.
- * 
+ *
  * @param {!Element}
  *            xml XML DOM.
  * @param {!Blockly.Workspace}
@@ -406,12 +408,12 @@ Blockly.Xml.domToWorkspace = function(xml, workspace) {
     if (xml.getAttribute('description')) {
         workspace.description = xml.getAttribute('description');
     } else {
-        workspace.description = "";
+        workspace.description = '';
     }
     if (xml.getAttribute('tags')) {
         workspace.tags = xml.getAttribute('tags');
     } else {
-        workspace.tags = "";
+        workspace.tags = '';
     }
     for (var i = 0; i < childCount; i++) {
         var xmlChild = xml.childNodes[i];
@@ -421,8 +423,8 @@ Blockly.Xml.domToWorkspace = function(xml, workspace) {
             var blockX = parseInt(xmlChild.getAttribute('x'), 10);
             var blockY = parseInt(xmlChild.getAttribute('y'), 10);
             xmlBlockPos.push({
-                x : blockX,
-                y : blockY
+                x: blockX,
+                y: blockY
             });
             if (xmlChild.childNodes) {
                 for (var p = 0; p < xmlChild.childNodes.length; p++) {
@@ -462,7 +464,7 @@ Blockly.Xml.domToWorkspace = function(xml, workspace) {
 /**
  * Decode an XML block tag and create a block (and possibly sub blocks) on the
  * workspace.
- * 
+ *
  * @param {!Element}
  *            xmlBlock XML block element.
  * @param {!Blockly.Workspace}
@@ -514,7 +516,7 @@ Blockly.Xml.domToBlock = function(xmlBlockList, workspace) {
 /**
  * Decode an XML block tag and create a block (and possibly sub blocks) on the
  * workspace.
- * 
+ *
  * @param {!Element}
  *            xmlBlock XML block element.
  * @param {!Blockly.Workspace}
@@ -615,7 +617,7 @@ Blockly.Xml.domToBlockHeadless_ = function(xmlBlockList, workspace) {
  * Decode an XML block tag and create a block (and possibly sub blocks) on the
  * workspace. Extracted from the original method and modified so can from
  * <repetition> element to generate child blocks
- * 
+ *
  * @param {!Blockly.Workspace}
  *            workspace The workspace.
  * @param {!Element}
@@ -657,257 +659,257 @@ Blockly.Xml.childToBlock = function(workspace, block, xmlChild) {
     }
     var name = xmlChild.getAttribute('name');
     switch (xmlChild.nodeName.toLowerCase()) {
-    case 'mutation':
-        // Custom data for an advanced block.
-        if (block.domToMutation) {
-            if (xmlChild.getAttribute('input') == 'TIME') {
-                xmlChild.setAttribute('input', 'TIMER_VALUE');
-            } else if (xmlChild.getAttribute('input') == 'KEYS_PRESSED') {
-                xmlChild.setAttribute('input', 'KEY_PRESSED');
-            } else if (xmlChild.getAttribute('input') == 'TEMPERATURE') {
-                xmlChild.setAttribute('input', 'TEMPERATURE_VALUE');
-            } else if (xmlChild.getAttribute('input') == 'MICROPHONE') {
-                xmlChild.setAttribute('input', 'SOUND_SOUND');
-            } else if (xmlChild.getAttribute('input') == 'LIGHT_LEVEL') {
-                if (workspace.device == 'calliope') {
-                    xmlChild.setAttribute('input', 'LIGHT_VALUE');
-                } else {
-                    xmlChild.setAttribute('input', 'INFRARED_AMBIENTLIGHT');
+        case 'mutation':
+            // Custom data for an advanced block.
+            if (block.domToMutation) {
+                if (xmlChild.getAttribute('input') == 'TIME') {
+                    xmlChild.setAttribute('input', 'TIMER_VALUE');
+                } else if (xmlChild.getAttribute('input') == 'KEYS_PRESSED') {
+                    xmlChild.setAttribute('input', 'KEY_PRESSED');
+                } else if (xmlChild.getAttribute('input') == 'TEMPERATURE') {
+                    xmlChild.setAttribute('input', 'TEMPERATURE_VALUE');
+                } else if (xmlChild.getAttribute('input') == 'MICROPHONE') {
+                    xmlChild.setAttribute('input', 'SOUND_SOUND');
+                } else if (xmlChild.getAttribute('input') == 'LIGHT_LEVEL') {
+                    if (workspace.device == 'calliope') {
+                        xmlChild.setAttribute('input', 'LIGHT_VALUE');
+                    } else {
+                        xmlChild.setAttribute('input', 'INFRARED_AMBIENTLIGHT');
+                    }
+                } else if (xmlChild.getAttribute('input') == 'ORIENTATION') {
+                    xmlChild.setAttribute('input', 'GYRO_ANGLE');
+                } else if (xmlChild.getAttribute('input') == 'ACCELERATION') {
+                    xmlChild.setAttribute('input', 'ACCELEROMETER_VALUE');
+                } else if (xmlChild.getAttribute('mode') == 'SEEK') {
+                    xmlChild.setAttribute('mode', 'PRESENCE');
+                } else if (xmlChild.getAttribute('input') == 'GESTURE_ACTIVE') {
+                    xmlChild.setAttribute('input', 'GESTURE_UP');
+                } else if (xmlChild.getAttribute('mode') == 'RED') {
+                    xmlChild.setAttribute('mode', 'LIGHT');
+                } else if (xmlChild.getAttribute('input') == 'PIN_PULSE_HIGH') {
+                    xmlChild.setAttribute('input', 'PIN_PULSEHIGH');
+                } else if (xmlChild.getAttribute('input') == 'PIN_PULSE_LOW') {
+                    xmlChild.setAttribute('input', 'PIN_PULSELOW');
+                } else if (xmlChild.getAttribute('mode') == 'PULSE_HIGH') {
+                    xmlChild.setAttribute('mode', 'PULSEHIGH');
+                } else if (xmlChild.getAttribute('mode') == 'PULSE_LOW') {
+                    xmlChild.setAttribute('mode', 'PULSELOW');
+                } else if (xmlChild.getAttribute('input') == 'PIN_TOUCHED') {
+                    xmlChild.setAttribute('input', 'PINTOUCH_PRESSED');
                 }
-            } else if (xmlChild.getAttribute('input') == 'ORIENTATION') {
-                xmlChild.setAttribute('input', 'GYRO_ANGLE');
-            } else if (xmlChild.getAttribute('input') == 'ACCELERATION') {
-                xmlChild.setAttribute('input', 'ACCELEROMETER_VALUE');
-            } else if (xmlChild.getAttribute('mode') == 'SEEK') {
-                xmlChild.setAttribute('mode', 'PRESENCE');
-            } else if (xmlChild.getAttribute('input') == 'GESTURE_ACTIVE') {
-                xmlChild.setAttribute('input', 'GESTURE_UP');
-            } else if (xmlChild.getAttribute('mode') == 'RED') {
-                xmlChild.setAttribute('mode', 'LIGHT');
-            } else if (xmlChild.getAttribute('input') == 'PIN_PULSE_HIGH') {
-                xmlChild.setAttribute('input', 'PIN_PULSEHIGH');
-            } else if (xmlChild.getAttribute('input') == 'PIN_PULSE_LOW') {
-                xmlChild.setAttribute('input', 'PIN_PULSELOW');
-            } else if (xmlChild.getAttribute('mode') == 'PULSE_HIGH') {
-                xmlChild.setAttribute('mode', 'PULSEHIGH');
-            } else if (xmlChild.getAttribute('mode') == 'PULSE_LOW') {
-                xmlChild.setAttribute('mode', 'PULSELOW');
-            } else if (xmlChild.getAttribute('input') == 'PIN_TOUCHED') {
-                xmlChild.setAttribute('input', 'PINTOUCH_PRESSED');
+                block.domToMutation(xmlChild);
+                if (block.initSvg) {
+                    // Mutation may have added some elements that need initalizing.
+                    block.initSvg();
+                }
             }
-            block.domToMutation(xmlChild);
-            if (block.initSvg) {
-                // Mutation may have added some elements that need initalizing.
-                block.initSvg();
+            break;
+        case 'comment':
+            block.setCommentText(xmlChild.textContent);
+            var visible = xmlChild.getAttribute('pinned');
+            if (visible) {
+                // Give the renderer a millisecond to render and position the block
+                // before positioning the comment bubble.
+                setTimeout(function() {
+                    if (block.comment && block.comment.setVisible) {
+                        block.comment.setVisible(visible == 'true');
+                    }
+                }, 1);
             }
-        }
-        break;
-    case 'comment':
-        block.setCommentText(xmlChild.textContent);
-        var visible = xmlChild.getAttribute('pinned');
-        if (visible) {
-            // Give the renderer a millisecond to render and position the block
-            // before positioning the comment bubble.
-            setTimeout(function() {
-                if (block.comment && block.comment.setVisible) {
-                    block.comment.setVisible(visible == 'true');
-                }
-            }, 1);
-        }
-        var bubbleW = parseInt(xmlChild.getAttribute('w'), 10);
-        var bubbleH = parseInt(xmlChild.getAttribute('h'), 10);
-        if (!isNaN(bubbleW) && !isNaN(bubbleH) && block.comment && block.comment.setVisible) {
-            block.comment.setBubbleSize(bubbleW, bubbleH);
-        }
-        break;
-    case 'warning':
-        block.setWarningText(Blockly.Msg[xmlChild.textContent]);
-        var visible = xmlChild.getAttribute('pinned');
-        if (visible) {
-            // Give the renderer a millisecond to render and position the block
-            // before positioning the comment bubble.
-            setTimeout(function() {
-                if (block.warning && block.warning.setVisible) {
-                    block.warning.setVisible(visible == 'true');
-                }
-            }, 1);
-        }
-        var bubbleW = parseInt(xmlChild.getAttribute('w'), 10);
-        var bubbleH = parseInt(xmlChild.getAttribute('h'), 10);
-        if (!isNaN(bubbleW) && !isNaN(bubbleH) && block.warning && block.warning.isVisible()) {
-            block.warning.bubble_.setBubbleSize(bubbleW, bubbleH);
-        }
-        break;
-    case 'error':
-        block.setErrorText(Blockly.Msg[xmlChild.textContent]);
-        var visible = xmlChild.getAttribute('pinned');
-        if (visible) {
-            // Give the renderer a millisecond to render and position the block
-            // before positioning the comment bubble.
-            setTimeout(function() {
-                if (block.error && block.error.setVisible) {
-                    block.error.setVisible(visible == 'true');
-                }
-            }, 10);
-        }
-        var bubbleW = parseInt(xmlChild.getAttribute('w'), 10);
-        var bubbleH = parseInt(xmlChild.getAttribute('h'), 10);
-        if (!isNaN(bubbleW) && !isNaN(bubbleH) && block.error && block.error.isVisible()) {
-            block.error.bubble_.setBubbleSize(bubbleW, bubbleH);
-        }
-        break;
-    case 'data':
-        block.data = xmlChild.textContent;
-        break;
-    case 'hide':
-        block.hide.name = xmlChild.getAttribute('name');
-        block.hide.value = xmlChild.getAttribute('value');
-        break;
-    case 'title':
+            var bubbleW = parseInt(xmlChild.getAttribute('w'), 10);
+            var bubbleH = parseInt(xmlChild.getAttribute('h'), 10);
+            if (!isNaN(bubbleW) && !isNaN(bubbleH) && block.comment && block.comment.setVisible) {
+                block.comment.setBubbleSize(bubbleW, bubbleH);
+            }
+            break;
+        case 'warning':
+            block.setWarningText(Blockly.Msg[xmlChild.textContent]);
+            var visible = xmlChild.getAttribute('pinned');
+            if (visible) {
+                // Give the renderer a millisecond to render and position the block
+                // before positioning the comment bubble.
+                setTimeout(function() {
+                    if (block.warning && block.warning.setVisible) {
+                        block.warning.setVisible(visible == 'true');
+                    }
+                }, 1);
+            }
+            var bubbleW = parseInt(xmlChild.getAttribute('w'), 10);
+            var bubbleH = parseInt(xmlChild.getAttribute('h'), 10);
+            if (!isNaN(bubbleW) && !isNaN(bubbleH) && block.warning && block.warning.isVisible()) {
+                block.warning.bubble_.setBubbleSize(bubbleW, bubbleH);
+            }
+            break;
+        case 'error':
+            block.setErrorText(Blockly.Msg[xmlChild.textContent]);
+            var visible = xmlChild.getAttribute('pinned');
+            if (visible) {
+                // Give the renderer a millisecond to render and position the block
+                // before positioning the comment bubble.
+                setTimeout(function() {
+                    if (block.error && block.error.setVisible) {
+                        block.error.setVisible(visible == 'true');
+                    }
+                }, 10);
+            }
+            var bubbleW = parseInt(xmlChild.getAttribute('w'), 10);
+            var bubbleH = parseInt(xmlChild.getAttribute('h'), 10);
+            if (!isNaN(bubbleW) && !isNaN(bubbleH) && block.error && block.error.isVisible()) {
+                block.error.bubble_.setBubbleSize(bubbleW, bubbleH);
+            }
+            break;
+        case 'data':
+            block.data = xmlChild.textContent;
+            break;
+        case 'hide':
+            block.hide.name = xmlChild.getAttribute('name');
+            block.hide.value = xmlChild.getAttribute('value');
+            break;
+        case 'title':
         // Titles were renamed to field in December 2013.
         // Fall through.
-    case 'field':
-        var field;
-        if ((block.type == 'robSensors_colour_getSample' || block.type == 'robSensors_light_getSample') && xmlChild.textContent == 'RED') {
-            xmlChild.textContent = 'LIGHT';
-        } else if (block.type == 'robSensors_infrared_getSample' && xmlChild.textContent == 'SEEK') {
-            xmlChild.textContent = 'PRESENCE';
-        } else if (((block.type == 'robSensors_gyro_getSample' && name == 'MODE') || (block.type == 'robSensors_getSample' && name == 'ORIENTATION'))
+        case 'field':
+            var field;
+            if ((block.type == 'robSensors_colour_getSample' || block.type == 'robSensors_light_getSample') && xmlChild.textContent == 'RED') {
+                xmlChild.textContent = 'LIGHT';
+            } else if (block.type == 'robSensors_infrared_getSample' && xmlChild.textContent == 'SEEK') {
+                xmlChild.textContent = 'PRESENCE';
+            } else if (((block.type == 'robSensors_gyro_getSample' && name == 'MODE') || (block.type == 'robSensors_getSample' && name == 'ORIENTATION'))
                 && (xmlChild.textContent == 'ROLL' || xmlChild.textContent == 'PITCH')) {
-            var sensorPort;
-            if (xmlChild.textContent == 'PITCH') {
-                sensorPort = goog.dom.createDom('field', null, "X");
-            } else if (xmlChild.textContent == 'ROLL') {
-                sensorPort = goog.dom.createDom('field', null, "Y");
-            }
-            sensorPort.setAttribute('name', "SENSORPORT");
-            xmlChild.parentNode.appendChild(sensorPort);
-            xmlChild.textContent = 'ANGLE';
-        } else if (block.type == 'robSensors_getSample') {
-            if (xmlChild.textContent == 'TOUCH') {
-                xmlChild.textContent = 'TOUCH_PRESSED';
-            } else if (xmlChild.textContent == 'TIME') {
-                xmlChild.textContent = 'TIMER_VALUE';
-            } else if (xmlChild.textContent == 'KEYS_PRESSED') {
-                xmlChild.textContent = 'KEY_PRESSED';
-            } else if (xmlChild.textContent == 'TEMPERATURE') {
-                xmlChild.textContent = 'TEMPERATURE_VALUE';
-            } else if (xmlChild.textContent == 'MICROPHONE') {
-                xmlChild.textContent = 'SOUND_SOUND';
-            } else if (xmlChild.textContent == 'LIGHT_LEVEL') {
-                if (workspace.device == 'calliope') {
-                    xmlChild.textContent = 'LIGHT_VALUE';
-                } else {
-                    xmlChild.textContent = 'INFRARED_AMBIENTLIGHT';
+                var sensorPort;
+                if (xmlChild.textContent == 'PITCH') {
+                    sensorPort = goog.dom.createDom('field', null, 'X');
+                } else if (xmlChild.textContent == 'ROLL') {
+                    sensorPort = goog.dom.createDom('field', null, 'Y');
                 }
-            } else if (xmlChild.textContent == 'ORIENTATION') {
-                xmlChild.textContent = 'GYRO_ANGLE';
-            } else if (xmlChild.textContent == 'ACCELERATION') {
-                xmlChild.textContent = 'ACCELEROMETER_VALUE';
-            } else if (xmlChild.textContent == 'PIN_PULSE_HIGH') {
-                xmlChild.textContent = 'PIN_PULSEHIGH';
-            } else if (xmlChild.textContent == 'PIN_PULSE_LOW') {
-                xmlChild.textContent = 'PIN_PULSELOW';
-            } else if (xmlChild.textContent == 'PIN_TOUCHED') {
-                xmlChild.textContent = 'PINTOUCH_PRESSED';
+                sensorPort.setAttribute('name', 'SENSORPORT');
+                xmlChild.parentNode.appendChild(sensorPort);
+                xmlChild.textContent = 'ANGLE';
+            } else if (block.type == 'robSensors_getSample') {
+                if (xmlChild.textContent == 'TOUCH') {
+                    xmlChild.textContent = 'TOUCH_PRESSED';
+                } else if (xmlChild.textContent == 'TIME') {
+                    xmlChild.textContent = 'TIMER_VALUE';
+                } else if (xmlChild.textContent == 'KEYS_PRESSED') {
+                    xmlChild.textContent = 'KEY_PRESSED';
+                } else if (xmlChild.textContent == 'TEMPERATURE') {
+                    xmlChild.textContent = 'TEMPERATURE_VALUE';
+                } else if (xmlChild.textContent == 'MICROPHONE') {
+                    xmlChild.textContent = 'SOUND_SOUND';
+                } else if (xmlChild.textContent == 'LIGHT_LEVEL') {
+                    if (workspace.device == 'calliope') {
+                        xmlChild.textContent = 'LIGHT_VALUE';
+                    } else {
+                        xmlChild.textContent = 'INFRARED_AMBIENTLIGHT';
+                    }
+                } else if (xmlChild.textContent == 'ORIENTATION') {
+                    xmlChild.textContent = 'GYRO_ANGLE';
+                } else if (xmlChild.textContent == 'ACCELERATION') {
+                    xmlChild.textContent = 'ACCELEROMETER_VALUE';
+                } else if (xmlChild.textContent == 'PIN_PULSE_HIGH') {
+                    xmlChild.textContent = 'PIN_PULSEHIGH';
+                } else if (xmlChild.textContent == 'PIN_PULSE_LOW') {
+                    xmlChild.textContent = 'PIN_PULSELOW';
+                } else if (xmlChild.textContent == 'PIN_TOUCHED') {
+                    xmlChild.textContent = 'PINTOUCH_PRESSED';
+                }
+            } else if (block.type == 'robControls_start' && (workspace.device == 'calliope' || workspace.device == 'microbit')) {
+                if (xmlChild.textContent == 'TRUE') {
+                    xmlChild.textContent = '';
+                }
+            } else if (xmlChild.textContent == 'PULSE_HIGH') {
+                xmlChild.textContent = 'PULSEHIGH';
+            } else if (xmlChild.textContent == 'PULSE_LOW') {
+                xmlChild.textContent = 'PULSELOW';
             }
-        } else if (block.type == 'robControls_start' && (workspace.device == 'calliope' || workspace.device == 'microbit')) {
-            if (xmlChild.textContent == 'TRUE') {
-                xmlChild.textContent = '';
-            }
-        } else if (xmlChild.textContent == 'PULSE_HIGH') {
-            xmlChild.textContent = 'PULSEHIGH';
-        } else if (xmlChild.textContent == 'PULSE_LOW') {
-            xmlChild.textContent = 'PULSELOW';
-        }
-        if (name == 'MOTORPORT' && block.type != 'robSensors_getSample' && block.type != 'robSensors_encoder_getSample'
+            if (name == 'MOTORPORT' && block.type != 'robSensors_getSample' && block.type != 'robSensors_encoder_getSample'
                 && block.type != 'robSensors_encoder_reset') {
-            field = block.getField(name);
-        } else if (name == 'KEY' && block.type != 'robSensors_getSample' && block.type != 'robSensors_key_getSample') {
-            field = block.getField(name);
-        } else if (name == 'DIRECTION' && block.type != 'robSensors_getSample' && block.type != 'robSensors_accelerometer_getSample') {
-            field = block.getField(name);
-        } else if (block.type == 'mbedActions_write_to_pin') {
-            field = block.getField(name);
-        } else if (name == 'GESTURE' && block.type == 'robSensors_getSample') {
-            field = block.getField('SENSORTYPE');
-            var content = xmlChild.textContent;
-            xmlChild.textContent = 'GESTURE_' + content;
-            block.updateShape_('GESTURE_' + content);
-        } else if (name == 'GESTURE') {
-            field = block.getField('MODE');
-        } else {
-            field = block.getField(Blockly.Xml[name] || name);
-            if (name === 'SENSORPORT') {
-                if (xmlChild.textContent === 'button_a')
-                    xmlChild.textContent = "A";
-                if (xmlChild.textContent === 'button_b')
-                    xmlChild.textContent = "B";
+                field = block.getField(name);
+            } else if (name == 'KEY' && block.type != 'robSensors_getSample' && block.type != 'robSensors_key_getSample') {
+                field = block.getField(name);
+            } else if (name == 'DIRECTION' && block.type != 'robSensors_getSample' && block.type != 'robSensors_accelerometer_getSample') {
+                field = block.getField(name);
+            } else if (block.type == 'mbedActions_write_to_pin') {
+                field = block.getField(name);
+            } else if (name == 'GESTURE' && block.type == 'robSensors_getSample') {
+                field = block.getField('SENSORTYPE');
+                var content = xmlChild.textContent;
+                xmlChild.textContent = 'GESTURE_' + content;
+                block.updateShape_('GESTURE_' + content);
+            } else if (name == 'GESTURE') {
+                field = block.getField('MODE');
+            } else {
+                field = block.getField(Blockly.Xml[name] || name);
+                if (name === 'SENSORPORT') {
+                    if (xmlChild.textContent === 'button_a')
+                        xmlChild.textContent = 'A';
+                    if (xmlChild.textContent === 'button_b')
+                        xmlChild.textContent = 'B';
+                }
             }
-        }
-        if (!field) {
-            console.warn('Ignoring non-existent field ' + name + ' in block ' + block.type);
+            if (!field) {
+                console.warn('Ignoring non-existent field ' + name + ' in block ' + block.type);
+                break;
+            } else if ((block.type == 'robProcedures_defreturn' || block.type == 'robProcedures_defnoreturn') && name == 'NAME') {
+                field.text_ = xmlChild.textContent;
+                field.updateTextNode_();
+            }
+            field.setValue(xmlChild.textContent);
             break;
-        } else if ((block.type == 'robProcedures_defreturn' || block.type == 'robProcedures_defnoreturn') && name == 'NAME') {
-            field.text_ = xmlChild.textContent;
-            field.updateTextNode_();
-        }
-        field.setValue(xmlChild.textContent);
-        break;
-    case 'value':
-    case 'statement':
-        input = block.getInput(name);
-        if (!input) {
-            console.warn('Ignoring non-existent input ' + name + ' in block ' + block.type);
-            break;
-        }
+        case 'value':
+        case 'statement':
+            input = block.getInput(name);
+            if (!input) {
+                console.warn('Ignoring non-existent input ' + name + ' in block ' + block.type);
+                break;
+            }
 
-        if (childShadowNode) {
-            input.connection.setShadowDom(childShadowNode);
-        }
-        if (childBlockNode) {
-            if (!childShadowNode) {
-                blockChild = Blockly.Xml.domToBlockHeadless_(RealGrandchildList, workspace);
-            } else {
+            if (childShadowNode) {
+                input.connection.setShadowDom(childShadowNode);
+            }
+            if (childBlockNode) {
+                if (!childShadowNode) {
+                    blockChild = Blockly.Xml.domToBlockHeadless_(RealGrandchildList, workspace);
+                } else {
+                    blockChild = Blockly.Xml.domToBlockHeadless_(childBlockNode, workspace);
+                }
+                if (blockChild.outputConnection) {
+                    input.connection.connect(blockChild.outputConnection);
+                } else if (blockChild.previousConnection) {
+                    input.connection.connect(blockChild.previousConnection);
+                } else {
+                    throw 'Child block does not have output or previous statement.';
+                }
+            }
+            break;
+        case 'next':
+            if (childShadowNode && block.nextConnection) {
+                block.nextConnection.setShadowDom(childShadowNode);
+            }
+            if (childBlockNode) {
+                if (!block.nextConnection) {
+                    throw 'Next statement does not exist.';
+                } else if (block.nextConnection.targetConnection) {
+                    // This could happen if there is more than one XML 'next' tag.
+                    throw 'Next statement is already connected.';
+                }
                 blockChild = Blockly.Xml.domToBlockHeadless_(childBlockNode, workspace);
+                if (!blockChild.previousConnection) {
+                    throw 'Next block does not have previous statement.';
+                }
+                block.nextConnection.connect(blockChild.previousConnection);
             }
-            if (blockChild.outputConnection) {
-                input.connection.connect(blockChild.outputConnection);
-            } else if (blockChild.previousConnection) {
-                input.connection.connect(blockChild.previousConnection);
-            } else {
-                throw 'Child block does not have output or previous statement.';
-            }
-        }
-        break;
-    case 'next':
-        if (childShadowNode && block.nextConnection) {
-            block.nextConnection.setShadowDom(childShadowNode);
-        }
-        if (childBlockNode) {
-            if (!block.nextConnection) {
-                throw 'Next statement does not exist.';
-            } else if (block.nextConnection.targetConnection) {
-                // This could happen if there is more than one XML 'next' tag.
-                throw 'Next statement is already connected.';
-            }
-            blockChild = Blockly.Xml.domToBlockHeadless_(childBlockNode, workspace);
-            if (!blockChild.previousConnection) {
-                throw 'Next block does not have previous statement.';
-            }
-            block.nextConnection.connect(blockChild.previousConnection);
-        }
-        break;
-    case 'repetitions':
-        break;
-    default:
-        // Unknown tag; ignore. Same principle as HTML parsers.
-        console.warn('Ignoring unknown tag: ' + xmlChild.nodeName);
+            break;
+        case 'repetitions':
+            break;
+        default:
+            // Unknown tag; ignore. Same principle as HTML parsers.
+            console.warn('Ignoring unknown tag: ' + xmlChild.nodeName);
     }
 };
 /**
  * Remove any 'next' block (statements in a stack).
- * 
+ *
  * @param {!Element}
  *            xmlBlock XML block element.
  */

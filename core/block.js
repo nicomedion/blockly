@@ -1292,8 +1292,6 @@ Blockly.Block.prototype.removeInput = function(name, opt_quiet) {
  *     opt_quiet is not true.
  */
 Blockly.Block.prototype.removeLastInput = function(opt_quiet) {
-    console.log("before removing last input")
-    console.log(this.inputList.length)
     var input = this.inputList[this.inputList.length - 1]
     if (input.connection && input.connection.isConnected()) {
         input.connection.setShadowDom(null);

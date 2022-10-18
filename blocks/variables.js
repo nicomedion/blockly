@@ -411,6 +411,9 @@ Blockly.Blocks['robGlobalVariables_declare'] = {
         case 'nao':
           block = this.workspace.newBlock('naoColour_picker');
           break;
+        case 'spike':
+          block = this.workspace.newBlock('colour_picker_spike');
+          break;
         default:
           block = this.workspace.newBlock('robColour_picker');
         }  
@@ -422,6 +425,9 @@ Blockly.Blocks['robGlobalVariables_declare'] = {
           break;
         case 'mbot':
           block = this.workspace.newBlock('mBotImage_image');
+          break;
+        case 'spike':
+          block = this.workspace.newBlock('image_image');
           break;
         default:
         }         
