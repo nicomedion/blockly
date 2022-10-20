@@ -485,7 +485,22 @@ Blockly.WorkspaceSvg.prototype.paste = function(xmlBlock) {
   }
   Blockly.terminateDrag_();  // Dragging while pasting?  No.
   Blockly.Events.disable();
-  var block = Blockly.Xml.domToBlock(xmlBlock, this);
+
+  // modified - RaghuvirShirodkar
+  var block;
+  if (xmlBlock.getAttribute('type').toString().startsWith('robProcedures_call')) {
+    var originalBlockInWorkspace = Blockly.Workspace.getById(this.id).getBlockById(xmlBlock.id);
+    if (!originalBlockInWorkspace) {
+      Blockly.clipboardXml_ = null;
+      return;
+    }
+    var xmlOriginalBlockInWorkspace = Blockly.Xml.blockToDom(originalBlockInWorkspace, []);
+    block = xmlBlock !== xmlOriginalBlockInWorkspace ? Blockly.Xml.domToBlock(xmlOriginalBlockInWorkspace, this) : Blockly.Xml.domToBlock(xmlBlock, this);
+  } else {
+    block = Blockly.Xml.domToBlock(xmlBlock, this);
+  }
+  // end of modification
+
   // Move the duplicate to original position.
   var blockX = parseInt(xmlBlock.getAttribute('x'), 10);
   var blockY = parseInt(xmlBlock.getAttribute('y'), 10);
