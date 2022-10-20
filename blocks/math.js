@@ -435,6 +435,17 @@ Blockly.Blocks['math_trig'] = {
         "colour": Blockly.CAT_MATH_RGB,
         "helpUrl": Blockly.Msg.MATH_TRIG_HELPURL
       });
+      var thisBlock = this;
+      this.setTooltip(function() {
+        var mode = thisBlock.getFieldValue('OP');
+        var TOOLTIPS = {
+          'SIN': Blockly.Msg.MATH_TRIG_TOOLTIP_SIN + Blockly.Msg.MATH_THYMIO_TRIG_TOOLTIP,
+          'COS': Blockly.Msg.MATH_TRIG_TOOLTIP_COS + Blockly.Msg.MATH_THYMIO_TRIG_TOOLTIP,
+          'TAN': Blockly.Msg.MATH_TRIG_TOOLTIP_TAN + Blockly.Msg.MATH_THYMIO_TRIG_TOOLTIP,
+          'ATAN': Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN + Blockly.Msg.MATH_THYMIO_TRIG_TOOLTIP
+        };
+        return TOOLTIPS[mode];
+      });
     } else {
       this.jsonInit({
         "message0": "%1 %2",
@@ -461,7 +472,6 @@ Blockly.Blocks['math_trig'] = {
         "colour": Blockly.CAT_MATH_RGB,
         "helpUrl": Blockly.Msg.MATH_TRIG_HELPURL
       });
-    }
     // Assign 'this' to a variable for use in the tooltip closure below.
     var thisBlock = this;
     this.setTooltip(function() {
@@ -476,6 +486,7 @@ Blockly.Blocks['math_trig'] = {
       };
       return TOOLTIPS[mode];
     });
+    }
   }
 };
 

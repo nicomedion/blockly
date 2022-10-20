@@ -1717,3 +1717,4 @@ Blockly.Msg.CIRCLE = 'circle';
 Blockly.Msg.SENSOR_IRHORIZONTAL_GETSAMPLE_TOOLTIP = 'Gets the current reading from the infrared sensor.';
 Blockly.Msg.FORWARD = 'forward';
 Blockly.Msg.BACKWARD = 'backward';
+Blockly.Msg.MATH_THYMIO_TRIG_TOOLTIP = 'All trigonometric functions map the angles [-pi, pi] radians to [-32768, 32767]. The resultant sin and cos values are similarly mapped, namely [-1.0, 1.0] to [-32768, 32767].';

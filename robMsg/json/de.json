@@ -1510,5 +1510,6 @@
   "SOUND_RECORD_THYMIO_TOOLTIP": "Starte eine Aufnahme auf einer SD-Karte, die mit deinem Thymio verbunden ist. Die Aufnahme wird als Rx.wav auf der SD-Karte gespeichert, wobei >>x<< ist der angegebene Name des Stückes. Eine SD-Karte ist erforderlich!",
   "SOUND_RECORD_STOP_TOOLTIP": "Stoppe die Aufnahme auf der SD-Karte.",
   "FORWARD": "vorwärts",
-  "BACKWARD": "rückwärts"
+  "BACKWARD": "rückwärts",
+  "MATH_THYMIO_TRIG_TOOLTIP": "In allen trigonomischen Funktionen werden die Winkel [-pi, pi] in radiant auf [-32768, 32767] abgebildet. Die Ergebnisse werden entsprechend von [-1.0, 1.0] auf [-32768, 32767] abgebildet."
 }
