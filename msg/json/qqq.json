@@ -1175,7 +1175,7 @@
 	"NAO_QQVGA": "",
 	"NAO_QVGA": "",
 	"NAO_VGA": "",
-	"NAO_CAMERA": "",
+	"SENSOR_CAMERA": "",
 	"NAO_RESOLUTION": "",
 	"NAO_FRAME": "",
 	"NAO_LED_EYES": "",

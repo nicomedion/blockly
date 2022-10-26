@@ -106,7 +106,7 @@ sensors.camera = {};
 sensors.camera.robotino = {
     title: 'CAMERA', modes: [{
         name: 'LINE', type: 'Number', op: 'NUM_REV', value: '-0.5'
-    }, { name: 'BLOB', type: 'Number' }], ports: 'CONFIGURATION', portsHidden: true
+    }], ports: 'CONFIGURATION', portsHidden: true
 };
 sensors.code = {};
 sensors.code.bob3 = {

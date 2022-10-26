@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2022-10-25 13:15:50.733513",
+		"lastupdated": "2022-10-26 14:00:53.777932",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -1181,7 +1181,7 @@
 	"NAO_QQVGA": "160*120",
 	"NAO_QVGA": "320*240",
 	"NAO_VGA": "640*480",
-	"NAO_CAMERA": "camera",
+	"SENSOR_CAMERA": "camera",
 	"NAO_RESOLUTION": "resolution",
 	"NAO_FRAME": "frame",
 	"NAO_LED_EYES": "eyes",

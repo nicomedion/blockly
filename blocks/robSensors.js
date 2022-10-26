@@ -274,7 +274,7 @@ Blockly.Blocks['robSensors_record_stop'] = {
     }
 };
 
-Blockly.Blocks['robSensors_markerinf_getSample'] = {
+Blockly.Blocks['robSensors_get_markerinf'] = {
     /**
      * Get the information about given marker.
      */
