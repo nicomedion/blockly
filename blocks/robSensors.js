@@ -302,6 +302,92 @@ Blockly.Blocks['robSensors_get_markerinf'] = {
     }
 };
 
+Blockly.Blocks['robSensors_set_marker_threshold'] = {
+    /**
+     * Set Colour threshold of the marker sensor.
+     */
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.SET + ' ' + Blockly.Msg.SENSOR_DETECTMARK + ' ' + Blockly.Msg.COLOUR_THRESHOLD + '%1',
+            'args0': [
+                {
+                    'type': 'input_value',
+                    'name': 'VALUE',
+                    'check': 'Number'
+                }
+            ],
+            'nextStatement': true,
+            'previousStatement': true,
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SENSOR_MARKER_THRESHOLD_TOOLIP
+        });
+    }
+};
+
+Blockly.Blocks['robSensors_get_colourBlob'] = {
+    /**
+     * Get the information about a ColourBlob in the given colour-range.
+     */
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.GET + '%1' + Blockly.Msg.ABOUT + ' ' + Blockly.Msg.COLOUR_SEGMENT + ' '
+                + ' ' + Blockly.Msg.COLOUR_HSV_RANGE,
+            'message1': 'Hue min %1 Hue max %2 Sat min %3 Sat max %4 Val min %5 Val max %6',
+            'args0': [
+                {
+                    'type': 'field_dropdown',
+                    'name': 'MODE',
+                    'options': [
+                        [Blockly.Msg.MODE_INFO, 'INFO']
+                    ]
+                }
+            ],
+            'args1': [
+                {
+                    'type': 'input_value',
+                    'name': 'MIN_HUE',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+                },
+                {
+                    'type': 'input_value',
+                    'name': 'MAX_HUE',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+
+                },
+                {
+                    'type': 'input_value',
+                    'name': 'MIN_SAT',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+                },
+                {
+                    'type': 'input_value',
+                    'name': 'MAX_SAT',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+                },
+                {
+                    'type': 'input_value',
+                    'name': 'MIN_VAL',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+                },
+                {
+                    'type': 'input_value',
+                    'name': 'MAX_VAL',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+                }
+            ],
+            'output': 'Array_Number',
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SENSOR_COLOURBLOB_TOOLTIP
+        });
+    }
+};
+
 Blockly.Blocks['robSensors_record_begin'] = {
     /**
      * Start recording audio for Thymio.
