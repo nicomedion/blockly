@@ -1521,5 +1521,8 @@
   "SOUND_RECORD_STOP_TOOLTIP": "Stoppe die Aufnahme auf der SD-Karte.",
   "FORWARD": "vorwärts",
   "BACKWARD": "rückwärts",
-  "MATH_THYMIO_TRIG_TOOLTIP": "In allen trigonomischen Funktionen werden die Winkel [-pi, pi] in radiant auf [-32768, 32767] abgebildet. Die Ergebnisse werden entsprechend von [-1.0, 1.0] auf [-32768, 32767] abgebildet."
+  "MATH_THYMIO_TRIG_TOOLTIP": "In allen trigonomischen Funktionen werden die Winkel [-pi, pi] in radiant auf [-32768, 32767] abgebildet. Die Ergebnisse werden entsprechend von [-1.0, 1.0] auf [-32768, 32767] abgebildet.",
+  "SENSOR_OPTICAL": "Optischer Sensor",
+  "MODE_OPENING": "hell",
+  "MODE_CLOSING": "dunkel"
 }

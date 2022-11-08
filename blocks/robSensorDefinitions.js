@@ -693,6 +693,15 @@ sensors.motion.mbot = {
     }], ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']], standardPort: '3'
 };
 
+sensors.optical = {};
+sensors.optical.robotino = {
+    title: 'OPTICAL', modes: [{
+        name: 'OPENING', type: 'Boolean'
+    }, {
+        name: 'CLOSING', type: 'Boolean'
+    }], ports: 'CONFIGURATION'
+};
+
 sensors.out = {};
 sensors.out.arduino = {
     title: 'OUT', modes: [{
@@ -1091,7 +1100,7 @@ sensorsAll.edison = [sensors.key.edison, sensors.infrared.edison, sensors.irseek
 sensorsAll.nano33ble = [sensors.out.nano33ble, sensors.key.nano33ble, sensors.timer.nano33ble, sensors.temperature.nano33ble, sensors.ultrasonic.nano33ble, sensors.light.nano33ble, sensors.moisture.nano33ble, sensors.potentiometer.nano33ble, sensors.infrared.nano33ble, sensors.humidity.nano33ble, sensors.motion.nano33ble, sensors.pulse.nano33ble, sensors.drop.nano33ble, sensors.rfid.nano33ble, sensors.gyro.nano33ble, sensors.accelerometer.arduino];
 sensorsAll.rob3rta = [sensors.pintouch.rob3rta, sensors.infrared.rob3rta, sensors.temperature.rob3rta, sensors.timer.rob3rta];
 sensorsAll.thymio = [sensors.key.thymio, sensors.infrared.thymio, sensors.irhorizontal.thymio, sensors.tap.thymio, sensors.sound.thymio, sensors.timer.thymio, sensors.accelerometer.thymio, sensors.temperature.thymio];
-sensorsAll.robotino = [sensors.touch.robotino, sensors.infrared.robotino, sensors.odometry.robotino, sensors.timer.robotino, sensors.detectmark.robotino, sensors.out.robotino, sensors.camera.robotino];
+sensorsAll.robotino = [sensors.touch.robotino, sensors.infrared.robotino, sensors.odometry.robotino, sensors.timer.robotino, sensors.optical.robotino, sensors.detectmark.robotino, sensors.out.robotino, sensors.camera.robotino];
 
 function initSensors() {
     for (var sensor in sensors) {

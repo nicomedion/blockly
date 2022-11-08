@@ -834,6 +834,24 @@ confBlocks.odometry.robotino = {
     inbuilt: true
 };
 
+confBlocks.optical = {};
+confBlocks.optical.robotino = {
+    title: 'OPTICAL',
+    ports: [
+        ['BK', 'BK'],
+        ['WH', 'WH']
+    ],
+    pins: function(a) {
+        return Blockly.Blocks.robConfigDefinitions['pinsDigital'][a];
+    },
+    standardPins: ['DI1', 'DI2'],
+    sensor: true,
+    fixedPorts: [
+        ['BN', '+'],
+        ['BU', '-']
+    ]
+};
+
 confBlocks.lcdi2c = {};
 confBlocks.lcdi2c.arduino = {
     title: 'LCDI2C',

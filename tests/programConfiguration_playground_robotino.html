@@ -134,6 +134,18 @@
             +"<block type='robConf_camera' intask=\"true\" deletable=\"false\">"
             +"</block>"
             +"</instance>"
+            +"<instance x='100' y='370'>"
+            +"<block type='robConf_optical' intask=\"true\">"
+            +    "<field name=\"NAME\">right</field>"
+            +"</block>"
+            +"</instance>"
+            +"<instance x='300' y='370'>"
+            +"<block type='robConf_optical' intask=\"true\">"
+            +    "<field name=\"NAME\">left</field>"
+            +    "<field name=\"BK\">DI3</field>"
+            +    "<field name=\"WH\">DI4</field>"
+            +"</block>"
+            +"</instance>"
             +"</block_set>";
 
 
@@ -375,12 +387,13 @@
             <block type="robSensors_infrared_getSample"></block>
             <block type="robSensors_odometry_getSample"></block>
             <block type="robSensors_odometry_reset"></block>
-            <block type="robSensors_out_getSample"></block>
+            <block type="robSensors_optical_getSample"></block>
             <block type="robSensors_detectmark_getSample"></block>
             <block type="robSensors_get_markerinf"></block>
             <block type="robSensors_set_marker_threshold"></block>
             <block type="robSensors_camera_getSample"></block>
             <block type="robSensors_get_colourBlob"></block>
+            <block type="robSensors_out_getSample"></block>
         </category>
         <category name="TOOLBOX_CONTROL" svg="true">
             <category name="TOOLBOX_DECISION" svg="true">
@@ -588,6 +601,7 @@
             <block type="robConf_digitalin"></block>
         </category>
         <category name="TOOLBOX_SENSOR" svg="true">
+            <block type="robConf_optical"></block>
             <block type="robConf_analogout"></block>
             <block type="robConf_digitalout"></block>
         </category>
