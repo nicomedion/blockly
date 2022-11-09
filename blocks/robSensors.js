@@ -107,7 +107,8 @@ Blockly.Blocks['robSensors_odometry_reset'] = {
             'previousStatement': null,
             'nextStatement': null,
             'colour': Blockly.CAT_SENSOR_RGB,
-            'helpUrl': ''
+            'helpUrl': '',
+            'tooltip': Blockly.Msg.SENSOR_ODOMETRY_RESET_TOOLTIP
         });
         hidePortIfOnlyInbuilt(this);
     }
@@ -279,8 +280,13 @@ Blockly.Blocks['robSensors_get_markerinf'] = {
      * Get the information about given marker.
      */
     init: function() {
+        var ports = getConfigPorts('camera');
+        this.dependConfig = {
+            'type': 'camera',
+            'dropDown': [ports]
+        };
         this.jsonInit({
-            'message0': Blockly.Msg.GET + '%1' + Blockly.Msg.SENSOR_DETECTMARK + ' ' + Blockly.Msg.ABOUT + '%2',
+            'message0': Blockly.Msg.GET + '%1' + Blockly.Msg.SENSOR_DETECTMARK + ' ' + Blockly.Msg.ABOUT + '%3%2',
             'args0': [
                 {
                     'type': 'field_dropdown',
@@ -293,34 +299,58 @@ Blockly.Blocks['robSensors_get_markerinf'] = {
                     'type': 'input_value',
                     'name': 'VALUE',
                     'check': 'Number'
+                },
+                {
+                    'type': 'field_dropdown',
+                    'name': 'SENSORPORT',
+                    'options': ports.menuGenerator_
                 }
             ],
             'output': 'Array_Number',
             'colour': Blockly.CAT_SENSOR_RGB,
             'tooltip': Blockly.Msg.SENSOR_MARKERINF_TOOLTIP
         });
+        hidePortIfOnlyInbuilt(this);
     }
 };
 
-Blockly.Blocks['robSensors_set_marker_threshold'] = {
+Blockly.Blocks['robSensors_set_camera_threshold'] = {
     /**
-     * Set Colour threshold of the marker sensor.
+     * Set Colour threshold of the marker sensor and line sensor.
      */
     init: function() {
+        var ports = getConfigPorts('camera');
+        this.dependConfig = {
+            'type': 'camera',
+            'dropDown': [ports]
+        };
         this.jsonInit({
-            'message0': Blockly.Msg.SET + ' ' + Blockly.Msg.SENSOR_DETECTMARK + ' ' + Blockly.Msg.COLOUR_THRESHOLD + '%1',
+            'message0': Blockly.Msg.SET + ' ' + '%1' + Blockly.Msg.SENSOR_CAMERA + '%3%2',
             'args0': [
+                {
+                    'type': 'field_dropdown',
+                    'name': 'MODE',
+                    'options': [
+                        [Blockly.Msg.COLOUR_THRESHOLD, 'THRESHOLD']
+                    ]
+                },
                 {
                     'type': 'input_value',
                     'name': 'VALUE',
                     'check': 'Number'
+                },
+                {
+                    'type': 'field_dropdown',
+                    'name': 'SENSORPORT',
+                    'options': ports.menuGenerator_
                 }
             ],
             'nextStatement': true,
             'previousStatement': true,
             'colour': Blockly.CAT_SENSOR_RGB,
-            'tooltip': Blockly.Msg.SENSOR_MARKER_THRESHOLD_TOOLIP
+            'tooltip': Blockly.Msg.SENSOR_CAMERA_THRESHOLD_TOOLTIP
         });
+        hidePortIfOnlyInbuilt(this);
     }
 };
 
@@ -329,8 +359,13 @@ Blockly.Blocks['robSensors_get_colourBlob'] = {
      * Get the information about a ColourBlob in the given colour-range.
      */
     init: function() {
+        var ports = getConfigPorts('camera');
+        this.dependConfig = {
+            'type': 'camera',
+            'dropDown': [ports]
+        };
         this.jsonInit({
-            'message0': Blockly.Msg.GET + '%1' + Blockly.Msg.ABOUT + ' ' + Blockly.Msg.COLOUR_SEGMENT + ' '
+            'message0': Blockly.Msg.GET + '%1%2' + Blockly.Msg.ABOUT + ' ' + Blockly.Msg.COLOUR_SEGMENT + ' '
                 + ' ' + Blockly.Msg.COLOUR_HSV_RANGE,
             'message1': 'Hue min %1 Hue max %2 Sat min %3 Sat max %4 Val min %5 Val max %6',
             'args0': [
@@ -340,6 +375,11 @@ Blockly.Blocks['robSensors_get_colourBlob'] = {
                     'options': [
                         [Blockly.Msg.MODE_INFO, 'INFO']
                     ]
+                },
+                {
+                    'type': 'field_dropdown',
+                    'name': 'SENSORPORT',
+                    'options': ports.menuGenerator_
                 }
             ],
             'args1': [
@@ -385,6 +425,8 @@ Blockly.Blocks['robSensors_get_colourBlob'] = {
             'colour': Blockly.CAT_SENSOR_RGB,
             'tooltip': Blockly.Msg.SENSOR_COLOURBLOB_TOOLTIP
         });
+        hidePortIfOnlyInbuilt(this);
+
     }
 };
 

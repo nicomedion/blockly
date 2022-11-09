@@ -107,13 +107,33 @@ Blockly.Blocks.robConfigDefinitions['pinsDigital'].microbit = function() {
 };
 
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].robotino = function() {
-    var array = createPins(1, 8, 'DI');
+    //var array = createPins(1, 8, 'DI');
+    var array = [
+        ['DI1', 'DI1'],
+        ['DI2', 'DI2'],
+        ['DI3', 'DI3'],
+        ['DI4', 'DI4'],
+        ['DI5', 'DI5'],
+        ['DI6', 'DI6'],
+        ['DI7', 'DI7'],
+        ['DI8', 'DI8']
+    ];
     return array;
 };
 
 Blockly.Blocks.robConfigDefinitions['pinsDigitalWrite'] = {};
 Blockly.Blocks.robConfigDefinitions['pinsDigitalWrite'].robotino = function() {
-    var array = createPins(1, 8, 'DQ');
+    //var array = createPins(1, 8, 'DQ');
+    var array = [
+        ['DQ1', 'DQ1'],
+        ['DQ2', 'DQ2'],
+        ['DQ3', 'DQ3'],
+        ['DQ4', 'DQ4'],
+        ['DQ5', 'DQ5'],
+        ['DQ6', 'DQ6'],
+        ['DQ7', 'DQ7'],
+        ['DQ8', 'DQ8']
+    ];
     return array;
 };
 
@@ -158,7 +178,17 @@ Blockly.Blocks.robConfigDefinitions['pinsAnalog'].microbit = function() {
     return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].robotino = function() {
-    var array = createPins(1, 8, 'AI');
+    //var array = createPins(1, 8, 'AI');
+    var array = [
+        ['AI1', 'AI1'],
+        ['AI2', 'AI2'],
+        ['AI3', 'AI3'],
+        ['AI4', 'AI4'],
+        ['AI5', 'AI5'],
+        ['AI6', 'AI6'],
+        ['AI7', 'AI7'],
+        ['AI8', 'AI8']
+    ];
     return array;
 };
 

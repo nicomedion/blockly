@@ -198,22 +198,23 @@ Blockly.Blocks['robActions_motorOmni_curve'] = {
                     "align": "RIGHT"
                 },
                 {
-                    "type": "input_value",
-                    "name": "Y",
-                    "check": "Number",
-                    "align": "RIGHT"
+                    'type': 'input_value',
+                    'name': 'Y',
+                    'check': 'Number',
+                    'align': 'RIGHT'
                 },
                 {
-                    "type": "input_value",
-                    "name": "THETA",
-                    "check": "Number",
-                    "align": "RIGHT"
-                },
+                    'type': 'input_value',
+                    'name': 'THETA',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+                }
             ],
-            "previousStatement": null,
-            "nextStatement": null,
-            "colour": Blockly.CAT_ACTION_RGB,
-            "helpUrl": ""
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'helpUrl': '',
+            'tooltip': Blockly.Msg.MOTOROMNI_CURVE_TOOLTIP
         });
         hidePortIfOnlyInbuilt(this);
     }
@@ -247,20 +248,21 @@ Blockly.Blocks['robActions_motorOmni_curve_for'] = {
                 {
                     "type": "input_value",
                     "name": "Y",
-                    "check": "Number",
-                    "align": "RIGHT"
+                    'check': 'Number',
+                    'align': 'RIGHT'
                 },
                 {
-                    "type": "input_value",
-                    "name": "DISTANCE",
-                    "check": "Number",
-                    "align": "RIGHT"
-                },
+                    'type': 'input_value',
+                    'name': 'DISTANCE',
+                    'check': 'Number',
+                    'align': 'RIGHT'
+                }
             ],
-            "previousStatement": null,
-            "nextStatement": null,
-            "colour": Blockly.CAT_ACTION_RGB,
-            "helpUrl": ""
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'helpUrl': '',
+            'tooltip': Blockly.Msg.MOTOROMNI_CURVE_FOR_TOOLTIP
         });
         this.setBlocking(true);
         hidePortIfOnlyInbuilt(this);
@@ -299,17 +301,18 @@ Blockly.Blocks['robActions_motorOmni_position'] = {
                     "align": "RIGHT"
                 },
                 {
-                    "type": "input_value",
-                    "name": "POWER",
-                    "check": "Number",
-                    "align": "RIGHT"
+                    'type': 'input_value',
+                    'name': 'POWER',
+                    'check': 'Number',
+                    'align': 'RIGHT'
                 },
             ],
-            "previousStatement": null,
-            "nextStatement": null,
-            "colour": Blockly.CAT_ACTION_RGB,
-            "setBlocking": true,
-            "hidePortIfOnlyInbuilt": this
+            'previousStatement': null,
+            'nextStatement': null,
+            'colour': Blockly.CAT_ACTION_RGB,
+            'setBlocking': true,
+            'hidePortIfOnlyInbuilt': this,
+            'tooltip': Blockly.Msg.MOTOROMNI_POSITION_TOOLTIP
         });
         this.setBlocking(true);
         hidePortIfOnlyInbuilt(this);
