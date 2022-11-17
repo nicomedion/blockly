@@ -1411,6 +1411,7 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Adăugă, șterge sau reordon
 Blockly.Msg.PROCEDURES_TITLE = "<< procedura";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Eroare: Acest bloc poate fi folosit doar in interiorul >>";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Eroare: Acest bloc poate fi folosit doar intr-o structura repetitiva";
+Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Apasa aici pentru a sterge toate programele selectate.";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Apasa aici pentru a-ti sterge programul.";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Apasa aici pentru a incarca configuratia robotului in spatiul de configurare.";

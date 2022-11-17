@@ -1411,6 +1411,7 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Přidat, odebrat nebo změnit
 Blockly.Msg.PROCEDURES_TITLE = "procedura";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Chyba: Tento blok může být použit jen v rámci »";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Chyba: Tento blok může být použit jen v rámci cyklu který deklaruje";
+Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Klikněte zde pro smazání všech vybraných programů.";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Klikněte zde pro smazání vašeho programu.";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Klikněte zde pro nahrání konfigurace vašeho robota do prostředí pro nastavování.";

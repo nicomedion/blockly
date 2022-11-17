@@ -451,6 +451,7 @@
   "PROCEDURES_TITLE": "\" Funktion genutzt werden.",
   "PROCEDURES_VARIABLES_ERROR": "Fehler: Dieser Block kann nur innerhalb der \"",
   "PROCEDURES_VARIABLES_LOOP_ERROR": "Fehler: Dieser Block kann nur innerhalb einer Schleife genutzt werden, die die folgende Variable erzeugt: \"",
+  "PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR": "Fehler: Dieser Block kann nur innerhalb des Bereiches, in dem dieser erzeugt wurden ist, genutzt werden",
   "SENSOR_COLOUR": "Farbsensor",
   "SENSOR_QUADRGB": "Quad RGB Sensor",
   "SENSOR_COLOUR_EDISON": "Linienfolger",

@@ -1411,6 +1411,7 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "添加、删除或重新排�
 Blockly.Msg.PROCEDURES_TITLE = "«过程";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "错误: 此方块只能在此使用»";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "错误: 此方块只能在一个循环中使用其中声明";
+Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "单击此处可删除所有选定程序。";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "单击此处删除您的程序。";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "单击此处载入您的机器人配置。";

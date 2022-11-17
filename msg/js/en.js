@@ -1411,6 +1411,7 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Add, remove, or reorder input
 Blockly.Msg.PROCEDURES_TITLE = "« procedure";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Error: This block may be used only within the »";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Error: This block may be used only within a loop which declares '";
+Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Click here to delete all selected programs.";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Click here to delete your program.";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Click here to load your robot configuration in the configuration environment.";

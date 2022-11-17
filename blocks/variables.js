@@ -149,6 +149,8 @@ Blockly.Blocks['variables_get'] = {
       if (this.getParent() != null) {
         this.draggedBefore = false;
       }
+    } else {
+      this.dispose(true);
     }
   },
   contextMenuType_: 'variables_set',

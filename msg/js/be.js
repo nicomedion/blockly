@@ -1411,6 +1411,7 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Дадаць, выдаліц�
 Blockly.Msg.PROCEDURES_TITLE = "працэдура";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Памылка: гэты блок можа быць выкарыстаны толькі ўнутры";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Памылка: гэты блок можа быць выкарыстаны толькі ўнутры цыкла, які стварае наступную пераменную:";
+Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Клікніце тут, каб выдаліць усе абраныя праграмы.";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Клікніце тут, каб выдаліць Вашу праграму.";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Клікніце тут, каб заладаваць канфігурацыю робата.";
