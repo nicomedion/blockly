@@ -894,7 +894,7 @@
   "CONFLIST_DELETE_TOOLTIP": "Klicke hier um deine Roboterkonfiguration zu löschen.",
   "CONFLIST_LOAD_TOOLTIP": "Klicke hier um deine Roboterkonfiguration in die Konfigurationsumgebung zu laden.",
   "PROGLIST_DELETE_SHARE_WITH_GALLERY": "Du hast dieses Programm bereits mit der Gallerie geteilt. Wenn du es änderst, werden die Änderungen in die Gallerie übernommen. Möchtest du dein Programm nicht mehr mit der Gallerie teilen?",
-  "PROGLIST_SHARE_WITH_GALLERY": "Möchtest du dein Programm wirklich in die Gallerie hochladen und mit allen anderen Benutzern teilen? Wenn du dir nicht sicher bist, schaue <a href='https://www.roberta-home.de/index.php?id=138' target='_blank'>hier</a> nochmal genau nach!",
+  "PROGLIST_SHARE_WITH_GALLERY": "Möchtest du dein Programm wirklich in die Gallerie hochladen und mit allen anderen Benutzern teilen? Schaue dir die Vorschau oben genau an. Genau so werden es alle anderen in der Gallery sehen. Die zwei Zeilen unter dem Namen des Programmes sind eine Vorschau auf die Programmdokumentation. Wenn du dir nicht sicher bist, schaue <a href='https://www.roberta-home.de/index.php?id=138' target='_blank'>hier</a> nochmal genau nach!",
   "GALLERY_SHARED_ALREADY": "Dieses Programm hast du bereits in die Gallerie hochgeladen. Wenn du es ändern willst, ändere die Kopie der Gallerie. Du kannst das Programm auch wieder aus der Gallerie herausnehmen indem du die Kopie von der Gallerie löscht.",
   "ORA_GALLERY_UPLOAD_SUCCESS": "Dein Programm »$« ist nun in der Galerie!",
   "ORA_GALLERY_UPLOAD_ERROR": "Dein Programm »$« konnte nicht in die Galerie hochgeladen werden, vielleicht hast du es bereits hochgeladen.",
