@@ -70,6 +70,11 @@ Blockly.FieldColour.prototype.columns_ = 0;
 Blockly.FieldColour.prototype.init = function() {
   Blockly.FieldColour.superClass_.init.call(this);
   this.borderRect_.style['fillOpacity'] = 1;
+  var colour = this.colour_;
+  if (this.colour_ == this.sourceBlock_.colour_){
+    colour = "black";
+  }
+  this.line_ = Blockly.createSvgElement('line', {'x1':-4, 'x2':16, 'y1':15, 'y2':2, 'stroke': colour}, this.fieldGroup_);
   this.setValue(this.getValue());
 };
 
@@ -107,6 +112,10 @@ Blockly.FieldColour.prototype.setValue = function(colour) {
   this.colour_ = colour;
   if (this.borderRect_) {
     this.borderRect_.style.fill = colour;
+    this.line_.style.stroke = colour;
+    if (this.colour_.toUpperCase() == this.sourceBlock_.colour_.toUpperCase()) {
+      this.line_.style.stroke = 'black'
+    }
   }
 };
 
