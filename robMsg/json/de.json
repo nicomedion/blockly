@@ -44,6 +44,7 @@
   "CONFIGURATION_ERROR_OVERLAPPING_PORTS": "Eine andere Komponente benutzt bereits den gleichen Port!",
   "CONFIGURATION_ERROR_MISSING_PIN": "Der Pin dieser Komponente existiert nicht!",
   "CONFIGURATION_ERROR_NO_BUILTIN_RGBLED": "Dieses Board hat keine interne RGB LED!",
+  "CONFIGURATION_ERROR_DIFFDRIVE_NOT_UNIQUE": "Dieser Konfigurationsblock darf nur einmal vorkommen.",
   "CONNECTION_TO_ROBOT": "zu Roboter",
   "CONNECTION_FROM_ROBOT": "von Roboter",
   "CONNECTION_TO_CONNECTION": "zu Verbindung",

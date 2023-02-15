@@ -595,6 +595,7 @@ Blockly.Msg.CONFIGURATION_ERROR_OTHER_NOT_SUPPORTED = 'Other power consumer does
 Blockly.Msg.CONFIGURATION_ERROR_OVERLAPPING_PORTS = 'Another component is already using the same port!';
 Blockly.Msg.CONFIGURATION_ERROR_MISSING_PIN = 'The pin used by this component does not exist!';
 Blockly.Msg.CONFIGURATION_ERROR_NO_BUILTIN_RGBLED = 'This board does not have a built in RGB LED!';
+Blockly.Msg.CONFIGURATION_ERROR_DIFFDRIVE_NOT_UNIQUE = 'This configuration block may only occur once.';
 
 Blockly.Msg.DATATABLE_PROGRAM_NAME = 'Program name';
 Blockly.Msg.DATATABLE_CREATED_BY = 'Creator';
