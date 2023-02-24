@@ -141,7 +141,7 @@ Blockly.Blocks['variables_get'] = {
         }
       } else {
         if (!procedure.match(/^[a-zA-Z][a-zA-Z0-9_]*$/)){
-          this.setErrorText(Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR + this.getFieldValue('VAR'));
+          this.setErrorText(Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR + this.getFieldValue('VAR') + "\"");
         } else {
           this.setErrorText(Blockly.Msg.PROCEDURES_VARIABLES_ERROR + procedure + Blockly.Msg.PROCEDURES_TITLE);
         }
