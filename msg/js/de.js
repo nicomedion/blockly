@@ -1411,7 +1411,6 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Die Eingaben zu dieser Funkti
 Blockly.Msg.PROCEDURES_TITLE = "\" Funktion genutzt werden.";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Fehler: Dieser Block kann nur innerhalb der \"";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Fehler: Dieser Block kann nur innerhalb einer Schleife genutzt werden, die die folgende Variable erzeugt: \"";
-Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Fehler: Dieser Block kann nur innerhalb des Bereiches, in dem dieser erzeugt wurden ist, genutzt werden";
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Klicke hier um alle ausgewählten Programme zu löschen.";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Klicke hier um dein Programm zu löschen.";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Klicke hier um dein Programm in die Programmierumgebung zu laden.";

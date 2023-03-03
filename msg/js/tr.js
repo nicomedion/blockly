@@ -1411,7 +1411,6 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Bu işlevin girdilerini ekley
 Blockly.Msg.PROCEDURES_TITLE = "Prosedür";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Hata: Bu blok sadece ... icerisinde kullanilabilir";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Hata: Bu blok sadece ... deklare eden bir döngü icerisinde kullanilabilir";
-Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Click here to delete all selected programs.";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Click here to delete your program.";  // untranslated
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Click here to load your robot configuration in the configuration environment.";  // untranslated

@@ -1411,7 +1411,6 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Lägg till, ta bort och ändr
 Blockly.Msg.PROCEDURES_TITLE = "« procedur";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Fel: Det här blocket får endast användas inom »";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Fel: Det här blocket får endast användas inom en slinga som deklarerar";
-Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Klicka här för att radera alla valda program.";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Klicka här för att radera ditt program.";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Klicka här för att ladda din robotkonfiguration i konfigurationsmiljön.";

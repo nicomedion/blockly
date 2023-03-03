@@ -1411,7 +1411,6 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Aggiungi, rimuovi o riordina 
 Blockly.Msg.PROCEDURES_TITLE = "procedura";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "errore: Questo blocco può essere utilizzato solo all'interno del »";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "errore: Questo blocco può essere utilizzato solo all'interno di un ciclo che dichiara";
-Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "clicca qui per cancellare tutti i programmi selezionati.";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "clicca qui per cancellare il programma.";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "clicca qui per caricare la configurazione del robot in un ambiente di configurazione.";

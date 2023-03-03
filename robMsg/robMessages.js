@@ -165,7 +165,6 @@ Blockly.Msg.VARIABLES_TYPE_ARRAY_COLOUR = 'List Colour';
 Blockly.Msg.VARIABLES_TYPE_ARRAY_CONNECTION = 'List Connection';
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = 'Error: This block may be used only within the »';
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = 'Error: This block may be used only within a loop which declares "';
-Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = 'Error: This block may be used only within it"s scope of declaration';
 Blockly.Msg.PROCEDURES_TITLE = '« procedure';
 Blockly.Msg.YES = 'yes';
 Blockly.Msg.NO = 'no';

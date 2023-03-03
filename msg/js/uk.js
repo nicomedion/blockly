@@ -1411,7 +1411,6 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Додайте, вилучі�
 Blockly.Msg.PROCEDURES_TITLE = "« процедура";
 Blockly.Msg.PROCEDURES_VARIABLES_ERROR = "Помилка: цей блок можна використовувати тільки всередині »";
 Blockly.Msg.PROCEDURES_VARIABLES_LOOP_ERROR = "Помилка: цей блок можна використовувати тільки всередині циклу, який оголошує";
-Blockly.Msg.PROCEDURES_VARIABLES_OUT_OF_SCOPE_ERROR = "Error: This block may be used only within it's scope of declaration";  // untranslated
 Blockly.Msg.PROGLIST_DELETE_ALL_TOOLTIP = "Клікніть тут, щоб видалити всі вибрані програми";
 Blockly.Msg.PROGLIST_DELETE_TOOLTIP = "Клікніть тут, щоб видалити вашу програму";
 Blockly.Msg.PROGLIST_LOAD_TOOLTIP = "Клікніть тут, щоб загрузити конфігурацію вашого робота в середовище конфігурації";
