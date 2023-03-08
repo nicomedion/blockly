@@ -405,6 +405,7 @@ Blockly.Blocks['robGlobalVariables_declare'] = {
       } else if (option === 'Colour') {
         switch (this.workspace.device){
         case 'microbit':
+          case 'microbitv2':
         case 'calliope':
           block = this.workspace.newBlock('mbedColour_picker');
           break;
@@ -420,6 +421,7 @@ Blockly.Blocks['robGlobalVariables_declare'] = {
       } else if (option === 'Image') {
         switch (this.workspace.device){
         case 'microbit':
+        case 'microbitv2':
         case 'calliope':
           block = this.workspace.newBlock('mbedImage_get_image');
           break;

@@ -762,3 +762,172 @@ Blockly.Blocks['actions_display_clear'] = {
         };
     }
 };
+
+Blockly.Blocks['actions_play_expression'] = {
+    init: function() {
+        var ports = getConfigPorts('buzzer');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: Blockly.Msg.ACTION_PLAY + ' ' + Blockly.Msg.PLAY_SOUND + ' %1',
+            args0: [
+                {
+                    type: 'field_dropdown',
+                    name: 'FILE',
+                    options: [
+                        [Blockly.Msg.SOUND_GIGGLE, 'GIGGLE'],
+                        [Blockly.Msg.SOUND_HAPPY, 'HAPPY'],
+                        [Blockly.Msg.SOUND_HELLO, 'HELLO'],
+                        [Blockly.Msg.SOUND_MYSTERIOUS, 'MYSTERIOUS'],
+                        [Blockly.Msg.SOUND_SAD, 'SAD'],
+                        [Blockly.Msg.SOUND_SLIDE, 'SLIDE'],
+                        [Blockly.Msg.SOUND_SOARING, 'SOARING'],
+                        [Blockly.Msg.SOUND_SPRING, 'SPRING'],
+                        [Blockly.Msg.SOUND_TWINKLE, 'TWINKLE'],
+                        [Blockly.Msg.SOUND_YAWN, 'YAWN']
+                    ]
+                }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.PLAY_EXPRESSION_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'buzzer',
+            'dropDown': 'hide'
+        };
+    }
+};
+
+Blockly.Blocks['actions_play_file_port'] = {
+    init: function() {
+        this.setColour(Blockly.CAT_ACTION_RGB);
+        this.setBlocking(true);
+        var ports = getConfigPorts('buzzer');
+        this.jsonInit({
+            message0: Blockly.Msg.ACTION_PLAY + ' %1 ' + Blockly.Msg.PLAY_FILE + ' %2',
+            args0: [
+                {
+                    type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+                },
+                {
+                    type: 'field_dropdown',
+                    name: 'FILE',
+                    options: [
+                        [Blockly.Msg.SOUND_DADADADUM, 'DADADADUM'],
+                        [Blockly.Msg.SOUND_ENTERTAINER, 'ENTERTAINER'],
+                        [Blockly.Msg.SOUND_PRELUDE, 'PRELUDE'],
+                        [Blockly.Msg.SOUND_ODE, 'ODE'],
+                        [Blockly.Msg.SOUND_NYAN, 'NYAN'],
+                        [Blockly.Msg.SOUND_RINGTONE, 'RINGTONE'],
+                        [Blockly.Msg.SOUND_FUNK, 'FUNK'],
+                        [Blockly.Msg.SOUND_BLUES, 'BLUES'],
+                        [Blockly.Msg.SOUND_BIRTHDAY, 'BIRTHDAY'],
+                        [Blockly.Msg.SOUND_WEDDING, 'WEDDING'],
+                        [Blockly.Msg.SOUND_FUNERAL, 'FUNERAL'],
+                        [Blockly.Msg.SOUND_PUNCHLINE, 'PUNCHLINE'],
+                        [Blockly.Msg.SOUND_PYTHON, 'PYTHON'],
+                        [Blockly.Msg.SOUND_BADDY, 'BADDY'],
+                        [Blockly.Msg.SOUND_CHASE, 'CHASE'],
+                        [Blockly.Msg.SOUND_BA_DING, 'BA_DING'],
+                        [Blockly.Msg.SOUND_WAWAWAWAA, 'WAWAWAWAA'],
+                        [Blockly.Msg.SOUND_JUMP_UP, 'JUMP_UP'],
+                        [Blockly.Msg.SOUND_JUMP_DOWN, 'JUMP_DOWN'],
+                        [Blockly.Msg.SOUND_POWER_UP, 'POWER_UP'],
+                        [Blockly.Msg.SOUND_POWER_DOWN, 'POWER_DOWN']
+                    ]
+                }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.PLAY_FILE_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'buzzer',
+            'dropDown': this.getField('ACTORPORT')
+        };
+    }
+};
+
+
+Blockly.Blocks['actions_play_file'] = {
+    init: function() {
+        this.setBlocking(true);
+        var ports = getConfigPorts('buzzer');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: Blockly.Msg.ACTION_PLAY + ' ' + Blockly.Msg.PLAY_FILE + ' %1',
+            args0: [
+                {
+                    type: 'field_dropdown',
+                    name: 'FILE',
+                    options: [
+                        [Blockly.Msg.SOUND_DADADADUM, 'DADADADUM'],
+                        [Blockly.Msg.SOUND_ENTERTAINER, 'ENTERTAINER'],
+                        [Blockly.Msg.SOUND_PRELUDE, 'PRELUDE'],
+                        [Blockly.Msg.SOUND_ODE, 'ODE'],
+                        [Blockly.Msg.SOUND_NYAN, 'NYAN'],
+                        [Blockly.Msg.SOUND_RINGTONE, 'RINGTONE'],
+                        [Blockly.Msg.SOUND_FUNK, 'FUNK'],
+                        [Blockly.Msg.SOUND_BLUES, 'BLUES'],
+                        [Blockly.Msg.SOUND_BIRTHDAY, 'BIRTHDAY'],
+                        [Blockly.Msg.SOUND_WEDDING, 'WEDDING'],
+                        [Blockly.Msg.SOUND_FUNERAL, 'FUNERAL'],
+                        [Blockly.Msg.SOUND_PUNCHLINE, 'PUNCHLINE'],
+                        [Blockly.Msg.SOUND_PYTHON, 'PYTHON'],
+                        [Blockly.Msg.SOUND_BADDY, 'BADDY'],
+                        [Blockly.Msg.SOUND_CHASE, 'CHASE'],
+                        [Blockly.Msg.SOUND_BA_DING, 'BA_DING'],
+                        [Blockly.Msg.SOUND_WAWAWAWAA, 'WAWAWAWAA'],
+                        [Blockly.Msg.SOUND_JUMP_UP, 'JUMP_UP'],
+                        [Blockly.Msg.SOUND_JUMP_DOWN, 'JUMP_DOWN'],
+                        [Blockly.Msg.SOUND_POWER_UP, 'POWER_UP'],
+                        [Blockly.Msg.SOUND_POWER_DOWN, 'POWER_DOWN']
+                    ]
+                }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.PLAY_EXPRESSION_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'buzzer',
+            'dropDown': 'hide'
+        };
+    }
+};
+
+Blockly.Blocks['actions_sound_toggle'] = {
+    init: function() {
+        var ports = getConfigPorts('buzzer');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: Blockly.Msg.SPEAKER + ' %1',
+            args0: [
+                {
+                    type: 'field_dropdown',
+                    name: 'MODE',
+                    options: [
+                        [Blockly.Msg.ON, 'ON'],
+                        [Blockly.Msg.OFF, 'OFF']
+                    ]
+                }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.SOUND_TOGGLE_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'buzzer',
+            'dropDown': 'hide'
+        };
+    }
+};

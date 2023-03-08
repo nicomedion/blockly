@@ -105,9 +105,9 @@ Blockly.Blocks.robConfigDefinitions['pinsDigital'].microbit = function() {
     array = array.concat(createPins(19, 20));
     return array;
 };
+Blockly.Blocks.robConfigDefinitions['pinsDigital'].microbitv2 = Blockly.Blocks.robConfigDefinitions['pinsDigital'].microbit;
 
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].robotino = function() {
-    //var array = createPins(1, 8, 'DI');
     var array = [
         ['DI1', 'DI1'],
         ['DI2', 'DI2'],
@@ -118,12 +118,12 @@ Blockly.Blocks.robConfigDefinitions['pinsDigital'].robotino = function() {
         ['DI7', 'DI7'],
         ['DI8', 'DI8']
     ];
-    return array;
+    return array;    //var array = createPins(1, 8, 'DQ');
+
 };
 
 Blockly.Blocks.robConfigDefinitions['pinsDigitalWrite'] = {};
 Blockly.Blocks.robConfigDefinitions['pinsDigitalWrite'].robotino = function() {
-    //var array = createPins(1, 8, 'DQ');
     var array = [
         ['DQ1', 'DQ1'],
         ['DQ2', 'DQ2'],
@@ -177,6 +177,7 @@ Blockly.Blocks.robConfigDefinitions['pinsAnalog'].microbit = function() {
     array = array.concat(createPins(10, 10));
     return array;
 };
+Blockly.Blocks.robConfigDefinitions['pinsAnalog'].microbitv2 = Blockly.Blocks.robConfigDefinitions['pinsAnalog'].microbit;
 Blockly.Blocks.robConfigDefinitions['pinsAnalog'].robotino = function() {
     //var array = createPins(1, 8, 'AI');
     var array = [
@@ -246,6 +247,7 @@ Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].microbit = function() {
     array = array.concat(createPins(10, 10));
     return array;
 };
+Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].microbitv2 = Blockly.Blocks.robConfigDefinitions['pinsAnalogWrite'].microbit;
 
 Blockly.Blocks.robConfigDefinitions['pins_wedo'] = function() {
     return createPins(1, 2);
@@ -388,6 +390,7 @@ confBlocks.light.calliope = {
     inbuilt: true
 };
 confBlocks.light.microbit = confBlocks.light.calliope;
+confBlocks.light.microbitv2 = confBlocks.light.calliope;
 confBlocks.light.mbot2 = confBlocks.light.calliope;
 confBlocks.light.festobionicflower = {
     title: 'LIGHT',
@@ -448,6 +451,7 @@ confBlocks.accelerometer.calliope = {
     inbuilt: true
 };
 confBlocks.accelerometer.microbit = confBlocks.accelerometer.calliope;
+confBlocks.accelerometer.microbitv2 = confBlocks.accelerometer.calliope;
 confBlocks.accelerometer.mbot2 = confBlocks.accelerometer.calliope;
 confBlocks.accelerometer.sensebox = {
     title: 'ACCELEROMETER',
@@ -495,6 +499,7 @@ confBlocks.compass.calliope = {
     inbuilt: true
 };
 confBlocks.compass.microbit = confBlocks.compass.calliope;
+confBlocks.compass.microbitv2 = confBlocks.compass.calliope;
 confBlocks.compass.sensebox = {
     title: 'COMPASS',
     sensor: true
@@ -628,6 +633,7 @@ confBlocks.temperature.calliope = {
     inbuilt: true
 };
 confBlocks.temperature.microbit = confBlocks.temperature.calliope;
+confBlocks.temperature.microbitv2 = confBlocks.temperature.calliope;
 confBlocks.temperature.sensebox = {
     title: 'TEMPERATURE',
     ports: [
@@ -749,6 +755,7 @@ confBlocks.key.calliope = {
     standardPins: ['A']
 };
 confBlocks.key.microbit = confBlocks.key.calliope;
+confBlocks.key.microbitv2 = confBlocks.key.calliope;
 confBlocks.key.sensebox = confBlocks.key.arduino;
 confBlocks.key.mbot2 = confBlocks.key.calliope;
 
@@ -812,6 +819,12 @@ confBlocks.touch.spike = {
     standardPins: ['F']
 };
 
+confBlocks.logotouch = {};
+confBlocks.logotouch.microbitv2 = {
+    title: 'LOGOTOUCH',
+    sensor: true,
+    inbuilt: true
+};
 
 confBlocks.drop = {};
 confBlocks.drop.arduino = {
@@ -1133,6 +1146,7 @@ confBlocks.buzzer.microbit = {
     ],
     sensor: false
 };
+confBlocks.buzzer.microbitv2 = confBlocks.buzzer.calliope;
 confBlocks.buzzer.sensebox = {
     title: 'BUZZER',
     ports: [
@@ -1180,6 +1194,7 @@ confBlocks.sound.calliope = {
     inbuilt: true
 };
 confBlocks.sound.mbot2 = confBlocks.sound.calliope;
+confBlocks.sound.microbitv2 = confBlocks.sound.calliope;
 confBlocks.sound.sensebox = {
     title: 'SOUND',
     ports: [
@@ -1568,6 +1583,7 @@ confBlocks.digitalout.microbit = {
     },
     sensor: true
 };
+confBlocks.digitalout.microbitv2 = confBlocks.digitalout.microbit;
 confBlocks.digitalout.raspberrypi = {
     title: 'DIGITALOUT',
     ports: [
@@ -1601,6 +1617,7 @@ confBlocks.analogout.calliope = {
     sensor: true
 };
 confBlocks.analogout.microbit = confBlocks.analogout.calliope;
+confBlocks.analogout.microbitv2 = confBlocks.analogout.calliope;
 
 confBlocks.digitalin = {};
 confBlocks.digitalin.arduino = {
@@ -1636,6 +1653,7 @@ confBlocks.digitalin.calliope = {
     sensor: false
 };
 confBlocks.digitalin.microbit = confBlocks.digitalin.calliope;
+confBlocks.digitalin.microbitv2 = confBlocks.digitalin.calliope;
 confBlocks.digitalin.raspberrypi = {
     title: 'DIGITALIN',
     ports: [
@@ -1668,6 +1686,7 @@ confBlocks.analogin.calliope = {
     sensor: false
 };
 confBlocks.analogin.microbit = confBlocks.analogin.calliope;
+confBlocks.analogin.microbitv2 = confBlocks.analogin.calliope;
 
 confBlocks.wireless = {};
 confBlocks.wireless.sensebox = {

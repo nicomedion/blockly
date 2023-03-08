@@ -46,6 +46,7 @@ sensors.accelerometer.calliope = {
     }], slots: [['x', 'X'], ['y', 'Y'], ['z', 'Z'], ['STRENGTH', 'STRENGTH']], ports: 'CONFIGURATION', portsHidden: true
 };
 sensors.accelerometer.microbit = sensors.accelerometer.calliope;
+sensors.accelerometer.microbitv2 = sensors.accelerometer.calliope;
 
 sensors.accelerometer.mbot = {
     title: 'ACCELEROMETER', modes: [{
@@ -180,6 +181,7 @@ sensors.compass.calliope = {
     }], ports: 'CONFIGURATION', portsHidden: true
 };
 sensors.compass.microbit = sensors.compass.calliope;
+sensors.compass.microbitv2 = sensors.compass.calliope;
 sensors.compass.ev3 = {
     title: 'COMPASS', modes: [{
         name: 'ANGLE', type: 'Number', unit: 'DEGREE'
@@ -357,6 +359,7 @@ sensors.gesture.calliope = {
     }]
 };
 sensors.gesture.microbit = sensors.gesture.calliope;
+sensors.gesture.microbitv2 = sensors.gesture.calliope;
 sensors.gesture.spike = {
     title: 'GESTURE', modes: [{
         name: 'FRONT', type: 'Boolean'
@@ -633,6 +636,7 @@ sensors.key.calliope = {
 
 sensors.key.mbot2 = sensors.key.calliope;
 sensors.key.microbit = sensors.key.calliope;
+sensors.key.microbitv2 = sensors.key.calliope;
 sensors.key.ev3 = {
     title: 'KEY',
     modes: [{
@@ -687,6 +691,7 @@ sensors.light.calliope = {
     }], ports: 'CONFIGURATION', portsHidden: true
 };
 sensors.light.microbit = sensors.light.calliope;
+sensors.light.microbitv2 = sensors.light.calliope;
 sensors.light.festobionicflower = {
     title: 'LIGHT', modes: [{
         name: 'VALUE', type: 'Number', unit: 'LUX'
@@ -778,6 +783,7 @@ sensors.pin.calliope = {
     }], ports: 'CONFIGURATION'
 };
 sensors.pin.microbit = sensors.pin.calliope;
+sensors.pin.microbitv2 = sensors.pin.calliope;
 
 sensors.potentiometer = {};
 sensors.potentiometer.arduino = {
@@ -815,6 +821,7 @@ sensors.pintouch.microbit = {
         name: 'PRESSED', type: 'Boolean', question: true
     }], standardPort: '1'
 };
+sensors.pintouch.microbitv2 = sensors.pintouch.microbit;
 
 sensors.pintouch.rob3rta = {
     title: 'PINTOUCH', titleNotVisible: true, modes: [{
@@ -824,6 +831,14 @@ sensors.pintouch.rob3rta = {
     }, {
         port: ['PORT_WHEEL', 'WHEEL'], slots: [['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D']]
     }]
+};
+sensors.logotouch = {};
+sensors.logotouch.microbitv2 = {
+    title: 'LOGOTOUCH', modes: [{
+        name: 'PRESSED', type: 'Boolean', question: true
+    }],
+    ports: 'CONFIGURATION',
+    portsHidden: true
 };
 
 sensors.pulse = {};
@@ -881,6 +896,9 @@ sensors.sound.calliope = {
         name: 'SOUND', type: 'Number', unit: 'PERCENT', op: 'NUM_REV', value: 50
     }], ports: 'CONFIGURATION', portsHidden: true
 };
+sensors.sound.mbot2 = sensors.sound.calliope;
+sensors.sound.microbitv2 = sensors.sound.calliope;
+
 sensors.sound.ev3 = {
     title: 'SOUND', modes: [{
         name: 'SOUND', type: 'Number', unit: 'PERCENT', op: 'NUM_REV', value: 50
@@ -895,7 +913,7 @@ sensors.sound.sensebox = {
         name: 'SOUND', type: 'Number', unit: 'PERCENT', op: 'NUM_REV', value: 50
     }], ports: 'CONFIGURATION'
 };
-sensors.sound.mbot2 = sensors.sound.calliope;
+
 sensors.sound.thymio = {
     title: 'SOUND', modes: [{
         name: 'SOUND', type: 'Number', unit: 'PERCENT', op: 'NUM_REV', value: 50
@@ -926,6 +944,7 @@ sensors.temperature.calliope = {
     }], ports: 'CONFIGURATION', portsHidden: true
 };
 sensors.temperature.microbit = sensors.temperature.calliope;
+sensors.temperature.microbitv2 = sensors.temperature.calliope;
 sensors.temperature.mbot = {
     title: 'TEMPERATURE', modes: [{
         name: 'VALUE', type: 'Number', unit: 'DEGREE', value: 20
@@ -951,6 +970,7 @@ sensors.timer.rob3rta = sensors.timer.botnroll;
 sensors.timer.calliope = sensors.timer.botnroll;
 sensors.timer.nxt = sensors.timer.botnroll;
 sensors.timer.microbit = sensors.timer.botnroll;
+sensors.timer.microbitv2 = sensors.timer.botnroll;
 sensors.timer.wedo = sensors.timer.botnroll;
 sensors.timer.thymio = sensors.timer.botnroll;
 sensors.timer.spike = sensors.timer.botnroll;
@@ -1155,6 +1175,7 @@ sensorsAll.nxt = [sensors.touch.nxt, sensors.sound.nxt, sensors.light.nxt, senso
 sensorsAll.bob3 = [sensors.pintouch.bob3, sensors.infrared.bob3, sensors.temperature.bob3, sensors.timer.bob3];
 sensorsAll.calliope = [sensors.key.calliope, sensors.pintouch.calliope, sensors.gesture.calliope, sensors.compass.calliope, sensors.sound.calliope, sensors.timer.calliope, sensors.temperature.calliope, sensors.light.calliope, sensors.pin.calliope, sensors.gyro.calliope, sensors.accelerometer.calliope, sensors.humidity.calliope, sensors.ultrasonic.calliope, sensors.infrared.calliope];
 sensorsAll.microbit = [sensors.key.microbit, sensors.pintouch.microbit, sensors.gesture.microbit, sensors.compass.microbit, sensors.timer.microbit, sensors.temperature.microbit, sensors.pin.microbit, sensors.accelerometer.microbit, sensors.light.microbit];
+sensorsAll.microbitv2 = [sensors.key.microbitv2, sensors.pintouch.microbitv2, sensors.logotouch.microbitv2, sensors.gesture.microbitv2, sensors.sound.microbitv2, sensors.compass.microbitv2, sensors.timer.microbitv2, sensors.temperature.microbitv2, sensors.pin.microbitv2, sensors.accelerometer.microbitv2, sensors.light.microbitv2];
 sensorsAll.arduino = [sensors.out.arduino, sensors.key.arduino, sensors.timer.arduino, sensors.temperature.arduino, sensors.ultrasonic.arduino, sensors.light.arduino, sensors.moisture.arduino, sensors.potentiometer.arduino, sensors.infrared.arduino, sensors.humidity.arduino, sensors.motion.arduino, sensors.pulse.arduino, sensors.drop.arduino, sensors.rfid.arduino, sensors.gyro.arduino, sensors.accelerometer.arduino];
 sensorsAll.festobionic = [sensors.timer.arduino];
 sensorsAll.festobionicflower = [sensors.timer.festobionicflower, sensors.touch.festobionicflower, sensors.light.festobionicflower];

@@ -345,6 +345,7 @@ Blockly.TYPE_DROPDOWN = function(device, opt_handler) {
                 }
             });
         case 'microbit':
+        case 'microbitv2':
             return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
                 [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'], [Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image'],
                 [Blockly.Msg.VARIABLES_TYPE_ARRAY_NUMBER, 'Array_Number'], [Blockly.Msg.VARIABLES_TYPE_ARRAY_BOOLEAN, 'Array_Boolean'],
@@ -430,6 +431,7 @@ Blockly.LIST_TYPE_DROPDOWN = function(device) {
                     this.sourceBlock_.updateType_(option);
                 });
         case 'microbit':
+        case 'microbitv2':
             return new Blockly.FieldDropdown([[Blockly.Msg.VARIABLES_TYPE_NUMBER, 'Number'], [Blockly.Msg.VARIABLES_TYPE_BOOLEAN, 'Boolean'],
                 [Blockly.Msg.VARIABLES_TYPE_STRING, 'String'], [Blockly.Msg.VARIABLES_TYPE_IMAGE, 'Image']], function(option) {
                 this.sourceBlock_.updateType_(option);

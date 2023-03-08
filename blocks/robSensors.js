@@ -538,6 +538,77 @@ Blockly.Blocks['robSensors_record_begin'] = {
     }
 };
 
+
+Blockly.Blocks['robSensors_set_pin_mode'] = {
+    /**
+     * Set touch mode of pins.
+     */
+    init: function() {
+        this.jsonInit({
+            'message0': Blockly.Msg.SET + ' ' + Blockly.Msg.MODE_TOUCH + ' ' + Blockly.Msg.SENSOR_PINTOUCH + '%2%1',
+            'args0': [
+                {
+                    'type': 'field_dropdown',
+                    'name': 'MODE',
+                    'options': [
+                        [Blockly.Msg.MODE_CAPACITIVE, 'CAPACITIVE'],
+                        [Blockly.Msg.MODE_RESISTIVE, 'RESISTIVE']
+                    ]
+                },
+                {
+                    'type': 'field_dropdown',
+                    'name': 'SENSORPORT',
+                    'options': [
+                        ['0', '0'],
+                        ['1', '1'],
+                        ['2', '2']
+                    ]
+                }
+            ],
+            'nextStatement': true,
+            'previousStatement': true,
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SENSOR_PIN_MODE_TOOLTIP
+        });
+        hidePortIfOnlyInbuilt(this);
+    }
+};
+
+Blockly.Blocks['robSensors_set_logo_mode'] = {
+    /**
+     * Set touch mode of pins.
+     */
+    init: function() {
+        this.setBlocking(true);
+        var ports = getConfigPorts('logotouch');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            'message0': Blockly.Msg.SET + ' ' + Blockly.Msg.MODE_TOUCH + ' ' + Blockly.Msg.SENSOR_LOGOTOUCH + '%1',
+            'args0': [
+                {
+                    'type': 'field_dropdown',
+                    'name': 'MODE',
+                    'options': [
+                        [Blockly.Msg.MODE_CAPACITIVE, 'CAPACITIVE'],
+                        [Blockly.Msg.MODE_RESISTIVE, 'RESISTIVE']
+                    ]
+                }
+            ],
+            'nextStatement': true,
+            'previousStatement': true,
+            'colour': Blockly.CAT_SENSOR_RGB,
+            'tooltip': Blockly.Msg.SENSOR_LOGO_MODE_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'logotouch',
+            'dropDown': 'hide'
+        };
+    }
+};
+
 Blockly.Blocks['robSensors_generic'] = {
     /*- Generic sensor definition. Will create e.g. the following xml:
      *
@@ -1118,6 +1189,7 @@ Blockly.Blocks['robSensors_generic_all'] = {
                     logComp.updateShape('COLOUR');
                     switch (this.workspace.device) {
                         case 'microbit':
+                        case 'microbitv2':
                         case 'calliope':
                             block = this.workspace.newBlock('mbedColour_picker');
                             break;
