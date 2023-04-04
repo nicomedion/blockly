@@ -69,40 +69,35 @@ Blockly.RobConfig.renameConfig = function(thatBlock, oldName, newName, workspace
                                 input.fieldRow.splice(f, 0, newField);
                                 input.fieldRow.splice(-1, 1);
                                 block.dropDownPorts = newField;
-                                // when an inbuilt component becomes visible, don't show the underscore name
-                                if (newField.text_.indexOf('_') === 0) {
-                                    newField.text_ = Blockly.Msg['PORT_INTERNAL'];
-                                    newField.menuGenerator_[0][0] = newField.text_;
-                                }
                             }
                         }
                     }
-                }
-
-                var index = -1;
-                for (var i = 0; i < dropDown[d].menuGenerator_.length; i++) {
-                    if (dropDown[d].menuGenerator_[i][1] === oldName || subComponentNames.has(dropDown[d].menuGenerator_[i][1])) {
-                        index = i;
-                        break;
-                    }
-                }
-                if (dropDown[d].menuGenerator_[0][0] == Blockly.Msg.CONFIGURATION_NO_PORT) {
-                    dropDown[d].menuGenerator_[0][0] = newName;
-                    dropDown[d].menuGenerator_[0][1] = newName;
-                    dropDown[d].setValue(newName);
-                } else if (index >= 0) {
-                    dropDown[d].menuGenerator_[index][0] = newName;
-                    dropDown[d].menuGenerator_[index][1] = newName;
-                    if (dropDown[d].value_ === oldName) {
-                        dropDown[d].setValue(newName);
-                    }
                 } else {
-                    dropDown[d].menuGenerator_.push([newName, newName]);
-                    if (dropDown[d].arrow_) {
-                        dropDown[d].arrow_.replaceChild(document.createTextNode(dropDown[d].sourceBlock_.RTL ? Blockly.FieldDropdown.ARROW_CHAR + ' ' : ' '
-                            + Blockly.FieldDropdown.ARROW_CHAR), dropDown[d].arrow_.childNodes[0]);
+                    var index = -1;
+                    for (var i = 0; i < dropDown[d].menuGenerator_.length; i++) {
+                        if (dropDown[d].menuGenerator_[i][1] === oldName || subComponentNames.has(dropDown[d].menuGenerator_[i][1])) {
+                            index = i;
+                            break;
+                        }
                     }
-                    dropDown[d].render_();
+                    if (dropDown[d].menuGenerator_[0][0] == Blockly.Msg.CONFIGURATION_NO_PORT) {
+                        dropDown[d].menuGenerator_[0][0] = newName;
+                        dropDown[d].menuGenerator_[0][1] = newName;
+                        dropDown[d].setValue(newName);
+                    } else if (index >= 0) {
+                        dropDown[d].menuGenerator_[index][0] = newName;
+                        dropDown[d].menuGenerator_[index][1] = newName;
+                        if (dropDown[d].value_ === oldName) {
+                            dropDown[d].setValue(newName);
+                        }
+                    } else {
+                        dropDown[d].menuGenerator_.push([newName, newName]);
+                        if (dropDown[d].arrow_) {
+                            dropDown[d].arrow_.replaceChild(document.createTextNode(dropDown[d].sourceBlock_.RTL ? Blockly.FieldDropdown.ARROW_CHAR + ' ' : ' '
+                                + Blockly.FieldDropdown.ARROW_CHAR), dropDown[d].arrow_.childNodes[0]);
+                        }
+                        dropDown[d].render_();
+                    }
                 }
             }
             block.render();
