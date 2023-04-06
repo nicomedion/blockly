@@ -419,6 +419,9 @@ Blockly.Blocks['robControls_for'] = {
       option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
       options.push(option);
     }
+  },
+  onDispose :function(){
+    Blockly.Variables.deleteAll(this.getFieldValue('VAR'));
   }
 };
 

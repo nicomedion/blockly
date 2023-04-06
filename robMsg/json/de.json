@@ -1552,5 +1552,6 @@
   "ACTION_DISPLAY" : "Bildschirm",
   "DISPLAY_TOOLTIP": "Repräsentiert einen Bildschirm",
   "DISPLAY_TOOLTIP_SPIKE": "Repräsentiert einen Bildschirm mit einer 5 x 5 LED Matrix",
-  "MODE_FORCE": "Kraft"
+  "MODE_FORCE": "Kraft",
+  "CONFIGURATION_ERROR_TIMER_CONFLICT": "Diese Konfigurationsblöcke verwenden dieselben internen Timer und alle drei können nicht zusammen verwendet werden."
 }

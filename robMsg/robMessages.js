@@ -1795,3 +1795,4 @@ Blockly.Msg.ACTION_DISPLAY = 'display';
 Blockly.Msg.DISPLAY_TOOLTIP = 'Represents a screen.';
 Blockly.Msg.DISPLAY_TOOLTIP_SPIKE = 'Represents a screen with a 5 x 5 LED matrix.';
 Blockly.Msg.MODE_FORCE = 'force';
+Blockly.Msg.CONFIGURATION_ERROR_TIMER_CONFLICT = 'These configuration blocks use the same internal timers and all three cannot be used together.';
