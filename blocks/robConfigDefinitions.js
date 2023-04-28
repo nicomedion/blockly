@@ -50,19 +50,29 @@ function createPins(startNumber, endNumber, opt_prefix_ext, opt_prefix_int) {
 
 Blockly.Blocks.robConfigDefinitions['pinsDigital'] = {};
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].uno = function() {
-    return createPins(0, 13);
+    var array = createPins(0, 13);
+    array = array.concat(createPins(0, 5, 'A', 'A'));
+    return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].unowifirev2 = function() {
-    return createPins(0, 13);
+    var array = createPins(0, 13);
+    array = array.concat(createPins(0, 5, 'A', 'A'));
+    return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].nano = function() {
-    return createPins(0, 13, 'D');
+    var array = createPins(0, 13, 'D');
+    array = array.concat(createPins(0, 7, 'A', 'A'));
+    return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].nano33ble = function() {
-    return createPins(0, 13, 'D');
+    var array = createPins(0, 13, 'D');
+    array = array.concat(createPins(0, 7, 'A', 'A'));
+    return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].mega = function() {
-    return createPins(0, 53);
+    var array = createPins(0, 53);
+    array = array.concat(createPins(0, 15, 'A', 'A'));
+    return array;
 };
 Blockly.Blocks.robConfigDefinitions['pinsDigital'].sensebox = function() {
     var array = createPins(1, 2, 'A');
