@@ -286,6 +286,7 @@ Blockly.DATA_TYPE['Number'] = '#005A94';
 Blockly.DATA_TYPE['String'] = '#BACC1E';
 Blockly.DATA_TYPE['Boolean'] = '#33B8CA';
 Blockly.DATA_TYPE['Colour'] = '#EBC300';
+Blockly.DATA_TYPE['ColourLed'] = '#EBC300';
 Blockly.DATA_TYPE['ColourLight'] = '#EBC300';
 Blockly.DATA_TYPE['Connection'] = '#FF69B4';
 Blockly.DATA_TYPE['Sensor'] = '#8FA402';
