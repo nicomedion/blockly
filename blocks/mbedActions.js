@@ -428,7 +428,6 @@ Blockly.Blocks['mbedActions_play_tone'] = {
             case 'microbit':
             case 'microbitv2':
             case 'mbot2':
-            case 'thymio':
                 this.dropDownPorts = getConfigPorts('buzzer');
                 this.dependConfig = {
                     'type': 'buzzer',
@@ -477,7 +476,7 @@ Blockly.Blocks['mbedActions_play_note'] = {
             case 'microbit':
             case 'microbitv2':
             case 'mbot2':
-            case 'thymio':
+            case 'wedo':
                 this.dropDownPorts = getConfigPorts('buzzer');
                 this.dependConfig = {
                     'type': 'buzzer',
@@ -486,7 +485,7 @@ Blockly.Blocks['mbedActions_play_note'] = {
                 this.appendDummyInput().appendField(Blockly.Msg.PLAY).appendField(this.dropDownPorts, 'ACTORPORT').appendField(duration, 'DURATION').appendField(frequence, 'FREQUENCE');
                 break;
             default:
-                this.appendValueInput('FREQUENCE').appendField(Blockly.Msg.PLAY).appendField(Blockly.Msg.PLAY_FREQUENZ).setCheck('Number');
+                this.appendDummyInput().appendField(Blockly.Msg.PLAY).appendField(duration, 'DURATION').appendField(frequence, 'FREQUENCE');
         }
         if (this.workspace.device === 'calliope' || this.workspace.device === 'mbot2' || this.workspace.device === 'thymio' || this.workspace.device === 'microbitv2') {
             hidePortIfOnlyInbuilt(this);
