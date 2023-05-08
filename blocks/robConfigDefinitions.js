@@ -1877,6 +1877,117 @@ confBlocks.aifes.nano33ble = {
     ],
 };
 
+confBlocks.rgbled.karl = {
+     title: 'RGBLED',
+     ports: [
+         [' ', 'PIN1'],
+     ],
+     pins: Blockly.Blocks.robConfigDefinitions['pinsRaspberrypiPico'],
+     //standardPins: ['16', '17', '18', '19', '20', '21']
+ };
+
+confBlocks.motor.karl = {
+     title: 'MOTOR',
+     ports: [
+         [' ', 'PIN1']
+     ],
+     pins: Blockly.Blocks.robConfigDefinitions['pinsRaspberrypiPico'],
+     action: true,
+     //standardPins: ['6' , '7', '8', '9']
+ };
+
+confBlocks.digitalout.karl = {
+     title: 'DIGITALOUT',
+     ports: [
+         [' ', 'PIN1']
+     ],
+     pins: function(){ return [
+         ['0', '0'],
+         ['1', '1'],
+         ['2', '2'],
+         ['3', '3'],
+         ['4', '4'],
+         ['5', '5']
+     ]},
+     sensor: true
+ };
+
+confBlocks.analogout.karl = {
+    title: 'ANALOGOUT',
+    ports: [
+        [' ', 'PIN1']
+    ],
+    pins: function(a) {
+        return [['26', '26'],
+                ['27', '27']];
+    },
+    sensor: true
+};
+
+confBlocks.digitalin.karl = {
+    title: 'DIGITALIN',
+    ports: [
+        [' ', 'PIN1']
+    ],
+    pins: function(a) {
+        return [
+            ['0', '0'],
+            ['1', '1'],
+            ['2', '2'],
+            ['3', '3'],
+            ['4', '4'],
+            ['5', '5']
+        ];
+    },
+    sensor: false
+};
+
+confBlocks.analogin.karl = {
+    title: 'ANALOGIN',
+    ports: [
+        [' ', 'PIN1']
+    ],
+    pins: function(a) {
+        return [
+                ['26', '26'],
+                ['27', '27']
+               ];
+    },
+    sensor: false
+};
+
+confBlocks.potentiometer.karl = {
+    title: 'POTENTIOMETER',
+    ports: [
+        [' ', 'PIN1']
+    ],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsRaspberrypiPico'],
+    sensor: true,
+
+    //standardPins: ['28']
+};
+
+confBlocks.key.karl =  {
+    title: 'KEY',
+    ports: [
+      [' ', 'PIN1']
+    ],
+    pins: Blockly.Blocks.robConfigDefinitions['pinsRaspberrypiPico'],
+    sensor: true,
+
+    //standardPins: ['22']
+};
+
+confBlocks.buzzer.karl = {
+     title: 'BUZZER',
+     ports: [
+         [' ', 'PIN1']
+     ],
+     pins: Blockly.Blocks.robConfigDefinitions['pinsRaspberrypiPico'],
+     sensor: false,
+     //standardPins: ['10', '12', '14']
+ };
+
 // all arduino conf blocks are inherited by nano33ble
 for (var confBlock in confBlocks) {
     var confObj = confBlocks[confBlock];

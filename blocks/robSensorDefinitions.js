@@ -1148,6 +1148,16 @@ sensors.environmental.sensebox = {
     }], ports: 'CONFIGURATION'
 };
 
+sensors.key.karl = sensors.key.mbot;
+sensors.potentiometer.karl = sensors.potentiometer.arduino;
+sensors.potentiometerrange = {}
+sensors.potentiometerrange.karl = {
+   title: 'POTENTIOMETER', modes: [{
+       name: 'VALUE', type: 'Number', unit: 'PERCENT'
+   }], ports: 'CONFIGURATION',
+   slots: [['0-1', '1']],
+};
+
 sensors.out.nano33ble = sensors.out.arduino;
 sensors.key.nano33ble = sensors.key.arduino;
 sensors.timer.nano33ble = sensors.timer.arduino;

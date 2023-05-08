@@ -931,3 +931,168 @@ Blockly.Blocks['actions_sound_toggle'] = {
         };
     }
 };
+
+Blockly.Blocks['actions_motor_stop_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('motor');
+        this.jsonInit({
+            message0: Blockly.Msg.MOTOR_STOP + ' ' + Blockly.Msg.ACTION_MOTOR + ' %1 %2',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            }, {
+                type: 'field_dropdown',
+                name: 'CONTROL',
+                options: [[Blockly.Msg.MOTOR_FLOAT, 'COAST'], [Blockly.Msg.MOTOR_BRAKE, 'BRAKE']]
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.MOTOR_STOP_TOOLTIP
+        });
+        this.dependConfig = {
+            type: 'motor', dropDown: this.getField('ACTORPORT')
+        };
+
+    }
+};
+Blockly.Blocks['actions_eyeLed_on_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('rgbled');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: Blockly.Msg.RGBLED_ON + ' ' + '%1' + Blockly.Msg.BRICKLIGHT_COLOR +'%2',
+            //message1: 'Test' +  + '%1',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            }, {
+                type: 'input_value', name: 'COLOUR', check: ['Colour', 'ColourLed']
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.LED_ON_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'rgbled',
+            'dropDown': 'hide'
+        };
+    }
+};
+Blockly.Blocks['actions_eyeLed_intensity_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('rgbled');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: 'RGB LED' + '%1' + Blockly.Msg.NAO_INTENSITY + '%2',
+            //message1: 'Test' +  + '%1',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            },
+            {
+                type: 'input_value', name: 'INTENSITY', check: 'Number'
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.LED_ON_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'rgbled',
+            'dropDown': 'hide'
+        };
+    }
+};
+Blockly.Blocks['actions_eyeLed_toggle_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('rgbled');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: 'Toggle RGB LED' + '%1',
+            //message1: 'Test' +  + '%1',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            },
+            {
+                type: 'input_value', name: 'INTENSITY', check: 'Number'
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.LED_ON_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'rgbled',
+            'dropDown': 'hide'
+        };
+    }
+};
+Blockly.Blocks['actions_motor_on_karl'] = {
+    /**
+     * Turn motor on with specific power.
+     *
+     * @constructs actions_motor_on
+     * @this.Blockly.Block
+     * @param {String|Dropdown}
+     *            ACTORPORT     Dropdown computed from the robot's 'encoder' configuration
+     * @param {Number}
+     *            POWER         Speed (in %) to switch motor on with
+     * @returns immediately
+     * @memberof Block
+     */
+    init: function() {
+        var ports = getConfigPorts('motor');
+        this.jsonInit({
+            message0: Blockly.Msg.ACTION_MOTOR + ' %1 ' + Blockly.Msg.ON + ' ' + Blockly.Msg.TO + ' °' + ' %2',
+            lastDummyAlign1: 'RIGHT',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            }, {
+                type: 'input_value', name: 'POWER', check: 'Number'
+            }],
+            args1: [{
+                type: 'field_checkbox', checked: 'TRUE', name: 'REGULATION'
+            }],
+            inputsInline: false,
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.MOTOR_ON_TOOLTIP
+        });
+        this.dependConfig = {
+            type: 'motor', dropDown: this.getField('ACTORPORT')
+        };
+
+    }
+};
+Blockly.Blocks['actions_eyeLed_off_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('rgbled');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: Blockly.Msg.RGBLED_OFF + '%1',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.LED_OFF_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'rgbled',
+            'dropDown': 'hide'
+        };
+    }
+};
