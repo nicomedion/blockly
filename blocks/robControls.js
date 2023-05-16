@@ -516,16 +516,7 @@ Blockly.Blocks['robControls_wait_for'] = {
             var connection = this.getInput('WAIT' + this.waitCount_).connection;
             connection.connect(lc.outputConnection);
 
-            //TODO: move ardu and nibo to arduControls and niboControls
-            var s;
-
-            if (this.workspace.device === 'botnroll') {
-                s = this.workspace.newBlock('robSensors_getSample_ardu');
-            } else if (this.workspace.device === 'bob3' || this.workspace.device === 'rob3rta') {
-                s = this.workspace.newBlock('bob3Sensors_getSample_bob3');
-            } else {
-                s = this.workspace.newBlock('robSensors_getSample');
-            }
+            var s = this.workspace.newBlock('robSensors_getSample');
             s.initSvg();
             s.render();
             lc.updateShape(s.outputConnection.check_[0] || 'BOOL');
