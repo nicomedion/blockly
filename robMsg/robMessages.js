@@ -624,6 +624,9 @@ Blockly.Msg.VALIDATION_SECOND_PASSWORD_EQUAL = 'The two passwords must be equal!
 Blockly.Msg.VALIDATION_VALID_EMAIL_ADDRESS = 'Please enter a valid email address!';
 Blockly.Msg.VALIDATION_CONTAINS_SPECIAL_CHARACTERS = 'Valid special characters: »=+!?.,%#+&^@_-«';
 Blockly.Msg.VALIDATION_MAX_LENGTH = 'The max. lenght is 25 characters!';
+Blockly.Msg.VALIDATION_PIN_TAKEN_BY_INTERNAL_COMPONENT = 'This pin is connected to an inbuilt component and should be used with caution.';
+Blockly.Msg.VALIDATION_PIN_TAKEN_BY_LED_MATRIX = 'Before using this pin, make sure to disable the internal LED matrix using the "switch LED matrix off" block.';
+
 
 Blockly.Msg.SIM_BLOCK_NOT_SUPPORTED = 'Unfortunately you can not use this block in the simulation!';
 Blockly.Msg.SIM_CONFIGURATION_WARNING_SENSOR_MISSING = 'This sensor is not in the configuration! The behaviour of the program on the real robot will be different than expected!';
