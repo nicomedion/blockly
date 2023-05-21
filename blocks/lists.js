@@ -880,6 +880,7 @@ Blockly.Blocks['robLists_create_with'] = {
                 switch (this.workspace.device) {
                     case 'microbit':
                     case 'microbitv2':
+                    case 'joycar':
                     case 'calliope':
                         block = this.workspace.newBlock('mbedColour_picker');
                         break;
@@ -897,6 +898,7 @@ Blockly.Blocks['robLists_create_with'] = {
                 switch (this.workspace.device) {
                     case 'microbit':
                     case 'microbitv2':
+                    case 'joycar':
                     case 'calliope':
                         block = this.workspace.newBlock('mbedImage_get_image');
                         break;

@@ -931,3 +931,57 @@ Blockly.Blocks['actions_sound_toggle'] = {
         };
     }
 };
+
+Blockly.Blocks['actions_rgbLed_on_joycar'] = {
+    init: function() {
+        var ports = getConfigPorts('rgbled');
+        this.jsonInit({
+            message0: Blockly.Msg.RGBLED_ON + ' %1 %2' + Blockly.Msg.BRICKLIGHT_COLOR + '%3',
+            args0: [{
+                type: 'field_dropdown',
+                name: 'ACTORPORT',
+                options: ports.menuGenerator_
+            }, {
+                type: 'field_dropdown',
+                name: 'SLOT',
+                options: [[Blockly.Msg.SLOT_OUTER, '0'], [Blockly.Msg.SLOT_INNER, '1']]
+            }, {
+                type: 'input_value', name: 'COLOUR', check: ['Colour']
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.LED_ON_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'rgbled',
+            'dropDown': this.getField('ACTORPORT')
+        };
+    }
+};
+
+Blockly.Blocks['actions_rgbLed_off_joycar'] = {
+    init: function() {
+        var ports = getConfigPorts('rgbled');
+        this.jsonInit({
+            message0: Blockly.Msg.RGBLED_OFF + ' %1 %2',
+            args0: [{
+                type: 'field_dropdown',
+                name: 'ACTORPORT',
+                options: ports.menuGenerator_
+            }, {
+                type: 'field_dropdown',
+                name: 'SLOT',
+                options: [[Blockly.Msg.SLOT_OUTER, '0'], [Blockly.Msg.SLOT_INNER, '1']]
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.LED_OFF_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'rgbled',
+            'dropDown': this.getField('ACTORPORT')
+        };
+    }
+};
