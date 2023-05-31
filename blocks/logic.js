@@ -570,13 +570,13 @@ Blockly.Blocks['robControls_ifElse'] = {
       return null;
     }
     var container = document.createElement('mutation');
-      if (this.elseIfCount_) {
-        container.setAttribute('elseif', this.elseIfCount_);
-      }
-      if (this.elseCount_) {
-        container.setAttribute('else', 1);
-      }
-      return container;
+    if (this.elseIfCount_) {
+      container.setAttribute('elseif', this.elseIfCount_);
+    }
+    if (this.elseCount_) {
+      container.setAttribute('else', 1);
+    }
+    return container;
   },
   /**
    * Parse XML to restore the ifElse inputs.
@@ -604,6 +604,7 @@ Blockly.Blocks['robControls_ifElse'] = {
    */
   updateShape_ : function(num) {
     Blockly.dragMode_ = Blockly.DRAG_NONE;
+    var elseConnection = this.getInput("ELSE").connection.targetConnection;
     if (num == 1) {
       this.elseIfCount_++;
       this.removeInput('ELSE');
@@ -623,6 +624,9 @@ Blockly.Blocks['robControls_ifElse'] = {
       this.removeInput('IF' + this.elseIfCount_);
       this.appendStatementInput('ELSE').appendField(Blockly.Msg.CONTROLS_IF_MSG_ELSE);
       this.elseIfCount_--;
+    }
+    if (elseConnection) {
+      this.getInput("ELSE").connection.connect(elseConnection);
     }
     if (this.elseIfCount_ >= 1) {
       if (this.elseIfCount_ == 1) {
