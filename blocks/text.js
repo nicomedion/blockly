@@ -707,9 +707,9 @@ Blockly.Blocks['robText_join'] = {
     init : function() {
         this.setHelpUrl(Blockly.Msg.TEXT_JOIN_HELPURL);
         this.setColour(Blockly.CAT_TEXT_RGB);
-        if (this.workspace.device === 'calliope' || this.workspace.device === 'microbit' || this.workspace.device === 'microbitv2') {
-            this.appendValueInput('ADD0').appendField(Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH).setCheck([ 'Number', 'String', 'Boolean' ]);
-            this.appendValueInput('ADD1').setCheck([ 'Number', 'String', 'Boolean', 'String' ]);
+        if (this.workspace.device === 'calliope' || this.workspace.device === 'microbit' || this.workspace.device === 'microbitv2' || this.workspace.device === 'joycar') {
+            this.appendValueInput('ADD0').appendField(Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH).setCheck(['Number', 'String', 'Boolean']);
+            this.appendValueInput('ADD1').setCheck(['Number', 'String', 'Boolean', 'String']);
         } else {
             this.appendValueInput('ADD0').appendField(Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH);
             this.appendValueInput('ADD1');

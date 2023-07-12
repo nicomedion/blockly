@@ -831,14 +831,45 @@ Blockly.Blocks['robBrick_mbuild_quadrgb'] = {
         this.setNextStatement(true);
 
     },
-    getConfigDecl: function () {
+    getConfigDecl: function() {
         return getConfigDecl(this);
     },
-    onDispose: function () {
+    onDispose: function() {
         Blockly.RobConfig.disposeConfig(this);
     }
 }
 
+Blockly.Blocks['robConf_i2c_bus'] = {
+    init: function() {
+        this.title = 'I2CBUS';
+        this.confBlock = 'i2cbus';
+        this.jsonInit({
+            message0: 'I2C bus %1',
+            args0: [{
+                type: 'field_input',
+                name: 'NAME',
+                text: Blockly.RobConfig.findLegalName('I2CBUS'.charAt(0).toUpperCase(), this)
+            }],
+            message1: Blockly.Msg.ADDRESS + ' %1',
+            args1: [{
+                type: 'field_input',
+                name: 'ADDRESS',
+                text: '0x38'
+            }],
+            message2: '%1',
+            args2: [
+                { 'type': 'input_statement', 'name': 'BUS' }
+            ],
+            appendStatementInput: 'test',
+            colour: Blockly.CAT_SENSOR_RGB,
+            tooltip: ''
+        });
+        this.getField('NAME').setValidator(validateName);
+    },
+    getConfigDecl: function() {
+        return getConfigDecl(this);
+    }
+};
 
 function validateName(name) {
     /**

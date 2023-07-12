@@ -47,6 +47,7 @@ sensors.accelerometer.calliope = {
 };
 sensors.accelerometer.microbit = sensors.accelerometer.calliope;
 sensors.accelerometer.microbitv2 = sensors.accelerometer.calliope;
+sensors.accelerometer.joycar = sensors.accelerometer.microbitv2;
 
 sensors.accelerometer.mbot = {
     title: 'ACCELEROMETER', modes: [{
@@ -182,6 +183,8 @@ sensors.compass.calliope = {
 };
 sensors.compass.microbit = sensors.compass.calliope;
 sensors.compass.microbitv2 = sensors.compass.calliope;
+sensors.compass.joycar = sensors.compass.microbitv2;
+
 sensors.compass.ev3 = {
     title: 'COMPASS', modes: [{
         name: 'ANGLE', type: 'Number', unit: 'DEGREE'
@@ -290,6 +293,12 @@ sensors.encoder.nxt = {
     }], ports: [['A', 'A'], ['B', 'B'], ['C', 'C']], standardPort: 'B'
 };
 
+sensors.encoder.joycar = {
+    title: 'ENCODER', modes: [{
+        name: 'VALUE', type: 'Boolean'
+    }], ports: 'CONFIGURATION'
+};
+
 sensors.motor = {};
 sensors.motor.spike = {
     title: 'MOTOR', modes: [{
@@ -360,6 +369,8 @@ sensors.gesture.calliope = {
 };
 sensors.gesture.microbit = sensors.gesture.calliope;
 sensors.gesture.microbitv2 = sensors.gesture.calliope;
+sensors.gesture.joycar = sensors.gesture.microbitv2;
+
 sensors.gesture.spike = {
     title: 'GESTURE', modes: [{
         name: 'FRONT', type: 'Boolean'
@@ -489,6 +500,7 @@ sensors.infrared.botnroll = {
         name: 'PRESENCE', type: 'Boolean'
     }]
 };
+sensors.infrared = {};
 
 sensors.infrared.arduino = {
     title: 'INFRARED', modes: [{
@@ -572,6 +584,12 @@ sensors.infrared.robotino = {
     }]
 };
 
+sensors.infrared.joycar = {
+    title: 'INFRARED', ports: 'CONFIGURATION', modes: [{
+        name: 'OBSTACLE', type: 'Boolean'
+    }]
+};
+
 sensors.irseeker = {};
 sensors.irseeker.ev3 = {
     title: 'IRSEEKER', ports: [['Port 1', '1'], ['Port 2', '2'], ['Port 3', '3'], ['Port 4', '4']], modes: [{
@@ -637,6 +655,8 @@ sensors.key.calliope = {
 sensors.key.mbot2 = sensors.key.calliope;
 sensors.key.microbit = sensors.key.calliope;
 sensors.key.microbitv2 = sensors.key.calliope;
+sensors.key.joycar = sensors.key.microbitv2;
+
 sensors.key.ev3 = {
     title: 'KEY',
     modes: [{
@@ -692,6 +712,8 @@ sensors.light.calliope = {
 };
 sensors.light.microbit = sensors.light.calliope;
 sensors.light.microbitv2 = sensors.light.calliope;
+sensors.light.joycar = sensors.light.microbitv2;
+
 sensors.light.festobionicflower = {
     title: 'LIGHT', modes: [{
         name: 'VALUE', type: 'Number', unit: 'LUX'
@@ -784,6 +806,8 @@ sensors.pin.calliope = {
 };
 sensors.pin.microbit = sensors.pin.calliope;
 sensors.pin.microbitv2 = sensors.pin.calliope;
+sensors.pin.joycar = sensors.pin.microbitv2;
+
 
 sensors.potentiometer = {};
 sensors.potentiometer.arduino = {
@@ -822,6 +846,8 @@ sensors.pintouch.microbit = {
     }], standardPort: '1'
 };
 sensors.pintouch.microbitv2 = sensors.pintouch.microbit;
+sensors.pintouch.joycar = sensors.pintouch.microbitv2;
+
 
 sensors.pintouch.rob3rta = {
     title: 'PINTOUCH', titleNotVisible: true, modes: [{
@@ -840,6 +866,7 @@ sensors.logotouch.microbitv2 = {
     ports: 'CONFIGURATION',
     portsHidden: true
 };
+sensors.logotouch.joycar = sensors.logotouch.microbitv2;
 
 sensors.pulse = {};
 sensors.pulse.arduino = {
@@ -865,6 +892,11 @@ sensors.line.mbot2 = {
     title: 'QUADRGB', modes: [{
         name: 'LINE', type: 'Number'
     }], ports: 'CONFIGURATION'
+};
+sensors.line.joycar = {
+    title: 'LINE', ports: 'CONFIGURATION', modes: [{
+        name: 'LINE', type: 'Boolean'
+    }]
 };
 
 sensors.odometry = {};
@@ -898,6 +930,8 @@ sensors.sound.calliope = {
 };
 sensors.sound.mbot2 = sensors.sound.calliope;
 sensors.sound.microbitv2 = sensors.sound.calliope;
+sensors.sound.joycar = sensors.sound.microbitv2;
+
 
 sensors.sound.ev3 = {
     title: 'SOUND', modes: [{
@@ -945,6 +979,8 @@ sensors.temperature.calliope = {
 };
 sensors.temperature.microbit = sensors.temperature.calliope;
 sensors.temperature.microbitv2 = sensors.temperature.calliope;
+sensors.temperature.joycar = sensors.temperature.microbitv2;
+
 sensors.temperature.mbot = {
     title: 'TEMPERATURE', modes: [{
         name: 'VALUE', type: 'Number', unit: 'DEGREE', value: 20
@@ -971,6 +1007,7 @@ sensors.timer.calliope = sensors.timer.botnroll;
 sensors.timer.nxt = sensors.timer.botnroll;
 sensors.timer.microbit = sensors.timer.botnroll;
 sensors.timer.microbitv2 = sensors.timer.botnroll;
+sensors.timer.joycar = sensors.timer.microbitv2;
 sensors.timer.wedo = sensors.timer.botnroll;
 sensors.timer.thymio = sensors.timer.botnroll;
 sensors.timer.spike = sensors.timer.botnroll;
@@ -1088,6 +1125,7 @@ sensors.ultrasonic.vorwerk = {
     slots: [['LEFT', 'LEFT'], ['CENTER', 'CENTER'], ['RIGHT', 'RIGHT']]
 };
 sensors.ultrasonic.spike = sensors.ultrasonic.calliope;
+sensors.ultrasonic.joycar = sensors.ultrasonic.calliope;
 
 sensors.wall = {};
 sensors.wall.vorwerk = {
@@ -1186,6 +1224,7 @@ sensorsAll.bob3 = [sensors.pintouch.bob3, sensors.infrared.bob3, sensors.tempera
 sensorsAll.calliope = [sensors.key.calliope, sensors.pintouch.calliope, sensors.gesture.calliope, sensors.compass.calliope, sensors.sound.calliope, sensors.timer.calliope, sensors.temperature.calliope, sensors.light.calliope, sensors.pin.calliope, sensors.gyro.calliope, sensors.accelerometer.calliope, sensors.humidity.calliope, sensors.ultrasonic.calliope, sensors.infrared.calliope];
 sensorsAll.microbit = [sensors.key.microbit, sensors.pintouch.microbit, sensors.gesture.microbit, sensors.compass.microbit, sensors.timer.microbit, sensors.temperature.microbit, sensors.pin.microbit, sensors.accelerometer.microbit, sensors.light.microbit];
 sensorsAll.microbitv2 = [sensors.key.microbitv2, sensors.pintouch.microbitv2, sensors.logotouch.microbitv2, sensors.gesture.microbitv2, sensors.sound.microbitv2, sensors.compass.microbitv2, sensors.timer.microbitv2, sensors.temperature.microbitv2, sensors.pin.microbitv2, sensors.accelerometer.microbitv2, sensors.light.microbitv2];
+sensorsAll.joycar = [sensors.key.joycar, sensors.ultrasonic.joycar, sensors.infrared.joycar, sensors.line.joycar, sensors.logotouch.joycar, sensors.sound.joycar, sensors.compass.joycar, sensors.timer.joycar, sensors.encoder.joycar, sensors.temperature.joycar, sensors.accelerometer.joycar, sensors.light.joycar, sensors.pin.joycar, sensors.gesture.joycar];
 sensorsAll.arduino = [sensors.out.arduino, sensors.key.arduino, sensors.timer.arduino, sensors.temperature.arduino, sensors.ultrasonic.arduino, sensors.light.arduino, sensors.moisture.arduino, sensors.potentiometer.arduino, sensors.infrared.arduino, sensors.humidity.arduino, sensors.motion.arduino, sensors.pulse.arduino, sensors.drop.arduino, sensors.rfid.arduino, sensors.gyro.arduino, sensors.accelerometer.arduino];
 sensorsAll.festobionic = [sensors.timer.arduino];
 sensorsAll.festobionicflower = [sensors.timer.festobionicflower, sensors.touch.festobionicflower, sensors.light.festobionicflower];
@@ -1219,33 +1258,3 @@ Blockly.Blocks['robSensors_getSample'] = {
         Blockly.Blocks['robSensors_generic_all'].init.call(this, sensorsAll[this.workspace.device]);
     }
 };
-
-// map other names to the available ones here ***********************************************************************************
-
-Blockly.Blocks['robSensors_battery_voltage'] = Blockly.Blocks['robSensors_battery_getSample'];
-Blockly.Blocks['robSensors_key_isPressed'] = Blockly.Blocks['robSensors_key_getSample'];
-Blockly.Blocks['robSensors_touch_isPressed'] = Blockly.Blocks['robSensors_touch_getSample'];
-
-Blockly.Blocks['robSensors_getSample_ardu'] = Blockly.Blocks['robSensors_getSample'];
-
-Blockly.Blocks['bob3Sensors_ambientlight'] = Blockly.Blocks['robSensors_infrared_getSample'];
-Blockly.Blocks['bob3Sensors_temperature_getSample'] = Blockly.Blocks['robSensors_temperature_getSample'];
-Blockly.Blocks['bob3Sensors_getCode'] = Blockly.Blocks['robSensors_code_getSample'];
-Blockly.Blocks['bob3Sensors_touch_getSample'] = Blockly.Blocks['robSensors_pintouch_getSample'];
-Blockly.Blocks['bob3Sensors_getSample_bob3'] = Blockly.Blocks['robSensors_getSample'];
-
-Blockly.Blocks['mbedSensors_getSample'] = Blockly.Blocks['robSensors_getSample'];
-// Blockly.Blocks['mbedControls_wait_for'] = Blockly.Blocks['robControls_wait_for'];
-Blockly.Blocks['mbedSensors_key_isPressed'] = Blockly.Blocks['robSensors_key_getSample'];
-Blockly.Blocks['mbedSensors_pin_isTouched'] = Blockly.Blocks['robSensors_pintouch_getSample'];
-Blockly.Blocks['mbedSensors_gesture_isActive'] = Blockly.Blocks['robSensors_gesture_getSample'];
-Blockly.Blocks['mbedSensors_compass_getSample'] = Blockly.Blocks['robSensors_compass_getSample'];
-Blockly.Blocks['mbedSensors_microphone_getSample'] = Blockly.Blocks['robSensors_sound_getSample'];
-Blockly.Blocks['mbedSensors_timer_getSample'] = Blockly.Blocks['robSensors_timer_getSample'];
-Blockly.Blocks['mbedSensors_temperature_getSample'] = Blockly.Blocks['robSensors_temperature_getSample'];
-Blockly.Blocks['mbedSensors_getRssi'] = Blockly.Blocks['robSensors_rssi_getSample'];
-Blockly.Blocks['mbedSensors_ambientLight_getSample'] = Blockly.Blocks['robSensors_light_getSample'];
-Blockly.Blocks['mbedSensors_pin_getSample'] = Blockly.Blocks['robSensors_pin_getSample'];
-Blockly.Blocks['mbedSensors_rotation_getSample'] = Blockly.Blocks['robSensors_gyro_getSample'];
-Blockly.Blocks['mbedSensors_acceleration_getSample'] = Blockly.Blocks['robSensors_accelerometer_getSample'];
-Blockly.Blocks['naoSensors_accelerometer'] = Blockly.Blocks['robSensors_accelerometer_getSample'];

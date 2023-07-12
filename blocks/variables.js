@@ -406,9 +406,10 @@ Blockly.Blocks['robGlobalVariables_declare'] = {
         switch (this.workspace.device){
         case 'microbit':
           case 'microbitv2':
-        case 'calliope':
-          block = this.workspace.newBlock('mbedColour_picker');
-          break;
+          case 'joycar':
+          case 'calliope':
+            block = this.workspace.newBlock('mbedColour_picker');
+            break;
         case 'nao':
           block = this.workspace.newBlock('naoColour_picker');
           break;
@@ -422,15 +423,16 @@ Blockly.Blocks['robGlobalVariables_declare'] = {
         switch (this.workspace.device){
         case 'microbit':
         case 'microbitv2':
-        case 'calliope':
-          block = this.workspace.newBlock('mbedImage_get_image');
-          break;
-        case 'mbot':
-          block = this.workspace.newBlock('mBotImage_image');
-          break;
-        case 'spike':
-          block = this.workspace.newBlock('image_image');
-          break;
+          case 'joycar':
+          case 'calliope':
+            block = this.workspace.newBlock('mbedImage_get_image');
+            break;
+          case 'mbot':
+            block = this.workspace.newBlock('mBotImage_image');
+            break;
+          case 'spike':
+            block = this.workspace.newBlock('image_image');
+            break;
         default:
         }         
       } else if (option === 'Connection') {

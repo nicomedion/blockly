@@ -193,6 +193,7 @@ Blockly.Blocks['robActions_motor_on'] = {
                 break;
             case 'mbot2':
             case 'wedo':
+            case 'joycar':
                 this.action = 'MOTOR';
                 ports = [];
                 var container = Blockly.Workspace.getByContainer('bricklyDiv');
@@ -204,7 +205,7 @@ Blockly.Blocks['robActions_motor_on'] = {
                             var configs = func.call(blocks[x]);
                             for (var i = 0; i < configs.length; i++) {
                                 var config = configs[i];
-                                if (config.type === 'motor' || config.type === 'encoder') {
+                                if (config.type === 'motor' || (config.type === 'encoder' && !this.workspace.device === 'joycar')) {
                                     ports.push([config.name, config.name]);
                                 }
                             }
@@ -232,7 +233,7 @@ Blockly.Blocks['robActions_motor_on'] = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.setTooltip(Blockly.Msg.MOTOR_ON_TOOLTIP);
-        if (this.workspace.device === 'wedo') {
+        if (this.workspace.device === 'wedo' || this.workspace.device === 'joycar') {
             this.appendValueInput('POWER')
                 .appendField(Blockly.Msg.ACTION_MOTOR)
                 .appendField(dropDownPorts, 'MOTORPORT')
@@ -318,7 +319,7 @@ Blockly.Blocks['robActions_motor_on_for'] = {
                 .appendField(Blockly.Msg.ON)
                 .appendField(Blockly.Msg.ROTATIONS_PER_MINUTE)
                 .setCheck('Number');
-        } else if (this.workspace.device === 'wedo') {
+        } else if (this.workspace.device === 'wedo' || this.workspace.device === 'joycar') {
             this.action = 'MOTOR';
             motorPort = getConfigPorts('motor');
             this.appendValueInput('POWER')
@@ -355,7 +356,8 @@ Blockly.Blocks['robActions_motor_on_for'] = {
             this.workspace.device === 'botnroll' ||
             this.workspace.device === 'mbot' ||
             this.workspace.device === 'wedo' ||
-            this.workspace.device === 'thymio'
+            this.workspace.device === 'thymio' ||
+            this.workspace.device === 'joycar'
         ) {
             this.appendValueInput('VALUE')
                 .setAlign(Blockly.ALIGN_RIGHT)
@@ -406,13 +408,13 @@ Blockly.Blocks['robActions_motor_on_for_ardu'] = {
      */
     init: function() {
         this.setColour(Blockly.CAT_ACTION_RGB);
-        if (this.workspace.device == 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device == 'festobionic') {
+        if (this.workspace.device == 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device == 'festobionic' || this.workspace.device === 'joycar') {
             var dropDownPorts = getConfigPorts('servo');
             this.dependConfig = {
                 type: 'servo',
                 dropDown: dropDownPorts
             };
-            if (this.workspace.device == 'arduino' || this.workspace.device === 'nano33ble') {
+            if (this.workspace.device == 'arduino' || this.workspace.device === 'nano33ble' || this.workspace.device === 'joycar') {
                 this.appendValueInput('POWER')
                     .appendField(Blockly.Msg.SET + ' ' + Blockly.Msg.ACTION_SERVO_ARDUINO)
                     .appendField(dropDownPorts, 'MOTORPORT')
@@ -554,7 +556,7 @@ Blockly.Blocks['robActions_motor_stop'] = {
             ];
         }
         var motorPort = new Blockly.FieldDropdown(ports);
-        if (this.workspace.device === 'wedo') {
+        if (this.workspace.device === 'wedo' || this.workspace.device === 'joycar') {
             this.action = 'MOTOR';
             ports = getConfigPorts('motor');
             this.dependConfig = {
@@ -644,7 +646,7 @@ Blockly.Blocks['robActions_motorDiff_on_for'] = {
                 .appendField(Blockly.Msg.MOTOR_SPEED)
                 .setCheck('Number');
         }
-        if (this.workspace.device === 'botnroll' || this.workspace.device === 'mbot' || this.workspace.device === 'thymio') {
+        if (this.workspace.device === 'botnroll' || this.workspace.device === 'mbot' || this.workspace.device === 'thymio' || this.workspace.device === 'joycar') {
             this.appendValueInput('DISTANCE')
                 .setAlign(Blockly.ALIGN_RIGHT)
                 .appendField(Blockly.Msg.SENSOR_TIME + ' ms')
@@ -740,7 +742,7 @@ Blockly.Blocks['robActions_motorDiff_turn_for'] = {
                 .appendField(Blockly.Msg.MOTOR_SPEED)
                 .setCheck('Number');
         }
-        if (this.workspace.device === 'botnroll' || this.workspace.device === 'mbot' || this.workspace.device === 'thymio') {
+        if (this.workspace.device === 'botnroll' || this.workspace.device === 'mbot' || this.workspace.device === 'thymio' || this.workspace.device === 'joycar') {
             this.appendValueInput('DEGREE')
                 .setAlign(Blockly.ALIGN_RIGHT)
                 .appendField(Blockly.Msg.SENSOR_TIME + ' ms')
@@ -840,7 +842,7 @@ Blockly.Blocks['robActions_motorDiff_curve_for'] = {
                 .appendField(Blockly.Msg.MOTOR_RIGHT)
                 .setCheck('Number');
         }
-        if (this.workspace.device === 'botnroll' || this.workspace.device === 'mbot' || this.workspace.device === 'thymio') {
+        if (this.workspace.device === 'botnroll' || this.workspace.device === 'mbot' || this.workspace.device === 'thymio' || this.workspace.device === 'joycar') {
             this.appendValueInput('DISTANCE')
                 .setAlign(Blockly.ALIGN_RIGHT)
                 .appendField(Blockly.Msg.SENSOR_TIME + ' ms')

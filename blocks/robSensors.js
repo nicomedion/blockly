@@ -579,10 +579,9 @@ Blockly.Blocks['robSensors_set_logo_mode'] = {
      * Set touch mode of pins.
      */
     init: function() {
-        this.setBlocking(true);
         var ports = getConfigPorts('logotouch');
         this.hide = {};
-        this.hide.name = 'ACTORPORT';
+        this.hide.name = 'SENSORPORT';
         this.hide.port = true;
         this.hide.value = ports.getValue();
         this.jsonInit({
@@ -1190,6 +1189,7 @@ Blockly.Blocks['robSensors_generic_all'] = {
                     switch (this.workspace.device) {
                         case 'microbit':
                         case 'microbitv2':
+                        case 'joycar':
                         case 'calliope':
                             block = this.workspace.newBlock('mbedColour_picker');
                             break;

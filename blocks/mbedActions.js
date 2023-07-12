@@ -427,6 +427,7 @@ Blockly.Blocks['mbedActions_play_tone'] = {
             case 'calliope':
             case 'microbit':
             case 'microbitv2':
+            case 'joycar':
             case 'mbot2':
                 this.dropDownPorts = getConfigPorts('buzzer');
                 this.dependConfig = {
@@ -438,7 +439,7 @@ Blockly.Blocks['mbedActions_play_tone'] = {
             default:
                 this.appendValueInput('FREQUENCE').appendField(Blockly.Msg.PLAY).appendField(Blockly.Msg.PLAY_FREQUENZ).setCheck('Number');
         }
-        if (this.workspace.device === 'calliope' || this.workspace.device === 'mbot2' || this.workspace.device === 'thymio' || this.workspace.device === 'microbitv2') {
+        if (this.workspace.device === 'calliope' || this.workspace.device === 'mbot2' || this.workspace.device === 'thymio' || this.workspace.device === 'microbitv2' || this.workspace.device === 'joycar') {
             hidePortIfOnlyInbuilt(this);
         }
         this.appendValueInput('DURATION').setCheck('Number').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.Msg.PLAY_DURATION);
@@ -475,6 +476,7 @@ Blockly.Blocks['mbedActions_play_note'] = {
             case 'calliope':
             case 'microbit':
             case 'microbitv2':
+            case 'joycar':
             case 'mbot2':
             case 'wedo':
                 this.dropDownPorts = getConfigPorts('buzzer');
@@ -487,7 +489,7 @@ Blockly.Blocks['mbedActions_play_note'] = {
             default:
                 this.appendDummyInput().appendField(Blockly.Msg.PLAY).appendField(duration, 'DURATION').appendField(frequence, 'FREQUENCE');
         }
-        if (this.workspace.device === 'calliope' || this.workspace.device === 'mbot2' || this.workspace.device === 'thymio' || this.workspace.device === 'microbitv2') {
+        if (this.workspace.device === 'calliope' || this.workspace.device === 'mbot2' || this.workspace.device === 'thymio' || this.workspace.device === 'microbitv2' || this.workspace.device === 'joycar') {
             hidePortIfOnlyInbuilt(this);
         }
         this.setPreviousStatement(true);

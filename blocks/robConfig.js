@@ -155,8 +155,9 @@ Blockly.Blocks['robConf_generic'] = {
 
         if (confBlock.fixedPorts) {
             for (var i = 0; i < confBlock.fixedPorts.length; i++) {
+                var name = Blockly.Msg[confBlock.fixedPorts[i][0]] || confBlock.fixedPorts[i][0];
                 var dropDown = new Blockly.FieldDropdown([[confBlock.fixedPorts[i][1], confBlock.fixedPorts[i][1]]]);
-                this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(confBlock.fixedPorts[i][0]).appendField(dropDown);
+                this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(name).appendField(dropDown, confBlock.fixedPorts[i][1]);
             }
         }
         if (confBlock.subcomponents) {
@@ -165,6 +166,10 @@ Blockly.Blocks['robConf_generic'] = {
                 var textField = new Blockly.FieldTextInput(Blockly.RobConfig.findLegalName(name.charAt(0).toUpperCase(), this), validateName);
                 this.appendDummyInput().setAlign(Blockly.ALIGN_RIGHT).appendField(name).appendField(textField, confBlock.subcomponents[i][1]);
             }
+        }
+        if (confBlock.statement) {
+            this.setPreviousStatement(true);
+            this.setNextStatement(true);
         }
         var that = this;
         this.setTooltip(function() {
