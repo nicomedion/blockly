@@ -1187,7 +1187,13 @@ sensors.environmental.sensebox = {
 };
 
 sensors.key.karl = sensors.key.mbot;
-sensors.potentiometer.karl = sensors.potentiometer.arduino;
+sensors.potentiometer.karl = {
+    title: 'POTENTIOMETER', modes: [{
+        name: 'VALUE', type: 'Number', unit: 'VOLT'
+    }, {
+        name: 'RANGE', type: 'Number', unit: 'PERCENT'
+    }], ports: 'CONFIGURATION'
+};
 sensors.potentiometerrange = {}
 sensors.potentiometerrange.karl = {
    title: 'POTENTIOMETER', modes: [{

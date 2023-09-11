@@ -526,6 +526,48 @@ Blockly.Blocks['actions_play_note'] = {
     }
 };
 
+Blockly.Blocks['actions_play_note_karl'] = {
+    /**
+     * Special version for KARL
+     * Play a note.
+     *
+     * @constructs actions_play_note
+     * @this.Blockly.Block
+     * @param {Number}
+     *            DURATION      Time (in ms)
+     * @param {Number}
+     *            FREQUENCY     Frequency to be played (in Hz)
+     * @returns after execution of the block (playing DURATION ms)
+     * @memberof Block
+     */
+    init: function() {
+        this.setBlocking(true);
+        var ports = getConfigPorts('buzzer');
+        this.hide = {};
+        this.hide.name = 'ACTORPORT';
+        this.hide.port = true;
+        this.hide.value = ports.getValue();
+        this.jsonInit({
+            message0: Blockly.Msg.PLAY + ' %1 %2',
+            args0: [{
+                type: 'field_dropdown',
+                name: 'DURATION',
+                options: [[Blockly.Msg.PLAY_WHOLE, '1000'], ['halbe Note punktiert', '750'], [Blockly.Msg.PLAY_HALF, '500'], ['Viertelnote punktiert', '375'], [Blockly.Msg.PLAY_QUARTER, '250'], ['Achtelnote punktiert', '187.5'], [Blockly.Msg.PLAY_EIGHTH, '125'], ['Sechzehntelnote punktiert', '93.75'], [Blockly.Msg.PLAY_SIXTEENTH, '62.5']]
+            }, {
+                type: 'field_note', name: 'FREQUENCY', note: '261.626'
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.PLAY_NOTE_TOOLTIP
+        });
+        this.dependConfig = {
+            'type': 'buzzer',
+            'dropDown': 'hide'
+        };
+    }
+};
+
 Blockly.Blocks['actions_play_setVolume'] = {
     /**
      * Set volume.
@@ -978,7 +1020,38 @@ Blockly.Blocks['actions_eyeLed_on_karl'] = {
         };
     }
 };
-    Blockly.Blocks['actions_eyeLed_intensity_karl'] = {
+
+Blockly.Blocks['actions_eyeLed_set_rgb_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('rgbled');
+        this.jsonInit({
+            message0: Blockly.Msg.RGBLED_ON + ' ' + '%1' + 'ROT' + '%2',
+            message1: 'GRÜN' + '%1',
+            message2: 'BLAU' + '%1',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            }, {
+                type: 'input_value', name: 'COLOUR_RED', check: 'Number'
+            }],
+            args1: [{
+                type: 'input_value', name: 'COLOUR_GREEN', check: 'Number'
+            }],
+            args2: [{
+                type: 'input_value', name: 'COLOUR_BLUE', check: 'Number'
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            tooltip: Blockly.Msg.LED_ON_TOOLTIP
+        });
+        this.dependConfig = {
+            type: 'rgbled',
+            dropDown: this.getField('ACTORPORT')
+        };
+    }
+};
+
+Blockly.Blocks['actions_eyeLed_intensity_karl'] = {
     init: function() {
         var ports = getConfigPorts('rgbled');
         this.jsonInit({
