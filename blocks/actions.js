@@ -1028,16 +1028,17 @@ Blockly.Blocks['actions_eyeLed_set_rgb_karl'] = {
             message0: Blockly.Msg.RGBLED_ON + ' ' + '%1' + 'ROT' + '%2',
             message1: 'GRÜN' + '%1',
             message2: 'BLAU' + '%1',
+            lastDummyAlign1: 'RIGHT',
             args0: [{
                 type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
             }, {
-                type: 'input_value', name: 'COLOUR_RED', check: 'Number'
+                type: 'input_value', name: 'COLOUR_RED', check: 'Number', align: 'RIGHT'
             }],
             args1: [{
-                type: 'input_value', name: 'COLOUR_GREEN', check: 'Number'
+                type: 'input_value', name: 'COLOUR_GREEN', check: 'Number', align: 'RIGHT'
             }],
             args2: [{
-                type: 'input_value', name: 'COLOUR_BLUE', check: 'Number'
+                type: 'input_value', name: 'COLOUR_BLUE', check: 'Number', align: 'RIGHT'
             }],
             colour: Blockly.CAT_ACTION_RGB,
             previousStatement: true,
@@ -1097,6 +1098,26 @@ Blockly.Blocks['actions_eyeLed_toggle_karl'] = {
         };
     }
 };
+
+Blockly.Blocks['actions_button_wait_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('key');
+        this.jsonInit({
+            message0: Blockly.Msg.WAIT_UNTIL + ' ' + Blockly.Msg.SENSOR_KEY + ' gedrückt',
+            lastDummyAlign1: 'RIGHT',
+            inputsInline: false,
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            //tooltip: Blockly.Msg.MOTOR_ON_TOOLTIP
+        });
+        this.dependConfig = {
+            type: 'motor', dropDown: this.getField('ACTORPORT')
+        };
+
+    }
+};
+
 Blockly.Blocks['actions_motor_on_karl'] = {
     init: function() {
         var ports = getConfigPorts('motor');
