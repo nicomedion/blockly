@@ -998,6 +998,47 @@ Blockly.Blocks['actions_motor_stop_karl'] = {
 
     }
 };
+
+
+Blockly.Blocks['actions_button_interrupt_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('key');
+        this.jsonInit({
+            message0: 'Interrupt für ' + '%1',
+            args0: [{
+                type: 'field_dropdown', name: 'ACTORPORT', options: ports.menuGenerator_
+            }],
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            //tooltip: Blockly.Msg.LED_ON_TOOLTIP
+        });
+        this.appendStatementInput('DO')
+                .appendField(Blockly.Msg.CONTROLS_REPEAT_INPUT_DO);
+        this.dependConfig = {
+            type: 'key',
+            dropDown: this.getField('ACTORPORT')
+        };
+    }
+};
+
+//TODO Test block hinzufügen
+Blockly.Blocks['actions_test_karl'] = {
+    init: function() {
+        var ports = getConfigPorts('key');
+        this.jsonInit({
+            message0: 'Teste Karl',
+            lastDummyAlign1: 'RIGHT',
+            inputsInline: false,
+            colour: Blockly.CAT_ACTION_RGB,
+            previousStatement: true,
+            nextStatement: true,
+            //tooltip: Blockly.Msg.MOTOR_ON_TOOLTIP
+        });
+
+    }
+};
+
 Blockly.Blocks['actions_eyeLed_on_karl'] = {
     init: function() {
         var ports = getConfigPorts('rgbled');

@@ -1190,8 +1190,6 @@ sensors.key.karl = sensors.key.mbot;
 sensors.potentiometer.karl = {
     title: 'POTENTIOMETER', modes: [{
         name: 'VALUE', type: 'Number', unit: 'VOLT'
-    }, {
-        name: 'RANGE', type: 'Number', unit: 'PERCENT'
     }], ports: 'CONFIGURATION'
 };
 sensors.potentiometerrange = {}
@@ -1199,7 +1197,6 @@ sensors.potentiometerrange.karl = {
    title: 'POTENTIOMETER', modes: [{
        name: 'VALUE', type: 'Number', unit: 'PERCENT'
    }], ports: 'CONFIGURATION',
-   slots: [['0-1', '1']],
 };
 
 sensors.out.nano33ble = sensors.out.arduino;
