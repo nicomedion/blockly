@@ -1264,3 +1264,46 @@ function hidePortIfOnlyInbuilt(block) {
         }
     }
 }
+
+Blockly.Blocks['robSensors_potentiometerrange_getSample_karl'] = {
+    /**
+     * Get the information about given NaoMark.
+     */
+
+    init : function() {
+        /*this.setColour(Blockly.CAT_SENSOR_RGB);
+        this.appendValueInput('RANGE1').setCheck('Number').appendField(Blockly.Msg.GET).appendField(new Blockly.FieldDropdown([[Blockly.Msg.MODE_VALUE, '']]), 'MODE').appendField(' ', 'UNIT').appendField(Blockly.Msg.SENSOR_POTENTIOMETER
+            + ' Min');
+        this.appendValueInput('RANGE2').setCheck('Number').appendField('Max').appendField(' ', 'UNIT');
+        this.setOutput(true, 'Array_Number');*/
+
+        this.jsonInit({
+                    'message0': Blockly.Msg.GET + ' ' + Blockly.Msg.SENSOR_POTENTIOMETER + ' ' + Blockly.Msg.MODE_VALUE,
+                    'message1': 'Min' + ' %1',
+                    'message2': 'Max' + ' %1',
+                    'args1': [
+                        {
+                            'type': 'input_value',
+                            'name': 'RANGE1',
+                            'check': 'Number',
+                            'align': 'RIGHT'
+
+                        }
+                    ],
+                    'args2': [
+                        {
+                            'type': 'input_value',
+                            'name': 'RANGE2',
+                            'check': 'Number',
+                            'align': 'RIGHT'
+
+                        }
+                    ],
+                    //'previousStatement': true,
+                    //'nextStatement': true,
+                    'colour': Blockly.CAT_SENSOR_RGB,
+                    'output': 'Number'
+
+                });
+    }
+};

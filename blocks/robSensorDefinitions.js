@@ -1196,7 +1196,11 @@ sensors.potentiometerrange = {}
 sensors.potentiometerrange.karl = {
    title: 'POTENTIOMETER', modes: [{
        name: 'VALUE', type: 'Number', unit: 'PERCENT'
-   }], ports: 'CONFIGURATION',
+   },{
+        name: 'RANGE1', type: 'Number', value: '0', op: 'NUM_EQ'
+    },{
+        name: 'RANGE2', type: 'Number', value: '100', op: 'NUM_EQ'
+    }]
 };
 
 sensors.out.nano33ble = sensors.out.arduino;
