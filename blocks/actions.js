@@ -552,7 +552,7 @@ Blockly.Blocks['actions_play_note_karl'] = {
             args0: [{
                 type: 'field_dropdown',
                 name: 'DURATION',
-                options: [[Blockly.Msg.PLAY_WHOLE, '1000'], ['halbe Note punktiert', '750'], [Blockly.Msg.PLAY_HALF, '500'], ['Viertelnote punktiert', '375'], [Blockly.Msg.PLAY_QUARTER, '250'], ['Achtelnote punktiert', '187.5'], [Blockly.Msg.PLAY_EIGHTH, '125'], ['Sechzehntelnote punktiert', '93.75'], [Blockly.Msg.PLAY_SIXTEENTH, '62.5']]
+                options: [[Blockly.Msg.PLAY_WHOLE, '1000'], ['halbe Note punktiert', '750'], [Blockly.Msg.PLAY_HALF, '500'], ['Viertelnote punktiert', '375'], [Blockly.Msg.PLAY_QUARTER, '250'], ['Achtelnote punktiert', '188'], [Blockly.Msg.PLAY_EIGHTH, '125'], ['Sechzehntelnote punktiert', '94'], [Blockly.Msg.PLAY_SIXTEENTH, '63']]
             }, {
                 type: 'field_note', name: 'FREQUENCY', note: '261.626'
             }],
