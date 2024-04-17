@@ -1009,8 +1009,6 @@ Blockly.Blocks['actions_button_interrupt_karl'] = {
             nextStatement: true,
             //tooltip: Blockly.Msg.LED_ON_TOOLTIP
         });
-        this.appendStatementInput('DO')
-                .appendField(Blockly.Msg.CONTROLS_REPEAT_INPUT_DO);
         this.dependConfig = {
             type: 'key',
             dropDown: this.getField('ACTORPORT')
@@ -1166,9 +1164,6 @@ Blockly.Blocks['actions_motor_on_karl'] = {
             }, {
                 type: 'input_value', name: 'POWER', check: 'Number'
             }],
-            args1: [{
-                type: 'field_checkbox', checked: 'TRUE', name: 'REGULATION'
-            }],
             inputsInline: false,
             colour: Blockly.CAT_ACTION_RGB,
             previousStatement: true,
@@ -1178,9 +1173,10 @@ Blockly.Blocks['actions_motor_on_karl'] = {
         this.dependConfig = {
             type: 'motor', dropDown: this.getField('ACTORPORT')
         };
-
     }
 };
+
+
 Blockly.Blocks['actions_eyeLed_off_karl'] = {
     init: function() {
         var ports = getConfigPorts('rgbled');

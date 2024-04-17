@@ -1187,20 +1187,11 @@ sensors.environmental.sensebox = {
 };
 
 sensors.key.karl = sensors.key.mbot;
+
 sensors.potentiometer.karl = {
     title: 'POTENTIOMETER', modes: [{
         name: 'VALUE', type: 'Number', unit: 'VOLT'
     }], ports: 'CONFIGURATION'
-};
-sensors.potentiometerrange = {}
-sensors.potentiometerrange.karl = {
-   title: 'POTENTIOMETER', modes: [{
-       name: 'VALUE', type: 'Number', unit: 'PERCENT'
-   },{
-        name: 'RANGE1', type: 'Number', value: '0', op: 'NUM_EQ'
-    },{
-        name: 'RANGE2', type: 'Number', value: '100', op: 'NUM_EQ'
-    }]
 };
 
 sensors.out.nano33ble = sensors.out.arduino;
@@ -1245,6 +1236,7 @@ sensorsAll.rob3rta = [sensors.pintouch.rob3rta, sensors.infrared.rob3rta, sensor
 sensorsAll.thymio = [sensors.key.thymio, sensors.infrared.thymio, sensors.irhorizontal.thymio, sensors.tap.thymio, sensors.sound.thymio, sensors.timer.thymio, sensors.accelerometer.thymio, sensors.temperature.thymio];
 sensorsAll.robotino = [sensors.touch.robotino, sensors.infrared.robotino, sensors.odometry.robotino, sensors.timer.robotino, sensors.optical.robotino, sensors.detectmark.robotino, sensors.out.robotino, sensors.camera.robotino];
 sensorsAll.spike = [sensors.touch.spike, sensors.colour.spike, sensors.ultrasonic.spike, sensors.key.spike, sensors.timer.spike, sensors.gesture.spike, sensors.gyro.spike];
+sensorsAll.karl = [sensors.key.karl, sensors.potentiometer.karl]
 
 function initSensors() {
     for (var sensor in sensors) {
